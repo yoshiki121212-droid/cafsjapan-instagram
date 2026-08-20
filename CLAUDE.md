@@ -60,12 +60,16 @@
 7. 画像書き出し：designスキルのキャンバスエディタのツールバーからPNGをスライドごとにエクスポートし、`Instagram/<フォルダ名>/`（例: `260819`）に保存する。同じフォルダに、投稿原稿の「キャプション案」＋「ハッシュタグ案」を結合した`caption.txt`も置く（下記の自動投稿スクリプトが読み込む）。
 8. Instagramへの投稿：手動（Instagramアプリでカルーセルとしてアップロード）、または下記の自動投稿の仕組みを使う。
 
-## Instagramへの自動投稿（2026-08-19構築、GitHub Actions経由）
+## Instagramへの自動投稿（2026-08-19構築 → 同日、ローカルスクリプト方式に変更）
 
-**アーキテクチャ上の注意（note/のWix連携と同じ制約）**: Claudeのクラウド実行環境は、組織管理者の設定なしには外部API（Instagram Graph API含む）への通信ができない。そのため実通信は**GitHub Actions**（別リポジトリ `cafsjapan-instagram` の `.github/workflows/instagram-publish.yml` / `.github/scripts/publish_to_instagram.py`）が担当し、ユーザーが`gh workflow run`コマンドまたはスマホの「HTTP Shortcuts」アプリから手動でトリガーする運用。
+**重要：GitHub Actions（クラウド）経由の投稿は動作しない。** 最初はnote/のWix連携と同じ構成（別リポジトリ`cafsjapan-instagram`の`.github/workflows/instagram-publish.yml`からGitHub Actions経由でInstagram Graph APIを呼ぶ）を構築したが、**Meta側がGitHub Actionsのようなデータセンター/クラウドサーバーのIPアドレスからのPOSTリクエスト（投稿系の書き込み操作）を拒否する**ことが判明した（`graph.instagram.com`への同一トークン・同一パラメータのリクエストが、自宅PCからは成功し、GitHub Actionsのランナーからは常に`Invalid OAuth 2.0 Access Token`エラーで失敗した。ヘッダー・ボディ形式・User-Agent等を色々変えても症状は変わらなかった）。ワークフローファイル自体はリポジトリに残しているが、**現状は使えない**。
 
-- 処理内容：`workflow_dispatch`の`folder`入力（例: `260819`）で指定されたフォルダ内の画像（Main→Slide02→…の順にファイル名で自動ソート）を、リポジトリ内の当該コミットのraw.githubusercontent.com URL経由でInstagram Graph APIに渡し、カルーセルのメディアコンテナを作成→公開する。同フォルダの`caption.txt`をキャプションとして使用。
-- **画像は一度GitHubにpushされている必要がある**（Instagram Graph APIは画像URLを要求するため、直接ファイルアップロードはできない。リポジトリは公開(public)にする必要がある）。
-- 認証情報はGitHub Secretsに保管：`IG_USER_ID`（InstagramビジネスアカウントID）／`IG_ACCESS_TOKEN`（`instagram_basic`・`instagram_content_publish`権限を持つ長期アクセストークン。有効期限に注意、切れたら再発行が必要）。
-- 手動実行：`gh workflow run instagram-publish.yml --repo yoshiki121212-droid/cafsjapan-instagram -f folder=260819`
-- セットアップ手順（Instagramをビジネスアカウント化→Facebookページ連携→Meta for Developersでアプリ作成→Instagram Graph API有効化→トークン取得）はMeta側の作業のためユーザー本人が行う必要がある。詳細手順は会話履歴を参照。
+**実際に使う方式：`Instagram/publish-instagram.ps1`（自宅PCから直接実行）**
+
+- 画像は引き続きGitHubリポジトリ（`cafsjapan-instagram`、公開/publicである必要あり）にpushし、raw.githubusercontent.com経由のURLとしてInstagram Graph APIに渡す（Graph APIは画像URLを要求するため、直接ファイルアップロードは不可）。
+- ただし実際にAPIを呼び出す処理（トークンでの認証・投稿）は、**ユーザー自身のPC上でPowerShellスクリプトとして実行する**。自宅の一般的なインターネット回線のIPアドレスからのリクエストは正常に成功する。
+- 使い方：`Instagram`フォルダで `.\publish-instagram.ps1 -Folder 260819` のように実行すると、①該当フォルダをgit push→②アクセストークンの入力を促す→③カルーセルの画像コンテナ作成→④公開、まで自動で行う。
+- **アクセストークンは毎回、developers.facebook.comの「トークンを生成」で新しく発行してから貼り付ける運用**（長期トークンへの交換は試みたが確立できなかった。短期トークンでも即座に使えば十分）。
+- `IG_USER_ID`は`28982078078050899`（Facebook Graph API側で見えるID`17841452838964183`とは別物。`graph.instagram.com`用にはApp-Scoped User IDである前者を使う）。
+- Instagramアカウント連携のセットアップ（ビジネスアカウント化→Facebookページ/ビジネスポートフォリオ連携→Meta for Developersでアプリ作成→Instagramユースケース追加→Instagramテスターとしてユーザーネームを登録→承認→アクセストークン発行）はMeta側の作業のためユーザー本人が行う必要がある。特に「Instagramテスター」の役割は、Facebookアカウント名ではなくInstagramのユーザーネームで登録する点がハマりやすい。詳細手順は会話履歴を参照。
+- 今後の改善余地：長期トークン化、自宅PC常時起動を前提としたself-hosted runner化、スマホからのトリガー方法の検討など。
