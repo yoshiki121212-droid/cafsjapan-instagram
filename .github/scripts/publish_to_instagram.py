@@ -9,11 +9,8 @@ import urllib.request
 GRAPH_API = "https://graph.instagram.com/v21.0"
 
 
-def http_json(url, data=None, method="GET"):
-    headers = {}
-    if data is not None:
-        headers["Content-Type"] = "application/x-www-form-urlencoded"
-    req = urllib.request.Request(url, data=data, method=method, headers=headers)
+def http_json(url, method="GET"):
+    req = urllib.request.Request(url, method=method)
     try:
         with urllib.request.urlopen(req) as resp:
             return json.loads(resp.read().decode("utf-8"))
@@ -23,9 +20,10 @@ def http_json(url, data=None, method="GET"):
         raise
 
 
-def with_token(url, access_token):
-    sep = "&" if "?" in url else "?"
-    return f"{url}{sep}access_token={urllib.parse.quote(access_token)}"
+def build_url(base, params):
+    query = urllib.parse.urlencode(params)
+    sep = "&" if "?" in base else "?"
+    return f"{base}{sep}{query}"
 
 
 def raw_url(repo, sha, folder, filename):
@@ -35,16 +33,15 @@ def raw_url(repo, sha, folder, filename):
 
 
 def create_media_container(ig_user_id, access_token, params):
-    body = urllib.parse.urlencode(params).encode("utf-8")
-    url = with_token(f"{GRAPH_API}/{ig_user_id}/media", access_token)
-    return http_json(url, data=body, method="POST")
+    url = build_url(f"{GRAPH_API}/{ig_user_id}/media", {**params, "access_token": access_token})
+    return http_json(url, method="POST")
 
 
 def wait_until_finished(container_id, access_token, timeout_s=60):
     deadline = time.time() + timeout_s
     while time.time() < deadline:
         status = http_json(
-            with_token(f"{GRAPH_API}/{container_id}?fields=status_code", access_token)
+            build_url(f"{GRAPH_API}/{container_id}", {"fields": "status_code", "access_token": access_token})
         )
         code = status.get("status_code")
         if code == "FINISHED":
@@ -117,10 +114,10 @@ def main():
     wait_until_finished(creation_id, access_token)
 
     published = http_json(
-        with_token(f"{GRAPH_API}/{ig_user_id}/media_publish", access_token),
-        data=urllib.parse.urlencode({
+        build_url(f"{GRAPH_API}/{ig_user_id}/media_publish", {
             "creation_id": creation_id,
-        }).encode("utf-8"),
+            "access_token": access_token,
+        }),
         method="POST",
     )
 
