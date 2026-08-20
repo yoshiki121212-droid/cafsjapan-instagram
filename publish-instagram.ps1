@@ -70,7 +70,7 @@ if ($imageFiles.Count -gt 10) {
 $captionPath = Join-Path $Folder "caption.txt"
 $caption = ""
 if (Test-Path $captionPath) {
-    $caption = Get-Content $captionPath -Raw
+    $caption = Get-Content $captionPath -Raw -Encoding UTF8
 } else {
     Write-Warning "caption.txt が見つかりません。キャプションなしで投稿します。"
 }
