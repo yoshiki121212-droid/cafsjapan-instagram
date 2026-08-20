@@ -6,7 +6,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-GRAPH_API = "https://graph.facebook.com/v21.0"
+GRAPH_API = "https://graph.instagram.com/v21.0"
 
 
 def http_json(url, data=None, method="GET"):
