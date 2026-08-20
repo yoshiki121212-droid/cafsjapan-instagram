@@ -10,7 +10,10 @@ GRAPH_API = "https://graph.instagram.com/v21.0"
 
 
 def http_json(url, method="GET"):
-    req = urllib.request.Request(url, method=method)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) cafsjapan-instagram-bot/1.0",
+    }
+    req = urllib.request.Request(url, method=method, headers=headers)
     try:
         with urllib.request.urlopen(req) as resp:
             return json.loads(resp.read().decode("utf-8"))
