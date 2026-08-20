@@ -9,8 +9,11 @@ import urllib.request
 GRAPH_API = "https://graph.instagram.com/v21.0"
 
 
-def http_json(url, data=None, method="GET"):
-    req = urllib.request.Request(url, data=data, method=method)
+def http_json(url, data=None, method="GET", access_token=None):
+    headers = {}
+    if access_token:
+        headers["Authorization"] = f"Bearer {access_token}"
+    req = urllib.request.Request(url, data=data, method=method, headers=headers)
     try:
         with urllib.request.urlopen(req) as resp:
             return json.loads(resp.read().decode("utf-8"))
@@ -27,15 +30,16 @@ def raw_url(repo, sha, folder, filename):
 
 
 def create_media_container(ig_user_id, access_token, params):
-    body = urllib.parse.urlencode({**params, "access_token": access_token}).encode("utf-8")
-    return http_json(f"{GRAPH_API}/{ig_user_id}/media", data=body, method="POST")
+    body = urllib.parse.urlencode(params).encode("utf-8")
+    return http_json(f"{GRAPH_API}/{ig_user_id}/media", data=body, method="POST", access_token=access_token)
 
 
 def wait_until_finished(container_id, access_token, timeout_s=60):
     deadline = time.time() + timeout_s
     while time.time() < deadline:
         status = http_json(
-            f"{GRAPH_API}/{container_id}?fields=status_code&access_token={urllib.parse.quote(access_token)}"
+            f"{GRAPH_API}/{container_id}?fields=status_code",
+            access_token=access_token,
         )
         code = status.get("status_code")
         if code == "FINISHED":
@@ -111,9 +115,9 @@ def main():
         f"{GRAPH_API}/{ig_user_id}/media_publish",
         data=urllib.parse.urlencode({
             "creation_id": creation_id,
-            "access_token": access_token,
         }).encode("utf-8"),
         method="POST",
+        access_token=access_token,
     )
 
     print(json.dumps(published, ensure_ascii=False, indent=2))
