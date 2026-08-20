@@ -10,7 +10,10 @@ GRAPH_API = "https://graph.instagram.com/v21.0"
 
 
 def http_json(url, data=None, method="GET"):
-    req = urllib.request.Request(url, data=data, method=method)
+    headers = {}
+    if data is not None:
+        headers["Content-Type"] = "application/x-www-form-urlencoded"
+    req = urllib.request.Request(url, data=data, method=method, headers=headers)
     try:
         with urllib.request.urlopen(req) as resp:
             return json.loads(resp.read().decode("utf-8"))
