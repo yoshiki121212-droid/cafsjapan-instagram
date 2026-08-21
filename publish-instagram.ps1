@@ -97,7 +97,17 @@ $creationId = $carousel.id
 Write-Host "  コンテナID: $creationId"
 
 Write-Host "`n=== 5. 公開 ===" -ForegroundColor Cyan
-Write-Host "(画像のみのカルーセルは処理がほぼ一瞬で終わるため、状態確認は省略して直接公開します)"
 $publishUrl = "https://graph.instagram.com/v21.0/$IgUserId/media_publish?creation_id=$creationId&access_token=$encodedToken"
-$published = Invoke-RestMethod -Method Post -Uri $publishUrl
+$maxAttempts = 10
+$published = $null
+for ($i = 1; $i -le $maxAttempts; $i++) {
+    try {
+        $published = Invoke-RestMethod -Method Post -Uri $publishUrl
+        break
+    } catch {
+        if ($i -eq $maxAttempts) { throw }
+        Write-Host "  まだ処理中のようです。5秒待って再試行します... ($i/$maxAttempts)"
+        Start-Sleep -Seconds 5
+    }
+}
 Write-Host "投稿完了！ Media ID: $($published.id)" -ForegroundColor Green
