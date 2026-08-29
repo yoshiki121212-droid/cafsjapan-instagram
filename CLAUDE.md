@@ -57,7 +57,9 @@
    - **画面上部の安全マージン**：Instagram（特にデスクトップ版web）は投稿画像の上部が見切れて表示されることがある（プロフィールグリッドは正方形センタークロップ、投稿詳細もウィンドウ高さによってはクロップされる場合がある）。ロゴバッジは画面最上部ギリギリ（top:30〜40px程度）ではなく、`top:96px`程度まで下げて配置し、上部の斜めアクセントバー以外の重要要素（ロゴ・タグ）が見切れないようにする。
    - 参考実装：`shohizei-1percent-genzei-carousel`（1本目）、`primary-balance-kurojika-carousel`（2本目）。いずれも2026-08-19、design スキルで作成、Artifactとして公開。
 6. Canva制作（任意）：微調整したい場合のみ、書き出したPNGをCanvaに読み込んで使う
-7. 画像書き出し：designスキルのキャンバスエディタのツールバーからPNGをスライドごとにエクスポートし、`Instagram/<フォルダ名>/`（例: `260819`）に保存する。同じフォルダに、投稿原稿の「キャプション案」＋「ハッシュタグ案」を結合した`caption.txt`も置く（下記の自動投稿スクリプトが読み込む）。
+7. 画像書き出し：`Instagram/<フォルダ名>/`（例: `260819`）にPNG 9枚＋`caption.txt`（投稿原稿の「キャプション案」＋「ハッシュタグ案」を結合したもの）を保存する。
+   - **2026-08-29以降、PNG書き出しはユーザーの手動エクスポート（Artifactのツールバー）を待たず、Claude自身がヘッドレスChromeで自動生成できる。** 各スライドの`.dc.html`ソース（フォント base64 埋め込み・ロゴPNG同梱済みのもの。design スキルでArtifactに publish する前の、seed-canvas.mjs に渡す作業ファイル）が入ったディレクトリで、`"C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --hide-scrollbars --window-size=1080,1350 --screenshot="<出力先>.png" "file:///<Windows形式の絶対パス>/SlideNN.dc.html"` を実行すると、1080×1350のPNGがそのまま得られる（`.dc.html`はカスタム要素`<x-dc>`/`<helmet>`で包まれているが、ブラウザは未知の要素を無視して中身の`<div class="slide">`をそのまま描画するため、`support.js`が無くても静的スライドは正しくレンダリングされる）。Bashツールでは`dangerouslyDisableSandbox: true`を付けないとスクリーンショットの書き込みが権限エラーになる点、`file://`のパスは`$(pwd)`のPOSIX形式ではなくWindows形式（`C:/Users/...`）で組み立てる必要がある点に注意。これにより「Canvaでの手動制作が投稿頻度低下の主因」という問題が完全に解消し、原稿作成から画像9枚生成までを人手を介さず一気通貫でできるようになった。
+   - Artifactでの公開・ユーザーによるブラウザ上の微調整（テキスト編集など）が必要な場合は引き続きArtifactのツールバーからのPNG/PDFエクスポートも使える（並存する2通りの方法）。
 8. Instagramへの投稿：手動（Instagramアプリでカルーセルとしてアップロード）、または下記の自動投稿の仕組みを使う。
 
 ## Instagramへの自動投稿（2026-08-19構築 → 同日、ローカルスクリプト方式に変更）
