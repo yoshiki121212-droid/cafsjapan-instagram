@@ -64,8 +64,6 @@
 
 ## Instagramへの自動投稿（2026-08-19構築 → 同日、ローカルスクリプト方式に変更）
 
-**重要：GitHub Actions（クラウド）経由の投稿は動作しない。** 最初はnote/のWix連携と同じ構成（別リポジトリ`cafsjapan-instagram`の`.github/workflows/instagram-publish.yml`からGitHub Actions経由でInstagram Graph APIを呼ぶ）を構築したが、**Meta側がGitHub Actionsのようなデータセンター/クラウドサーバーのIPアドレスからのPOSTリクエスト（投稿系の書き込み操作）を拒否する**ことが判明した（`graph.instagram.com`への同一トークン・同一パラメータのリクエストが、自宅PCからは成功し、GitHub Actionsのランナーからは常に`Invalid OAuth 2.0 Access Token`エラーで失敗した。ヘッダー・ボディ形式・User-Agent等を色々変えても症状は変わらなかった）。ワークフローファイル自体はリポジトリに残しているが、**現状は使えない**。
-
 **実際に使う方式：`Instagram/publish-instagram.ps1`（自宅PCから直接実行）**
 
 - 画像は引き続きGitHubリポジトリ（`cafsjapan-instagram`、公開/publicである必要あり）にpushし、raw.githubusercontent.com経由のURLとしてInstagram Graph APIに渡す（Graph APIは画像URLを要求するため、直接ファイルアップロードは不可）。
