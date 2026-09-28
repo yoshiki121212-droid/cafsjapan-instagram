@@ -48,9 +48,19 @@ if ([string]::IsNullOrWhiteSpace($AppSecret)) {
         [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureSecret)
     )
 }
+$AccessToken = $AccessToken.Trim()
+$AppSecret = $AppSecret.Trim()
 if ([string]::IsNullOrWhiteSpace($AccessToken) -or [string]::IsNullOrWhiteSpace($AppSecret)) {
     Write-Error "アクセストークンまたはapp secretが入力されませんでした。"
     exit 1
+}
+
+Write-Host "  受け取ったアクセストークン: 長さ$($AccessToken.Length)文字、先頭 '$($AccessToken.Substring(0, [Math]::Min(8, $AccessToken.Length)))...'"
+if ($AccessToken.Length -lt 100) {
+    Write-Warning "アクセストークンが短すぎます（通常は100文字を大きく超えます）。コピー時に途切れていないか確認してください。"
+}
+if ($AccessToken -match '\s') {
+    Write-Warning "アクセストークンの中に空白または改行が含まれています。コピー範囲がずれている可能性があります。"
 }
 
 Write-Host "`n=== 短期トークンを長期トークンに交換 ===" -ForegroundColor Cyan
