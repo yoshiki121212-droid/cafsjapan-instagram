@@ -69,8 +69,10 @@
 
 - 画像は引き続きGitHubリポジトリ（`cafsjapan-instagram`、公開/publicである必要あり）にpushし、raw.githubusercontent.com経由のURLとしてInstagram Graph APIに渡す（Graph APIは画像URLを要求するため、直接ファイルアップロードは不可）。
 - ただし実際にAPIを呼び出す処理（トークンでの認証・投稿）は、**ユーザー自身のPC上でPowerShellスクリプトとして実行する**。自宅の一般的なインターネット回線のIPアドレスからのリクエストは正常に成功する。
-- 使い方：`Instagram`フォルダで `.\publish-instagram.ps1 -Folder 260819` のように実行すると、①該当フォルダをgit push→②アクセストークンの入力を促す→③カルーセルの画像コンテナ作成→④公開、まで自動で行う。
-- **アクセストークンは毎回、developers.facebook.comの「トークンを生成」で新しく発行してから貼り付ける運用**（長期トークンへの交換は試みたが確立できなかった。短期トークンでも即座に使えば十分）。
+- 使い方：`Instagram`フォルダで `.\publish-instagram.ps1 -Folder 260819` のように実行すると、①該当フォルダをgit push→②保存済みの長期トークンを読み込み（期限が近ければ自動延長）→③カルーセルの画像コンテナ作成→④公開、まで自動で行う。
+- **2026-09-30、長期トークン化を実現。** `Instagram/.ig-token.json`（gitignore対象、コミットしない）に長期アクセストークン（60日間有効）と有効期限を保存しておき、`publish-instagram.ps1`は投稿の都度これを読み込む。有効期限まで10日を切っていたら、`https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=<現在の長期トークン>`を自動で呼び出してさらに60日延長し、ファイルを上書きする（app secretは不要）。これにより**毎回developers.facebook.comで短期トークンを発行する手間がなくなった**。
+  - 初回セットアップ、または`.ig-token.json`を紛失・長期トークン自体が失効した場合のみ、`Instagram/setup-ig-token.ps1`を実行する。developers.facebook.comで発行した短期トークンと、Instagramアプリのapp secret（Instagram業種の設定画面にあるもの。基本設定の旧来のFacebookアプリシークレットとは別物）を対話式で入力すると、`https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret=...&access_token=...`で長期トークンに交換し、`.ig-token.json`に保存する。
+  - トークンや app secret は**チャットではなくPowerShellの対話入力欄に直接貼り付ける**運用にしている（会話ログに秘密情報を残さないため）。
 - `IG_USER_ID`は`28982078078050899`（Facebook Graph API側で見えるID`17841452838964183`とは別物。`graph.instagram.com`用にはApp-Scoped User IDである前者を使う）。
 - Instagramアカウント連携のセットアップ（ビジネスアカウント化→Facebookページ/ビジネスポートフォリオ連携→Meta for Developersでアプリ作成→Instagramユースケース追加→Instagramテスターとしてユーザーネームを登録→承認→アクセストークン発行）はMeta側の作業のためユーザー本人が行う必要がある。特に「Instagramテスター」の役割は、Facebookアカウント名ではなくInstagramのユーザーネームで登録する点がハマりやすい。詳細手順は会話履歴を参照。
-- 今後の改善余地：長期トークン化、自宅PC常時起動を前提としたself-hosted runner化、スマホからのトリガー方法の検討など。
+- 今後の改善余地：自宅PC常時起動を前提としたself-hosted runner化、スマホからのトリガー方法の検討など（長期トークン化は2026-09-30に対応済み）。

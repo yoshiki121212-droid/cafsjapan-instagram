@@ -49,11 +49,36 @@ $repoSlug = $matches[1]
 Write-Host "リポジトリ: $repoSlug / コミット: $sha"
 
 Write-Host "`n=== 2. Instagramアクセストークン ===" -ForegroundColor Cyan
-Write-Host "developers.facebook.com の「トークンを生成」で発行した、なるべく新しいトークンを貼り付けてください。"
-$accessToken = Read-Host "アクセストークン"
-if ([string]::IsNullOrWhiteSpace($accessToken)) {
-    Write-Error "アクセストークンが入力されませんでした。"
+$tokenFile = Join-Path $repoRoot ".ig-token.json"
+if (-not (Test-Path $tokenFile)) {
+    Write-Error "長期トークンのファイルが見つかりません ($tokenFile)。先に .\setup-ig-token.ps1 を実行してください。"
     exit 1
+}
+
+$tokenData = Get-Content $tokenFile -Raw -Encoding UTF8 | ConvertFrom-Json
+$accessToken = $tokenData.access_token
+$expiresAt = [datetime]::Parse($tokenData.expires_at).ToUniversalTime()
+$daysLeft = ($expiresAt - (Get-Date).ToUniversalTime()).TotalDays
+Write-Host "  現在のトークン有効期限: $($expiresAt.ToString('yyyy-MM-dd HH:mm')) UTC（残り約$([math]::Round($daysLeft, 1))日）"
+
+if ($daysLeft -lt 10) {
+    Write-Host "  期限が近いため、自動延長します..."
+    $encodedCurrent = [uri]::EscapeDataString($accessToken)
+    $refreshUrl = "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=$encodedCurrent"
+    try {
+        $refreshed = Invoke-RestMethod -Method Get -Uri $refreshUrl
+        $accessToken = $refreshed.access_token
+        $newExpiresAt = (Get-Date).ToUniversalTime().AddSeconds($refreshed.expires_in)
+        $newTokenData = @{
+            access_token = $accessToken
+            expires_at   = $newExpiresAt.ToString("o")
+        } | ConvertTo-Json
+        Set-Content -Path $tokenFile -Value $newTokenData -Encoding UTF8
+        Write-Host "  延長完了。新しい有効期限: $($newExpiresAt.ToString('yyyy-MM-dd HH:mm')) UTC" -ForegroundColor Green
+    } catch {
+        Write-Error "トークンの自動延長に失敗しました。長期トークン自体が失効している可能性があります。.\setup-ig-token.ps1 を再実行してください。`n$($_.Exception.Message)"
+        exit 1
+    }
 }
 $encodedToken = [uri]::EscapeDataString($accessToken)
 
