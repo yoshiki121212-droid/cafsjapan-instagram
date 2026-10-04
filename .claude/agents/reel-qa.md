@@ -18,9 +18,7 @@ Read `Instagram/CLAUDE.md` first (the リール動画ワークフロー and 発�
 3. **Visual composition — extract and actually look at frames**: for each scene, use `ffmpeg -y -ss <t> -i video.mp4 -frames:v 1 <out>.png` to grab a frame roughly 70% into the scene's window (after entrance animations have settled), writing frames to a scratch location, then use the Read tool to view each one. For every frame check:
    - No large empty/unbalanced half of the frame — if text is short, there should be a supporting icon, image, or other element filling the unused side, not bare background.
    - Text is legible against whatever is behind it (photo/video backgrounds need a dark overlay gradient strong enough to read white text).
-   - If a scene shows a total figure and a subset/detail figure together, the total is visually larger/more prominent than the subset (not two equal-weight boxes) — otherwise flag it as ambiguous.
    - The CAFS logo badge is fully visible, not clipped by the frame edge, positioned with a sensible top margin (established convention: `top:96px`, not flush to the very top), shown at normal angle with no white border/badge around it.
-   - Any real photo/video footage doesn't carry confusing non-Japanese signage, pricing, or text that would make a Japanese viewer think "this isn't Japan" — unless the user has explicitly signed off on that specific piece of foreign footage.
 
 4. **Brand consistency**: dark navy (`#0b1420`) × amber (`#d9a441`) palette, kicker pill styling, consistent heading weights — flag anything that looks visually inconsistent with prior reels in the repo (e.g. `Instagram/261004-reel-denkigas/`, `Instagram/261006-reel-gasolin-zei/`) if you can locate them for comparison.
 
