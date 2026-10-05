@@ -34,7 +34,11 @@
   - 手順：①動画・caption.txtを`Instagram/<フォルダ名>/`（`video.mp4`固定名）に用意→②GitHubにpush→③`raw.githubusercontent.com/<repo>/<commit sha>/<フォルダ>/video.mp4`のURLを組み立て（200が返ることをcurlで確認）→④`get_connectors`でアカウントID（`17841452838964183`、instagram/cafs.japan）を取得→⑤`execute_action`に`video_url`・`caption`・`share_to_feed`を渡す。トランスコード完了待ちのポーリングはWindsor側が内部で処理するため、手動ポーリングは不要。
   - **ただしGitHubへのpushはClaude Code自身の対話セッションの実行環境からはできない。** Git Credential Manager (`credential.helper=manager`)が対話的ターミナル（GUIプロンプトやTTY）を要求するため、Bash/PowerShellツールから`git push`すると`terminal prompts disabled`で失敗する。pushは必ずユーザー自身が自分のPowerShellウィンドウで`cd`して`git push origin main`を実行する必要がある（`git fetch`など読み取り専用操作はpublicリポジトリなら認証不要で通る）。**クラウドルーティン（下記`RemoteTrigger`経由）からのpushは問題なく成功する**ので、この制約は対話セッション固有のもの。
   - `publish-reel.ps1`（ローカルPCで動かすGraph API直叩き版、status_codeポーリング込み、上記の長期トークンを使用）も作成済みで、Windsor側のアクションが将来使えなくなった場合のフォールバックとして残している。
-  - BGM：HyperFramesの音声エンジンには無料のBGM取得経路があるが、ブラウザ/デバイス認証はClaude Codeの対話セッション実行環境では「unattended/CI」と判定されて使えない（`npx hyperframes auth login`も`--device`も失敗する）。使うには、ユーザーがapp.heygen.comでAPIキーを発行し、ユーザー自身のPowerShellで対話的に`npx hyperframes auth login --api-key`を実行してキーを貼り付ける必要がある。やっていない場合は音楽なしで投稿してよい（2026-10-04にユーザー確認済み）。
+  - **BGM：MusicGen（ローカル生成、2026-10-05に方式確定）。** 無音のリールは一般的でないというユーザー指摘を受け、音楽を焼き込む方針にした。HeyGenの音源カタログ（ブラウザ/デバイス認証が必要で対話セッション・クラウドルーティンどちらでも「unattended」判定され使えない）や、GoogleのLyria（`GEMINI_API_KEY`が必要、今回ユーザーから渡されたキーが標準形式`AIzaSy...`と異なり検証もセキュリティ分類器にブロックされたため見送り）は不採用。代わりに**Meta製MusicGen（`facebook/musicgen-small`）をローカルでPython実行し、APIキー不要・完全ローカルで生成**する方式を採用した。
+    - 依存関係：`pip install transformers torch soundfile numpy`（初回は約1〜2GB、モデル本体は`facebook/musicgen-small`からHugging Face経由で自動ダウンロードされキャッシュされる）。
+    - 生成方法：`AutoProcessor`/`MusicgenForConditionalGeneration`で`facebook/musicgen-small`をロードし、`model.generate(**inputs, max_new_tokens=int(秒数*50))`で生成（1秒あたり約50トークン、1回の生成で安全に作れるのは30秒弱までがデコーダの実用上限）。生成したら0.8秒程度のフェードイン・フェードアウトをかけ、ピーク正規化（0.9程度）して`.wav`で書き出す。
+    - 動画への組み込み：HyperFramesの`index.html`で、ルート直下に`<audio id="bgm" src="media/bgm.wav" data-start="0" data-track-index="20" data-volume="0.55"></audio>`を追加するだけでよい（`<video>`と違い`class="clip"`は付けない。音量0.55はナレーションが無い＝BGMのみの動画としての目安値、必要に応じて調整）。
+    - 所要時間の目安：このPC（CPU）ではモデル読み込みが初回約2分・2回目以降（ローカルキャッシュ利用時）は数十秒、生成は29秒のBGMで約170秒。**クラウドルーティン（水曜の自動実行）は毎回まっさらな環境からの実行のため、依存関係インストール＋モデルダウンロードの分だけ追加で数分かかる見込み**。生成に失敗した場合は音楽なしにフォールバックしてよい（処理を止めない）。
 
 ## リール動画ワークフロー
 
