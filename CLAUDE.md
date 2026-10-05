@@ -61,7 +61,8 @@
 ## 自動ルーティンの正体と設定（2026-10-05、判明・更新済み）
 
 - 「日・水17時頃にCAFS事務局名義でメールが来る自動準備」は、セッション内だけの`CronCreate`ではなく、**claude.aiのRemoteTrigger（クラウドルーティン、`/schedule`で作る仕組み）**で作られている。Anthropicのクラウド上で独立したセッション（CCR）として動き、対話セッションを閉じても**無期限に動き続ける**（`CronCreate`のような7日失効もセッション依存もない）。`RemoteTrigger`ツールの`list`で一覧取得・`get`で詳細確認・`update`で内容変更ができる。
-- 該当ルーティンのID: `trig_01KS5qiZj5gZmnFmZHtTkvbQ`（名前"Instagram reel prep (Sun/Wed)"）。cron式は`0 8 * * 0,3`（UTC 8:00 = 日本時間17:00、日曜・水曜）。対象リポジトリは`cafsjapan-instagram`（**このルーティンはpushが問題なく成功する**＝クラウド実行環境でもこのリポジトリへの書き込み権限がある。姉妹リポジトリ`cafsjapan-note`向けの別ルーティンは逆に読み取り専用でpushできない仕様になっている点に注意）。
+- 該当ルーティンのID: `trig_01KS5qiZj5gZmnFmZHtTkvbQ`（名前"Instagram reel prep (Sun/Wed)"）。対象リポジトリは`cafsjapan-instagram`（**このルーティンはpushが問題なく成功する**＝クラウド実行環境でもこのリポジトリへの書き込み権限がある。姉妹リポジトリ`cafsjapan-note`向けの別ルーティンは逆に読み取り専用でpushできない仕様になっている点に注意）。
+- **【要対応・2026-11-07頃】投稿頻度を試験的に週3回に増やし中。** 2026-10-05、ユーザーの指示でcron式を`0 8 * * 0,3`（日・水、週2回）から`0 8 * * 1,3,5`（月・水・金、週3回、UTC 8:00=日本時間17:00）に変更した。「投稿数を増やして傾向を早くつかみたい」という理由で、2026-10-07(水)から1か月間の試験的措置。**2026-11-07頃になったら、ユーザーに「週3回を続けるか、元の週2回（日・水）に戻すか」を確認し、戻す場合は`RemoteTrigger`の`update`アクションで`cron_expression`を`0 8 * * 0,3`に戻すこと。** 本来は1か月後に自動でメール確認するリマインダー（`RemoteTrigger`の`create`、`run_once_at`で一度きり実行）を仕込む予定だったが、2026-10-05のセッションでは`create`アクションの呼び出しが毎回「JSONとして解析できない」エラーになり（`update`・`list`・`get`は正常に動作した）、原因を切り分けられないまま時間切れになったため断念した。次回以降、`create`が使えるか再度試す価値はある。
 - **2026-10-05、カルーセル準備からリール動画準備へ全面的に書き換え済み。** 内容は上記「リール動画ワークフロー」に準じる（Windsor.aiで過去インサイト確認→テーマ選定→HyperFramesで制作→lint/check→render→git push→**Windsor.aiのexecute_actionは絶対に呼ばず**→Gmailで完成報告・確認依頼、ユーザーの「公開してください」の返信を待つ）。mcp_connectionsにGmail・Windsor-ai・Claude_Code_Remoteの3つを接続済み。
 - 同じ仕組みで動いている姉妹ルーティン「note下書き作成・Gmail配信(月木投稿用)」（`trig_01YLBKhm6gBd9dJbXgvZYoqi`、対象リポジトリ`cafsjapan-note`）はInstagramの方針転換と無関係なため変更していない。
 - 今後、Instagramのリール自動化ルーティンを調整したい場合は、対話セッションから`RemoteTrigger`（`action: "get"` with `trigger_id: "trig_01KS5qiZj5gZmnFmZHtTkvbQ"`）で直接確認・更新すればよい（`CronCreate`を使う必要はない）。
