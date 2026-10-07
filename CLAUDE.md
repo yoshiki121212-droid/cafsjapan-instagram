@@ -66,3 +66,7 @@
 - **2026-10-05、カルーセル準備からリール動画準備へ全面的に書き換え済み。** 内容は上記「リール動画ワークフロー」に準じる（Windsor.aiで過去インサイト確認→テーマ選定→HyperFramesで制作→lint/check→render→git push→**Windsor.aiのexecute_actionは絶対に呼ばず**→Gmailで完成報告・確認依頼、ユーザーの「公開してください」の返信を待つ）。mcp_connectionsにGmail・Windsor-ai・Claude_Code_Remoteの3つを接続済み。
 - 同じ仕組みで動いている姉妹ルーティン「note下書き作成・Gmail配信(月木投稿用)」（`trig_01YLBKhm6gBd9dJbXgvZYoqi`、対象リポジトリ`cafsjapan-note`）はInstagramの方針転換と無関係なため変更していない。
 - 今後、Instagramのリール自動化ルーティンを調整したい場合は、対話セッションから`RemoteTrigger`（`action: "get"` with `trigger_id: "trig_01KS5qiZj5gZmnFmZHtTkvbQ"`）で直接確認・更新すればよい（`CronCreate`を使う必要はない）。
+- **クラウド実行環境のネットワークポリシーに注意（2026-10-07、判明）**：このクラウドルーティンが動くセッションのネットワークアクセスレベル（Limitedと見られる）では、`pixabay.com`・`cdn.jsdelivr.net`・`huggingface.co`への接続がいずれもブロックされる（`EGRESS_BLOCKED`/`403`）。このため素材取得（Pixabay）とBGM生成（MusicGen、Hugging Face経由でモデルをダウンロード）がクラウドルーティンからは実行できない。ローカルPCでの手動制作ではこれらは問題なく動く（ユーザー環境は別のネットワークポリシー）。
+  - 対処：`cdn.jsdelivr.net`経由のgsap読み込みは、`npm install gsap`（`registry.npmjs.org`は許可リストに含まれるため成功する）でプロジェクトにインストールし、`node_modules/gsap/dist/gsap.min.js`をプロジェクト内`vendor/`にコピーして`<script src="vendor/gsap.min.js">`のようにローカル参照すれば回避できる。
+  - Pixabay・MusicGenはこの回避策が効かない（API/モデルダウンロード自体がブロック対象のため）。この場合はCLAUDE.mdの既存方針通り「失敗時は処理を止めずにフォールバック」する（実写素材なし→CSS/SVGアイコンで画面の余白を埋める、BGMなし→無音のまま進める）。ユーザーにはメールで、どの制約が原因で何を省略したかを明記する。
+  - 恒久対処が必要な場合は、ユーザー自身がこの環境の「Network access」設定（環境メニュー→Edit）で`pixabay.com`・`huggingface.co`を許可ドメインに追加する必要がある（`https://code.claude.com/docs/en/cloud-environments#network-access`）。
