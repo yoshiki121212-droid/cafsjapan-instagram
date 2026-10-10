@@ -1,1 +1,4 @@
 .ig-token.json
+.agents/
+.claude/skills/
+skills-lock.json
