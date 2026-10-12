@@ -1,0 +1,10 @@
+images:
+assets/stock/tokyo-financial-district-01.jpg
+assets/stock/calculator-finance-01.jpg
+assets/stock/archive-records-01.jpg
+assets/stock/coins-stack-01.jpg
+assets/stock/piggy-bank-01.jpg
+assets/stock/hands-generations-01.jpg
+
+bgm:
+assets/bgm/bgm-tense-01.wav
