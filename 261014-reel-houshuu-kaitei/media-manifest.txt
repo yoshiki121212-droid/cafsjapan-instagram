@@ -1,0 +1,12 @@
+images:
+assets/stock/hospital-corridor-01.jpg
+assets/stock/clipboard-blank-01.jpg
+assets/stock/bp-monitor-chart-01.jpg
+assets/stock/doctor-handshake-01.jpg
+assets/stock/hand-capsule-01.jpg
+assets/stock/medicine-bottles-01.jpg
+assets/stock/calendar-grid-01.jpg
+assets/stock/capsules-spilling-01.jpg
+
+bgm:
+assets/bgm/media-bgm.wav (source: Incompetech "Hidden Agenda" by Kevin MacLeod, CC BY 4.0)
