@@ -1,0 +1,10 @@
+images:
+assets/stock/hands-generations-01.jpg
+assets/stock/graph-pen-coffee-01.jpg
+assets/stock/wallet-hand-01.jpg
+assets/stock/watch-suit-01.jpg
+assets/stock/notebook-pen-01.jpg
+assets/stock/savings-jar-01.jpg
+
+bgm:
+assets/bgm/bgm-calm-01.wav
