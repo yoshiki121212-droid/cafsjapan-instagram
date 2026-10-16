@@ -7,4 +7,4 @@ assets/stock/notebook-pen-01.jpg
 assets/stock/savings-jar-01.jpg
 
 bgm:
-assets/bgm/bgm-calm-01.wav
+assets/bgm/clean-soul-28s.wav (source: Incompetech "Clean Soul" by Kevin MacLeod, CC BY 4.0)
