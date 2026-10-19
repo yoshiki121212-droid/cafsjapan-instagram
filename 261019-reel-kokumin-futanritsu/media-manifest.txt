@@ -1,0 +1,12 @@
+images:
+assets/stock/coins-stack-01.jpg (Ken Burnsズーム 1.0→1.09)
+assets/stock/calculator-finance-01.jpg (Ken Burnsズーム 1.0→1.08)
+
+bgm:
+assets/bgm/bgm-calm-01.wav（穏やか・解説向け、92bpm、ライブラリ既存ストックより選定）
+
+font:
+Zen Kaku Gothic New Black(900)（Google Fonts、見出し使用文字のみサブセット埋め込み、vendor/zen-kaku-gothic-new-black.woff2）
+
+note:
+クラウド実行環境のネットワークポリシーによりPixabay API・MusicGen(Hugging Face)は使用せず、Instagram/assets/配下の事前選定ライブラリから選定。gsapはnpm経由でvendor/へローカルコピーして読み込み（cdn.jsdelivr.net回避）。
