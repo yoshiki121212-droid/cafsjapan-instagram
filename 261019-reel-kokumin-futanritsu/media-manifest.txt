@@ -1,5 +1,5 @@
 images:
-assets/stock/coins-stack-01.jpg (Ken Burnsズーム 1.0→1.09)
+assets/stock/piggy-bank-01.jpg (Ken Burnsズーム 1.0→1.09。当初coins-stack-01.jpgを使用していたが、reel-qaレビューで硬貨が「20」刻印入りの外国コイン（日本に20円硬貨は存在しない）と指摘され差し替え)
 assets/stock/calculator-finance-01.jpg (Ken Burnsズーム 1.0→1.08)
 
 bgm:
