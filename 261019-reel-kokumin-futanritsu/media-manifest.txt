@@ -10,3 +10,5 @@ Zen Kaku Gothic New Black(900)（Google Fonts、見出し使用文字のみサ�
 
 note:
 クラウド実行環境のネットワークポリシーによりPixabay API・MusicGen(Hugging Face)は使用せず、Instagram/assets/配下の事前選定ライブラリから選定。gsapはnpm経由でvendor/へローカルコピーして読み込み（cdn.jsdelivr.net回避）。
+reel-qaの2回目レビューで「S4のpiggy-bank写真が暗すぎて被写体が判別できない」との指摘を受け、S4のみ明るめのscrim(.scrim-light)に変更。あわせてS2/S3のアイコンも210pxに拡大し右側の余白を解消。
+
