@@ -1,0 +1,13 @@
+images:
+assets/stock/calendar-grid-01.jpg (S2「施行日」, Ken Burnsズーム 1.0→1.09)
+assets/stock/watch-suit-01.jpg (S4「変わらない条件・週20時間」, Ken Burnsズーム 1.0→1.08。当初clock-business-01.jpgを使用していたが、reel-qaレビューで「寝室の目覚まし時計で勤務との結びつきが弱い」と指摘され、スーツ姿で腕時計を確認する構図のwatch-suit-01.jpgに差し替え)
+
+bgm:
+assets/bgm/bgm-upbeat-01.wav（明るい・前向きな内容向け、112bpm、ライブラリ既存ストックより選定。直前リール261019はbgm-calm-01.wav使用のため連続での重複なし）
+
+font:
+Zen Kaku Gothic New Black(900)（npm経由の@fontsource/zen-kaku-gothic-newパッケージからjapanese-900/latin-900のwoff2をvendor/へコピーして@font-faceでローカル参照。本文（kicker/sub/footer等）はシステムフォント）
+
+note:
+クラウド実行環境のネットワークポリシーによりPixabay API・MusicGen(Hugging Face)・cdn.jsdelivr.netは使用せず、Instagram/assets/配下の事前選定ライブラリから選定。gsapはnpm経由でvendor/へローカルコピーして読み込み。
+reel-qaの1回目レビューで(1)S5/S6サブの文末が動詞を欠いた尻切れ表現だった点、(2)S6・S7(特にCTAのS7)の読了時間不足、(3)S4の素材とテーマの結びつきの弱さを指摘され、文章修正・シーン尺の再配分(S1 3.3s/S2 3.8s/S3 4.1s/S4 3.8s/S5 4.8s/S6 4.4s/S7 4.74s、合計28.94秒でBGM尺と一致)・S4素材差し替えで対応。2回目レビューで全項目PASSを確認済み。
