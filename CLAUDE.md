@@ -9,6 +9,18 @@
 
 `note/` `X/` フォルダも用意されています。note/では記事を作成しており、Instagramのネタ元としても活用します。
 
+## チーム体制・呼び名（2026-10-13導入）
+
+社内の役割分担として、以下の呼び名を使う。
+- **分析課**：`reel-analyst`サブエージェント（2026-10-21追加）。過去の投稿実績（到達・閲覧・離脱率・保存/シェア等）の分析担当。企画課への申し送り事項と、作成課（演出面）への申し送り事項を出す。企画や制作そのものは行わない。
+- **企画課**：`reel-planner`サブエージェント。ネタ出し・企画提案担当（制作は行わない）。分析課の申し送りを起点に企画を立てる。
+- **校正課**：`reel-qa`サブエージェント。完成したリールの品質チェック担当（修正は行わない、指摘のみ）。
+- **作成課**：この対話セッション自身（実際にHyperFramesで制作し、ユーザーとやり取りする窓口）。
+
+`Agent`ツールで呼び出す際の`subagent_type`はこれまで通り`reel-planner`／`reel-qa`／`reel-analyst`のまま（呼び名はコミュニケーション上の愛称で、技術的な識別子は変更しない）。
+
+**分析→企画→制作の流れ（2026-10-21導入）**：新しいリールに着手する際は、必ず①分析課（`reel-analyst`）→②企画課（`reel-planner`、①の分析結果をプロンプトに含めて依頼）→③作成課（制作）の順で進める。分析課の「企画課への申し送り事項」は企画課の案に反映され、「作成課への申し送り事項」は企画課の出力にそのまま転記されるので、作成課は企画課の出力を見れば演出面の指示まで把握できる（改めて分析課を呼び直す必要はない）。
+
 ## 発信方針（2026-10-04、リール優先に方針転換）
 
 - **リール（動画）を主軸に発信する。** カルーセルはしばらく行わない（カルーセル作成の仕組み・過去ルールは2026-10-05にこのファイルから削除した。再開する場合はgit履歴を参照）。
@@ -34,7 +46,8 @@
   - 手順：①動画・caption.txtを`Instagram/<フォルダ名>/`（`video.mp4`固定名）に用意→②GitHubにpush→③`raw.githubusercontent.com/<repo>/<commit sha>/<フォルダ>/video.mp4`のURLを組み立て（200が返ることをcurlで確認）→④`get_connectors`でアカウントID（`17841452838964183`、instagram/cafs.japan）を取得→⑤`execute_action`に`video_url`・`caption`・`share_to_feed`を渡す。トランスコード完了待ちのポーリングはWindsor側が内部で処理するため、手動ポーリングは不要。
   - **ただしGitHubへのpushはClaude Code自身の対話セッションの実行環境からはできない。** Git Credential Manager (`credential.helper=manager`)が対話的ターミナル（GUIプロンプトやTTY）を要求するため、Bash/PowerShellツールから`git push`すると`terminal prompts disabled`で失敗する。pushは必ずユーザー自身が自分のPowerShellウィンドウで`cd`して`git push origin main`を実行する必要がある（`git fetch`など読み取り専用操作はpublicリポジトリなら認証不要で通る）。**クラウドルーティン（下記`RemoteTrigger`経由）からのpushは問題なく成功する**ので、この制約は対話セッション固有のもの。
   - `publish-reel.ps1`（ローカルPCで動かすGraph API直叩き版、status_codeポーリング込み、上記の長期トークンを使用）も作成済みで、Windsor側のアクションが将来使えなくなった場合のフォールバックとして残している。
-  - **BGM：MusicGen（ローカル生成、2026-10-05に方式確定）。** 無音のリールは一般的でないというユーザー指摘を受け、音楽を焼き込む方針にした。HeyGenの音源カタログ（ブラウザ/デバイス認証が必要で対話セッション・クラウドルーティンどちらでも「unattended」判定され使えない）や、GoogleのLyria（`GEMINI_API_KEY`が必要、今回ユーザーから渡されたキーが標準形式`AIzaSy...`と異なり検証もセキュリティ分類器にブロックされたため見送り）は不採用。代わりに**Meta製MusicGen（`facebook/musicgen-small`）をローカルでPython実行し、APIキー不要・完全ローカルで生成**する方式を採用した。
+  - **BGM方針の更新（2026-10-13）：MusicGen（AI生成音楽）は使わず、フリー音源（Incompetech＝Kevin MacLeod、CC BY 4.0）を使う。** ユーザーからMusicGen生成曲について「うまく言語化できないが、どうしてもいまいち感がぬぐえない」とのフィードバックがあり、以後の新規リールはIncompetechから曲調に合うトラックを選んで使う（`incompetech.com/music/royalty-free/mp3-royaltyfree/<曲名>.mp3`で直接ダウンロード、APIキー・ログイン不要）。CC BY 4.0のため、**投稿キャプションに「Music: <曲名> by Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0」のクレジット表記が必須**。同じ曲を直近のリールと続けて使わないこと（reel-qaのBGM重複チェック対象）。以下のMusicGenに関する記述は過去の方式として参考に残すが、新規制作では使わない。
+  - **（旧方式・参考）BGM：MusicGen（ローカル生成、2026-10-05に方式確定）。** 無音のリールは一般的でないというユーザー指摘を受け、音楽を焼き込む方針にした。HeyGenの音源カタログ（ブラウザ/デバイス認証が必要で対話セッション・クラウドルーティンどちらでも「unattended」判定され使えない）や、GoogleのLyria（`GEMINI_API_KEY`が必要、今回ユーザーから渡されたキーが標準形式`AIzaSy...`と異なり検証もセキュリティ分類器にブロックされたため見送り）は不採用。代わりに**Meta製MusicGen（`facebook/musicgen-small`）をローカルでPython実行し、APIキー不要・完全ローカルで生成**する方式を採用した。
     - 依存関係：`pip install transformers torch soundfile numpy`（初回は約1〜2GB、モデル本体は`facebook/musicgen-small`からHugging Face経由で自動ダウンロードされキャッシュされる）。
     - 生成方法：`AutoProcessor`/`MusicgenForConditionalGeneration`で`facebook/musicgen-small`をロードし、`model.generate(**inputs, max_new_tokens=int(秒数*50))`で生成（1秒あたり約50トークン、1回の生成で安全に作れるのは30秒弱までがデコーダの実用上限）。生成したら0.8秒程度のフェードイン・フェードアウトをかけ、ピーク正規化（0.9程度）して`.wav`で書き出す。
     - 動画への組み込み：HyperFramesの`index.html`で、ルート直下に`<audio id="bgm" src="media/bgm.wav" data-start="0" data-track-index="20" data-volume="0.55"></audio>`を追加するだけでよい（`<video>`と違い`class="clip"`は付けない。音量0.55はナレーションが無い＝BGMのみの動画としての目安値、必要に応じて調整）。
@@ -49,8 +62,11 @@
 
 新しいリールを作るたびに、以下の順序を徹底する。
 
-1. **ネタ出しは`reel-planner`サブエージェントに任せる（2026-10-05導入）**：新しいリールの構成を考える前に、必ず`reel-planner`サブエージェント（`.claude/agents/reel-planner.md`、Agentツールで`subagent_type: "reel-planner"`として呼び出す）にネタ出しを依頼する。このエージェントは制作を行わず、`Instagram/instagram-post-metrics-<日付>.csv`（投稿実績）と団体の立場（2つの安心運動）を踏まえて、型タグ・冒頭3秒の一文・骨子・出典・キャプション案つきの案を5つ出し、1〜2本を推薦する。**制作側（このワークフローの続き）は、推薦案の中から、`Instagram/`内の既存ファイル・フォルダ名と重複しないテーマを1つ選んで採用する。** reel-plannerの提案を鵜呑みにせず、出典が「未確認」とされている数字は制作前に裏取りする。
-   - **実績CSVの鮮度維持**：reel-plannerはCSVスナップショットを読むだけで、Windsor.aiへのライブアクセス権限を持たない（意図的にRead/Glob/WebSearch/WebFetchのみ）。新しいリールが一定期間投稿され数字が付いたら、Windsor.ai MCPで最新のインサイト（リーチ・閲覧・保存・シェア・冒頭3秒離脱率・平均視聴秒）を取得し、このCSVに行を追記して鮮度を保つこと（頻度の決まりはまだないが、放置するとreel-plannerの判断材料が古くなる）。
+1. **分析課→企画課の順でネタ出しを任せる（2026-10-05導入、2026-10-21に分析課を追加して更新）**：新しいリールの構成を考える前に、必ず以下の順で2つのサブエージェントに依頼する。
+   - **①分析課（`reel-analyst`）**：`.claude/agents/reel-analyst.md`、Agentツールで`subagent_type: "reel-analyst"`。`Instagram/instagram-post-metrics-<日付>.csv`（投稿実績、最新ファイル）を読み、全体傾向・個別のハイライト・仮説をまとめ、「企画課への申し送り事項」「作成課への申し送り事項」を出す。
+   - **②企画課（`reel-planner`）**：`.claude/agents/reel-planner.md`、Agentツールで`subagent_type: "reel-planner"`。**依頼プロンプトに①の分析結果（特に「企画課への申し送り事項」）を含めて渡す。** このエージェントは制作を行わず、分析課の申し送りと団体の立場（2つの安心運動）を踏まえて、型タグ・冒頭3秒の一文・骨子・出典・キャプション案つきの案を5つ出し、1〜2本を推薦する。推薦のあとに、分析課の「作成課への申し送り事項」をそのまま転記する。
+   - **制作側（このワークフローの続き）は、推薦案の中から、`Instagram/`内の既存ファイル・フォルダ名と重複しないテーマを1つ選んで採用する。** 企画課の提案を鵜呑みにせず、出典が「未確認」とされている数字は制作前に裏取りする。企画課が転記した「作成課への申し送り事項」は、制作（ステップ3〜5）に実際に反映する。
+   - **実績CSVの鮮度維持**：分析課・企画課ともCSVスナップショットを読むだけで、Windsor.aiへのライブアクセス権限を持たない（意図的にRead/Glob等のみ）。新しいリールが一定期間投稿され数字が付いたら、Windsor.ai MCPで最新のインサイト（リーチ・閲覧・保存・シェア・冒頭3秒離脱率・平均視聴秒）を取得し、このCSVに行を追記して鮮度を保つこと（頻度の決まりはまだないが、放置すると分析課・企画課の判断材料が古くなる）。
    - 2026-10-05時点の一般的なReelsベストプラクティス（最初の3秒で結論を見せる／文脈説明から入らない／本物の映像を使う方が伸びる）もあわせて意識する。**上記「当面の数値目標」の100閲覧を基準に、最終的なフック・CTAを決める**（非フォロワーへのリーチを増やす工夫を優先し、単なる作風の微調整にとどめない）。
 2. **素材**：対話セッションではPixabayの画像・動画API（キー: `57870836-72d9cfbb0179beca7f17cda7b`、エンドポイント `https://pixabay.com/api/` と `https://pixabay.com/api/videos/`）で、テーマに合う実写の写真・短い動画を1〜2点組み込む。**クラウドルーティンではPixabay APIに接続できないため、`Instagram/assets/stock/`の事前選定ライブラリから選ぶ**（詳細は下記「BGM：MusicGen」節の直後にある恒久対策の項を参照）。
 3. **制作**：HyperFrames（`npx skills add heygen-com/hyperframes`で未導入なら追加、`npx hyperframes init <dir> --non-interactive --example=blank`）で作成する。1080×1350、ダークネイビー(`#0b1420`)×アンバー(`#d9a441`)のブランドCSS（mesh-gradient背景、kickerピル、headline/sub/hero-num見出し、footer、左上`top:96px`にCAFSロゴ透過PNG）を使う。ロゴは白背景バッジで囲んだり回転させたりせず、透過のまま等倍角度でそのまま置く。見出し等にはGoogle Fontsの「Zen Kaku Gothic New」Black(900)を使用文字だけのサブセットで埋め込むと訴求力が上がる（本文はシステムフォントでよい）。
@@ -66,13 +82,14 @@
 5. **品質確認**：`npx hyperframes lint`→`npx hyperframes check`を実行し、エラー0件・コントラストWCAG AA合格を確認してから`npx hyperframes render --quality looks --output final.mp4`でレンダリングする。
 6. **保存**：`Instagram/<YYMMDD>-reel-<スラッグ>/`（YYMMDDは投稿予定日）フォルダに`video.mp4`と`caption.txt`（キャプション案＋ハッシュタグ案）を保存する。
 7. **公開前にメールで確認を取る（2026-10-05、重要な訂正）**：動画ファイルが完成したら、**即座にWindsor.ai経由で公開してはいけない**。まずGmail（`yoshiki121212@gmail.com`宛）でユーザーに完成報告・確認依頼を送り、ユーザーの了承を得てから初めて公開する。
+   - **分析課の考察を必ず含める（2026-10-21追加、分析課の新設に伴い更新）**：確認メールには、テーマ選定理由・reel-qaのチェック結果に加えて、**分析課（reel-analyst）の分析結果（全体傾向・個別のハイライト・仮説・企画課への申し送り事項）をそのまま（または要約して）含める**こと。過去の到達・閲覧・離脱率・保存/シェアの実績がどうだったか、そこから何を教訓として今回のテーマ・フック・CTAに反映したかを、ユーザーが毎回追えるようにする。「選んだ理由」だけでなく「何を見てそう判断したか」まで書く。
 8. **公開**：ユーザーの了承後、GitHubへのpushはユーザー自身にお願いし（上記の制約のため）、push後にWindsor.ai経由で`create_video_post`により公開する。
 
 ## 自動ルーティンの正体と設定（2026-10-05、判明・更新済み）
 
 - 「日・水17時頃にCAFS事務局名義でメールが来る自動準備」は、セッション内だけの`CronCreate`ではなく、**claude.aiのRemoteTrigger（クラウドルーティン、`/schedule`で作る仕組み）**で作られている。Anthropicのクラウド上で独立したセッション（CCR）として動き、対話セッションを閉じても**無期限に動き続ける**（`CronCreate`のような7日失効もセッション依存もない）。`RemoteTrigger`ツールの`list`で一覧取得・`get`で詳細確認・`update`で内容変更ができる。
 - 該当ルーティンのID: `trig_01KS5qiZj5gZmnFmZHtTkvbQ`（名前"Instagram reel prep (Sun/Wed)"）。対象リポジトリは`cafsjapan-instagram`（**このルーティンはpushが問題なく成功する**＝クラウド実行環境でもこのリポジトリへの書き込み権限がある。姉妹リポジトリ`cafsjapan-note`向けの別ルーティンは逆に読み取り専用でpushできない仕様になっている点に注意）。
-- **投稿頻度は現在、週3回の試験運用中。** 2026-10-05、ユーザーの指示でcron式を`0 8 * * 0,3`（日・水、週2回）から`0 8 * * 1,3,5`（月・水・金、週3回、UTC 8:00=日本時間17:00）に変更した。「投稿数を増やして傾向を早くつかみたい」という理由で、2026-10-07(水)から1か月間の試験的措置。週2回に戻すかどうかはユーザー自身が1か月後に判断する（自動リマインドは不要とのこと）。戻す場合は`RemoteTrigger`の`update`アクションで`cron_expression`を`0 8 * * 0,3`に戻す。
+- **投稿頻度は現在、週3回の試験運用中。** 2026-10-05、ユーザーの指示でcron式を`0 8 * * 0,3`（日・水、週2回）から`0 8 * * 1,3,5`（月・水・金、週3回、UTC 8:00=日本時間17:00）に変更した。「投稿数を増やして傾向を早くつかみたい」という理由で、2026-10-07(水)から1か月間の試験的措置。週2回に戻すかどうかはユーザー自身が1か月後に判断する。戻す場合は`RemoteTrigger`の`update`アクションで`cron_expression`を`0 8 * * 0,3`に戻す。
 - **2026-10-05、カルーセル準備からリール動画準備へ全面的に書き換え済み。** 内容は上記「リール動画ワークフロー」に準じる（Windsor.aiで過去インサイト確認→テーマ選定→HyperFramesで制作→lint/check→render→git push→**Windsor.aiのexecute_actionは絶対に呼ばず**→Gmailで完成報告・確認依頼、ユーザーの「公開してください」の返信を待つ）。mcp_connectionsにGmail・Windsor-ai・Claude_Code_Remoteの3つを接続済み。
 - 同じ仕組みで動いている姉妹ルーティン「note下書き作成・Gmail配信(月木投稿用)」（`trig_01YLBKhm6gBd9dJbXgvZYoqi`、対象リポジトリ`cafsjapan-note`）はInstagramの方針転換と無関係なため変更していない。
 - 今後、Instagramのリール自動化ルーティンを調整したい場合は、対話セッションから`RemoteTrigger`（`action: "get"` with `trigger_id: "trig_01KS5qiZj5gZmnFmZHtTkvbQ"`）で直接確認・更新すればよい（`CronCreate`を使う必要はない）。

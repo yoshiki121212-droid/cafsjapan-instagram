@@ -1,4 +1,6 @@
 .ig-token.json
+.gemini-key
 .agents/
 .claude/skills/
 skills-lock.json
+powershellに入力する内容.txt
