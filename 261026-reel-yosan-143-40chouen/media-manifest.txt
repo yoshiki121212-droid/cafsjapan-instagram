@@ -81,3 +81,9 @@ npx hyperframes check → ok:true, contrast(WCAG AA) 0 findings, lint/runtime/mo
 ・「要求は増えた。でも借金は増やさない。」もまだ分かりづらいとのユーザー指摘を受け、ユーザー指定の文言「予算の概算要求は増えた／でも国債発行は増やさない」にそのまま差し替え（文末の句点のみ、他シーンとの表記統一のため追加）。
 ・S3見出し: 「予算の概算要求は増えた。<br />でも国債発行は増やさない。」
 ・品質確認：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、contrast(WCAG AA) 0 findings、lint/runtime/motion/craft 0 findings、layoutはKen Burnsズームによる想定内のinfo 7件のみ（変更前と同数）。スナップショットで目視確認済み、見出しとバーチャートの重なりなし。
+
+8回目の修正点（最終調整、ユーザー承認）:
+・「予算の概算要求は増えた。」の「予算」を削除し、「概算要求は増えた。」に短縮（ユーザー指摘：長い）。
+・S3見出し最終版: 「概算要求は増えた。<br />でも国債発行は増やさない。」
+・品質確認：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、contrast(WCAG AA) 0 findings、lint/runtime/motion/craft 0 findings、layoutはKen Burnsズームによる想定内のinfo 7件のみ（変更前と同数）。スナップショットで目視確認済み。
+・ユーザーより「そうしたらオッケーなので公開してください」と承認を得たため、本修正を最終版としてWindsor.ai経由で公開した。
