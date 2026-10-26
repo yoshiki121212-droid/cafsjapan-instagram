@@ -76,3 +76,8 @@ npx hyperframes check → ok:true, contrast(WCAG AA) 0 findings, lint/runtime/mo
 ・見出しを「要求は増えた。でも借金は増やさない。」という2つの完結した文に書き換え。「国債」という用語を避け、より直感的な「借金」という言葉を使い、「増やさない」という能動的な方針（高市首相の抑制方針）であることを明確にした。
 ・見出しが2行になり縦スペースが増えたため、`.chart`のtop位置を596px→630pxに調整し、見出しとバーチャートが重ならないようにした（レイアウトのみの調整、バーチャート自体の内容・数値は変更なし）。
 ・品質確認：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、contrast(WCAG AA) 0 findings、lint/runtime/motion/craft 0 findings、layoutはKen Burnsズームによる想定内のinfo 7件のみ（変更前と同数）。S3をスナップショットで目視確認済み、見出しとバーチャートの重なりなし。
+
+7回目の修正点（ユーザー指定の文言への差し替え、7回目のrender・check）:
+・「要求は増えた。でも借金は増やさない。」もまだ分かりづらいとのユーザー指摘を受け、ユーザー指定の文言「予算の概算要求は増えた／でも国債発行は増やさない」にそのまま差し替え（文末の句点のみ、他シーンとの表記統一のため追加）。
+・S3見出し: 「予算の概算要求は増えた。<br />でも国債発行は増やさない。」
+・品質確認：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、contrast(WCAG AA) 0 findings、lint/runtime/motion/craft 0 findings、layoutはKen Burnsズームによる想定内のinfo 7件のみ（変更前と同数）。スナップショットで目視確認済み、見出しとバーチャートの重なりなし。
