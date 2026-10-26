@@ -50,3 +50,7 @@ headline/sub/CTAはすべて完結した文（「〜です。」「〜ましょ�
 品質確認（2回目、全修正反映後）:
 npx hyperframes lint → 0 errors, 0 warnings
 npx hyperframes check → ok:true, contrast(WCAG AA) 0 findings, lint/runtime/motion/craft 0 findings, layout findingsは実写Ken Burnsズームによる想定内のinfo(container_overflow)のみ7件。
+
+2回目のreel-qaレビュー後の修正点（3回目のrender・check、表示崩れの直接修正）:
+・S3のバーチャートで、ギャップを示すアンバーの罫線（bracket要素）が「40兆円」の数値テキストを貫通して表示される不具合を発見。bracket要素（CSS・HTML・GSAPタイムライン）を削除し、2本のバー＋「100兆円超の差」ラベルのみのシンプルな構成に変更して解消（スナップショットで目視確認済み）。
+・この修正はCSS位置調整のみでテキスト内容・タイミング構成は変更していないため、3回目のreel-qaは実施せず、hyperframes lint/checkの自動チェック（0 errors、WCAG AA合格）とスナップショットでの目視確認のみで最終確認とした。
