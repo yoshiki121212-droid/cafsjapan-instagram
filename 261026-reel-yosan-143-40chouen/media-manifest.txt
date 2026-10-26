@@ -1,0 +1,41 @@
+テーマ: 143兆円と40兆円の謎（2027年度予算の概算要求 vs 新規国債発行の抑制方針）
+分析課(reel-analyst)→企画課(reel-planner)のネタ出しフローを経て、企画課の第一推薦案を採用。
+
+実写:
+assets/stock/piggy-bank-01.jpg (S1「143兆円」フック, Ken Burnsズーム 1.0→1.08)
+assets/stock/banker-statue-01.jpg (S2「40兆円程度に抑える方針」, Ken Burnsズーム 1.0→1.08)
+assets/stock/desk-workspace-01.jpg (S3「100兆円超のギャップ」バーチャート, Ken Burnsズーム 1.0→1.08)
+assets/stock/archive-records-01.jpg (S4「40兆円は一般会計だけの話」, Ken Burnsズーム 1.0→1.09)
+assets/stock/hands-support-close-01.jpg (S5「2つの安心運動」, Ken Burnsズーム 1.0→1.08)
+assets/stock/calendar-grid-01.jpg (S6「保存・シェアCTA」, Ken Burnsズーム 1.0→1.08)
+assets/stock/watch-suit-01.jpg (S7「コメントCTA」, Ken Burnsズーム 1.0→1.07)
+全7シーンすべてに実写背景あり（アイコンのみのシーンなし）。
+
+素材選定の注意点（引き継ぎ事項）:
+coins-stack-01.jpg / savings-jar-01.jpg — 261019で「外国硬貨（日本に20円硬貨は存在しない）」として却下済みのため、今回も不採用。
+calculator-finance-01.jpg / tokyo-night-01.jpg / tokyo-financial-district-01.jpg / graph-pen-coffee-01.jpg / hands-generations-01.jpg / notebook-pen-01.jpg — 直前の261023-reel-kokusaihi-kinriで使用済みのため、画像の重複を避けて今回は別素材を選定。
+clock-business-01.jpg — 「時間」としか結びつかない無関係な目覚まし時計のため不採用（過去指摘のパターンに該当）。
+wallet-hand-01.jpg — 261023で「車内で財布を持つ写真、文脈が弱い」として不採用済みのため今回も見送り。
+
+bgm:
+media/bgm.wav (source: Instagram/assets/bgm/bgm-calm-01.wav)
+直前の261023-reel-kokusaihi-kinriはbgm-tense-01.wavを使用済みのため、同一曲の連続使用を避けてbgm-calm-01に変更。
+波形ハッシュで前回リールと異なることを確認済み（md5: 前回6f3c8fe8... / 今回a5ef6f72...、先頭5秒PCM比較）。
+data-volume="0.5"、data-track-index="20"、class="clip"なしの<audio>要素としてindex.htmlルート直下に配置。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照。本文（sub/badge/footer）はシステムフォント(Noto Sans JP、バンドル経由でGoogle Fontsから自動取得)。
+
+gsap:
+cdn.jsdelivr.netがクラウド実行環境からブロックされるため、npm installでgsapを取得しvendor/gsap.min.jsとしてローカル参照（CLAUDE.md記載の回避策どおり）。
+
+構成:
+1080×1350、7シーン、合計28.0秒。
+S1(0-3.5s) 143兆円フック／S2(3.5-7.5s) 40兆円の抑制方針／S3(7.5-13.0s) バーチャートで100兆円超のギャップを可視化／S4(13.0-17.5s) 40兆円は一般会計だけの話／S5(17.5-21.5s) 2つの安心運動／S6(21.5-25.0s) 保存・シェアCTA／S7(25.0-28.0s) コメントCTA。
+シーンごとに異なるアイコン（コイン/書類/ギャップ矢印/天秤/盾ハート/しおり/吹き出し）を使用。
+数字・バー値の登場はback.out(1.6)のオーバーシュート、kickerピルはスライドのみ（フェードなし）で統一。
+headline/sub/CTAはすべて完結した文（「〜です。」「〜ましょう。」「〜？」）で終わるよう統一（校正課の過去指摘に対応）。
+
+品質確認:
+npx hyperframes lint → 0 errors, 0 warnings
+npx hyperframes check → ok:true, contrast(WCAG AA) 0 findings, lint/runtime/motion/craft 0 findings, layout findingsは実写Ken Burnsズームによる想定内のinfo(container_overflow)のみ7件。
