@@ -70,3 +70,9 @@ npx hyperframes check → ok:true, contrast(WCAG AA) 0 findings, lint/runtime/mo
 ・S4をkicker「埋め方は3つ」、headline「予算を減らすか、増税か、ほかの収入か。」、sub「具体策は、まだ示されていません。」に書き換え。S3の「この差、何で埋める？」という問いに対する平易な答え（歳出削減・増税・他の収入源という3択、かつ未定であること）を、専門用語を使わずに直接示す構成にした。
 ・「シーリングなし投資枠」に関する補足情報（40兆円が一般会計の新規国債だけの話であること）はcaption.txt側の説明文で引き続き触れており、動画はより平易な核心（要求と国債発行方針の差、埋め方の3択、未定であること）に絞った。
 ・品質確認：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、contrast(WCAG AA) 0 findings、lint/runtime/motion/craft 0 findings、layoutはKen Burnsズームによる想定内のinfo 7件のみ（変更前と同数）。S4をスナップショットで目視確認済み。
+
+6回目の修正点（ユーザーの再指摘「増えた要求、増えない国債、はゴロはいいが意味が理解しづらい」への対応、6回目のrender・check）:
+・S3見出し「増えた要求、増えない国債。」は体言止めの対句で語感は良いが、「増えない国債」が「新規発行額を抑える」ではなく「国の借金残高自体が増えない」という意味に読めてしまい誤解を招く（CAFSの他の投稿では「国の借金は過去最大を更新し続けている」と繰り返し伝えており、矛盾して見えるおそれがある）との指摘を受けた。
+・見出しを「要求は増えた。でも借金は増やさない。」という2つの完結した文に書き換え。「国債」という用語を避け、より直感的な「借金」という言葉を使い、「増やさない」という能動的な方針（高市首相の抑制方針）であることを明確にした。
+・見出しが2行になり縦スペースが増えたため、`.chart`のtop位置を596px→630pxに調整し、見出しとバーチャートが重ならないようにした（レイアウトのみの調整、バーチャート自体の内容・数値は変更なし）。
+・品質確認：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、contrast(WCAG AA) 0 findings、lint/runtime/motion/craft 0 findings、layoutはKen Burnsズームによる想定内のinfo 7件のみ（変更前と同数）。S3をスナップショットで目視確認済み、見出しとバーチャートの重なりなし。
