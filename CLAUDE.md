@@ -50,11 +50,11 @@
 ### BGM方針
 
 - 対話セッションでの制作は **Incompetech（Kevin MacLeod、CC BY 4.0）** から曲調に合う曲を選ぶ（`incompetech.com/music/royalty-free/mp3-royaltyfree/<曲名>.mp3`で直接ダウンロード、APIキー不要）。キャプションに`Music: <曲名> by Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0`のクレジットが必須。直近のリールと同じ曲を続けて使わない（reel-qaのチェック対象）。
-- クラウドルーティンはIncompetechに接続できないため、`Instagram/assets/bgm/`の事前生成ライブラリ（`bgm-calm-01.wav`等）から選ぶ。キャプションのクレジットも「CAFS Instagram運用 自主制作BGM／MusicGen生成」表記にする。
+- クラウドルーティンも2026-10-28からIncompetechに接続できる（許可ドメインに`incompetech.com`を追加済み）ので、対話セッションと同じくIncompetechから選ぶ。接続できない日だけ`Instagram/assets/bgm/`のライブラリから選ぶ（MusicGen製の`bgm-*.wav`を使う場合は、キャプションのクレジットを「CAFS Instagram運用 自主制作BGM／MusicGen生成」表記にする）。
 
 ### 素材ライブラリ（クラウドルーティン用）
 
-クラウド実行環境（Default）の接続可否（2026-10-28確認）：`pixabay.com`・`huggingface.co`は**接続可**（許可ドメインに登録済み）、`incompetech.com`・`cdn.jsdelivr.net`は**接続不可**。接続できないものは以下の事前選定ライブラリから選ぶ。許可ドメインの設定場所：claude.ai/code →「＋新規作成」→ 入力欄下の「Default」→「クラウド ＞」→ Defaultの編集 →「ネットワークアクセス」。なおルーティン`trig_01KS5qiZj5gZmnFmZHtTkvbQ`はhttp_api経由で作成されたため、Claudeからは指示文を更新できない（ユーザーが`claude.ai/code/routines/trig_01KS5qiZj5gZmnFmZHtTkvbQ`で編集する）。
+クラウド実行環境（Default）の接続可否（2026-10-28確認）：`pixabay.com`・`huggingface.co`・`incompetech.com`は**接続可**（許可ドメインに登録済み）、`cdn.jsdelivr.net`は**接続不可**。接続できないものは以下の事前選定ライブラリから選ぶ。許可ドメインの設定場所：claude.ai/code →「＋新規作成」→ 入力欄下の「Default」→「クラウド ＞」→ Defaultの編集 →「ネットワークアクセス」。なおルーティン`trig_01KS5qiZj5gZmnFmZHtTkvbQ`はhttp_api経由で作成されたため、Claudeからは指示文を更新できない（ユーザーが`claude.ai/code/routines/trig_01KS5qiZj5gZmnFmZHtTkvbQ`で編集する）。
 - `Instagram/assets/bgm/`：生成済みBGM（`bgm-calm-01.wav`＝穏やか、`bgm-upbeat-01.wav`＝明るい、他）。
 - `Instagram/assets/stock/`：目視確認済みの実写素材（外国通貨・外国語テキスト・実在人物の顔が写っていないもの）。手薄になったら対話セッション側で追加してコミットする。
 - gsapは`npm install gsap`してプロジェクト内`vendor/gsap.min.js`にコピーしローカル参照する（`cdn.jsdelivr.net`回避）。
