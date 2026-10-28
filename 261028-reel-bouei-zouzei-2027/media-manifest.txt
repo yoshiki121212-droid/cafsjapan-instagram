@@ -1,0 +1,69 @@
+テーマ: 防衛特別所得税(2027年1月スタート、所得税1%上乗せだが復興特別所得税を1.1%に引き下げるため合計2.1%は変わらず、ただし課税期間が2037→2047年に10年延長)
+分析課(reel-analyst)→企画課(reel-planner)のネタ出しフローを経て、企画課の第二推薦案(案A)を採用。
+Webで一次情報(防衛特別所得税1%・復興特別所得税2.1%→1.1%・期間2037→2047年延長)を裏取り済み。
+
+実写:
+assets/images/tokyo-night-01.jpg (S1フック、左右反転+クロップ位置変更)
+assets/images/clipboard-blank-01.jpg (S2「所得税に1%上乗せ」)
+assets/images/brick-wall-01.jpg (S3「合計は2.1%」)
+assets/images/papers-overwhelm-01.jpg (S4「10年延長」)
+assets/images/hands-generations-01.jpg (S5「2つの安心運動」、左右反転+クロップ位置変更)
+assets/images/desk-notepad-01.jpg (S6 保存CTA)
+assets/images/graph-pen-coffee-01.jpg (S7 コメントCTA、左右反転+クロップ位置変更)
+全7シーンに実写背景あり（アイコンのみ・単色グラデーションのみのシーンなし）。
+
+素材選定の注意点（引き継ぎ事項・重要）:
+ストックライブラリ(Instagram/assets/stock/、全30点)のうち、医療系10点・却下済み4点(coins-stack-01/savings-jar-01=外国硬貨、wallet-hand-01=文脈弱い、clock-business-01=無関係な目覚まし時計)を除くと実質使える素材は15点程度で、直近2本(261023・261026)が既に11点を使用済みのため、新規性のある組み合わせを作るのが年々厳しくなっている。
+今回、tokyo-night-01.jpg / hands-generations-01.jpg / graph-pen-coffee-01.jpg の3点は261023-reel-kokusaihi-kinri(2本前、投稿10日未満の間隔)と同一ファイルの再使用になった。reel-qaの初回レビューでこの重複を強く指摘されたため、以下の対応を行った：
+ - 新規未使用素材2点(clipboard-blank-01.jpg, brick-wall-01.jpg)を追加投入し、特に文脈の弱かったcalculator-finance-01.jpg(S2)をclipboard-blank-01.jpgに差し替え、実写が無かったS3にbrick-wall-01.jpgを新規追加。
+ - やむを得ず再使用した3点は、.photo-wrapに`transform: scaleX(-1)`で左右反転をかけ、かつobject-positionでクロップ位置を変更（中央固定ではなく各素材ごとに別の焦点位置）することで、画面上の見た目を261023版とは変えている。
+ - 恒久対策としては、Instagram/assets/stock/に新しい実写素材（特に給与明細・税金・書類関連で、国籍が曖昧にならないもの）を追加で選定・コミットすることを次回以降の課題として申し送る。
+
+bgm:
+media/bgm.wav (source: Instagram/assets/bgm/clean-soul-28s.wav — Kevin MacLeod「Clean Soul」, incompetech.com, CC BY 4.0)
+直前のリール(261026)はhidden-agenda.mp3を使用していたため、今回は別トラックを選定。波形(冒頭5秒PCM)で261026のhidden-agenda.mp3と異なることを確認済み。
+data-volume="0.5"、data-fade-in="0.5"、data-fade-out="1.2"、data-track-index="60"、class="clip"なしの<audio>要素としてindex.htmlルート直下に配置。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照。本文(sub/badge/footer)はhyperframesバンドル経由のNoto Sans JP。
+
+gsap:
+cdn.jsdelivr.netがクラウド実行環境からブロックされるため、npm installでgsapを取得しvendor/gsap.min.jsとしてローカル参照。
+
+構成:
+1080×1350、7シーン、合計29.25秒。
+S1(0-4.35s) 「あなたの給料、来年1月から変わるのを知っていますか？」(問いかけ型フック)
+S2(4.35-8.85s) 「所得税に1%、上乗せされます。」
+S3(8.85-12.85s) 「でも、合計は2.1%」(防衛1%+復興1.1%の内訳バッジ、合計は変わらない)
+S4(12.85-17.85s) 「2037年→2047年に、10年延長です。終了年の定めもありません。」(長期的な負担増の核心)
+S5(17.85-22.15s) 「2つの安心運動」(団体の立場)
+S6(22.15-25.65s) 保存CTA
+S7(25.65-29.25s) コメントCTA
+
+シーンごとに異なるアイコン（カレンダー/盾+1%/天秤なし・写真のみ/砂時計/ハート/しおり/吹き出し）を使用。
+数字・badgeの登場はback.out(1.6)のオーバーシュート、kickerピルはスライドのみ（フェードなし）で統一。
+headline/sub/CTAはすべて完結した文で終わるよう統一。
+
+初回reel-qaレビュー後の修正点（2回目のrender・check）:
+・S3にアイコンのみ・無地背景のシーンがあったのを是正し、brick-wall-01.jpgを実写背景として追加（必須ルール違反の修正）。
+・画像の使い回し(261023-reel-kokusaihi-kinriと4点重複)を指摘され、calculator-finance-01.jpg(S2)をclipboard-blank-01.jpgへ差し替え。残り3点(tokyo-night-01/hands-generations-01/graph-pen-coffee-01)は左右反転+クロップ位置変更で視覚的差別化。
+・S1見出し「あなたの給料、来年1月から変わるのを知っていますか？」で発生していた1〜2文字の孤立行（オーファン）を、font-size 72px→56px・width 880px→920pxに調整して解消。
+・S3の情報過多（合計2.1%・内訳・「短期的な負担は実質ゼロ」の3要素が1シーンに同居）を是正。「短期的な負担は、実質ゼロです。」のsubを削除し、「合計の税率は、変わりません。」という1文に統合して情報量を削減。
+・S4の読了時間不足（旧: headline+sub二つの事実が4.6秒に同居）を是正。scene durationを4.6s→5.0sに拡大し、subを「防衛特別所得税自体に、終了年の定めはありません。」→「終了年の定めも、ありません。」に短縮して読みやすさを改善。
+・S2・S3・S4・S7のタイミングを全体的に見直し、各テキストの表示時間に余裕を持たせた（動画全長は29.0秒→29.25秒に微増）。
+・caption.txt（本ファイル・media-manifest.txt含む）が初回レビュー時点で未作成だったため、今回あわせて作成。
+
+品質確認（2回目、全修正反映後）:
+npx hyperframes lint → 0 errors, 0 warnings(構造上の"nested_structure_needs_subcomposition"警告7件のみ、Studio編集利便性に関する注意でレンダリング結果に影響なし)
+npx hyperframes check → ok:true、runtime/layout/motion/contrast/craft/audioすべて0 errors・0 warnings（コントラストWCAG AA全件合格）。
+
+2回目のreel-qaレビュー後の修正点（3回目のrender・check、タイミング微調整）:
+・S2のsub「2027年1月から、給与の源泉徴収に反映されます。」が2行に折り返り2文字の孤立行ができていたのを、「2027年1月から、給与に反映されます。」に短縮して1行に収めた。
+・S2(4.5s→5.0s)・S4(5.0s→5.3s)・S7(3.6s→4.3s)のシーン尺を拡大し、文字数に対する読了時間の余裕を増やした（動画全長は29.25秒→30.75秒に増加）。
+・npx hyperframes check で再度 runtime/layout/motion/contrast/craft/audio すべて0 errors・0 warningsを確認。
+
+【未解決の課題・ユーザーへの申し送り（重要）】
+2回目のreel-qaレビューで、tokyo-night-01.jpg(S1)・hands-generations-01.jpg(S5)・graph-pen-coffee-01.jpg(S7)の3点が261023-reel-kokusaihi-kinri(2本前)と同一ファイルであり、左右反転+クロップ位置変更という対応では「反転した使い回し」であることが目視で分かってしまう、という指摘を受けた。
+調査の結果、Instagram/assets/stock/の既存30点のうち、医療系10点・過去に却下済みの4点(外国硬貨・文脈が弱い等)を除くと実質使える素材は15点程度で、このうち11点が直近2本(261023・261026)で既に使用済みであり、未使用かつ適切な素材は本制作で新規投入したclipboard-blank-01.jpgとbrick-wall-01.jpgの2点のみだった（医療系・却下済み素材を除くと、これが完全に使い切った状態）。そのため今回は、この3点について「反転+クロップ変更」という部分的な対応にとどめている。
+**次回以降のリール制作にあたっては、Instagram/assets/stock/に新しい実写素材（特に給与明細・通帳・税金の書類など、税・財政・家計に直接結びつく構図で、国籍が曖昧にならないもの）を追加で選定・コミットすることを強く推奨する。** このままでは今後のリールでも画像の使い回しが避けられない。
+また、S2(clipboard-blank-01.jpg)・S3(brick-wall-01.jpg)は「実写がある」という最低条件は満たすが、reel-qaから「文脈との結びつきが弱い（給与や税を具体的に連想させない）」という指摘も受けている。これも同じくストック素材不足に起因する課題。
