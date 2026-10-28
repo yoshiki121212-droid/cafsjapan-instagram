@@ -32,7 +32,7 @@
 1. **分析課→企画課の順で依頼する。** 分析課（`subagent_type: "reel-analyst"`）にInstagram/instagram-post-metrics-<日付>.csv（最新ファイル）を分析させ、その結果（特に「企画課への申し送り事項」）を企画課（`subagent_type: "reel-planner"`）への依頼プロンプトに含める。企画課は5案出し1〜2本を推薦し、分析課の「作成課への申し送り事項」を出力にそのまま転記する。
    - 推薦案の中から`Instagram/`内の既存フォルダ名と重複しないテーマを1つ選ぶ。出典が「未確認」の数字は制作前に裏取りする。
    - 新しいリールが一定期間投稿され数字が付いたら、Windsor.ai MCPで最新インサイトを取得し`instagram-post-metrics-<日付>.csv`に追記して鮮度を保つ。
-2. **素材**：対話セッションではPixabay API（キー: `57870836-72d9cfbb0179beca7f17cda7b`、`https://pixabay.com/api/`・`/videos/`）で実写素材を探す。クラウドルーティンはPixabayに接続できないため`Instagram/assets/stock/`の事前選定ライブラリから選ぶ。
+2. **素材**：Pixabay API（キー: `57870836-72d9cfbb0179beca7f17cda7b`、`https://pixabay.com/api/`・`/videos/`）で、シーンの文言に直接結びつく実写素材を毎回新規に探す。**クラウドルーティンからも接続できる**（2026-10-28確認、環境Defaultの許可ドメインに`pixabay.com`・`*.pixabay.com`登録済み）。候補は必ず目視で確認し（文言との結びつき・外国通貨や外国語テキストの有無）、直近2本のリールと同じ写真は使わない（左右反転での使い回しも不可）。採用した画像は`Instagram/assets/stock/`にも保存してコミットし、出典としてPixabayのpageURLをmedia-manifest.txtに残す。Pixabayに接続できない日だけ`Instagram/assets/stock/`から選ぶ。
 3. **制作**：HyperFrames（`npx hyperframes init <dir> --non-interactive --example=blank`）で1080×1350、ダークネイビー(`#0b1420`)×アンバー(`#d9a441`)のブランドCSS（mesh-gradient背景、kickerピル、headline/sub/hero-num見出し、footer、左上`top:96px`にCAFSロゴ）を使う。見出しはGoogle Fontsの「Zen Kaku Gothic New」Black(900)を使用文字のみサブセットで埋め込む。
 4. **1シーン1情報、十分な読了時間**：1シーン1事実。文字表示から次シーンまで最低2〜3秒の余白を確保する。単調さを避けるため、シーンごとにアイコンの種類を変え、実写素材は最低2シーンに使いKen Burnsズーム（4秒で1.0→1.08〜1.1）を付け、数字・見出しの登場は`back.out(1.6)`のオーバーシュートを使い、kickerピルはスライドのみ（フェードは使わない）で登場させる。
 5. **品質確認**：`npx hyperframes lint`→`check`でエラー0件・コントラストWCAG AA合格を確認し、`npx hyperframes render --quality looks --output final.mp4`でレンダリング。
@@ -54,7 +54,7 @@
 
 ### 素材ライブラリ（クラウドルーティン用）
 
-クラウド実行環境は`pixabay.com`・`huggingface.co`・`cdn.jsdelivr.net`に接続できないため、以下の事前選定ライブラリから選ぶ（ネットワーク越しの取得は試みない）。
+クラウド実行環境（Default）の接続可否（2026-10-28確認）：`pixabay.com`・`huggingface.co`は**接続可**（許可ドメインに登録済み）、`incompetech.com`・`cdn.jsdelivr.net`は**接続不可**。接続できないものは以下の事前選定ライブラリから選ぶ。許可ドメインの設定場所：claude.ai/code →「＋新規作成」→ 入力欄下の「Default」→「クラウド ＞」→ Defaultの編集 →「ネットワークアクセス」。なおルーティン`trig_01KS5qiZj5gZmnFmZHtTkvbQ`はhttp_api経由で作成されたため、Claudeからは指示文を更新できない（ユーザーが`claude.ai/code/routines/trig_01KS5qiZj5gZmnFmZHtTkvbQ`で編集する）。
 - `Instagram/assets/bgm/`：生成済みBGM（`bgm-calm-01.wav`＝穏やか、`bgm-upbeat-01.wav`＝明るい、他）。
 - `Instagram/assets/stock/`：目視確認済みの実写素材（外国通貨・外国語テキスト・実在人物の顔が写っていないもの）。手薄になったら対話セッション側で追加してコミットする。
 - gsapは`npm install gsap`してプロジェクト内`vendor/gsap.min.js`にコピーしローカル参照する（`cdn.jsdelivr.net`回避）。
