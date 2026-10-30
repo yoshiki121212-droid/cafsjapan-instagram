@@ -1,0 +1,56 @@
+テーマ: 高額療養費制度の自己負担上限引き上げ(2026年8月から月額上限引き上げ＋年間上限53万円新設、2027年8月に所得区分を5→13に細分化)
+分析課(reel-analyst)→企画課(reel-planner)のネタ出しフローを経て、企画課の推薦案2案(案1:子育て支援金/案2:高額療養費)のうち、出典の確度が高く・保存を誘導しやすい案2を採用。
+企画課が挙げた数字は制作前にWebSearchで裏取り済み(2026年8月実施・年間上限53万円・年収370万〜770万円の層、2027年8月に所得区分を5→13区分に細分化)。厚労省一次資料への直接アクセスはクラウド環境のネットワーク許可ドメイン外のため、複数の報道(さきがけ新報/共同通信配信、労働新聞社等の解説記事)とWebSearchの要約で裏取りした。具体額(2027年8月の一部区分の月額上限)は報道間で差異があったため動画内では使用せず、確度の高い内容のみ採用。
+
+実写(すべてPixabay、Instagram/assets/stock/にも保存してコミット済み):
+assets/images/hospital-corridor-01.jpg (S1フック「もし、大きな病気になったら？」) — 既存ストック、直近2本(261026/261028)では未使用。出典: https://pixabay.com/photos/hospital-hospital-aisle-921034/
+assets/images/bp-monitor-chart-01.jpg (S2「月々の自己負担上限が、全ての所得区分で上がりました。」) — 既存ストック、直近2本では未使用。出典: 既存ストック素材(取得元ページ情報は過去コミット時点のまま)。
+assets/images/kaikei-calculator-01.jpg (S3「53万円」) — 今回Pixabayで新規取得。出典: https://pixabay.com/photos/calculator-calculation-mathematics-7574111/
+assets/images/binders-category-01.jpg (S4「所得の区分が、5から13に細分化されます。」) — 今回Pixabayで新規取得。出典: https://pixabay.com/photos/folder-federal-folder-filing-626331/
+assets/images/hands-elderly-support-01.jpg (S5「2つの安心運動」) — 今回Pixabayで新規取得。出典: https://pixabay.com/photos/hands-compassion-help-old-care-699486/
+assets/images/desk-notebook-watch-01.jpg (S6 保存CTA) — 今回Pixabayで新規取得。出典: https://pixabay.com/photos/work-write-desk-desktop-workplace-3485548/
+assets/images/pen-notepad-01.jpg (S7 コメントCTA) — 今回Pixabayで新規取得。出典: https://pixabay.com/photos/pen-note-office-document-writing-5180855/
+全7シーンに実写背景あり(アイコンのみ・単色グラデーションのみのシーンなし)。候補は目視確認済み(外国通貨・外国語テキスト・実在人物の顔が写っていないもの)。直近2本(261026-reel-yosan-143-40chouen, 261028-reel-bouei-zouzei-2027)のmedia-manifest.txtと突き合わせ、ファイル名の重複なしを確認。
+
+素材選定の注意点(申し送り):
+・S2のbp-monitor-chart-01.jpg(血圧計)は「医療」とは結びつくが「自己負担額の引き上げ」という金銭的な主張には直接結びつかないとreel-qaから指摘あり。Pixabayで請求書・会計窓口など代替候補を探したが、外国通貨・外国語テキスト・実在人物の顔のいずれにも該当しない適切な素材が見つからず、今回は見送った。次回以降、医療費の請求・会計を連想させる素材をPixabayまたは新規撮影で補充することを推奨。
+・S5のhands-elderly-support-01.jpgは、261023(手を組む写真)・261026(高齢者の手のクローズアップ)に続き3作連続で「手を重ねる」系の構図になっており、マンネリ化のリスクがあるとreel-qaから指摘あり。今回は実際にmd5・解像度を確認し同一写真の使い回しではないことを確認した上で採用したが、次回は書類・イラスト寄りの表現など別の構図への変更を検討する。
+・S5のhands-elderly-support-01.jpgは背景が黒一色(低キーの撮影)のため、画面下部がやや空白に見えるとの指摘もあり。次回は背景に質感のある素材を優先する。
+
+bgm:
+media/bgm.mp3 (source: Instagram/assets/bgm/bittersweet.mp3 — Kevin MacLeod「Bittersweet」, incompetech.com, CC BY 4.0)
+直近2本(261026:Hidden Agenda, 261028:Clean Soul)とは異なる曲を選定。ID3タグ(title=Bittersweet, artist=Kevin MacLeod)および冒頭5秒PCMのmd5ハッシュで261028の音声(Clean Soul)と異なることを確認済み。
+data-volume="0.5"、data-fade-in="0.5"、data-fade-out="1.3"、data-track-index="90"のaudio要素としてindex.htmlルート直下に配置。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトのkicker/headline/hero-numで使用する文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照。本文(sub/badge/footer)はHyperFramesバンドル経由のNoto Sans JP。
+
+gsap:
+npm installでgsapを取得しvendor/gsap.min.jsとしてローカル参照(cdn.jsdelivr.net回避)。
+
+構成:
+1080×1350、7シーン、合計30.8秒。
+S1(0-4.6s) 「もし、大きな病気になったら？」医療費の上限が上がっている、というフック。
+S2(4.6-9.4s) 「月々の自己負担上限が、全ての所得区分で上がりました。」(2026年8月実施)
+S3(9.4-14.2s) 「53万円」(新設の年間上限、hero-num)＋「年収370万〜770万円の層が対象」(badge)
+S4(14.2-19.4s) 「所得の区分が、5から13に細分化されます。」(2027年8月、さらなる見直し)
+S5(19.4-23.6s) 「財源の裏付けある社会保障を目指します。」(2つの安心運動、団体の立場)
+S6(23.6-27.4s) 保存CTA「次の保険証と一緒に、見返してください。」
+S7(27.4-30.8s) コメントCTA「この変更、知っていましたか？」
+
+ブランドレイアウト:
+左上top:96px・left:56pxにCAFSロゴ(白縁取り、高さ130px)、各シーンtop:372px・left:56pxに濃紺の角丸アイコンバッジ(108×108px、アンバーのアウトラインSVGアイコン、シーンごとに異なる意匠)、kicker/headline/sub/hero-num/badgeはすべてleft:56px起点の左寄せ(直近5本=261019〜261028の実運用スタイルに合わせて統一。初稿では中央寄せ・小ロゴ・無地アイコンで制作したが、reel-qaの指摘と実際の過去動画フレームとの直接比較により左寄せ・大ロゴ・アイコンバッジに修正した)。
+シーンごとに異なるアイコン(ハート+波形/カレンダー/円+¥/分岐矢印/盾+ハート/しおり/吹き出し)を使用。
+数字・見出しの登場はback.out(1.6)のオーバーシュート、kickerピルはスライドのみ(フェードなし)で統一。
+headline/sub/CTAはすべて完結した文で終わるよう統一(S1は修辞疑問の「？」で統一)。
+
+品質確認:
+npx hyperframes lint → 0 errors, 0 warnings(nested_structure_needs_subcomposition等の構造警告10件のみ、過去リールと同種で実害なし)。
+npx hyperframes check → ok:true、contrast(WCAG AA) 21/21合格、runtime/motion/craft/audioすべて0 errors・0 warnings。layoutはKen Burnsズームによる想定内のinfo(container_overflow)のみ7件。
+
+reel-qaレビュー(2回実施、修正ループは最大1回の方針どおり対応):
+1回目: 文章の尻切れ3箇所(S3 badge/S4 headline/S5 headline)、1シーン2情報(S2〜S5)、S3 subでの孤立行、読了時間不足を指摘 → 全て修正(文章を完結させ、各シーンを1情報に整理、該当のsubを削除、シーン尺を0.2〜0.8秒ずつ延長し合計30.0秒→30.8秒に調整)。
+2回目: 上記修正の解消を確認(合格)。新規に、レイアウトが直近5本(261019〜261028)の確立スタイル(左寄せ・大ロゴ・アイコンバッジ)と不統一である点、S1見出しの「たら。」が条件節で尻切れに読める点、S3のhero-numとbadgeを繋ぐ表現が弱い点を指摘。
+→ レイアウトについては実際に261026・261028のvideo.mp4からフレームを抽出し直接比較した上で、左寄せ・ロゴ拡大(64px→130px)・アイコンバッジ追加に修正。S1見出しは「もし、大きな病気になったら？」と疑問形に変更。S3 badgeは「年収370万〜770万円の層が対象」に変更し、hero-numとの関係を明示。
+未対応(次回への申し送り。前述の「素材選定の注意点」参照): S2画像の文脈の弱さ、S5のhands画像のマンネリ化リスクと背景の空白感。
+3回目のreel-qa呼び出しは行わず(最大1回の修正ループ方針)、上記の自己検証(check再実行・フレーム目視・過去動画との直接比較)で最終確認とした。
