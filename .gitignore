@@ -1,3 +1,4 @@
+node_modules/
 .ig-token.json
 .gemini-key
 .agents/
