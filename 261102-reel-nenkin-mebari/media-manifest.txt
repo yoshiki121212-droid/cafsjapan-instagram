@@ -1,0 +1,66 @@
+テーマ: 国民年金「増えたのに目減り」(2026年度満額70,608円/+1,300円、保険料17,920円/+410円、マクロ経済スライド4年連続発動で実質目減り)
+分析課(reel-analyst)→企画課(reel-planner)のネタ出しフローを経て、企画課の第二推薦案(案2)を採用。
+第一推薦案(案1: 消費税免税リファンド方式×不正転売1600億円)は、「1600億円」という金額の一次情報・配信日を複数回のWeb検索で確認できず(確認できた実額は18〜33億円規模)、CLAUDE.mdの「出典が未確認の数字は制作前に裏取りする」規定により不採用とした。
+採用した案2の主要数字はすべてWeb検索で複数の報道により確認済み:
+・国民年金(老齢基礎年金)満額: 月70,608円、前年度比+1,300円(改定率+1.9%)、4年連続のプラス改定
+・国民年金保険料: 月17,920円、前年度比+410円、4年連続の値上げ
+・マクロ経済スライド: 2026年度で4年連続発動。物価上昇を考慮すると実質的には目減りという評価が複数メディアで一致
+
+実写(すべてPixabayで新規検索・目視確認のうえ採用):
+assets/images/hourglass-nature-01.jpg (S1フック、Ken Burnsズーム1.0→1.08) — https://pixabay.com/photos/hourglass-rock-time-stone-7704150/
+assets/images/document-clipboard-01.jpg (S2「国民年金 満額は」、Ken Burnsズーム1.0→1.08) — https://pixabay.com/photos/clipboard-document-paper-clip-2693417/
+assets/images/pen-handmade-paper-01.jpg (S3「でも、保険料も」、Ken Burnsズーム1.0→1.09) — https://pixabay.com/photos/write-writing-tool-pens-stationery-2902473/
+assets/images/balance-scale-01.jpg (S4「差し引くと」、Ken Burnsズーム1.0→1.08) — https://pixabay.com/photos/scales-old-scales-balance-old-4144502/ (元画像は透過PNGのため、ブランドカラーのダークネイビー#0b1420でフラット化して使用)
+assets/images/hands-clasped-support-01.jpg (S5「2つの安心運動」、Ken Burnsズーム1.0→1.08) — https://pixabay.com/photos/holding-hands-touching-supporting-8288239/
+assets/images/memo-pad-pen-01.jpg (S6 保存CTA、Ken Burnsズーム1.0→1.08) — https://pixabay.com/photos/ballpoint-pen-stickies-memo-notes-2613029/ (元画像は透過PNGのため、ブランドカラーのダークネイビー#0b1420でフラット化して使用)
+assets/images/pastel-pens-01.jpg (S7 コメントCTA、Ken Burnsズーム1.0→1.09) — https://pixabay.com/photos/desktop-business-paper-draw-create-3261769/
+全7シーンに実写背景あり(アイコンのみ・単色グラデーションのみのシーンなし)。
+
+【校正課(reel-qa)の1回目レビューで判明した重大な誤り・修正履歴】
+1回目の提出時、S6に採用した「notebook-writing-01.jpg」が、MD5ハッシュ比較の結果、261023-reel-kokusaihi-kinriのS6で既に使用済みの「notebook-pen-01.jpg」と完全に同一のPixabay写真(ファイルハッシュ一致)であることが判明した。検索クエリが異なっていたため新規素材だと誤認していたが、実際には同一ファイルの使い回しだった。「既存ストックライブラリ内の既使用素材とは重複しない新規素材」という1回目のmanifest記載は誤りだった。
+対応: notebook-writing-01.jpgを不採用とし、assets/stock/からも削除。代わりに新規にmemo-pad-pen-01.jpg(メモ帳+ペン)をPixabayで探し、既存ストックライブラリ全点とのMD5突合を行った上で採用した。
+この経緯を踏まえ、今後は新規採用素材を既存ストックライブラリに保存する前に、必ずMD5ハッシュで全既存素材と突合することを次回以降の申し送り事項とする。
+
+また1回目はS5(2つの安心運動)がメッシュグラデーション背景のみで実写が無く、CLAUDE.mdの「全シーンに実写の背景写真が入っているか」という必須ルールに違反していた。hands-clasped-support-01.jpgを新規採用し、他シーンと同様のKen Burnsズーム付き実写背景とした。
+
+素材選定で不採用にした候補(目視確認で却下):
+・calculator budget worksheet (id:913162) — 英語の家計簿ワークシートが大きく写り込み、外国語テキストの条件に抵触するため不採用。
+・stamp×伝票 (id:4847730) — 伝票にロシア語とルーブル表記(руб)が写り込んでおり、外国語・外国通貨の条件に抵触するため不採用。
+・piggy bank with coin (id:6688955) — 投入されている硬貨がユーロ硬貨と見られるため、外国通貨の条件に抵触し不採用。
+・financial chart with ruler (id:4900983) — ロシア語のチャート注記が写り込んでおり不採用。
+・coins on chart (id:8450635) — ドイツ語表記・外国硬貨とみられるため不採用。
+・laptop typing (id:8236497) — 顎・口元など人物の顔の一部が写り込んでいたため不採用。
+・graph+pen+coffee (id:5598156) — 構図が既存ストックのgraph-pen-coffee-01.jpg(直近数本で使用済み)と酷似するため、視覚的な使い回し感を避けて不採用。
+・write notebook pen hand paper (id:4491416) — 校正課の指摘によりMD5ハッシュ突合したところ、既存のnotebook-pen-01.jpg(261023-reel-kokusaihi-kinriで使用済み)と完全に同一ファイルと判明したため不採用(詳細は上記「重大な誤り・修正履歴」参照)。
+
+bgm:
+media/bgm.mp3 (source: incompetech.com/music/royalty-free/mp3-royaltyfree/Sneaky Snitch.mp3 — Kevin MacLeod「Sneaky Snitch」, incompetech.com, CC BY 4.0)
+直近2本(261030の実績投稿はBittersweet、261028-reel-bouei-zouzei-2027はClean Soul)とは異なる曲を選定。「何かがおかしい」という本リールのパラドックス(増額なのに目減り)のトーンに合う、ややコミカルで緊張感のある曲調を選んだ。
+data-volume="0.5"、data-fade-in="0.5"、data-fade-out="1.2"、data-media-start="60"(60秒地点から使用)、<audio>要素としてindex.htmlルート直下に配置。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照(kicker/headline/badge/tag-badgeに使用)。本文(sub/footer)はHyperFramesバンドル経由のNoto Sans JP。
+
+gsap:
+npm installでgsapを取得しvendor/gsap.min.jsとしてローカル参照(cdn.jsdelivr.netがクラウド実行環境からブロックされるため)。
+
+構成(校正課レビュー後の最終版):
+1080×1350、7シーン、合計32.2秒。
+S1(0-3.6s) 「年金、増えたのに／安心できない？」(逆説型フック)
+S2(3.6-8.8s) 「国民年金 満額は／月70,608円です。」+1,300円バッジ／「4年連続の増額です。」
+S3(8.8-13.8s) 「でも、保険料も／月17,920円です。」+410円バッジ／「4年連続の値上げです。」
+S4(13.8-20.0s) 「差し引くと／物価の伸びの方が、大きいのです。」「「マクロ経済スライド」という仕組みで、実質目減りします。」(核心。制度名と意味を動画本編のテキストで明示)
+S5(20.0-25.2s) 「2つの安心運動」(団体の立場、実写背景あり)
+S6(25.2-28.4s) 保存CTA
+S7(28.4-32.2s) コメントCTA
+
+主従関係のある数字(満額/保険料の絶対額=主/見出し大、増額幅=従/アンバー縁取りバッジで一回り小さく)をS2・S3で視覚化。
+シーンごとに異なるアイコン(カレンダー/¥コイン/伝票/天秤/ハート/しおり/吹き出し)を使用。
+数字・headline(全シーン)の登場はback.out(1.6)のオーバーシュート、kickerピル(およびS5のタグバッジ)はスライドのみ(フェードなし)で統一。
+headline/sub/CTAはすべて完結した文で終わるよう統一(「〜に。」という尻切れ表現をS2・S3で「〜です。」に修正済み)。
+
+品質確認(校正課の1回目レビュー後、修正を反映して再実行):
+npx hyperframes lint → 0 errors, 0 warnings(構造上のnested_structure_needs_subcomposition警告1件のみ。ロゴ/フッターをルート直下の非サブコンポジション要素として配置しているためのStudio編集利便性に関する注意で、レンダリング結果に影響なし)。
+npx hyperframes check → 0 errors。Contrast: 22/22件 WCAG AA合格。Layout: 0 issues(Ken Burnsズームによる意図的なオーバーフローはdata-layout-allow-overflowで明示)。Craft: 0 warnings(S5の静止区間はdata-holdで意図的な読了ポーズとして明示)。
+npx hyperframes render --quality looks --output final.mp4 → 32.2秒、9.4MB、正常終了。
+各シーンの読了時間(最終アニメーション終了〜シーン終了の余白)も校正課の指摘を踏まえてS2・S3・S4・S6・S7を0.2〜0.7秒ずつ拡大し、全シーンで2秒以上を確保。合計尺は目安(25〜30秒)よりやや長い32.2秒になったが、核心シーン(S4)の分かりやすさを優先した。
