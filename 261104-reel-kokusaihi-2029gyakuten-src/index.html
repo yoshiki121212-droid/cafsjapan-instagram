@@ -65,6 +65,8 @@
         position: absolute;
         inset: 0;
         overflow: hidden;
+        transform-origin: center center;
+        will-change: transform;
       }
 
       .photo-wrap img {
@@ -76,6 +78,9 @@
         object-fit: cover;
         transform-origin: center center;
         will-change: transform;
+      }
+      .photo-wrap img.flip-x {
+        transform: scaleX(-1);
       }
 
       .scene-overlay {
@@ -224,7 +229,7 @@
 
       <!-- S1 0.0-4.5 財務省試算/国債費41.3兆円 -->
       <div id="s1" class="clip" data-start="0" data-duration="4.8" data-track-index="1">
-        <div class="photo-wrap">
+        <div id="s1-wrap" class="photo-wrap">
           <img id="s1-photo" src="assets/stock/yen-10000-fan-01.jpg" alt="" />
         </div>
         <div class="scene-overlay"></div>
@@ -240,7 +245,7 @@
 
       <!-- S2 4.5-9.5 初めての逆転 -->
       <div id="s2" class="clip" data-start="4.8" data-duration="5.0" data-track-index="1">
-        <div class="photo-wrap">
+        <div id="s2-wrap" class="photo-wrap">
           <img id="s2-photo" src="assets/stock/spreadsheet-pen-glasses-01.jpg" alt="" />
         </div>
         <div class="scene-overlay"></div>
@@ -257,8 +262,8 @@
 
       <!-- S3 9.5-14.0 原因は金利上昇 -->
       <div id="s3" class="clip" data-start="9.8" data-duration="4.5" data-track-index="1">
-        <div class="photo-wrap">
-          <img id="s3-photo" src="assets/stock/stockchart-pen-coffee-01.jpg" alt="" />
+        <div id="s3-wrap" class="photo-wrap">
+          <img id="s3-photo" class="flip-x" src="assets/stock/staple-bars-ascending-01.jpg" alt="" />
         </div>
         <div class="scene-overlay"></div>
         <div id="s3-icon" class="scene-icon">
@@ -272,7 +277,7 @@
 
       <!-- S4 14.0-18.3 歳出の3割に -->
       <div id="s4" class="clip" data-start="14.3" data-duration="4.8" data-track-index="1">
-        <div class="photo-wrap">
+        <div id="s4-wrap" class="photo-wrap">
           <img id="s4-photo" src="assets/stock/file-folders-archive-01.jpg" alt="" />
         </div>
         <div class="scene-overlay"></div>
@@ -288,7 +293,7 @@
 
       <!-- S5 18.3-22.8 2つの安心運動 -->
       <div id="s5" class="clip" data-start="19.1" data-duration="4.5" data-track-index="1">
-        <div class="photo-wrap">
+        <div id="s5-wrap" class="photo-wrap">
           <img id="s5-photo" src="assets/stock/hands-elderly-care-01.jpg" alt="" />
         </div>
         <div class="scene-overlay"></div>
@@ -303,7 +308,7 @@
 
       <!-- S6 22.8-26.6 保存CTA -->
       <div id="s6" class="clip" data-start="23.6" data-duration="3.8" data-track-index="1">
-        <div class="photo-wrap">
+        <div id="s6-wrap" class="photo-wrap">
           <img id="s6-photo" src="assets/stock/notebook-pen-01.jpg" alt="" />
         </div>
         <div class="scene-overlay"></div>
@@ -318,7 +323,7 @@
 
       <!-- S7 26.6-30.6 コメントCTA -->
       <div id="s7" class="clip" data-start="27.4" data-duration="4.3" data-track-index="1">
-        <div class="photo-wrap">
+        <div id="s7-wrap" class="photo-wrap">
           <img id="s7-photo" src="assets/stock/hand-smartphone-blank-01.jpg" alt="" />
         </div>
         <div class="scene-overlay"></div>
@@ -371,14 +376,14 @@
       }
 
       // S1 0.0-4.8
-      kenBurns("s1-photo", 0, 4.8, 1.09);
+      kenBurns("s1-wrap", 0, 4.8, 1.09);
       icon("s1-icon", 0.05);
       kicker("s1-kicker", 0.1);
       pop("s1-num", 0.35);
       fadeUp("s1-sub", 0.85);
 
       // S2 4.8-9.8
-      kenBurns("s2-photo", 4.8, 5.0, 1.08);
+      kenBurns("s2-wrap", 4.8, 5.0, 1.08);
       icon("s2-icon", 4.85);
       kicker("s2-kicker", 4.9);
       pop("s2-num", 5.15);
@@ -386,32 +391,32 @@
       fadeUp("s2-sub", 6.0);
 
       // S3 9.8-14.3
-      kenBurns("s3-photo", 9.8, 4.5, 1.1);
+      kenBurns("s3-wrap", 9.8, 4.5, 1.1);
       icon("s3-icon", 9.85);
       kicker("s3-kicker", 9.9);
       pop("s3-headline", 10.2);
 
       // S4 14.3-19.1
-      kenBurns("s4-photo", 14.3, 4.8, 1.08);
+      kenBurns("s4-wrap", 14.3, 4.8, 1.08);
       icon("s4-icon", 14.35);
       kicker("s4-kicker", 14.4);
       pop("s4-num", 14.65);
       fadeUp("s4-sub", 15.0);
 
       // S5 19.1-23.6
-      kenBurns("s5-photo", 19.1, 4.5, 1.09);
+      kenBurns("s5-wrap", 19.1, 4.5, 1.09);
       icon("s5-icon", 19.15);
       kicker("s5-kicker", 19.2);
       pop("s5-headline", 19.5);
 
       // S6 23.6-27.4
-      kenBurns("s6-photo", 23.6, 3.8, 1.08);
+      kenBurns("s6-wrap", 23.6, 3.8, 1.08);
       icon("s6-icon", 23.65);
       kicker("s6-kicker", 23.7);
       pop("s6-headline", 24.0);
 
       // S7 27.4-31.7
-      kenBurns("s7-photo", 27.4, 4.3, 1.08);
+      kenBurns("s7-wrap", 27.4, 4.3, 1.08);
       icon("s7-icon", 27.45);
       kicker("s7-kicker", 27.5);
       pop("s7-headline", 27.8);

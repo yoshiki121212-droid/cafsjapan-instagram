@@ -1,0 +1,61 @@
+テーマ: 国債費が2029年度に社会保障費を初めて上回る見通し(財務省「令和8年度予算の後年度影響試算」)
+分析課(reel-analyst)→企画課(reel-planner)のネタ出しフローを経て、企画課の第二推薦案(案2「国債費が社会保障費を逆転」)を採用。
+ただし企画課が使った数字(2027年度概算要求ベースの36兆5803億円/36兆6386億円の比較)は、36兆5803億円が厚労省の省庁別要求額全体であり「社会保障費」そのものではないこと、また2027年度概算要求の段階では国債費が社会保障費を上回ったとする報道は確認できないことをWeb検索で発見。
+制作前の裏取りの結果、財務省が公表した「令和8年度予算の後年度影響試算」(2026年2月)で、2029年度に国債費が41兆3000億円に達し、社会保障費41兆0000億円を初めて上回る見通しであることが複数の報道(日本経済新聞、秋田魁新報)で確認できたため、こちらの正確な数字に差し替えてテーマを再構成した。
+
+実写:
+assets/stock/yen-10000-fan-01.jpg (S1フック「41.3兆円」、Pixabayより新規調達)
+assets/stock/spreadsheet-pen-glasses-01.jpg (S2「国債費41.3兆円/社会保障費41.0兆円」、Pixabayより新規調達)
+assets/stock/staple-bars-ascending-01.jpg (S3「金利が3.6%に上がります」、Pixabayより新規調達。ステープル針を使った棒グラフの写真で、元は右肩下がりの構図だったため左右反転(scaleX(-1))して右肩上がりに見えるよう調整し、文言と視覚的に一致させた)
+assets/stock/file-folders-archive-01.jpg (S4「歳出の3割に/約30%」、Pixabayより新規調達。公文書棚の写真で歳出の内訳を連想させる構図)
+assets/stock/hands-elderly-care-01.jpg (S5「2つの安心運動」、Pixabayより新規調達)
+assets/stock/notebook-pen-01.jpg (S6 保存CTA、ライブラリ内の既存素材。直近2本(261026・261028)では未使用)
+assets/stock/hand-smartphone-blank-01.jpg (S7 コメントCTA、Pixabayより新規調達)
+全7シーンに実写背景あり(アイコンのみ・単色グラデーションのみのシーンなし)。
+
+素材選定の注意点(引き継ぎ事項・重要):
+1回目のreel-qaレビューで、S3に当初使用したassets/stock/stockchart-pen-coffee-01.jpgが、ファイル名は新規でもMD5ハッシュが既存ライブラリのassets/stock/graph-pen-coffee-01.jpg(直前の261028-reel-bouei-zouzei-2027のS7で使用済み)とバイト単位で完全一致していることが判明した。Pixabayの検索結果が過去と同じ画像をたまたま再度ヒットさせたことが原因。今回はstaple-bars-ascending-01.jpgに差し替えて解消したが、次回以降もPixabayから新規調達した画像は、採用前に既存のassets/stock/内のファイルとMD5ハッシュで突き合わせることを強く推奨する(ファイル名が別でも中身が同じ場合があるため、目視だけでなくハッシュ比較が必須)。
+今回Pixabayから新規調達し、assets/stock/に追加した5点(yen-10000-fan-01.jpg、spreadsheet-pen-glasses-01.jpg、staple-bars-ascending-01.jpg、file-folders-archive-01.jpg、hands-elderly-care-01.jpg)は、採用前に目視で外国通貨・外国語テキスト・実在人物の顔が写っていないことを確認済み。
+
+bgm:
+media/bgm.mp3 (source: assets/bgm/Investigations.mp3 — Kevin MacLeod「Investigations」, incompetech.com, CC BY 4.0)
+直前のリール(261028)はClean Soul、その前(261026)はHidden Agendaを使用していたため、今回は別トラックを選定。波形(冒頭5秒PCM、32kHz/mono)で両者と異なることを確認済み。
+data-volume="0.5"、data-fade-in="0.5"、data-fade-out="1.2"、data-track-index="60"としてindex.htmlルート直下に配置。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照(kicker/hero-num/headlineに使用)。本文(sub/badge/footer)はhyperframesバンドル経由のNoto Sans JP。
+
+gsap:
+cdn.jsdelivr.netがクラウド実行環境からブロックされるため、npm installでgsapを取得しvendor/gsap.min.jsとしてローカル参照。
+
+構成:
+1080×1350、7シーン、合計31.7秒。
+S1(0-4.8s) 「41.3兆円」(2029年度の国債費、財務省試算)
+S2(4.8-9.8s) 「国債費41.3兆円 / 社会保障費41.0兆円」(初めての逆転、hero-num+badgeの大小表現)
+S3(9.8-14.3s) 「金利が、3.6%に上がります。」(原因の金利上昇)
+S4(14.3-19.1s) 「約30%」(国債費が歳出全体に占める割合)
+S5(19.1-23.6s) 「2つの安心運動」(団体の立場)
+S6(23.6-27.4s) 保存CTA
+S7(27.4-31.7s) コメントCTA
+
+シーンごとに異なるアイコン(書類/天秤/上昇矢印/円グラフ/ハート/しおり/吹き出し)を使用。
+数字・headlineの登場はback.out(1.6)のオーバーシュート、kickerピルはスライドのみ(フェードなし)で統一。
+kickerピルは塗りつぶしアンバー背景+濃紺太字・36px(261026/261028で確立されたスタイルを踏襲)。
+フッターは「@cafs.japan(太字)　財政健全化を求める市民の会(細字)」の表記順(261026/261028と同じ)。
+
+1回目のreel-qaレビュー後の修正点(2回目のrender・check):
+・kickerピルが輪郭線+半透明+アンバー文字(30px)という廃止済みの旧スタイルに戻っていたのを、塗りつぶしアンバー背景+濃紺太字・36pxへ修正。
+・フッターから団体名が欠落していたのを「@cafs.japan 財政健全化を求める市民の会」の2段構成に修正。
+・S2のsubが文字数過多で読了時間(7文字/秒換算)が尺を上回っていたのを、「社会保障費を、初めて上回ります。」→「初めて、上回ります。」に短縮して解消。
+・S2のbadge(社会保障費41.0兆円)のfont-sizeを34px→48pxに拡大し、hero-numとの重み差を是正。
+・S4の画像をtokyo-financial-district-01.jpg(上部に空白が多く、歳出配分との文脈結びつきも弱いとの指摘)からfile-folders-archive-01.jpgに差し替え、アイコンも時計から円グラフ風に変更。
+・S1を4.5s→4.8s、S7を4.0s→4.3sに拡大し読了時間の余白を確保(全体30.6s→31.1s→31.7s)。
+・S5「財源の裏付けある社会保障を」→「財源の裏付けのある社会保障を」に言い回し修正。
+
+2回目のreel-qaレビュー後の修正点(3回目のrender・check、最終):
+・S3の画像(stockchart-pen-coffee-01.jpg)が、ファイル名は新規でも中身は直前リール(261028)で使用済みのgraph-pen-coffee-01.jpgとMD5完全一致していることが判明。staple-bars-ascending-01.jpg(Pixabay新規調達、左右反転で右肩上がりに調整)に差し替えて解消。
+・Ken Burnsのscaleアニメーションを<img>要素から親の.photo-wrapper要素に移し、画像自体には静的なCSS transform(scaleX(-1)の反転など)を安全に適用できる構成に変更(GSAPとCSS transformの競合を回避)。
+
+品質確認(3回目、全修正反映後):
+npx hyperframes lint → 0 errors, 8 warnings(構造上のnested_structure_needs_subcomposition等、Studio編集利便性に関する注意のみでレンダリング結果に影響なし)
+npx hyperframes check → 0 errors、contrast(WCAG AA) 24/24件合格、runtime/motion/craft/audio全て0 errors・0 warnings。layoutはKen Burnsズームによる想定内のinfo(container_overflow)7件のみ。
