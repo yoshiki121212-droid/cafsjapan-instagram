@@ -1,0 +1,14 @@
+{
+  "name": "261104-reel-kokusaihi-2029gyakuten-src",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.9.10 preview",
+    "check": "npx --yes hyperframes@0.9.10 check",
+    "render": "npx --yes hyperframes@0.9.10 render",
+    "publish": "npx --yes hyperframes@0.9.10 publish"
+  },
+  "dependencies": {
+    "gsap": "^3.15.1"
+  }
+}

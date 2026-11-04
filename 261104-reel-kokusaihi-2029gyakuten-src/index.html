@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1350" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Zen Kaku Gothic New";
+        font-style: normal;
+        font-weight: 900;
+        src: url("assets/fonts/ZenKakuGothicNew-Black.woff2") format("woff2");
+      }
+
+      :root {
+        --navy: #0b1420;
+        --amber: #d9a441;
+        --ink: #f5f0e6;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: var(--navy);
+      }
+
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--navy);
+        font-family: "Noto Sans JP", sans-serif;
+      }
+
+      .mesh-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          radial-gradient(640px 640px at 880px 120px, rgba(217, 164, 65, 0.16), rgba(217, 164, 65, 0) 70%),
+          radial-gradient(760px 760px at 120px 1280px, rgba(217, 164, 65, 0.1), rgba(217, 164, 65, 0) 70%),
+          var(--navy);
+      }
+
+      .clip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .photo-wrap {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .photo-wrap img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform-origin: center center;
+        will-change: transform;
+      }
+
+      .scene-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(480px 480px at 140px 140px, rgba(11, 20, 32, 0.68), rgba(11, 20, 32, 0) 70%),
+          linear-gradient(
+            to bottom,
+            rgba(11, 20, 32, 0.18) 0%,
+            rgba(11, 20, 32, 0.58) 38%,
+            rgba(11, 20, 32, 0.89) 66%,
+            rgba(11, 20, 32, 0.97) 100%
+          );
+      }
+
+      .scene-icon {
+        position: absolute;
+        left: 72px;
+        top: 410px;
+        width: 72px;
+        height: 72px;
+        color: var(--amber);
+        opacity: 0;
+      }
+      .scene-icon svg {
+        width: 100%;
+        height: 100%;
+        stroke: var(--amber);
+        fill: none;
+        stroke-width: 5.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .scene-content {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        bottom: 190px;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        background: var(--amber);
+        border-radius: 999px;
+        padding: 16px 34px;
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        color: var(--navy);
+        letter-spacing: 0.02em;
+      }
+
+      .hero-num {
+        font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+        font-weight: 900;
+        font-size: 128px;
+        line-height: 1.02;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+        transform-origin: left center;
+      }
+      .hero-num.mid {
+        font-size: 84px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        background: rgba(245, 240, 230, 0.1);
+        border: 2px solid rgba(245, 240, 230, 0.45);
+        border-radius: 16px;
+        padding: 14px 28px;
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: 700;
+        font-size: 48px;
+        color: var(--ink);
+        transform-origin: left center;
+      }
+
+      .headline {
+        font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+        font-weight: 900;
+        font-size: 60px;
+        line-height: 1.38;
+        color: var(--ink);
+        letter-spacing: 0.005em;
+        transform-origin: left center;
+      }
+
+      .sub {
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: 500;
+        font-size: 37px;
+        line-height: 1.5;
+        color: var(--ink);
+        opacity: 0.94;
+      }
+
+      .logo {
+        position: absolute;
+        top: 96px;
+        left: 72px;
+        width: 128px;
+        height: auto;
+        z-index: 50;
+      }
+
+      .footer {
+        position: absolute;
+        left: 72px;
+        bottom: 60px;
+        z-index: 50;
+        font-family: "Noto Sans JP", sans-serif;
+        font-size: 28px;
+        letter-spacing: 0.02em;
+        color: rgba(245, 240, 230, 0.78);
+      }
+      .footer .handle {
+        font-weight: 700;
+      }
+      .footer .name {
+        font-weight: 400;
+        opacity: 0.8;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="31.7"
+      data-width="1080"
+      data-height="1350"
+    >
+      <div class="mesh-bg"></div>
+
+      <!-- S1 0.0-4.5 財務省試算/国債費41.3兆円 -->
+      <div id="s1" class="clip" data-start="0" data-duration="4.8" data-track-index="1">
+        <div class="photo-wrap">
+          <img id="s1-photo" src="assets/stock/yen-10000-fan-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s1-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 13h6M9 17h6M9 9h2"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s1-kicker" class="kicker">財務省試算</div>
+          <div id="s1-num" class="hero-num">41.3兆円</div>
+          <div id="s1-sub" class="sub">2029年度の国債費は、ここまで膨らむ見通しです。</div>
+        </div>
+      </div>
+
+      <!-- S2 4.5-9.5 初めての逆転 -->
+      <div id="s2" class="clip" data-start="4.8" data-duration="5.0" data-track-index="1">
+        <div class="photo-wrap">
+          <img id="s2-photo" src="assets/stock/spreadsheet-pen-glasses-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s2-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h5l-2.5 6a2.8 2.8 0 0 0 5 0z"/><path d="M14 7h5l-2.5 6a2.8 2.8 0 0 0 5 0z"/><path d="M4 7h7M13 7h7"/><path d="M8 21h8"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s2-kicker" class="kicker">初めての逆転</div>
+          <div id="s2-num" class="hero-num mid">国債費 41.3兆円</div>
+          <div id="s2-badge" class="badge">社会保障費 41.0兆円</div>
+          <div id="s2-sub" class="sub">初めて、上回ります。</div>
+        </div>
+      </div>
+
+      <!-- S3 9.5-14.0 原因は金利上昇 -->
+      <div id="s3" class="clip" data-start="9.8" data-duration="4.5" data-track-index="1">
+        <div class="photo-wrap">
+          <img id="s3-photo" src="assets/stock/stockchart-pen-coffee-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s3-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-10"/><path d="M15 5h6v6"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s3-kicker" class="kicker">原因は金利上昇</div>
+          <div id="s3-headline" class="headline">金利が、3.6%に上がります。</div>
+        </div>
+      </div>
+
+      <!-- S4 14.0-18.3 歳出の3割に -->
+      <div id="s4" class="clip" data-start="14.3" data-duration="4.8" data-track-index="1">
+        <div class="photo-wrap">
+          <img id="s4-photo" src="assets/stock/file-folders-archive-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s4-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 12V3a9 9 0 1 1-9 9z"/><path d="M12 12L4.5 7.5"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s4-kicker" class="kicker">歳出の3割に</div>
+          <div id="s4-num" class="hero-num">約30%</div>
+          <div id="s4-sub" class="sub">支出全体の約3割を占めます。</div>
+        </div>
+      </div>
+
+      <!-- S5 18.3-22.8 2つの安心運動 -->
+      <div id="s5" class="clip" data-start="19.1" data-duration="4.5" data-track-index="1">
+        <div class="photo-wrap">
+          <img id="s5-photo" src="assets/stock/hands-elderly-care-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s5-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.6-9A5.4 5.4 0 0 1 12 6.5 5.4 5.4 0 0 1 21.6 12c-2.4 4.5-9.6 9-9.6 9z"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s5-kicker" class="kicker">2つの安心運動</div>
+          <div id="s5-headline" class="headline">財源の裏付けのある社会保障を、<br />私たちは目指します。</div>
+        </div>
+      </div>
+
+      <!-- S6 22.8-26.6 保存CTA -->
+      <div id="s6" class="clip" data-start="23.6" data-duration="3.8" data-track-index="1">
+        <div class="photo-wrap">
+          <img id="s6-photo" src="assets/stock/notebook-pen-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s6-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s6-kicker" class="kicker">保存</div>
+          <div id="s6-headline" class="headline">保存して、予算案の発表と<br />見比べてください。</div>
+        </div>
+      </div>
+
+      <!-- S7 26.6-30.6 コメントCTA -->
+      <div id="s7" class="clip" data-start="27.4" data-duration="4.3" data-track-index="1">
+        <div class="photo-wrap">
+          <img id="s7-photo" src="assets/stock/hand-smartphone-blank-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s7-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s7-kicker" class="kicker">コメント</div>
+          <div id="s7-headline" class="headline">この数字、知っていましたか？<br />コメントで教えてください。</div>
+        </div>
+      </div>
+
+      <img class="logo" src="assets/cafs-logo.png" alt="CAFS" />
+      <div class="footer"><span class="handle">@cafs.japan</span><span class="name">財政健全化を求める市民の会</span></div>
+
+      <audio
+        id="bgm"
+        src="media/bgm.mp3"
+        data-start="0"
+        data-duration="31.7"
+        data-track-index="60"
+        data-volume="0.5"
+        data-fade-in="0.5"
+        data-fade-out="1.2"
+      ></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // Initial states (avoid flash-of-unstyled before first seek)
+      gsap.set(".kicker", { x: -50 });
+      gsap.set(".hero-num, .headline, .badge", { opacity: 0, scale: 0.7 });
+      gsap.set(".sub", { opacity: 0, y: 14 });
+      gsap.set(".scene-icon", { opacity: 0, y: 10 });
+
+      function kenBurns(id, start, duration, to) {
+        tl.fromTo(`#${id}`, { scale: 1.0 }, { scale: to, duration, ease: "none" }, start);
+      }
+      function icon(id, start) {
+        tl.fromTo(`#${id}`, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, start);
+      }
+      function kicker(id, start) {
+        tl.fromTo(`#${id}`, { x: -50 }, { x: 0, duration: 0.4, ease: "power3.out" }, start);
+      }
+      function pop(id, start) {
+        tl.fromTo(`#${id}`, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, start);
+      }
+      function fadeUp(id, start) {
+        tl.fromTo(`#${id}`, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, start);
+      }
+
+      // S1 0.0-4.8
+      kenBurns("s1-photo", 0, 4.8, 1.09);
+      icon("s1-icon", 0.05);
+      kicker("s1-kicker", 0.1);
+      pop("s1-num", 0.35);
+      fadeUp("s1-sub", 0.85);
+
+      // S2 4.8-9.8
+      kenBurns("s2-photo", 4.8, 5.0, 1.08);
+      icon("s2-icon", 4.85);
+      kicker("s2-kicker", 4.9);
+      pop("s2-num", 5.15);
+      pop("s2-badge", 5.65);
+      fadeUp("s2-sub", 6.0);
+
+      // S3 9.8-14.3
+      kenBurns("s3-photo", 9.8, 4.5, 1.1);
+      icon("s3-icon", 9.85);
+      kicker("s3-kicker", 9.9);
+      pop("s3-headline", 10.2);
+
+      // S4 14.3-19.1
+      kenBurns("s4-photo", 14.3, 4.8, 1.08);
+      icon("s4-icon", 14.35);
+      kicker("s4-kicker", 14.4);
+      pop("s4-num", 14.65);
+      fadeUp("s4-sub", 15.0);
+
+      // S5 19.1-23.6
+      kenBurns("s5-photo", 19.1, 4.5, 1.09);
+      icon("s5-icon", 19.15);
+      kicker("s5-kicker", 19.2);
+      pop("s5-headline", 19.5);
+
+      // S6 23.6-27.4
+      kenBurns("s6-photo", 23.6, 3.8, 1.08);
+      icon("s6-icon", 23.65);
+      kicker("s6-kicker", 23.7);
+      pop("s6-headline", 24.0);
+
+      // S7 27.4-31.7
+      kenBurns("s7-photo", 27.4, 4.3, 1.08);
+      icon("s7-icon", 27.45);
+      kicker("s7-kicker", 27.5);
+      pop("s7-headline", 27.8);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
