@@ -1,0 +1,14 @@
+{
+  "name": "261106-reel-gasolin-hojokin-src",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.9.18 preview",
+    "check": "npx --yes hyperframes@0.9.18 check",
+    "render": "npx --yes hyperframes@0.9.18 render",
+    "publish": "npx --yes hyperframes@0.9.18 publish"
+  },
+  "dependencies": {
+    "gsap": "^3.15.1"
+  }
+}

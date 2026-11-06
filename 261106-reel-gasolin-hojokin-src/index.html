@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1350" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Zen Kaku Gothic New";
+        font-style: normal;
+        font-weight: 900;
+        src: url("assets/fonts/ZenKakuGothicNew-Black.woff2") format("woff2");
+      }
+
+      :root {
+        --navy: #0b1420;
+        --amber: #d9a441;
+        --ink: #f5f0e6;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: var(--navy);
+      }
+
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--navy);
+        font-family: "Noto Sans JP", sans-serif;
+      }
+
+      .mesh-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          radial-gradient(640px 640px at 880px 120px, rgba(217, 164, 65, 0.16), rgba(217, 164, 65, 0) 70%),
+          radial-gradient(760px 760px at 120px 1280px, rgba(217, 164, 65, 0.1), rgba(217, 164, 65, 0) 70%),
+          var(--navy);
+      }
+
+      .clip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .photo-wrap {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        transform-origin: center center;
+        will-change: transform;
+      }
+
+      .photo-wrap img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .scene-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(480px 480px at 140px 140px, rgba(11, 20, 32, 0.68), rgba(11, 20, 32, 0) 70%),
+          linear-gradient(
+            to bottom,
+            rgba(11, 20, 32, 0.18) 0%,
+            rgba(11, 20, 32, 0.58) 38%,
+            rgba(11, 20, 32, 0.89) 66%,
+            rgba(11, 20, 32, 0.97) 100%
+          );
+      }
+
+      .scene-icon {
+        position: absolute;
+        left: 72px;
+        top: 410px;
+        width: 72px;
+        height: 72px;
+        color: var(--amber);
+        opacity: 0;
+      }
+      .scene-icon svg {
+        width: 100%;
+        height: 100%;
+        stroke: var(--amber);
+        fill: none;
+        stroke-width: 5.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .scene-content {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        bottom: 190px;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        background: var(--amber);
+        border-radius: 999px;
+        padding: 16px 34px;
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        color: var(--navy);
+        letter-spacing: 0.02em;
+      }
+
+      .hero-num {
+        font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+        font-weight: 900;
+        font-size: 128px;
+        line-height: 1.02;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+        transform-origin: left center;
+      }
+
+      .headline {
+        font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+        font-weight: 900;
+        font-size: 60px;
+        line-height: 1.38;
+        color: var(--ink);
+        letter-spacing: 0.005em;
+        transform-origin: left center;
+      }
+
+      .sub {
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: 500;
+        font-size: 37px;
+        line-height: 1.5;
+        color: var(--ink);
+        opacity: 0.94;
+      }
+
+      .logo {
+        position: absolute;
+        top: 96px;
+        left: 72px;
+        width: 128px;
+        height: auto;
+        z-index: 50;
+      }
+
+      .footer {
+        position: absolute;
+        left: 72px;
+        bottom: 60px;
+        z-index: 50;
+        font-family: "Noto Sans JP", sans-serif;
+        font-size: 28px;
+        letter-spacing: 0.02em;
+        color: rgba(245, 240, 230, 0.78);
+      }
+      .footer .handle {
+        font-weight: 700;
+      }
+      .footer .name {
+        font-weight: 400;
+        opacity: 0.8;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="32.2"
+      data-width="1080"
+      data-height="1350"
+    >
+      <div class="mesh-bg"></div>
+
+      <!-- S1 0.0-4.5 約10兆円(フック) -->
+      <div id="s1" class="clip" data-start="0" data-duration="4.5" data-track-index="1">
+        <div id="s1-wrap" class="photo-wrap">
+          <img id="s1-photo" src="assets/stock/road-cars-dusk-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s1-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 21V9l4-6h8l4 6v12"/><path d="M4 13h16"/><circle cx="8" cy="17" r="1.2"/><circle cx="16" cy="17" r="1.2"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s1-kicker" class="kicker">ガソリン補助金</div>
+          <div id="s1-num" class="hero-num">約10兆円</div>
+          <div id="s1-sub" class="sub">2022年からの累計です。</div>
+        </div>
+      </div>
+
+      <!-- S2 4.5-10.3 効果は不透明 -->
+      <div id="s2" class="clip" data-start="4.5" data-duration="5.8" data-track-index="1">
+        <div id="s2-wrap" class="photo-wrap">
+          <img id="s2-photo" src="assets/stock/magnifying-glass-gold-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s2-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s2-kicker" class="kicker">効果は不透明</div>
+          <div id="s2-headline" class="headline">110億円は、<br />使われていませんでした。</div>
+        </div>
+      </div>
+
+      <!-- S3 10.3-14.6 縮小へ -->
+      <div id="s3" class="clip" data-start="10.3" data-duration="4.3" data-track-index="1">
+        <div id="s3-wrap" class="photo-wrap">
+          <img id="s3-photo" src="assets/stock/hourglass-sand-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s3-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 3h12M6 21h12"/><path d="M7 3c0 5 5 7 5 9s-5 4-5 9"/><path d="M17 3c0 5-5 7-5 9s5 4 5 9"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s3-kicker" class="kicker">縮小へ</div>
+          <div id="s3-headline" class="headline">12月から、<br />段階的に縮小されます。</div>
+        </div>
+      </div>
+
+      <!-- S4 14.6-19.6 10兆円で何ができた -->
+      <div id="s4" class="clip" data-start="14.6" data-duration="5.0" data-track-index="1">
+        <div id="s4-wrap" class="photo-wrap">
+          <img id="s4-photo" src="assets/stock/rice-bowl-japan-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s4-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 11a8 8 0 0 1 16 0z"/><path d="M3 11h18"/><path d="M5 14c1 4 4 7 7 7s6-3 7-7"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s4-kicker" class="kicker">10兆円で何ができた？</div>
+          <div id="s4-num" class="hero-num">10兆円</div>
+          <div id="s4-sub" class="sub">食品消費税を2年、1%にできた金額です。</div>
+        </div>
+      </div>
+
+      <!-- S5 19.6-24.1 2つの安心運動 -->
+      <div id="s5" class="clip" data-start="19.6" data-duration="4.5" data-track-index="1">
+        <div id="s5-wrap" class="photo-wrap">
+          <img id="s5-photo" src="assets/stock/hand-aged-care-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s5-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.6-9A5.4 5.4 0 0 1 12 6.5 5.4 5.4 0 0 1 21.6 12c-2.4 4.5-9.6 9-9.6 9z"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s5-kicker" class="kicker">2つの安心運動</div>
+          <div id="s5-headline" class="headline">財源の裏付けのある政策を、<br />私たちは求めています。</div>
+        </div>
+      </div>
+
+      <!-- S6 24.1-27.9 保存CTA -->
+      <div id="s6" class="clip" data-start="24.1" data-duration="3.8" data-track-index="1">
+        <div id="s6-wrap" class="photo-wrap">
+          <img id="s6-photo" src="assets/stock/desk-flatlay-watch-pen-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s6-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s6-kicker" class="kicker">保存</div>
+          <div id="s6-headline" class="headline">保存して、次の予算議論と<br />見比べてください。</div>
+        </div>
+      </div>
+
+      <!-- S7 27.9-32.2 コメントCTA -->
+      <div id="s7" class="clip" data-start="27.9" data-duration="4.3" data-track-index="1">
+        <div id="s7-wrap" class="photo-wrap">
+          <img id="s7-photo" src="assets/stock/hand-phone-dark-screen-01.jpg" alt="" />
+        </div>
+        <div class="scene-overlay"></div>
+        <div id="s7-icon" class="scene-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>
+        </div>
+        <div class="scene-content">
+          <div id="s7-kicker" class="kicker">コメント</div>
+          <div id="s7-headline" class="headline">このお金の使い道、<br />コメントで教えてください。</div>
+        </div>
+      </div>
+
+      <img class="logo" src="assets/cafs-logo.png" alt="CAFS" />
+      <div class="footer"><span class="handle">@cafs.japan</span><span class="name">財政健全化を求める市民の会</span></div>
+
+      <audio
+        id="bgm"
+        src="media/bgm.mp3"
+        data-start="0"
+        data-duration="32.2"
+        data-track-index="60"
+        data-volume="0.5"
+        data-fade-in="0.5"
+        data-fade-out="1.2"
+      ></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      gsap.set(".kicker", { x: -50 });
+      gsap.set(".hero-num, .headline", { opacity: 0, scale: 0.7 });
+      gsap.set(".sub", { opacity: 0, y: 14 });
+      gsap.set(".scene-icon", { opacity: 0, y: 10 });
+
+      function kenBurns(id, start, duration, to) {
+        tl.fromTo(`#${id}`, { scale: 1.0 }, { scale: to, duration, ease: "none" }, start);
+      }
+      function icon(id, start) {
+        tl.fromTo(`#${id}`, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, start);
+      }
+      function kicker(id, start) {
+        tl.fromTo(`#${id}`, { x: -50 }, { x: 0, duration: 0.4, ease: "power3.out" }, start);
+      }
+      function pop(id, start) {
+        tl.fromTo(`#${id}`, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, start);
+      }
+      function fadeUp(id, start) {
+        tl.fromTo(`#${id}`, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, start);
+      }
+
+      // S1 0.0-4.5
+      kenBurns("s1-wrap", 0, 4.5, 1.09);
+      icon("s1-icon", 0.05);
+      kicker("s1-kicker", 0.1);
+      pop("s1-num", 0.35);
+      fadeUp("s1-sub", 0.85);
+
+      // S2 4.5-10.3
+      kenBurns("s2-wrap", 4.5, 5.8, 1.08);
+      icon("s2-icon", 4.55);
+      kicker("s2-kicker", 4.6);
+      pop("s2-headline", 4.9);
+
+      // S3 10.3-14.6
+      kenBurns("s3-wrap", 10.3, 4.3, 1.1);
+      icon("s3-icon", 10.35);
+      kicker("s3-kicker", 10.4);
+      pop("s3-headline", 10.7);
+
+      // S4 14.6-19.6
+      kenBurns("s4-wrap", 14.6, 5.0, 1.08);
+      icon("s4-icon", 14.65);
+      kicker("s4-kicker", 14.7);
+      pop("s4-num", 14.95);
+      fadeUp("s4-sub", 15.45);
+
+      // S5 19.6-24.1
+      kenBurns("s5-wrap", 19.6, 4.5, 1.09);
+      icon("s5-icon", 19.65);
+      kicker("s5-kicker", 19.7);
+      pop("s5-headline", 20.0);
+
+      // S6 24.1-27.9
+      kenBurns("s6-wrap", 24.1, 3.8, 1.08);
+      icon("s6-icon", 24.15);
+      kicker("s6-kicker", 24.2);
+      pop("s6-headline", 24.5);
+
+      // S7 27.9-32.2
+      kenBurns("s7-wrap", 27.9, 4.3, 1.08);
+      icon("s7-icon", 27.95);
+      kicker("s7-kicker", 28.0);
+      pop("s7-headline", 28.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
