@@ -17,8 +17,9 @@ assets/stock/hand-phone-dark-screen-01.jpg (S7 コメントCTA)
 また、S6候補として最初にダウンロードした「write-notebook-pen-hand-paper」(id:4491416)は、MD5ハッシュが直前々回以前から使われているInstagram/assets/stock/notebook-pen-01.jpgと完全一致する偶然の重複だったため、desk-flatlay-watch-pen-01.jpgに差し替えた。Pixabayの検索結果は過去に選んだ画像と同じものを再び返すことがあるため、ファイル名が新規でも必ずMD5ハッシュで照合することを今後も徹底する。
 
 bgm:
-media/bgm.mp3 (source: Instagram/assets/bgm/Ambush.mp3 — Kevin MacLeod「Ambush」, incompetech.com, CC BY 4.0)
+media/bgm.mp3 (source: Instagram/assets/bgm/Hustle.mp3 — Kevin MacLeod「Hustle」, incompetech.com, CC BY 4.0)
 直前のリール(261104-reel-kokusaihi-2029gyakuten)はInvestigationsを使用していたため、今回は別トラックを選定。
+当初Ambush.mp3を使用していたが、ユーザーから「音楽が不気味すぎる」との指摘を受け、より明るく軽快なHustleに差し替え(Ambush.mp3はInstagram/assets/bgm/に保存済みのまま残す)。
 
 フォント:
 Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照。本文(sub/footer)はhyperframesバンドル経由のNoto Sans JP。
@@ -27,14 +28,14 @@ gsap:
 cdn.jsdelivr.netがクラウド実行環境からブロックされるため、npm installでgsapを取得しvendor/gsap.min.jsとしてローカル参照。Ken Burnsのscaleアニメーションは<img>ではなく親の.photo-wrap要素に適用し、画像自体への静的なCSS transformと競合しない構成にしている(261104での教訓を反映)。
 
 構成:
-1080×1350、7シーン、合計33.0秒(修正後)。
-S1(0-4.5s) 「約10兆円」(ガソリン補助金の累計、2022年からのフック)
-S2(4.5-10.3s) 「110億円は、使われていませんでした。」(財務省調査、効果の不透明さ)
-S3(10.3-14.6s) 「12月から、段階的に縮小されます。」(直近の決定)
-S4(14.6-19.6s) 「10兆円」(食品消費税を2年間1%に下げられた金額との比較)
-S5(19.6-24.5s) 「2つの安心運動」(団体の立場、本の束+「その場しのぎではなく、財源に裏付けられた政策を求めます。」)
-S6(24.5-28.7s) 保存CTA
-S7(28.7-33.0s) コメントCTA
+1080×1350、7シーン、合計33.3秒(最終版)。
+S1(0-4.8s) 「約10兆円」→「でも、効果の検証は済んでいません。」(数字の驚き+逆説のフック構造に変更。過去の高パフォーマンス投稿のパターンに合わせた)
+S2(4.8-10.6s) 「110億円は、使われていませんでした。」(財務省調査、効果の不透明さ)
+S3(10.6-14.9s) 「12月から、段階的に縮小されます。」(直近の決定)
+S4(14.9-19.9s) 「10兆円」(食品消費税を2年間1%に下げられた金額との比較)
+S5(19.9-24.8s) 「2つの安心運動」(団体の立場、本の束+「その場しのぎではなく、財源に裏付けられた政策を求めます。」)
+S6(24.8-29.0s) 保存CTA
+S7(29.0-33.3s) コメントCTA
 
 シーンごとに異なるアイコン(ガソリンスタンド/虫眼鏡/砂時計/お椀・茶碗/ハート/しおり/吹き出し)を使用。
 数字・headlineの登場はback.out(1.6)のオーバーシュート、kickerピルはスライドのみ(フェードなし)で統一。
@@ -54,3 +55,8 @@ reel-qaレビュー後の修正点(2回目のrender・check):
 
 品質確認(2回目、全修正反映後):
 npx hyperframes check → 0 errors、contrast(WCAG AA) 22/22件合格、runtime/motion/craft/audio全て0 errors・0 warnings。layoutはKen Burnsズームによる想定内のinfo 7件のみ。S4〜S7をスナップショットで目視確認済み、S5の新しい構図・文言を確認済み。
+
+ユーザーからの確認メール返信後の修正点(3回目のrender・check):
+・「冒頭フックが弱い(驚き→でもの構造が無い)」との指摘を受け、S1を単純な「約10兆円/2022年からの累計です。」から「約10兆円/でも、効果の検証は済んでいません。」に変更。分析課が指摘した「数字の驚き+でも(逆説)」という高パフォーマンス投稿の型に合わせた。あわせてhero-numの登場をback.out(1.6)→back.out(2.4)のより大きなオーバーシュート(popBig関数)に変更し、Ken Burnsズームも1.09→1.14に強めて「派手な冒頭」の要望に応えた。S1の尺を4.5s→4.8sに拡大(全体32.2s→33.3s)。
+・「BGMが不気味すぎる」との指摘を受け、Ambush(緊迫感の強いダーク系の曲)からHustle(より軽快な曲)に差し替え。直前リール(Investigations)とは別トラックであることを波形で再確認済み。
+・品質確認：npx hyperframes check → 0 errors、contrast(WCAG AA) 22/22件合格。S1をスナップショットで目視確認済み。

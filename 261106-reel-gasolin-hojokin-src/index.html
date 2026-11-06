@@ -198,14 +198,14 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="33.0"
+      data-duration="33.3"
       data-width="1080"
       data-height="1350"
     >
       <div class="mesh-bg"></div>
 
       <!-- S1 0.0-4.5 約10兆円(フック) -->
-      <div id="s1" class="clip" data-start="0" data-duration="4.5" data-track-index="1">
+      <div id="s1" class="clip" data-start="0" data-duration="4.8" data-track-index="1">
         <div id="s1-wrap" class="photo-wrap">
           <img id="s1-photo" src="assets/stock/road-cars-dusk-01.jpg" alt="" />
         </div>
@@ -216,12 +216,12 @@
         <div class="scene-content">
           <div id="s1-kicker" class="kicker">ガソリン補助金</div>
           <div id="s1-num" class="hero-num">約10兆円</div>
-          <div id="s1-sub" class="sub">2022年からの累計です。</div>
+          <div id="s1-sub" class="sub">でも、効果の検証は済んでいません。</div>
         </div>
       </div>
 
       <!-- S2 4.5-10.3 効果は不透明 -->
-      <div id="s2" class="clip" data-start="4.5" data-duration="5.8" data-track-index="1">
+      <div id="s2" class="clip" data-start="4.8" data-duration="5.8" data-track-index="1">
         <div id="s2-wrap" class="photo-wrap">
           <img id="s2-photo" src="assets/stock/magnifying-glass-gold-01.jpg" alt="" />
         </div>
@@ -236,7 +236,7 @@
       </div>
 
       <!-- S3 10.3-14.6 縮小へ -->
-      <div id="s3" class="clip" data-start="10.3" data-duration="4.3" data-track-index="1">
+      <div id="s3" class="clip" data-start="10.6" data-duration="4.3" data-track-index="1">
         <div id="s3-wrap" class="photo-wrap">
           <img id="s3-photo" src="assets/stock/hourglass-sand-01.jpg" alt="" />
         </div>
@@ -251,7 +251,7 @@
       </div>
 
       <!-- S4 14.6-19.6 10兆円で何ができた -->
-      <div id="s4" class="clip" data-start="14.6" data-duration="5.0" data-track-index="1">
+      <div id="s4" class="clip" data-start="14.9" data-duration="5.0" data-track-index="1">
         <div id="s4-wrap" class="photo-wrap">
           <img id="s4-photo" src="assets/stock/rice-bowl-japan-01.jpg" alt="" />
         </div>
@@ -267,7 +267,7 @@
       </div>
 
       <!-- S5 19.6-24.5 2つの安心運動 -->
-      <div id="s5" class="clip" data-start="19.6" data-duration="4.9" data-track-index="1">
+      <div id="s5" class="clip" data-start="19.9" data-duration="4.9" data-track-index="1">
         <div id="s5-wrap" class="photo-wrap">
           <img id="s5-photo" src="assets/stock/open-books-stack-01.jpg" alt="" />
         </div>
@@ -282,7 +282,7 @@
       </div>
 
       <!-- S6 24.5-28.7 保存CTA -->
-      <div id="s6" class="clip" data-start="24.5" data-duration="4.2" data-track-index="1">
+      <div id="s6" class="clip" data-start="24.8" data-duration="4.2" data-track-index="1">
         <div id="s6-wrap" class="photo-wrap">
           <img id="s6-photo" src="assets/stock/desk-flatlay-watch-pen-01.jpg" alt="" />
         </div>
@@ -297,7 +297,7 @@
       </div>
 
       <!-- S7 28.7-33.0 コメントCTA -->
-      <div id="s7" class="clip" data-start="28.7" data-duration="4.3" data-track-index="1">
+      <div id="s7" class="clip" data-start="29.0" data-duration="4.3" data-track-index="1">
         <div id="s7-wrap" class="photo-wrap">
           <img id="s7-photo" src="assets/stock/hand-phone-dark-screen-01.jpg" alt="" />
         </div>
@@ -318,7 +318,7 @@
         id="bgm"
         src="media/bgm.mp3"
         data-start="0"
-        data-duration="33.0"
+        data-duration="33.3"
         data-track-index="60"
         data-volume="0.5"
         data-fade-in="0.5"
@@ -348,50 +348,53 @@
       function fadeUp(id, start) {
         tl.fromTo(`#${id}`, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, start);
       }
+      function popBig(id, start) {
+        tl.fromTo(`#${id}`, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(2.4)" }, start);
+      }
 
-      // S1 0.0-4.5
-      kenBurns("s1-wrap", 0, 4.5, 1.09);
+      // S1 0.0-4.8 (フック: 派手な数字の登場→でも逆説)
+      kenBurns("s1-wrap", 0, 4.8, 1.14);
       icon("s1-icon", 0.05);
       kicker("s1-kicker", 0.1);
-      pop("s1-num", 0.35);
-      fadeUp("s1-sub", 0.85);
+      popBig("s1-num", 0.3);
+      fadeUp("s1-sub", 1.1);
 
-      // S2 4.5-10.3
-      kenBurns("s2-wrap", 4.5, 5.8, 1.08);
-      icon("s2-icon", 4.55);
-      kicker("s2-kicker", 4.6);
-      pop("s2-headline", 4.9);
+      // S2 4.8-10.6
+      kenBurns("s2-wrap", 4.8, 5.8, 1.08);
+      icon("s2-icon", 4.85);
+      kicker("s2-kicker", 4.9);
+      pop("s2-headline", 5.2);
 
-      // S3 10.3-14.6
-      kenBurns("s3-wrap", 10.3, 4.3, 1.1);
-      icon("s3-icon", 10.35);
-      kicker("s3-kicker", 10.4);
-      pop("s3-headline", 10.7);
+      // S3 10.6-14.9
+      kenBurns("s3-wrap", 10.6, 4.3, 1.1);
+      icon("s3-icon", 10.65);
+      kicker("s3-kicker", 10.7);
+      pop("s3-headline", 11.0);
 
-      // S4 14.6-19.6
-      kenBurns("s4-wrap", 14.6, 5.0, 1.08);
-      icon("s4-icon", 14.65);
-      kicker("s4-kicker", 14.7);
-      pop("s4-num", 14.95);
-      fadeUp("s4-sub", 15.45);
+      // S4 14.9-19.9
+      kenBurns("s4-wrap", 14.9, 5.0, 1.08);
+      icon("s4-icon", 14.95);
+      kicker("s4-kicker", 15.0);
+      pop("s4-num", 15.25);
+      fadeUp("s4-sub", 15.75);
 
-      // S5 19.6-24.5
-      kenBurns("s5-wrap", 19.6, 4.9, 1.09);
-      icon("s5-icon", 19.65);
-      kicker("s5-kicker", 19.7);
-      pop("s5-headline", 20.0);
+      // S5 19.9-24.8
+      kenBurns("s5-wrap", 19.9, 4.9, 1.09);
+      icon("s5-icon", 19.95);
+      kicker("s5-kicker", 20.0);
+      pop("s5-headline", 20.3);
 
-      // S6 24.5-28.7
-      kenBurns("s6-wrap", 24.5, 4.2, 1.08);
-      icon("s6-icon", 24.55);
-      kicker("s6-kicker", 24.6);
-      pop("s6-headline", 24.9);
+      // S6 24.8-29.0
+      kenBurns("s6-wrap", 24.8, 4.2, 1.08);
+      icon("s6-icon", 24.85);
+      kicker("s6-kicker", 24.9);
+      pop("s6-headline", 25.2);
 
-      // S7 28.7-33.0
-      kenBurns("s7-wrap", 28.7, 4.3, 1.08);
-      icon("s7-icon", 28.75);
-      kicker("s7-kicker", 28.8);
-      pop("s7-headline", 29.1);
+      // S7 29.0-33.3
+      kenBurns("s7-wrap", 29.0, 4.3, 1.08);
+      icon("s7-icon", 29.05);
+      kicker("s7-kicker", 29.1);
+      pop("s7-headline", 29.4);
 
       window.__timelines = window.__timelines || {};
       window.__timelines["main"] = tl;
