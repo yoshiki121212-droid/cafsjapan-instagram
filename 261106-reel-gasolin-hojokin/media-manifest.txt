@@ -1,0 +1,56 @@
+テーマ: 結局、ガソリン補助金って何だったの？(ユーザー指定テーマ、2026-11-04に直接指示)
+今回はテーマ選定の分析課(reel-analyst)→企画課(reel-planner)の手順を省略し、ユーザーが直接指定したテーマ(「ガソリン補助金が縮小される。総額は10兆円に達するようだ。この10兆円があれば何ができたのか、ガソリン補助金の意味を批判的に検証してほしい」)で制作した。
+ユーザー申告の「総額10兆円」は未確認扱いとしてWeb検索で裏取りを実施。2022年1月開始の「燃料油価格激変緩和対策事業」が、約4年間で8兆1719億円計上(2026年3月時点NRI木内登英コラム)、2026年の追加予算を合わせ累計9兆円前後の見通しとされていたところに、2026年10月30日の閣議決定でさらに1兆1458億円が追加されたため、累計はおよそ10兆円に達する見通しであることを確認した(ユーザー申告の数字は正確だった)。
+
+実写(全7点、Pixabayより今回新規調達。採用前に全てInstagram/assets/stock/の既存ファイルとMD5ハッシュで突き合わせ、重複がないことを確認済み):
+assets/stock/road-cars-dusk-01.jpg (S1フック「約10兆円」)
+assets/stock/magnifying-glass-gold-01.jpg (S2「110億円は使われていませんでした」、検証・調査のメタファー)
+assets/stock/hourglass-sand-01.jpg (S3「12月から段階的に縮小」、時間経過のメタファー)
+assets/stock/rice-bowl-japan-01.jpg (S4「10兆円で何ができた?食品消費税2年1%」、食品と直結する構図)
+assets/stock/open-books-stack-01.jpg (S5「2つの安心運動」、高等教育を連想させる構図。当初hand-aged-care-01.jpgを使用していたが、直前2本と構図が酷似していたためreel-qa指摘を受け差し替え。詳細は末尾の修正点を参照)
+assets/stock/desk-flatlay-watch-pen-01.jpg (S6 保存CTA)
+assets/stock/hand-phone-dark-screen-01.jpg (S7 コメントCTA)
+全7シーンに実写背景あり(アイコンのみ・単色グラデーションのみのシーンなし)。
+
+素材選定の経緯(引き継ぎ事項):
+当初候補に挙げたガソリンポンプの実写(複数候補)は、いずれもShell「ULTRA」・Esso等の海外ブランドロゴや英語表記が大きく写っており採用を見送った。古いポンプ・レトロなポンプの写真が多く、ブランドロゴなしのクリーンな構図がPixabay上で見つからなかったため、S1は「夜明け/夕暮れの道路と車」という間接的な構図に変更した。
+また、S6候補として最初にダウンロードした「write-notebook-pen-hand-paper」(id:4491416)は、MD5ハッシュが直前々回以前から使われているInstagram/assets/stock/notebook-pen-01.jpgと完全一致する偶然の重複だったため、desk-flatlay-watch-pen-01.jpgに差し替えた。Pixabayの検索結果は過去に選んだ画像と同じものを再び返すことがあるため、ファイル名が新規でも必ずMD5ハッシュで照合することを今後も徹底する。
+
+bgm:
+media/bgm.mp3 (source: Instagram/assets/bgm/Ambush.mp3 — Kevin MacLeod「Ambush」, incompetech.com, CC BY 4.0)
+直前のリール(261104-reel-kokusaihi-2029gyakuten)はInvestigationsを使用していたため、今回は別トラックを選定。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照。本文(sub/footer)はhyperframesバンドル経由のNoto Sans JP。
+
+gsap:
+cdn.jsdelivr.netがクラウド実行環境からブロックされるため、npm installでgsapを取得しvendor/gsap.min.jsとしてローカル参照。Ken Burnsのscaleアニメーションは<img>ではなく親の.photo-wrap要素に適用し、画像自体への静的なCSS transformと競合しない構成にしている(261104での教訓を反映)。
+
+構成:
+1080×1350、7シーン、合計33.0秒(修正後)。
+S1(0-4.5s) 「約10兆円」(ガソリン補助金の累計、2022年からのフック)
+S2(4.5-10.3s) 「110億円は、使われていませんでした。」(財務省調査、効果の不透明さ)
+S3(10.3-14.6s) 「12月から、段階的に縮小されます。」(直近の決定)
+S4(14.6-19.6s) 「10兆円」(食品消費税を2年間1%に下げられた金額との比較)
+S5(19.6-24.5s) 「2つの安心運動」(団体の立場、本の束+「その場しのぎではなく、財源に裏付けられた政策を求めます。」)
+S6(24.5-28.7s) 保存CTA
+S7(28.7-33.0s) コメントCTA
+
+シーンごとに異なるアイコン(ガソリンスタンド/虫眼鏡/砂時計/お椀・茶碗/ハート/しおり/吹き出し)を使用。
+数字・headlineの登場はback.out(1.6)のオーバーシュート、kickerピルはスライドのみ(フェードなし)で統一。
+kickerピルは塗りつぶしアンバー背景+濃紺太字・36px(直前リールで確立したスタイルを踏襲)。
+フッターは「@cafs.japan(太字)　財政健全化を求める市民の会(細字)」の表記順(直前リールと同じ)。
+
+品質確認(初回で合格):
+npx hyperframes lint → 0 errors, 8 warnings(構造上のnested_structure_needs_subcomposition等、Studio編集利便性に関する注意のみでレンダリング結果に影響なし)
+npx hyperframes check → 0 errors、contrast(WCAG AA) 22/22件合格、runtime/motion/craft/audio全て0 errors・0 warnings。layoutはKen Burnsズームによる想定内のinfo(container_overflow)7件のみ。
+初回スナップショットでS2・S3の見出しが自動改行で1〜2文字だけ2行目に残る孤立行(オーファン)を発見し、手動で<br>を挿入して解消(2回目のcheck・snapshotで解消を確認済み)。
+
+reel-qaレビュー後の修正点(2回目のrender・check):
+・【最重要】S5の実写(hand-aged-care-01.jpg)が、ファイル名・MD5は別物でも「若い手が年配者の手を包み込むクローズアップ」という構図として直前2本(261104のhands-elderly-care-01.jpg、261028のhands-generations-01.jpg)と酷似しており、見出しも「財源の裏付けのある政策/社会保障を、私たちは求めています/目指します。」とほぼ同文だったため3本連続のテンプレ化と指摘された。画像をopen-books-stack-01.jpg(本の束、高等教育を連想)に差し替え、アイコンも心臓から本のアイコンに変更。見出しも「その場しのぎではなく、財源に裏付けられた政策を求めます。」へ大幅に書き換え、直近2本との視覚的・文言的な重複を解消。
+・S5を4.5s→4.9s、S6を3.8s→4.2sに拡大し、読了時間(7文字/秒換算)の余白不足を解消(全体32.2s→33.0s)。
+・S4のsub「食品消費税を2年、1%にできた金額です。」の助数詞「間」抜けを「食品消費税を2年間、1%に下げられた金額です。」に修正。
+・画像の構図類似はMD5ハッシュ照合だけでは検出できないため、今後は直近リールとのフレーム目視比較も毎回必須とする(reel-qaからの申し送り)。
+
+品質確認(2回目、全修正反映後):
+npx hyperframes check → 0 errors、contrast(WCAG AA) 22/22件合格、runtime/motion/craft/audio全て0 errors・0 warnings。layoutはKen Burnsズームによる想定内のinfo 7件のみ。S4〜S7をスナップショットで目視確認済み、S5の新しい構図・文言を確認済み。
