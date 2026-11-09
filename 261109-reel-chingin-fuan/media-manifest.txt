@@ -1,0 +1,65 @@
+テーマ: 実質賃金8カ月連続プラス(2026年8月分、+1.5%、約10年ぶり)。ただし伸び率は鈍化しており、電気・ガス代の政府補助も9月使用分で終了したため、今後の実感は悪化しうる、という内容。
+分析課(reel-analyst)→企画課(reel-planner)のネタ出しフローを経て、企画課の第一推薦案(案5)を採用。
+企画課が「未確認」としていた数字(実質賃金+1.5%・8カ月連続・約10年ぶり、名目賃金+3.8%・34年5カ月ぶり、電気ガス補助9月使用分終了)は、制作前にWeb検索で裏取り済み(出典はcaption.txt参照)。
+
+実写(Pixabayで検索・選定、直近2本=261028・261026とは重複なし):
+assets/stock/payslip-watch-notebook-01.jpg (S1フック、Ken Burnsズーム1.0→1.08、今回新規ダウンロード) — 出典: https://pixabay.com/photos/work-write-desk-desktop-workplace-3485548/
+assets/stock/notebook-pen-01.jpg (S2「額面31万1,364円」、Ken Burnsズーム1.0→1.085) — 出典: https://pixabay.com/photos/write-notebook-pen-hand-paper-4491416/
+  【訂正・重要】制作時、この画像をPixabayから新規ダウンロードしたつもりでassets/stock/notebook-handwriting-01.jpgという別名で保存したが、コミット前のmd5照合で既存のnotebook-pen-01.jpg(261023-reel-kokusaihi-kinriで使用、3本前)と完全に同一ファイル(同一Pixabay写真の再ダウンロード)であることが判明した。261023は「直近2本」の対象外(261028・261026が直近2本)のため採用自体はルール上問題ないが、同一内容を別名で重複コミットしないよう、新規ファイルは削除しassets/stock/内の既存notebook-pen-01.jpgを参照する形に統一した。次回以降、Pixabayで見つけた画像は採用前に必ずassets/stock/の既存ファイルとid/内容が重複していないか確認することを申し送る。
+assets/stock/electric-meters-01.jpg (S4「電気・ガス代の補助終了」、Ken Burnsズーム1.0→1.1) — 出典: https://pixabay.com/photos/electric-meter-electricity-meter-5229752/
+assets/stock/umbrella-rain-01.jpg (S5「2つの安心運動」、Ken Burnsズーム1.0→1.08) — 出典: https://pixabay.com/photos/rain-umbrella-protection-water-wet-3524806/
+assets/stock/notepad-pen-01.jpg (S6 保存CTA、Ken Burnsズーム1.0→1.08) — 出典: https://pixabay.com/photos/pen-note-office-document-writing-5180855/
+assets/stock/keyboard-typing-01.jpg (S7 コメントCTA、Ken Burnsズーム1.0→1.08) — 出典: https://pixabay.com/photos/hands-typing-laptop-keypad-keyboard-2654109/
+assets/stock/hourglass-01.jpg (S3「伸び率は、縮んでいます。」、Ken Burnsズーム1.0→1.08、reel-qaの1回目指摘を受けて追加) — 出典: https://pixabay.com/photos/hourglass-time-rock-stone-7704148/
+全7シーンに実写背景あり(アイコンのみ・単色グラデーションのみのシーンなし)。
+候補はすべて目視確認済み(外国通貨・外国語テキスト・実在人物の顔が写っていないこと、文言との結びつきを確認)。採用した6点はInstagram/assets/stock/にも保存してコミット。
+
+bgm:
+media/bgm.mp3 (source: Instagram/assets/bgm/からではなく今回Incompetechより新規ダウンロード — Kevin MacLeod「Marty Gots a Plan」, incompetech.com, CC BY 4.0)
+直近5本(261028=Clean Soul, 261026=Hidden Agenda, 10/30=Bittersweet, 11/02=Sneaky Snitch, 11/04=Investigations, 11/06=Hustle)とは異なるトラックを選定。
+data-volume="0.5"、data-fade-in="0.5"、data-fade-out="1.2"、data-track-index="60"のaudio要素としてindex.htmlルート直下に配置。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照(148文字のみ、21KB)。本文(sub/badge/footer)はHyperFramesバンドル経由のNoto Sans JP。
+
+gsap:
+npm installでgsapを取得しvendor/gsap.min.jsとしてローカル参照(cdn.jsdelivr.net回避)。
+
+構成:
+1080×1350、7シーン、合計30.3秒。
+S1(0-4.5s) 「あなたの給料、増えています。」実質賃金+1.5%、8カ月連続プラス(物価を考慮しても、という説明で「実質賃金」という専門用語を使わずに意味を伝える)。
+S2(4.5-9.0s) 「月31万1,364円に。」額面(名目賃金)の実額とバッジで+3.8%の伸び率を提示。主(実額)・従(伸び率バッジ)の大小関係で情報を整理。
+S3(9.0-13.5s) 「伸び率は、縮んでいます。」2%→1.5%の推移をhero-numで見せ、「でも」の逆接構造(分析課の申し送り「ギャップ型」に対応)。
+S4(13.5-18.3s) 「9月使用分で、終わりました。」電気・ガス代の補助終了を提示し、S1〜S3の「良い数字」からS4以降の「不安材料」へ転換。
+S5(18.3-22.6s) 「財政の安心と、社会保障の安心を。」団体の立場(2つの安心運動)。
+S6(22.6-26.3s) 保存CTA。
+S7(26.3-30.3s) コメントCTA。
+
+シーンごとに異なるアイコン(上昇矢印/封筒/下降ジグザグ/プラグ電球/盾ハート/しおり/吹き出し)を使用。
+数字・バッジの登場はback.out(1.6)のオーバーシュート、kickerピル(S5のみtag-badge)はスライドのみ(フェードなし)で統一。
+headline/sub/CTAはすべて完結した文で終わるよう統一。
+
+品質確認(1回目、render直後):
+npx hyperframes lint → 0 errors, 0 warnings。
+npx hyperframes check → 0 errors, 0 warnings(lint/runtime/layout/motion/craft/audioすべて)、コントラスト(WCAG AA) 26/26合格。
+
+reel-qaによる1回目のレビュー: 不合格。指摘事項:
+(1) S2「月31万1,364円に。」・S5「財政の安心と、社会保障の安心を。」が尻切れ文(動詞がなく完結していない)。
+(2) S3に実写背景がなくアイコンのみで画面下半分が空白(必須ルール違反)。
+(3) S1・S2・S4・S7の読了時間不足(文字数÷7文字/秒の目安で最大2.9秒不足)、S2は3つの数的事実が1シーンに同居し情報過多。
+(4) 採用素材がInstagram/assets/stock/に未コミット。
+
+1回目の修正点(2回目のrender・check):
+・S2見出しを「月31万1,364円に。」→「月31万1,364円になりました。」に修正し完結文に。badgeを「前年比+3.8%」単体から「34年5カ月ぶり 前年比+3.8%」に統合してsub(34年5カ月ぶりの高い伸び率です。)を削除、情報を主(実額)・従(badge一本)の2情報に整理。
+・S5見出しを「財政の安心と、社会保障の安心を。」→「財政の安心と、社会保障の安心を目指します。」に修正し完結文に。
+・S3にPixabayの新規実写(hourglass-01.jpg、「伸び率鈍化」を砂時計で表現)を追加し、全7シーン中6シーンに実写背景という体制を維持しつつ画面の空白を解消(出典: https://pixabay.com/photos/hourglass-time-rock-stone-7704148/)。
+・読了時間不足への対応として、S1(4.5→5.3s)・S2(4.5→5.2s)・S3(4.5→4.8s)・S4(4.8→5.6s)・S7(4.0→4.7s)のシーン尺を拡大し、S5(4.3→4.1s)・S6(3.7→3.6s)は余裕があったため短縮。動画全長は30.3秒→33.3秒に増加(CLAUDE.mdの「25〜30秒程度を目安」からやや超過するが、「30代OLが動画だけを見て理解できる」という最優先基準を優先した判断)。
+・S1のkickerを「2026年8月 最新データ」→「2026年8月」に、S4のkickerを「電気・ガス代の補助」→「電気・ガス補助」に、S4のsubを「10月使用分から、値引きがなくなります。」→「10月分から、値引きがなくなります。」にそれぞれ短縮し、文字量を削減。
+
+品質確認(2回目、全修正反映後):
+npx hyperframes lint → 0 errors, 0 warnings。
+npx hyperframes check → 0 errors, 0 warnings(lint/runtime/layout/motion/craft/audioすべて)、コントラスト(WCAG AA) 25/25合格。
+
+reel-qaによる2回目のレビュー(最終): 合格。1回目で指摘した4点(尻切れ文2箇所・S3実写なし・読了時間不足/情報過多)の修正を確認。BGM波形ハッシュ照合でも前回リールと別音源であることを再確認。唯一、S3の砂時計画像は「伸び率鈍化」との結びつきがやや間接的(時間経過の比喩であり、率や量そのものの縮小を直接示す素材ではない)との改善提案があったが、ブロッキングな指摘ではないとして合格判定。
+
+【公開前の申し送り】画像使い回しチェックの精度向上のため、次回以降はPixabayで新規採用する画像をassets/stock/へコピーする前に`md5sum`等で既存ファイルとの内容重複がないか機械的に確認すること(今回、notebook-pen-01.jpgと内容が完全一致する画像を別名で保存しかけ、コミット直前に発覚した)。
