@@ -1,0 +1,76 @@
+テーマ: 保存版：決まった税・決まってない税（防衛増税・子育て支援金=決定済みの負担増 と、食品消費税1%減税・ガソリン税代替財源=財源未定の減税策、を対比するチェックリスト型リール）
+分析課(reel-analyst)→企画課(reel-planner)のネタ出しフローを経て、企画課の第二推薦案(案4)を採用。
+案1(ガソリン減税)は直近5日前(2026-11-06)に実際に投稿済みの「ガソリン補助金」リールとテーマが近接するため不採用。
+企画課が「未確認」とした数字(子育て支援金の月額負担、ガソリン税代替財源の期限)はWebSearchで裏取り済み（詳細はcaption.txt出典欄）。
+
+実写（全て本リール用に新規にPixabayから選定。直近2本(261026・261028)およびInstagram/assets/stock/の既存ライブラリと重複なし）:
+assets/images/wax-seal-stamp-01.jpg (S1フック、「今、決まっているのは増税だけ」。赤い封蝋スタンプ=「決定済み」の視覚的比喩。文字情報は刻印の装飾モノグラムのみで外国語本文なし)
+  出典: https://pixabay.com/photos/sealing-wax-seal-stamp-red-1463732/
+assets/images/tokyo-metropolitan-govt-01.jpg (S2「防衛増税」、東京都庁)
+  出典: https://pixabay.com/photos/tokyo-metropolitan-city-japan-1670945/
+assets/images/family-hands-newborn-01.jpg (S3「子育て支援金」、手と赤ちゃんの手、顔は写っていない)
+  出典: https://pixabay.com/photos/love-hand-children-family-newborn-10531368/
+assets/images/cucumbers-market-01.jpg (S4「食品の消費税1%減税」、野菜売り場。価格表示が写らない構図でクロップ)
+  出典: https://pixabay.com/photos/market-cucumber-vegetable-asparagus-2253749/
+assets/images/gas-pump-refuel-01.jpg (S5「ガソリン税代替財源」、給油の様子、ブランド名・外国語表示なし)
+  出典: https://pixabay.com/photos/gasoline-car-fuel-pump-vehicle-8719776/
+assets/images/hands-clasped-support-01.jpg (S6「2つの安心運動」、支え合う手、顔は写っていない)
+  出典: https://pixabay.com/photos/holding-hands-touching-supporting-8288239/
+assets/images/hand-phone-blank-01.jpg (S7 保存・シェアCTA、スマートフォンを持つ手、画面は無地)
+  出典: https://pixabay.com/photos/hand-holding-smartphone-5682222/
+全7シーンに実写背景あり（アイコンのみ・単色グラデーションのみのシーンなし）。
+
+素材選定の注意点（引き継ぎ事項）:
+前回(261028)の申し送り「Instagram/assets/stock/に新しい実写素材を追加で選定・コミットすることを推奨」を受け、今回は既存ライブラリを一切使わず、7シーン全て新規素材で構成した。これにより既存ライブラリの枯渇問題を回避。採用した7点はInstagram/assets/stock/にも保存・コミット済みで、今後のリールでも（直近2本を避けつつ）再利用可能。
+検討したが不採用にした素材:
+・document-stamp-pen-01.jpg(4847730): 校正課1回目レビューではクロップで回避したと判断したが、2回目レビューで背景書類にロシア語・ルーブル表記(「руб.」等)が実際には視認できると指摘され、素材自体を不採用に変更。wax-seal-stamp-01.jpgに差し替え。assets/stock/からも削除済み。
+・shopping-carts-01.jpg(932135): 1回目レビューでクロップ調整(50% 40%→50% 78%)を行ったが、2回目レビューでもカートが視認できないと再指摘され、素材自体を不採用に変更。cucumbers-market-01.jpgに差し替え。assets/stock/からも削除済み。
+・desk-overhead-10224653.jpg(会議机の俯瞰): Slackのロゴと複数人の顔が写り込むため不採用。
+・fruit-8773085.jpg(果物売り場): 価格ステッカーにポルトガル語表示が写り込むため不採用。
+
+bgm:
+media/bgm.mp3 (source: assets/bgm/deliberate-thought.mp3 — Kevin MacLeod「Deliberate Thought」, incompetech.com, CC BY 4.0)
+直近の実際の投稿履歴（Windsor.aiで確認、261028時点以降は本リポジトリに記録のないリールが続いている）でも同一曲の使用なし。波形(冒頭PCM)でも直前の既知BGM(261026=Hidden Agenda, 261028=Clean Soul)と相違を確認済み。
+data-volume="0.5"、data-fade-in="0.5"、data-fade-out="1.2"、index.htmlルート直下に<audio>要素として配置。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照。本文(sub/badge/footer)はhyperframesバンドル経由のNoto Sans JP。
+
+gsap:
+cdn.jsdelivr.netがクラウド実行環境からブロックされるため、npm installでgsapを取得しvendor/gsap.min.jsとしてローカル参照。
+
+構成:
+1080×1350、7シーン、合計32.1秒。
+S1(0-4.7s) フック「今、決まっているのは、増税だけです。」+「あなたの給与と保険料から、始まっています。」
+S2(4.7-10.3s) 防衛増税は年1兆円を超える（法人税2026年4月・所得税2027年1月）
+S3(10.3-14.9s) 子育て支援金は月300円ほど（2026年4月〜、医療保険料に上乗せ）
+S4(14.9-19.5s) 食品の消費税を1%に下げる方針、2年間の財源10兆円はまだ未定
+S5(19.5-24.3s) ガソリン税の代替財源はまだ決まっていない、1.5兆円の穴埋めの結論は年末が目安
+S6(24.3-27.6s) 「2つの安心運動」（団体の立場、タグバッジ）
+S7(27.6-32.1s) 保存・シェアCTA
+
+シーンごとに異なるアイコン（!マーク/盾/ハート/カート/燃料しずく/盾+ハート/しおり）を使用。
+hero-numの登場はback.out(1.6)のオーバーシュート、kickerピルはスライドのみ（フェードなし）で統一。
+headline/sub/CTAはすべて完結した文で終わるよう統一（校正課1回目の指摘を反映し全面修正）。
+
+校正課(reel-qa)1回目レビュー後の修正点（2回目のrender・check）:
+・S1・S6・S7に実写背景が無かった（established rule違反）指摘を受け、3点を新規にPixabayから選定・追加（document-stamp-pen-01.jpg／hands-clasped-support-01.jpg／hand-phone-blank-01.jpg）。
+・S2のsub「法人税は2026年4月、所得税は2027年1月から。」が助詞止めかつ2つの税目を1シーンに詰め込んでいた点を指摘され、所得税の開始時期のみに絞り「所得税は、2027年1月から上乗せが始まります。」に簡潔化（法人税の開始時期はcaption.txt側で言及）。
+・S2「防衛増税、年1兆円超」・S3「子育て支援金、月300円ほど」・S4「食品の消費税1%減税」の体言止めheadlineを、過去に確立済みの「完結した文」ルールに合わせてそれぞれ「防衛増税は、年1兆円を超えます。」「子育て支援金は、月300円ほどです。」「食品の消費税を、1%に下げる方針です。」に書き換え。
+・S4のhero-num「10兆円」とS5のhero-num「1.5兆円」がsubと明示的に結びついていなかった指摘を受け、subに数字を再掲し「2年間の財源10兆円は、まだ未定です。」「1.5兆円の穴埋め、結論は年末が目安です。」に修正。
+・S4のshopping-carts-01.jpgのクロップ（object-position: 50% 40%→50% 78%）を調整し、天井の白飛びではなくカート本体（赤いハンドル部分）が画面に写るよう変更。
+・S3の読了時間がタイト（11.7文字/秒）との指摘を受け、シーン尺を4.2秒→4.6秒に拡大。
+・動画全長は30.7秒→31.1秒に増加。
+・品質確認（2回目）：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、runtime/motion/craft/audio全て0 errors・0 warnings、contrast(WCAG AA) 28/28合格。layoutはKen Burnsズーム・スライド遷移中の想定内info 9件のみ（エラー・警告なし）。スナップショットで全7シーン目視確認済み（実写・文言・クロップとも意図通り）。
+
+校正課(reel-qa)2回目レビュー後の修正点（3回目のrender・check、本番確定版）:
+・1回目レビューの修正指摘のうち、2回目レビューで「実効性なし」と再指摘された2点を是正：
+  (a) S1のdocument-stamp-pen-01.jpgは、クロップ調整では解決できず背景書類のロシア語・ルーブル表記が実際には視認できる状態だったため、素材自体をwax-seal-stamp-01.jpg(赤い封蝋スタンプ、文字情報は装飾モノグラムのみ)に差し替え。
+  (b) S4のshopping-carts-01.jpgは、object-position調整（50%40%→50%78%）後もカートが視認できない状態だったため、素材自体をcucumbers-market-01.jpg(野菜売り場、価格表示の写らない構図)に差し替え。
+・2回目レビューで見落としを指摘されたS5のheadline「ガソリン税、代替財源は？」(体言止め一歩手前の疑問形フラグメント)を「ガソリン税の代替財源は、まだ決まっていません。」という完結した文に書き換え。
+・2回目レビューで「S3だけでなくS1・S4・S5も読了ペースがタイト」と指摘を受け、S1(4.3→4.7秒)・S4(4.3→4.6秒)・S5(4.5→4.8秒)のシーン尺をそれぞれ拡大。あわせてS1のsubから「もう」を削除し微減。
+・動画全長は31.1秒→32.1秒に増加。
+・使用文字が変わったためZen Kaku Gothic New Black サブセットフォントを再生成。
+・品質確認（3回目、全修正反映後）：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、runtime/motion/craft/audio全て0 errors・0 warnings、contrast(WCAG AA) 28/28合格。layoutはKen Burnsズーム・スライド遷移中の想定内info 10件のみ（エラー・警告なし）。スナップショットで全7シーン目視確認し、問題画像2点の差し替え・S5文言・S1〜S5の間延びを確認済み。
+
+【重要・ユーザーへの申し送り】本ワークフローの「reel-qaによる修正ループは最大1回まで」という規定に従い、上記3回目の修正に対する校正課(reel-qa)への再レビュー依頼は行っていません（1回目レビュー→修正→2回目レビューの1ループ分のみ実施）。2回目レビューで指摘された事項は全て本修正で対応済みと判断していますが、第三者による最終目視確認は未実施のため、公開前にユーザー自身でもvideo.mp4を一度確認いただくことを推奨します。
