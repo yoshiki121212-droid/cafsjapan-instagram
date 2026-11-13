@@ -67,3 +67,14 @@ hero-numの登場はback.out(1.6)のオーバーシュート、kickerピルは�
 ・品質確認（2回目、全修正反映後）：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、runtime/motion/craft/audio全て0 errors・0 warnings、contrast(WCAG AA) 24/24合格。layoutはKen Burnsズームによる想定内のinfo 7件のみ（エラー・警告なし）。S3をスナップショットで目視確認し、文言修正とレイアウトに問題のないことを確認済み。
 
 【重要・ユーザーへの申し送り】本ワークフローの「reel-qaによる修正ループは最大1回まで」という規定に従い、上記2回目の修正に対する校正課(reel-qa)への再レビュー依頼は行っていません。1回目レビューで指摘された事項（文章完結性・1シーン1情報・読了ペース）はすべて本修正で対応済みと判断していますが、第三者による最終目視確認は未実施のため、公開前にユーザー自身でもvideo.mp4を一度確認いただくことを推奨します。校正課は、事実関係の正確性と政治的中立性（特定政党・候補者への評価を避け、事実と団体の財政方針に焦点を当てた構成になっているか）についても確認済みで、問題なしと判定しています。
+
+ユーザーからの確認メール返信を受けた3回目の修正点（演出の調整、3回目のrender・check）:
+・S2・S3・S4で「headline内の文章」と「別要素の巨大なhero-num」が同じ数字を2回表示していた冗長な構成を解消。headline+hero-numを1つの要素に統合し、数字部分だけをインライン(<span class="emp">)で拡大・アンバー色に強調する「一文の中で数字を強調する」デザインに変更(ユーザー指定)。
+  - S2: 「5年間で<br/>1兆円(強調)<br/>ほどです。」
+  - S3: 「5年間で<br/>3兆円(強調)<br/>を超えます。」
+  - S4: 「1.5兆円(強調)<br/>程度で、<br/>調整しています。」
+・S1も同様に、本文中の「3倍」をインラインで拡大・アンバー色に強調（「在日米軍の経費、<br/>今の3倍(強調)<br/>を要求されています。」）。S1は元々hero-numを持たない構成だったため、今回新たに強調演出を追加。
+・数字強調部分の登場アニメーションは、旧hero-numと同じback.out(1.6)のオーバーシュートを維持。
+・BGMが「不気味」とのユーザー指摘を受け、Darkest Child(Kevin MacLeod)からThinking Music(Kevin MacLeod, incompetech.com, CC BY 4.0)に差し替え。あわせてBGM音量をdata-volume="0.5"→"0.35"に下げた。caption.txtのMusicクレジットも修正。
+・品質確認（3回目、全修正反映後）：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、runtime/motion/craft/audio全て0 errors・0 warnings、contrast(WCAG AA) 25/25合格。layoutはKen Burnsズームによる想定内のinfo 7件のみ。S1〜S4をスナップショットで目視確認し、数字強調のレイアウト崩れ・テキストのはみ出しがないことを確認済み。この修正はユーザーからの対話フィードバックへの対応であり、reel-qaの再呼び出しは行っていない。
+・BGMファイルはassets/bgm/thinking-music.mp3としてInstagram/assets/bgm/にも保存・コミット済み。
