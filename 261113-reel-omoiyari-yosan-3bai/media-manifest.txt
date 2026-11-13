@@ -96,3 +96,10 @@ hero-numの登場はback.out(1.6)のオーバーシュート、kickerピルは�
 ・棒グラフのタグ文字(「今」「米」「日」)とラベル文字(「1兆円」等)が初期値22px/26pxでCraft基準(28px)を下回っていたため、両方とも28pxに修正。
 ・使用文字が変わったためZen Kaku Gothic New Black サブセットフォントを再生成(113文字)。
 ・品質確認（5回目、全修正反映後）：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → 0 errors, 0 warnings(craft含む全カテゴリ)。contrast(WCAG AA) 33/33合格。layoutはKen Burnsズームによる想定内info 7件のみ。S2・S3・S4を時刻7s/13s/18sでスナップショットし、棒グラフが意図通り1本→2本→3本と累積し、左側テキストと重ならず、タグ・ラベルが可読サイズで表示されていることを目視確認済み。この修正はユーザーからの対話フィードバックへの対応であり、reel-qaの再呼び出しは行っていない。
+
+公開完了を記録:
+・ユーザーの承認「それではこれで公開してもらえますか？」を受け、Windsor.ai execute_action(connector: instagram, action: create_video_post, account: 17841452838964183)で公開。
+・MCPツール呼び出し自体は60秒でタイムアウトしたが、Meta側の処理は継続しており公開は成功していた（get_dataで確認）。
+・Media ID: 18223466851354945
+・投稿URL: https://www.instagram.com/reel/DfrqDhVjKfl/
+・投稿日時: 2026-11-13T12:43:14+0000
