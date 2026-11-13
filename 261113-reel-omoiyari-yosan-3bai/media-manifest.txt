@@ -78,3 +78,11 @@ hero-numの登場はback.out(1.6)のオーバーシュート、kickerピルは�
 ・BGMが「不気味」とのユーザー指摘を受け、Darkest Child(Kevin MacLeod)からThinking Music(Kevin MacLeod, incompetech.com, CC BY 4.0)に差し替え。あわせてBGM音量をdata-volume="0.5"→"0.35"に下げた。caption.txtのMusicクレジットも修正。
 ・品質確認（3回目、全修正反映後）：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、runtime/motion/craft/audio全て0 errors・0 warnings、contrast(WCAG AA) 25/25合格。layoutはKen Burnsズームによる想定内のinfo 7件のみ。S1〜S4をスナップショットで目視確認し、数字強調のレイアウト崩れ・テキストのはみ出しがないことを確認済み。この修正はユーザーからの対話フィードバックへの対応であり、reel-qaの再呼び出しは行っていない。
 ・BGMファイルはassets/bgm/thinking-music.mp3としてInstagram/assets/bgm/にも保存・コミット済み。
+
+ユーザーからの再指摘を受けた4回目の修正点（構成の変更、4回目のrender・check、本番確定版）:
+・「今の水準・米国の要求・日本の調整額を棒グラフにし、右側に徐々に出す構成にしては」というユーザー提案を受け、個別に全画面表示していた旧S2(1兆円)・S3(3兆円)・S4(1.5兆円)の3シーンを統合し、1つの比較棒グラフシーン(新S2)に再構成。
+・新S2：「今の水準」「米国の要求」「日本の調整額」の3本の横棒グラフを、左から右へ伸びる形で1本ずつ順番に表示(scaleXアニメーション、power3.out)。各バーの右端に金額(1兆円/3兆円/1.5兆円)をback.out(1.6)のオーバーシュートで表示。棒の長さは金額に比例(1兆円=基準、3兆円=3倍、1.5兆円=1.5倍の長さ)。シーン尺は3つの情報を順に見せるため8.5秒に設定。
+・これに伴い、旧S5(同盟の本質)→新S3、旧S6(2つの安心運動)→新S4、旧S7(保存CTA)→新S5に番号を繰り下げ。全体の構成は5シーンに整理(フック→比較棒グラフ→同盟の本質→2つの安心運動→保存CTA)。
+・動画全長は33.1秒→27.3秒に短縮（3シーンを1シーンの比較グラフに統合したことで、むしろ当初の目安(25〜30秒)に近づいた）。
+・使用文字が変わったためZen Kaku Gothic New Black サブセットフォントを再生成。
+・品質確認（4回目、全修正反映後）：npx hyperframes lint → 0 errors, 0 warnings。npx hyperframes check → ok:true、runtime/motion/craft/audio全て0 errors・0 warnings、contrast(WCAG AA) 25/25合格。layoutはKen Burnsズーム・スライド遷移中の想定内info 9件のみ（エラー・警告なし）。全5シーンをスナップショットで目視確認し、3本の棒グラフが順番に伸びて比較できる構成になっていることを確認済み。この修正はユーザーからの対話フィードバックへの対応であり、reel-qaの再呼び出しは行っていない。
