@@ -51,6 +51,9 @@ reel-qaレビューでの指摘と対応(いずれも反映済み):
 ・保存CTA素材が別ドラフトと酷似しているという指摘 → 上記の通り素材を差し替え。
 ・(当初の7シーン版で指摘された)S3の2数値が別々の世論調査由来で動画内で区別がつかないという指摘 → ユーザー指示により両方とも朝日新聞の同一調査の数字として一本化したため、この論点自体を解消。
 
+ユーザーからの確認メール返信を受けた追加修正:
+・S2のアイコンを書類リスト型から、食品(買い物かご)のイラストに変更。「食品の消費税」というテーマを視覚的にも表現。
+
 品質確認:
 npx hyperframes lint → 0 errors, 6 warnings(全てtimeline_track_too_dense、Studio編集利便性に関する注意でレンダリング結果に影響なし)。
 npx hyperframes check → ok:true、layout/motion/contrast/craft/runtime/audioすべて0 errors・0 warnings(コントラストWCAG AA全件合格)。
