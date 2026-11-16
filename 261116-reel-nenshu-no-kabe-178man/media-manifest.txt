@@ -2,22 +2,29 @@
 分析課(reel-analyst)→企画課(reel-planner)のネタ出しフローを経て、企画課の推薦案(案2)を採用。もう一方の推薦案(案4「予算、青天井になった日」)は既存フォルダ261026-reel-yosan-143-40chouen(143兆円の概算要求・シーリング撤廃)とテーマが実質重複するため見送った。
 企画課が「未確認」とした数字(基礎控除58万円→62万円、壁160万円→178万円、年収帯別減税額)は、制作前にWeb検索で複数の独立した情報源(山田コンサルティンググループ、イオン銀行、HT税理士法人、All About)を突き合わせて裏取り済み。
 
-実写:
+実写(全7シーンに実写背景あり):
 assets/images/piggy-bank-pink-02.jpg (S1「8,000円」フック, Ken Burnsズーム 1.0→1.08)
 assets/images/brick-wall-02.jpg (S2「178万円に上がった」, Ken Burnsズーム 1.0→1.09)
+assets/images/desk-meeting-overhead-01.jpg (S3 バーチャート背景, Ken Burnsズーム 1.0→1.08)
 assets/images/desk-laptop-coffee-01.jpg (S4「一番得するのは475万〜665万円」, Ken Burnsズーム 1.0→1.09)
-7シーン中3シーンに実写背景あり(S3バーチャート・S5団体紹介・S6/S7 CTAはmesh-gradient背景+アイコン)。
+assets/images/hands-holding-bw-01.jpg (S5「2つの安心運動」, Ken Burnsズーム 1.0→1.08)
+assets/images/notebook-blank-open-01.png (S6 保存CTA, Ken Burnsズーム 1.0→1.08)
+assets/images/hands-typing-laptop-01.jpg (S7 コメントCTA, object-position center 72%で顔が写らないようクロップ, Ken Burnsズーム 1.0→1.08)
 
 素材選定の注意点(引き継ぎ事項):
-いずれもPixabayで本制作時に新規検索・ダウンロードした写真で、直近2本(261026-reel-yosan-143-40chouen、261028-reel-bouei-zouzei-2027)で使われたファイルとは完全に別物(ファイル名・被写体とも重複なし)。外国硬貨・外国語テキスト・実在人物の顔が写っていないことを目視確認済み。
+いずれもPixabayで本制作時に新規検索・ダウンロードした写真で、直近2本(261026-reel-yosan-143-40chouen、261028-reel-bouei-zouzei-2027)で使われたファイルとは完全に別物(ファイル名・被写体とも重複なし、reel-qaで実際にフレーム比較済み)。外国硬貨・外国語テキスト・実在人物の顔が写っていないことを目視確認済み(S7は顔が写り込む構図だったためobject-positionで手元のみが見えるようクロップ)。
 出典(Pixabay pageURL):
 ・piggy-bank-pink-02.jpg: https://pixabay.com/photos/pig-piggy-bank-moneybox-632116/
 ・brick-wall-02.jpg: https://pixabay.com/photos/brick-wall-building-structure-7654505/
+・desk-meeting-overhead-01.jpg: https://pixabay.com/photos/overhead-documentation-focused-work-10224653/
 ・desk-laptop-coffee-01.jpg: https://pixabay.com/photos/desk-tea-coffee-table-laptop-cup-4222025/
+・hands-holding-bw-01.jpg: https://pixabay.com/photos/hands-friendship-together-63743/
+・notebook-blank-open-01.png: https://pixabay.com/photos/a-book-isolated-open-book-empty-3246186/
+・hands-typing-laptop-01.jpg: https://pixabay.com/photos/laptop-business-office-desk-job-8236497/
 
 bgm:
-assets/bgm/bgm.mp3 (source: Instagram/assets/bgm/perspectives-31s.mp3 — Kevin MacLeod「Perspectives」, incompetech.com, CC BY 4.0。元音源12分を31秒にトリム)
-直前のリール(261028、投稿順で直近は11/13投稿のThinking Music)とは異なる曲を選定。data-volume="1.2"、data-fade-in="0.4"、data-fade-out="1.3"、data-track-index="2"のaudio要素としてindex.html直下に配置。
+assets/bgm/bgm.mp3 (source: Instagram/assets/bgm/perspectives-34s.mp3 — Kevin MacLeod「Perspectives」, incompetech.com, CC BY 4.0。元音源12分を34秒にトリム)
+直前の投稿(2026-11-13投稿分、Thinking Music)、2つ前(261028、Clean Soul)、3つ前(261026、Hidden Agenda)のいずれとも異なる曲を選定。reel-qaで冒頭5秒PCMの波形ハッシュ(md5)を照合し、3本との不一致を確認済み。data-volume="1.2"、data-fade-in="0.4"、data-fade-out="1.3"、data-track-index="2"のaudio要素としてindex.html直下に配置。
 
 フォント:
 Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得(91文字、12.6KB)し、assets/fonts/zenkaku-900.woff2としてローカル保存して各シーンの@font-faceで参照。本文(sub/footer)はHyperFramesバンドル経由のNoto Sans JP。
@@ -26,22 +33,30 @@ gsap:
 cdn.jsdelivr.netがクラウド実行環境からブロックされるため、npm installでgsap@3.13.0を取得しvendor/gsap.min.jsとしてローカル参照。
 
 構成:
-1080×1350、7シーン、合計29.9秒。
-S1(0-3.9s) 「年収300万円の減税額、たった8,000円。」(hero-num即提示フック)
-S2(3.9-8.1s) 「税金がかかり始める年収が、178万円に上がりました。」(壁の意味を文中で説明)
-S3(8.1-14.1s) バーチャートで年収帯別の減税額(300万円8,000円/500万円27,000円/600万円36,000円/800万円8,000円)を可視化
-S4(14.1-18.7s) 「一番得するのは年収475万〜665万円の人です。」
-S5(18.7-22.9s) 「2つの安心運動」(団体の立場)
-S6(22.9-26.4s) 保存CTA
-S7(26.4-29.9s) コメントCTA
+1080×1350、7シーン、合計32.9秒。
+S1(0-4.1s) 「年収300万円の減税額、たった8,000円。」(hero-num即提示フック)
+S2(4.1-8.8s) 「税金がかかり始める年収が、178万円に上がりました。」(壁の意味を文中で説明)
+S3(8.8-15.8s) バーチャートで年収帯別の減税額(300万円8,000円/500万円27,000円/600万円36,000円/800万円8,000円)を可視化
+S4(15.8-20.8s) 「一番得するのは年収475万〜665万円の人です。」
+S5(20.8-25.5s) 「2つの安心運動」(団体の立場)
+S6(25.5-29.0s) 保存CTA
+S7(29.0-32.9s) コメントCTA
 シーンごとに異なるアイコン(コイン/上矢印/バーチャート/ターゲット/盾ハート/しおり/吹き出し)を使用。
 数字・見出しの登場はback.out(1.6)のオーバーシュート、kickerピルはスライドのみ(フェードなし)で統一。
-S1は写真(ピギーバンク)の上に暗いオーバーレイ(opacity 0.72〜0.96)を重ね、WCAG AAコントラストを確保。
+全シーンで写真の上に暗いオーバーレイ(opacity 0.7〜0.97)を重ね、WCAG AAコントラストを確保。
 
 品質確認:
 npx hyperframes lint → 0 errors, 7 warnings(全てtimeline_track_too_dense、Studio編集利便性に関する注意でレンダリング結果に影響なし)。
-npx hyperframes check → ok:true、layout/motion/contrast/craft/runtime/audioすべて0 errors・0 warnings(コントラストWCAG AA全件合格)。layoutのinfo 3件はKen Burnsズームによる想定内のcontainer_overflowのみ。
-npx hyperframes render --quality looks --output final.mp4 でレンダリング(12.6MB、29.9秒)。
+npx hyperframes check → ok:true、layout/motion/contrast/craft/runtime/audioすべて0 errors・0 warnings(コントラストWCAG AA全件合格)。layoutのinfo 7件はKen Burnsズームによる想定内のcontainer_overflowのみ。
+npx hyperframes render --quality looks --output final.mp4 でレンダリング(16.4MB、32.9秒)。
+
+reel-qaレビュー(1回目)での指摘と対応(2回目のrender・check):
+1. 全7シーン中4シーン(S3・S5・S6・S7)がmesh-gradientのみで実写背景が無いという指摘 → 上記の通り4シーンにPixabayの新規写真を追加し、全7シーンに実写背景を統一。
+2. CAFSロゴに白い縁取りが付いており過去のリールと異なるという指摘 → chrome.htmlのdrop-shadow多重掛けを削除し、影のみのシンプルな表示に戻した。
+3. S3のバーチャート「600万円」行の値ラベル「36,000円」が上下にズレて表示が欠けるバグの指摘 → `.value`のtop座標をトラックの実際の位置(top:46px)に合わせて44pxに修正。
+4. S5のsub「消費税を16〜20%へ。」が動詞のない尻切れ文という指摘 → 「消費税を16〜20%へ引き上げ、医療・介護・教育の安心を広げます。」の1文に統合。
+5. S2・S3・S4・S5・S7で文字量に対してシーン尺が短いという指摘 → 各シーンの尺を0.3〜1.5秒ずつ延長(合計29.9秒→32.9秒)。S3は4本のバーチャートという情報量の多さを踏まえ+1.5秒。CLAUDE.mdの「30代OL基準の分かりやすさ」を優先し、文言を削るより読了時間を延ばす方針を取った(目安の25〜30秒からはやや超過)。
+修正後、reel-qaへ再レビューを依頼し対応状況を確認済み。
 
 実績データとの関係(申し送り事項の反映):
 分析課・企画課からの申し送り(冒頭3秒で結論・数字を即提示、保存/共有を促すCTAを入れる、専門用語は噛み砕く)をS1の即数字フック・S2の「壁」の平易な説明・S6の明示的な保存CTAに反映した。
