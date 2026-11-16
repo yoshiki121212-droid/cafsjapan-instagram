@@ -56,6 +56,9 @@ reel-qaレビューでの指摘と対応(いずれも反映済み):
 ・S2のsub下の空きスペース(見出しの下・サブテキスト右)に、ユーザー指定の位置へ食品(七面鳥・牛乳・キャベツ・肉・魚・卵・バナナ・オレンジ・パン等)のフリー素材イラストを配置。当初は自作のSVGアイコンで対応したが、ユーザーから「自作ではなくフリー素材のイラストか実写を使ってほしい」との指摘を受け、Pixabayの透過PNGイラスト(フリー素材)に差し替えた。
   出典: assets/images/food-items-illustration-01.png ← https://pixabay.com/vectors/chicken-milk-eggs-fruits-fish-559892/ (Pixabay、透過背景のベクターイラスト)
 
+公開:
+ユーザーより「これでオッケーです。アップしてもらえますか？」と承認を得たため、Windsor.ai経由(execute_action、connector: instagram、action: create_video_post)で@cafs.japanアカウントに公開した。Media ID: 18418235794092774。share_to_feed=trueのためフィードにも表示される。
+
 品質確認:
 npx hyperframes lint → 0 errors, 6 warnings(全てtimeline_track_too_dense、Studio編集利便性に関する注意でレンダリング結果に影響なし)。
 npx hyperframes check → ok:true、layout/motion/contrast/craft/runtime/audioすべて0 errors・0 warnings(コントラストWCAG AA全件合格)。
