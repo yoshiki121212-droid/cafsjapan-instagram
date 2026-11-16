@@ -53,6 +53,8 @@ reel-qaレビューでの指摘と対応(いずれも反映済み):
 
 ユーザーからの確認メール返信を受けた追加修正:
 ・S2のアイコンを書類リスト型から、食品(買い物かご)のイラストに変更。「食品の消費税」というテーマを視覚的にも表現。
+・S2のsub下の空きスペース(見出しの下・サブテキスト右)に、ユーザー指定の位置へ食品(七面鳥・牛乳・キャベツ・肉・魚・卵・バナナ・オレンジ・パン等)のフリー素材イラストを配置。当初は自作のSVGアイコンで対応したが、ユーザーから「自作ではなくフリー素材のイラストか実写を使ってほしい」との指摘を受け、Pixabayの透過PNGイラスト(フリー素材)に差し替えた。
+  出典: assets/images/food-items-illustration-01.png ← https://pixabay.com/vectors/chicken-milk-eggs-fruits-fish-559892/ (Pixabay、透過背景のベクターイラスト)
 
 品質確認:
 npx hyperframes lint → 0 errors, 6 warnings(全てtimeline_track_too_dense、Studio編集利便性に関する注意でレンダリング結果に影響なし)。
