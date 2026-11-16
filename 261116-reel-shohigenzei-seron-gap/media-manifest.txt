@@ -1,57 +1,58 @@
 テーマ: 消費減税・支援金に賛成49%。でも暮らしが良くなると思う人は3割程度(世論調査のギャップ)
-ユーザーから直接指定されたネタ(2026-11-16付朝日新聞一面の世論調査記事)。今回は分析課(reel-analyst)・企画課(reel-planner)は使わず、作成課(制作)と校正課(reel-qa)のみで制作。
+ユーザーから直接指定されたネタ(2026-11-16付朝日新聞一面の世論調査記事)。分析課(reel-analyst)・企画課(reel-planner)は使わず、作成課(制作)と校正課(reel-qa)のみで制作。
 
-事実確認(制作前にWeb検索で裏取り):
-・朝日新聞が2026年11月14・15日に実施した全国電話世論調査で、消費税減税・支援金法案への「賛成」49%・「反対」40%(高市内閣支持率は同調査で49%、初めて50%を切った)。
-・ユーザー指定の「暮らしが良くなるとの声は31%」という正確な数字は、Web検索(複数回・拡張検索含む)では朝日新聞の設問として直接確認できなかった。最も近い数字は、同時期に実施された共同通信の世論調査における「物価高対策としての効果が『大きい』30.9%(『小さい』63.5%)」で、ユーザーの意図した趣旨(賛成は多いが効果を実感する人は少ない、というギャップ)と一致するため、この共同通信の数字(31%として表示)を採用した。出典は朝日新聞ではなく共同通信として、本文・キャプションとも正確に区別して記載している。
-・共同通信の同調査で、財源・支援金制度の説明について「説明する必要がある」85.6%・「必要はない」12.3%も確認。
-・法案の内容(食品消費税を2027年春から2年間限定で1%に、中低所得勤労者向け支援金は2029年度から本格導入、11/6衆院通過・参院審議中)も複数報道で確認。
+事実確認・ユーザー指示による方針変更:
+・当初、ユーザー指定の「暮らしが良くなるとの声は31%」をWeb検索で裏取りしたところ、朝日新聞の設問としては直接確認できず、同時期の共同通信の別の世論調査(物価高対策としての効果が「大きい」30.9%)が最も近い数字として見つかった。初稿ではこの2つの調査を別々に出典表記して両論併記していたが、ユーザーから「両方含めると煩雑。使う数字は片方でよい」との指示を受け、ユーザーが直接指定した前提(今日の朝日新聞一面の記事)に従い、49%・3割(31%)とも朝日新聞の同一世論調査(2026年11月14・15日実施)の数字として一本化した。共同通信の数字(財源説明が必要85.6%等)を扱っていたシーンは削除し、全体を6シーン構成に整理した。
+・朝日新聞の調査で「賛成」49%・「反対」40%、法案は食品消費税を2027年春から2年間限定で1%に下げ、中低所得勤労者向け支援金は2029年度から開始という内容は、複数の報道で確認済み。
 
-実写(全7シーンに実写背景あり、いずれもPixabayで新規取得):
+実写(全6シーンに実写背景あり、いずれもPixabayで新規取得):
 assets/images/crowd-silhouette-legs-01.jpg (S1「賛成49%」フック、人々のシルエット)
 assets/images/notebook-ringbinder-warm-01.jpg (S2「法案の中身」)
 assets/images/justice-scale-01.jpg (S3「でも、実感は別です」、天秤=比較の象徴)
-assets/images/fountain-pen-writing-01.jpg (S4「財源の説明が必要85.6%」)
-assets/images/hands-holding-generations-02.jpg (S5「2つの安心運動」)
-assets/images/notebook-pink-flatlay-01.jpg (S6 保存CTA)
-assets/images/pen-squiggle-writing-01.jpg (S7 コメントCTA)
+assets/images/hands-holding-generations-02.jpg (S4「2つの安心運動」)
+assets/images/notebook-pencils-can-01.jpg (S5 保存CTA)
+assets/images/pen-squiggle-writing-01.jpg (S6 コメントCTA)
 出典(Pixabay pageURL):
 ・crowd-silhouette-legs-01.jpg: https://pixabay.com/photos/people-crowd-walking-legs-2560162/
 ・notebook-ringbinder-warm-01.jpg: https://pixabay.com/photos/ring-binder-pen-journal-notebook-5547066/
 ・justice-scale-01.jpg: https://pixabay.com/photos/justice-law-judgment-trial-libra-6778953/
-・fountain-pen-writing-01.jpg: https://pixabay.com/photos/fountain-pen-write-calligraphy-6200263/
 ・hands-holding-generations-02.jpg: https://pixabay.com/photos/holding-hands-touching-supporting-8288239/
-・notebook-pink-flatlay-01.jpg: https://pixabay.com/photos/write-white-space-flatlay-business-3529981/
+・notebook-pencils-can-01.jpg: https://pixabay.com/photos/notebook-pencils-stationary-iphone-2620192/
 ・pen-squiggle-writing-01.jpg: https://pixabay.com/photos/ballpoint-pen-pen-paper-stroked-794330/
-候補検討時に、英数字の文字が写り込む写真(ニュース文字ブロック、英語の契約書、チェックリストの英語見出し等)は除外した。今回の7点は、同日制作の別ドラフト(261116-reel-nenshu-no-kabe-178man、未公開)および直近の公開済み2本(261028・261026)のいずれとも別ファイル・別被写体。
+reel-qaの指摘を受け、保存CTA用の素材は当初`notebook-pink-flatlay-01.jpg`(腕時計・ペン・花のフラットレイ)を使う予定だったが、同日作成した別ドラフト(261116-reel-nenshu-no-kabe-178man、未公開)のS6で使った`notebook-watch-flatlay-01.jpg`と小物構成(ピンク×ローズゴールドの腕時計・枯れた小花・白い布地)が酷似しており「既視感」のリスクがあると指摘されたため、腕時計の写っていない`notebook-pencils-can-01.jpg`に差し替えた。
+候補検討時、英数字の文字が写り込む写真(ニュース文字ブロック、英語の契約書、チェックリストの英語見出し、英語の小説ページ等)は除外した。
 
 bgm:
 assets/bgm/bgm.mp3 (source: Instagram/assets/bgm/rite-42s.mp3 — Kevin MacLeod「Rite of Passage」, incompetech.com, CC BY 4.0。元音源4分41秒を42秒にトリム)
-直近の投稿・ドラフトで使用した曲(Perspectives/Thinking Music/Clean Soul/Hidden Agenda等)とは異なる。data-volume="1.2"、data-fade-in="0.4"、data-fade-out="1.3"、data-track-index="2"のaudio要素としてindex.html直下に配置。
+reel-qaで冒頭5秒PCMハッシュを前回2本(261028=Clean Soul、261026=Hidden Agenda)および同日の別ドラフト(Perspectives)と照合し、いずれとも不一致(重複なし)を確認済み。data-volume="1.2"、data-fade-in="0.4"、data-fade-out="1.3"のaudio要素としてindex.html直下に配置。
 
 フォント:
-Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得(137文字、19.9KB)し、assets/fonts/zenkaku-900.woff2としてローカル保存して各シーンの@font-faceで参照。本文(sub/footer)はHyperFramesバンドル経由のNoto Sans JP。
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/zenkaku-900.woff2としてローカル保存して各シーンの@font-faceで参照。本文(sub/footer)はHyperFramesバンドル経由のNoto Sans JP。
 
 gsap:
-cdn.jsdelivr.netがクラウド実行環境からブロックされるため、npm install済みのgsap@3.13.0(vendor/gsap.min.js)を別プロジェクトから流用しローカル参照。
+cdn.jsdelivr.netがクラウド実行環境からブロックされるため、npm install済みのgsap@3.13.0(vendor/gsap.min.js)をローカル参照。
 
 構成:
-1080×1350、7シーン、合計39.3秒。
-S1(0-4.3s) 「消費減税・支援金に、賛成は49%でした。」(1文に数字を組み込むフック構成。前回ユーザー指摘を踏まえ、最初からhero-numを独立させず文章に統合)
-S2(4.3-10.8s) 法案の中身(食品消費税2027年春から2年間1%・支援金は2029年度から)
-S3(10.8-17.3s) 「でも、実感は別です」法案への賛成49% vs 暮らしが良くなると思う人31%、同じ見た目の重みで2つの数字を比較表示
-S4(17.3-22.8s) 財源の説明が必要85.6%、でもまだ説明されていない
-S5(22.8-29.8s) 「2つの安心運動」(団体の立場)
-S6(29.8-34.3s) 保存CTA
-S7(34.3-39.3s) コメントCTA
-シーンごとに異なるアイコン(投票チェック/書類/天秤/はてな/盾ハート/しおり/吹き出し)を使用。
+1080×1350、6シーン、合計34.8秒。
+S1(0-4.3s) 「消費減税・支援金に、賛成は49%でした。」(1文に数字を組み込むフック構成)
+S2(4.3-11.8s) 法案の中身(食品消費税2027年春から2年間1%・支援金は2029年度から)
+S3(11.8-18.3s) 「でも、実感は別です」法案への賛成49% vs 暮らしが良くなると思う人31%、同じフォントサイズ・配色で2つの数字を比較表示(どちらも「ついで」に見えないよう統一)
+S4(18.3-25.3s) 「2つの安心運動」(団体の立場)
+S5(25.3-29.8s) 保存CTA
+S6(29.8-34.8s) コメントCTA
+シーンごとに異なるアイコン(投票チェック/書類/天秤/盾ハート/しおり/吹き出し)を使用。
 数字・見出しの登場はback.out(1.6)のオーバーシュート、kickerピルはスライドのみ(フェードなし)で統一。
-全シーンで写真の上に暗いオーバーレイ(opacity 0.68〜0.97)を重ね、WCAG AAコントラストを確保。
-前回(261116-reel-nenshu-no-kabe-178man)のユーザー指摘を踏まえ、S1は最初からhero-num単体ではなく文章に数字を組み込む構成にし、S3の2つの比較数値(49%・31%)は同じフォントサイズ・配色で並べ、どちらかが「ついで」に見えないようにした。また全シーンの尺は、文字量に対して7文字/秒を下限目安に余裕を持たせて最初から設計した(reel-qaの2回目レビューで指摘された読了時間不足の反省を踏まえた対応)。
+全シーンで写真の上に暗いオーバーレイを重ね、WCAG AAコントラストを確保。
+
+reel-qaレビューでの指摘と対応(いずれも反映済み):
+・S3の見出し「暮らしが良くなると思う人は、3割程度。」が名詞止めで尻切れという指摘 → 「…3割程度です。」に修正。
+・S2が文字量に対して読了時間がやや不足しているという指摘 → subを「中低所得の人向けの「支援金」は、2029年度から本格的に始まります。」から「中低所得の人への支援金は、2029年度から始まります。」に短縮し、シーン尺を6.5秒→7.5秒に延長。
+・S1背景(人々のシルエット)のオーバーレイが濃すぎて写真がほぼ判別できないという指摘 → オーバーレイのopacityを0.78〜0.97から0.6〜0.95に調整し、実写であることが分かる程度に明るさを戻した(コントラストWCAG AA合格は維持)。
+・保存CTA素材が別ドラフトと酷似しているという指摘 → 上記の通り素材を差し替え。
+・(当初の7シーン版で指摘された)S3の2数値が別々の世論調査由来で動画内で区別がつかないという指摘 → ユーザー指示により両方とも朝日新聞の同一調査の数字として一本化したため、この論点自体を解消。
 
 品質確認:
-npx hyperframes lint → 0 errors, 7 warnings(全てtimeline_track_too_dense、Studio編集利便性に関する注意でレンダリング結果に影響なし)。
-npx hyperframes check → ok:true、layout/motion/contrast/craft/runtime/audioすべて0 errors・0 warnings(コントラストWCAG AA全件合格、craftの読了時間チェックも1回目から0 warnings)。layoutのinfo 8件はKen Burnsズームによる想定内のcontainer_overflowのみ。
-npx hyperframes render --quality looks --output final.mp4 でレンダリング(8.3MB、39.3秒)。
-
-reel-qaへのレビュー依頼:このmanifest作成後、reel-qaサブエージェントに最終レビューを依頼する。
+npx hyperframes lint → 0 errors, 6 warnings(全てtimeline_track_too_dense、Studio編集利便性に関する注意でレンダリング結果に影響なし)。
+npx hyperframes check → ok:true、layout/motion/contrast/craft/runtime/audioすべて0 errors・0 warnings(コントラストWCAG AA全件合格)。
+npx hyperframes render --quality looks --output final.mp4 でレンダリング(7.4MB、34.8秒)。
+スナップショットで全シーンを目視確認済み。
