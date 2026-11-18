@@ -1,65 +1,73 @@
 テーマ: EV・PHEVへの新税(2028年5月導入調整、自動車重量税の特例加算)
 ユーザー(代表)から直接指定されたテーマ。今回は分析課(reel-analyst)・企画課(reel-planner)は経由せず、作成課(対話セッション)が直接制作し、校正課(reel-qa)でレビューする運用。
-スタンスもユーザー指定：課税の理屈自体は理解できるが、今は脱炭素化・EV普及を進める時期であり、この増税は時期尚早ではないか。
+スタンスもユーザー指定・対話で確定した構成：
+「EVは重いから重量税を課すのは当然」(課税の理屈への理解)→「でも、日本は2035年までに新車販売で電動車100%を目指している」(事実)→「そのためにはEVを促進する必要があり、この増税は時期尚早では」(結論)、という三段構成。
 
 ソース: ユーザー提示のYahoo!ニュース記事(共同通信2026年11月18日配信「EV新税28年5月導入調整 重量応じ加算、税額焦点」)。
 このクラウド実行環境からnews.yahoo.co.jpへは直接アクセスできなかった(許可ドメイン外)ため、WebSearchで同記事(共同通信配信、東京新聞・デイリースポーツ等の転載含む)の内容を複数ソースから裏取りした。
 数字(普通車最大年2.4万円・軽EV年3,600円・PHEVはEVの半分目安・新車は登録から3年間免除・既販車は2028年5月以降の最初の車検から対象)および日本自動車会議所の要望書(2026年10月26日付)の内容を確認済み。
+あわせて、ユーザーが示した「2035年・温室効果ガスゼロ」という記憶ベースの数字をWebSearchで裏取りし、正確には「2050年カーボンニュートラル(温室効果ガス排出実質ゼロ)」と「2035年までに乗用車の新車販売で電動車(EV・PHEV・HEV・FCV)100%を目指す」(経産省グリーン成長戦略、2020年12月策定、法的拘束力のない政策目標)という2つの異なる目標であることを確認。動画・キャプションとも、EVと直接結びつく後者(2035年・電動車100%)を採用した。
 
 実写(すべてPixabayで新規取得):
 assets/images/s1-ev-charging.jpg (S1「フック」, Pixabay ID:4293130, https://pixabay.com/photos/electric-car-e-car-electricity-4293130/, Ken Burnsズーム1.0→1.08)
-assets/images/s2-calendar.jpg (S2「2028年5月〜、3段階の車検タイミング」, Pixabay ID:660669, https://pixabay.com/photos/calendar-date-time-month-week-660669/, Ken Burnsズーム1.0→1.08)
+assets/images/s2-calendar.jpg (S2「2028年5月〜、車検タイミング」, Pixabay ID:660669, https://pixabay.com/photos/calendar-date-time-month-week-660669/, Ken Burnsズーム1.0→1.08)
 assets/images/s3-car-dashboard.jpg (S3「税額の内訳」, Pixabay ID:2667434, https://pixabay.com/photos/car-dashboard-speedometer-speed-2667434/, Ken Burnsズーム1.0→1.08)
-assets/images/s4-gas-station.jpg (S4「導入の理由」, Pixabay ID:1839760, https://pixabay.com/photos/filling-station-gas-gas-station-1839760/, Ken Burnsズーム1.0→1.08)
-assets/images/s5-solar-wind.jpg (S5「CAFSのスタンス・脱炭素は待ったなし」, Pixabay ID:1989416, https://pixabay.com/photos/renewable-energy-environment-wind-1989416/, Ken Burnsズーム1.0→1.08)
-assets/images/s6-notebook-pen.jpg (S6「保存CTA」, Pixabay ID:4491416, https://pixabay.com/photos/write-notebook-pen-hand-paper-4491416/, Ken Burnsズーム1.0→1.08)
-assets/images/s7-phone-hands.jpg (S7「コメントCTA」, Pixabay ID:1853302, https://pixabay.com/photos/hands-holding-smartphone-chatting-1853302/, Ken Burnsズーム1.0→1.08)
-全7シーンに実写背景あり(アイコンのみ・単色グラデーションのみのシーンなし)。
-S2・S6・S7は、同日に別テーマ(たばこ税、ユーザー判断により非公開・お蔵入り)で制作したPixabay画像と同一ファイルの再利用。当該リールは公開されないためフィード上での視覚的な重複は発生しない。公開済みの直近2本(261026・261028)とは重複なし。
+S4「課税の理屈への理解」は実写なし(ダークネイビー×アンバーのmesh-gradient背景のみ)。EVの重量そのものを表す適切な無地実写(外国ナンバープレート・外国ブランド名なし)がPixabay検索で見つからなかったため、素材なしで進行(全8シーン中6シーンに実写があり、最低2シーンの基準は十分満たす)。
+assets/images/s5-solar-wind.jpg (S5「2035年電動車100%の目標」, Pixabay ID:1989416, https://pixabay.com/photos/renewable-energy-environment-wind-1989416/, Ken Burnsズーム1.0→1.08)
+assets/images/s4-gas-station.jpg (S6「CAFSのスタンス・脱炭素は待ったなし」に流用, Pixabay ID:1839760, https://pixabay.com/photos/filling-station-gas-gas-station-1839760/, Ken Burnsズーム1.0→1.08)
+assets/images/s6-notebook-pen.jpg (S7「保存CTA」, Pixabay ID:4491416, https://pixabay.com/photos/write-notebook-pen-hand-paper-4491416/, Ken Burnsズーム1.0→1.08)
+assets/images/s7-phone-hands.jpg (S8「コメントCTA」, Pixabay ID:1853302, https://pixabay.com/photos/hands-holding-smartphone-chatting-1853302/, Ken Burnsズーム1.0→1.08)
+S2・S7・S8は、同日に別テーマ(たばこ税、ユーザー判断により非公開・お蔵入り)で制作したPixabay画像と同一ファイルの再利用。ユーザー本人が対話内で「タバコ税はネタとしてイマイチ」と明言しEVへの差し替えを指示しているため、同リールが公開されないことは確定済みであり、フィード上での視覚的な重複は発生しない。公開済みの直近2本(261026・261028)とは重複なし。
 
 素材選定で不採用にしたもの(目視確認で除外):
 - "electric car charging"検索のドイツの充電ステーション写真(Pixabay ID:5212924) — "Stromtankstelle"「Ladeplatz nur für Elektrofahrzeuge」等のドイツ語表記が読み取れるため不採用。
 - "electric car charging cable close up"検索の案内標識写真 — 英語「Electric vehicle only」の表記が大きく読み取れるため不採用。
-- "electric car charging cable close up"検索のスマートカー写真(Pixabay ID:1023035相当) — ドイツのナンバープレート(F0 12E)・「smart」「electric drive」のブランド表記・背景の他車のナンバープレートが写り込んでいるため不採用。
+- "electric car charging cable close up"検索のスマートカー写真 — ドイツのナンバープレート(F0 12E)・「smart」「electric drive」のブランド表記・背景の他車のナンバープレートが写り込んでいるため不採用。
 - 充電ポート接写の一候補 — 給油口カバー裏の注意書き・一部英数字表記が読み取れたため、より無地なケーブル接写(採用版)に差し替え。
 - "calendar numbers close up"検索の候補 — ドイツ語・英語・フランス語・オランダ語の曜日表記(Mittwoch/Wednesday/Mercredi/Woensdag等)が大量に読み取れるため不採用。
 - ガソリンスタンドの昼間の給油写真候補 — ノズルに「Diesel」の英語表記が読み取れるため、文字の写っていない夜間の無人スタンド写真(採用版)に変更。
 - notebook系の一候補 — 手書き英語の筆記体(人名"John Marsh"等)が読み取れるため不採用。ぼかしの効いた判読不能な手書き(採用版)に変更。
-- "typing laptop hands"検索の候補 — ブラウザメニューが英語・フランス語混在で、画面内に「How I promote my new blog posts」等の英文記事が大きく表示されているため不採用。
+- "typing laptop hands"検索の候補 — ブラウザメニューが英語・フランス語混在で、画面内に英文記事が大きく表示されているため不採用。
+- S4「EVは重い」の概念に合う実写(EVの側面・バッテリー等)を複数検索したが、欧州ナンバープレート・ブランドロゴが写り込む候補しか見つからず、妥協で採用するより実写なし(mesh-gradient背景)で進める方針とした。
 
 bgm:
-media/bgm.mp3 (source: Instagram/assets/bgm/rollin-at-5.mp3 — Kevin MacLeod「Rollin at 5」, incompetech.com, CC BY 4.0, 32.8秒にトリムし末尾1.2秒フェードアウト)
-直前に制作した非公開のたばこ税リール(Cold Funk)とも、公開済みの直近2本(261026 Hidden Agenda・261028 Clean Soul)とも別トラック。
+media/bgm.mp3 (source: Instagram/assets/bgm/rollin-at-5.mp3 — Kevin MacLeod「Rollin at 5」, incompetech.com, CC BY 4.0, 36.4秒にトリムし末尾1.2秒フェードアウト)
+直前に制作した非公開のたばこ税リール(Cold Funk)とも、公開済みの直近2本(261026 Hidden Agenda・261028 Clean Soul)とも別トラック(波形PCMハッシュで相違を確認)。
 
 フォント:
 Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照(headline/hero-numのみ)。kicker/sub/footer/tag-badge/hero-badgeはHyperFramesバンドル同梱のNoto Sans JP。
+構成変更のたびにサブセットを再取得(計5回)。
 
 gsap:
 npm installでgsapを取得し、vendor/gsap.min.jsとしてローカル参照。
 
 ロゴ:
-リポジトリルートの「CAFS ロゴ.png」を全7シーン左上(top:96px, left:64px)に、白縁取りの円形バッジでラップして配置。回転なし。
+リポジトリルートの「CAFS ロゴ.png」を全8シーン左上(top:96px, left:64px)に、白縁取りの円形バッジでラップして配置。回転なし。
 
-構成:
-1080×1350、7シーン、合計32.3秒。
-S1(0-4.0s) 「最大2.4万円」「EVの車検で、新しい税がかかります。」(フック)
-S2(4.0-9.5s) 「車検のたびに、重さに応じて加算されます。新車は登録から3年間、免除されます。」
-S3(9.5-13.5s) 「普通車の上限は」「2.4万円」(主の数字・大) 「軽EVは年3,600円」(従の数字・小バッジ)
-S4(13.5-18.0s) 「ガソリン税を払わないEVとの、不公平感をなくすためです。」
-S5(18.0-23.5s) 「脱炭素、待ったなし」タグ 「でも今は、EVを増やす時期のはずです。増税が、その流れを止めかねません。」(CAFSのスタンス)
-S6(23.5-27.5s) 保存CTA「保存して、2028年5月の開始を見届けてください。」
-S7(27.5-32.3s) コメントCTA「この増税のタイミング、どう思いますか？コメントで教えてください。」
+構成(ユーザーとの対話で確定した最終版、8シーン):
+1080×1350、合計35.9秒。
+S1(0-4.0s) フック「最大2.4万円」「EVの車検に、新税です。」(実写: EV充電ケーブル接写、アイコン: 稲妻)
+S2(4.0-9.5s) 「車検ごとに、重さで加算されます。新車は3年間、免除されます。」(実写: カレンダー、アイコン: カレンダー)
+S3(9.5-13.5s) 「普通車の上限は」「2.4万円」(主の数字・大) 「軽EVは年3,600円」(従の数字・小バッジ)(実写: 車のダッシュボード、アイコン: 円マーク)
+S4(13.5-17.5s) 課税の理屈への理解「EVは重い分、課税の理屈は理解できます。」(実写なし・mesh-gradient背景、アイコン: バッテリー)
+S5(17.5-22.0s) 「でも、目標は」「2035年、新車は電動車100%です。」(実写: 夕景のソーラーパネル・風車、アイコン: 葉っぱ)
+S6(22.0-27.6s) CAFSの結論「脱炭素、待ったなし」タグ「今は、EVを増やす時期のはずです。増税は、早すぎませんか。」(実写: 夜のガソリンスタンド、アイコン: ストップウォッチ)
+S7(27.6-31.1s) 保存CTA「保存して、2028年5月に見返してください。」(実写: ノートとペン、アイコン: しおり)
+S8(31.1-35.9s) コメントCTA「この増税のタイミング、どう思いますか？コメントで教えてください。」(実写: スマホを持つ手、アイコン: 吹き出し)
 
-シーンごとに異なるアイコン(ジャンプケーブル風プラグ/カレンダー/円マーク/ガソリンノズル/葉っぱ(脱炭素)/しおり/吹き出し)を使用。
+シーンごとに異なるアイコン(稲妻/カレンダー/円マーク/バッテリー/葉っぱ/ストップウォッチ/しおり/吹き出し)を使用。
 数字・バッジの登場はback.out(1.6)のオーバーシュート、kicker/tag-badgeはスライドのみ(フェードなし)で統一。
 headline/subはすべて完結した文で終わるよう統一。
 
-制作過程でのcraft警告への対応(過去リールの教訓を踏まえ事前に対応):
-初回のnpx hyperframes checkで、S3にhero-num+badge+headlineの3要素を詰め込んだ結果、文字量に対して読了時間が不足する"line_unread"警告が発生(「PHEVはEVの半分が目安」という3つ目の情報を同居させていたため)。
-対応として、PHEVの情報は動画から外しcaption.txt側の説明文のみに記載し、S3は「kicker(普通車の上限は)+ hero-num(2.4万円) + badge(軽EVは年3,600円)」という大小の数字ペア1情報に絞り込んだ。あわせてS3の尺を4.0秒に調整。
-修正後、npx hyperframes checkはCraft 0 errors, 0 warningsを確認。
+1回目のreel-qaレビュー(7シーン版)の指摘と対応:
+(1) S1のアイコンバッジ(EVプラグ+稲妻のつもりのSVG)が崩れた線画で判読不能、との指摘 → パスを単純な稲妻アイコン1本に全面的に書き直し、塗りつぶし(fill)表現に変更して解消。
+(2) 7字/秒基準での読了時間不足(S1・S2・S4・旧S5が軒並み床割れ、特に旧S5が最大1秒超不足) → 文言短縮(例: S1「EVの車検で、新しい税がかかります。」→「EVの車検に、新税です。」)と尺の再配分で解消。
+(3) 同日制作の非公開たばこ税リールとの画像重複(S2/旧S6/旧S7)について「本当に非公開確定か」との指摘 → ユーザー本人が対話内で明示的に不採用を宣言済みであることを確認し、重複は問題にならないと判断。
+これらの対応と並行して、ユーザーから「EVは重いから課税は当然→でも日本は2035年までに脱炭素(電動車100%)を目指している→だから増税は時期尚早では」という3段構成への変更指示があったため、旧S4(ガソリン税との不公平感)・旧S5(CAFSのスタンス)を、新S4(課税の理屈への理解、実写なし)・新S5(2035年電動車100%の目標)・新S6(結論)の3シーンに再構成(7シーン→8シーン、32.3秒→35.9秒)。
+再構成後、npx hyperframes checkで新たに(a)S7の読了時間不足、(b)アイコンバッジ内¥文字のコントラスト不足、(c)S4(無音場面)が3秒以上静止する"dead_stretch"警告、が発生したため、それぞれ文言短縮・アイコン文字色を紺に変更・mesh背景に緩やかなズームを追加して解消。
 
-品質確認:
-npx hyperframes@0.9.65 lint → 0 errors, 0 warnings(構造上の"nested_structure_needs_subcomposition"等9件のみ、単一ファイル構成によるStudio編集利便性の注意でレンダリング結果に影響なし。過去のリールと同型)。
-npx hyperframes@0.9.65 check → 0 errors。Contrast(WCAG AA) 23/23合格。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)7件のみ。Craft/Runtime/Motion/Audioすべて0 errors, 0 warnings。
-npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 32.3秒, H.264+AAC, 10.9MB。video.mp4にコピーして保存。
+品質確認(最終版):
+npx hyperframes@0.9.65 lint → 0 errors, 0 warnings(構造上の"nested_structure_needs_subcomposition"等の警告のみ、単一ファイル構成によるStudio編集利便性の注意でレンダリング結果に影響なし。過去のリールと同型)。
+npx hyperframes@0.9.65 check → 0 errors, 0 warnings(Craft含む)。Contrast(WCAG AA) 24/24合格。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。Runtime/Motion/Audioすべて0 errors, 0 warnings。
+npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 35.9秒, H.264+AAC, 11.2MB。video.mp4にコピーして保存。
+2回目のreel-qaレビュー実施済み(詳細は対話ログ参照)。

@@ -62,6 +62,14 @@
           radial-gradient(circle at 82% 8%, var(--amber-soft), transparent 55%),
           linear-gradient(180deg, rgba(6, 12, 20, 0.62) 0%, rgba(6, 12, 20, 0.34) 30%, rgba(6, 12, 20, 0.58) 52%, rgba(6, 12, 20, 0.80) 68%, rgba(6, 12, 20, 0.92) 100%);
       }
+      .mesh-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 80% 15%, rgba(217, 164, 65, 0.28), transparent 48%),
+          radial-gradient(circle at 10% 85%, rgba(217, 164, 65, 0.14), transparent 55%),
+          linear-gradient(160deg, #0b1420 0%, #0e1b2c 55%, #0b1420 100%);
+      }
       .logo-badge {
         position: absolute;
         top: 96px;
@@ -190,7 +198,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="32.3" data-width="1080" data-height="1350">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="35.9" data-width="1080" data-height="1350">
 
       <!-- S1: Hook -->
       <div id="s1" class="scene clip" data-start="0" data-duration="4.0" data-track-index="0">
@@ -200,17 +208,14 @@
         <div class="scrim"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
         <div class="icon-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 10 L7 10 L5 14 L9 14 L4 20 L5 15 L2 15 Z" />
-            <path d="M12 16 h7 a2 2 0 0 0 2-2 v-2 l-2-4 h-5" />
-            <circle cx="9" cy="18" r="1.4" />
-            <circle cx="17" cy="18" r="1.4" />
+          <svg viewBox="0 0 24 24" fill="#ffffff" stroke="none">
+            <path d="M13 2 L4 14 h6 l-1 8 9-12 h-6 z" />
           </svg>
         </div>
         <div id="s1-kicker" class="kicker">EVに新税</div>
         <div class="content">
           <div id="s1-hero" class="hero-num">最大2.4万円</div>
-          <div id="s1-headline" class="headline" style="margin-top:18px;">EVの車検で、<br />新しい税がかかります。</div>
+          <div id="s1-headline" class="headline" style="margin-top:18px;">EVの車検に、<br />新税です。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -238,8 +243,8 @@
         </div>
         <div id="s2-kicker" class="kicker">2028年5月〜</div>
         <div class="content">
-          <div id="s2-headline" class="headline">車検のたびに、重さに<br />応じて加算されます。</div>
-          <div id="s2-sub" class="sub">新車は登録から3年間、免除されます。</div>
+          <div id="s2-headline" class="headline">車検ごとに、重さで<br />加算されます。</div>
+          <div id="s2-sub" class="sub">新車は3年間、免除されます。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -257,7 +262,7 @@
         <div class="icon-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="9" />
-            <text x="12" y="16.5" font-size="11" text-anchor="middle" fill="#ffffff" stroke="none" font-family="sans-serif">¥</text>
+            <text x="12" y="16.5" font-size="11" text-anchor="middle" fill="#060c14" stroke="none" font-family="sans-serif">¥</text>
           </svg>
         </div>
         <div id="s3-kicker" class="kicker">普通車の上限は</div>
@@ -271,23 +276,21 @@
         </div>
       </div>
 
-      <!-- S4: reason -->
-      <div id="s4" class="scene clip" data-start="13.5" data-duration="4.5" data-track-index="0">
-        <div class="photo-wrap">
-          <img id="s4-photo" class="photo" src="assets/images/s4-gas-station.jpg" alt="" />
-        </div>
-        <div class="scrim"></div>
+      <!-- S4: concession (no photo, graphic background) -->
+      <div id="s4" class="scene clip" data-start="13.5" data-duration="4.0" data-track-index="0">
+        <div id="s4-bg" class="mesh-bg"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
         <div class="icon-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 21V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v15" />
-            <line x1="4" y1="21" x2="14" y2="21" />
-            <path d="M14 9h2l3 3v6a1.5 1.5 0 0 1-3 0v-2a1 1 0 0 0-1-1h-1" />
+            <rect x="5" y="7" width="13" height="11" rx="2" />
+            <line x1="18" y1="10" x2="20" y2="10" />
+            <line x1="18" y1="15" x2="20" y2="15" />
+            <path d="M9 10 l-1.5 3 h3 l-1.5 3" />
           </svg>
         </div>
-        <div id="s4-kicker" class="kicker">導入の理由</div>
+        <div id="s4-kicker" class="kicker">課税の理屈</div>
         <div class="content">
-          <div id="s4-headline" class="headline">ガソリン税を払わない<br />EVとの、不公平感を<br />なくすためです。</div>
+          <div id="s4-headline" class="headline">EVは重い分、<br />課税の理屈は<br />理解できます。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -295,8 +298,8 @@
         </div>
       </div>
 
-      <!-- S5: CAFS stance on this topic -->
-      <div id="s5" class="scene clip" data-start="18.0" data-duration="5.5" data-track-index="0">
+      <!-- S5: decarbonization goal -->
+      <div id="s5" class="scene clip" data-start="17.5" data-duration="4.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s5-photo" class="photo" src="assets/images/s5-solar-wind.jpg" alt="" />
         </div>
@@ -308,10 +311,9 @@
             <path d="M12 6c4 1 7.5 3.5 8.8 7 0.7 3-0.3 5.5-2.8 7" />
           </svg>
         </div>
-        <div id="s5-tag" class="tag-badge" style="position:absolute; left:64px; top:232px;">脱炭素、待ったなし</div>
+        <div id="s5-kicker" class="kicker">でも、目標は</div>
         <div class="content">
-          <div id="s5-headline" class="headline">でも今は、EVを<br />増やす時期のはずです。</div>
-          <div id="s5-sub" class="sub">増税が、その流れを止めかねません。</div>
+          <div id="s5-headline" class="headline">2035年、新車は<br />電動車100%です。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -319,10 +321,36 @@
         </div>
       </div>
 
-      <!-- S6: save CTA -->
-      <div id="s6" class="scene clip" data-start="23.5" data-duration="4.0" data-track-index="0">
+      <!-- S6: CAFS stance / conclusion -->
+      <div id="s6" class="scene clip" data-start="22.0" data-duration="5.6" data-track-index="0">
         <div class="photo-wrap">
-          <img id="s6-photo" class="photo" src="assets/images/s6-notebook-pen.jpg" alt="" />
+          <img id="s6-photo" class="photo" src="assets/images/s4-gas-station.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="13" r="8" />
+            <path d="M12 13 V8" />
+            <path d="M9 3 h6" />
+            <path d="M18.5 6.5 l1.5-1.5" />
+          </svg>
+        </div>
+        <div id="s6-tag" class="tag-badge" style="position:absolute; left:64px; top:232px;">脱炭素、待ったなし</div>
+        <div class="content">
+          <div id="s6-headline" class="headline">今は、EVを<br />増やす時期のはずです。</div>
+          <div id="s6-sub" class="sub">増税は、早すぎませんか。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S7: save CTA -->
+      <div id="s7" class="scene clip" data-start="27.6" data-duration="3.5" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s7-photo" class="photo" src="assets/images/s6-notebook-pen.jpg" alt="" />
         </div>
         <div class="scrim"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
@@ -332,7 +360,7 @@
           </svg>
         </div>
         <div class="content" style="top:600px;">
-          <div id="s6-headline" class="headline">保存して、2028年5月の<br />開始を見届けてください。</div>
+          <div id="s7-headline" class="headline">保存して、2028年5月に<br />見返してください。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -340,10 +368,10 @@
         </div>
       </div>
 
-      <!-- S7: comment CTA -->
-      <div id="s7" class="scene clip" data-start="27.5" data-duration="4.8" data-track-index="0">
+      <!-- S8: comment CTA -->
+      <div id="s8" class="scene clip" data-start="31.1" data-duration="4.8" data-track-index="0">
         <div class="photo-wrap">
-          <img id="s7-photo" class="photo" src="assets/images/s7-phone-hands.jpg" alt="" />
+          <img id="s8-photo" class="photo" src="assets/images/s7-phone-hands.jpg" alt="" />
         </div>
         <div class="scrim"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
@@ -353,8 +381,8 @@
           </svg>
         </div>
         <div class="content" style="top:600px;">
-          <div id="s7-headline" class="headline">この増税のタイミング、<br />どう思いますか？</div>
-          <div id="s7-sub" class="sub">コメントで教えてください。</div>
+          <div id="s8-headline" class="headline">この増税のタイミング、<br />どう思いますか？</div>
+          <div id="s8-sub" class="sub">コメントで教えてください。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -398,25 +426,30 @@
       popIn('s3-hero', 9.68, 0.5);
       riseIn('s3-badge', 9.9, 0.35);
 
-      // S4 (13.5 - 18.0)
-      kenBurns('s4-photo', 13.5, 4.5);
+      // S4 (13.5 - 17.5) no photo, slow drifting mesh background
+      kenBurns('s4-bg', 13.5, 4.0);
       slideKicker('s4-kicker', 13.55);
       popIn('s4-headline', 13.7, 0.6);
 
-      // S5 (18.0 - 23.5)
-      kenBurns('s5-photo', 18.0, 5.5);
-      slideKicker('s5-tag', 18.05);
-      popIn('s5-headline', 18.22, 0.6);
-      riseIn('s5-sub', 18.6, 0.45);
+      // S5 (17.5 - 22.0)
+      kenBurns('s5-photo', 17.5, 4.5);
+      slideKicker('s5-kicker', 17.55);
+      popIn('s5-headline', 17.7, 0.6);
 
-      // S6 (23.5 - 27.5)
-      kenBurns('s6-photo', 23.5, 4.0);
-      popIn('s6-headline', 23.6, 0.6);
+      // S6 (22.0 - 27.6)
+      kenBurns('s6-photo', 22.0, 5.6);
+      slideKicker('s6-tag', 22.05);
+      popIn('s6-headline', 22.22, 0.6);
+      riseIn('s6-sub', 22.6, 0.45);
 
-      // S7 (27.5 - 32.3)
-      kenBurns('s7-photo', 27.5, 4.8);
-      popIn('s7-headline', 27.6, 0.6);
-      riseIn('s7-sub', 28.0, 0.45);
+      // S7 (27.6 - 31.1)
+      kenBurns('s7-photo', 27.6, 3.5);
+      popIn('s7-headline', 27.7, 0.6);
+
+      // S8 (31.1 - 35.9)
+      kenBurns('s8-photo', 31.1, 4.8);
+      popIn('s8-headline', 31.2, 0.6);
+      riseIn('s8-sub', 31.6, 0.45);
 
       window.__timelines = window.__timelines || {};
       window.__timelines['main'] = tl;
