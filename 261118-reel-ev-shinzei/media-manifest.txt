@@ -1,0 +1,65 @@
+テーマ: EV・PHEVへの新税(2028年5月導入調整、自動車重量税の特例加算)
+ユーザー(代表)から直接指定されたテーマ。今回は分析課(reel-analyst)・企画課(reel-planner)は経由せず、作成課(対話セッション)が直接制作し、校正課(reel-qa)でレビューする運用。
+スタンスもユーザー指定：課税の理屈自体は理解できるが、今は脱炭素化・EV普及を進める時期であり、この増税は時期尚早ではないか。
+
+ソース: ユーザー提示のYahoo!ニュース記事(共同通信2026年11月18日配信「EV新税28年5月導入調整 重量応じ加算、税額焦点」)。
+このクラウド実行環境からnews.yahoo.co.jpへは直接アクセスできなかった(許可ドメイン外)ため、WebSearchで同記事(共同通信配信、東京新聞・デイリースポーツ等の転載含む)の内容を複数ソースから裏取りした。
+数字(普通車最大年2.4万円・軽EV年3,600円・PHEVはEVの半分目安・新車は登録から3年間免除・既販車は2028年5月以降の最初の車検から対象)および日本自動車会議所の要望書(2026年10月26日付)の内容を確認済み。
+
+実写(すべてPixabayで新規取得):
+assets/images/s1-ev-charging.jpg (S1「フック」, Pixabay ID:4293130, https://pixabay.com/photos/electric-car-e-car-electricity-4293130/, Ken Burnsズーム1.0→1.08)
+assets/images/s2-calendar.jpg (S2「2028年5月〜、3段階の車検タイミング」, Pixabay ID:660669, https://pixabay.com/photos/calendar-date-time-month-week-660669/, Ken Burnsズーム1.0→1.08)
+assets/images/s3-car-dashboard.jpg (S3「税額の内訳」, Pixabay ID:2667434, https://pixabay.com/photos/car-dashboard-speedometer-speed-2667434/, Ken Burnsズーム1.0→1.08)
+assets/images/s4-gas-station.jpg (S4「導入の理由」, Pixabay ID:1839760, https://pixabay.com/photos/filling-station-gas-gas-station-1839760/, Ken Burnsズーム1.0→1.08)
+assets/images/s5-solar-wind.jpg (S5「CAFSのスタンス・脱炭素は待ったなし」, Pixabay ID:1989416, https://pixabay.com/photos/renewable-energy-environment-wind-1989416/, Ken Burnsズーム1.0→1.08)
+assets/images/s6-notebook-pen.jpg (S6「保存CTA」, Pixabay ID:4491416, https://pixabay.com/photos/write-notebook-pen-hand-paper-4491416/, Ken Burnsズーム1.0→1.08)
+assets/images/s7-phone-hands.jpg (S7「コメントCTA」, Pixabay ID:1853302, https://pixabay.com/photos/hands-holding-smartphone-chatting-1853302/, Ken Burnsズーム1.0→1.08)
+全7シーンに実写背景あり(アイコンのみ・単色グラデーションのみのシーンなし)。
+S2・S6・S7は、同日に別テーマ(たばこ税、ユーザー判断により非公開・お蔵入り)で制作したPixabay画像と同一ファイルの再利用。当該リールは公開されないためフィード上での視覚的な重複は発生しない。公開済みの直近2本(261026・261028)とは重複なし。
+
+素材選定で不採用にしたもの(目視確認で除外):
+- "electric car charging"検索のドイツの充電ステーション写真(Pixabay ID:5212924) — "Stromtankstelle"「Ladeplatz nur für Elektrofahrzeuge」等のドイツ語表記が読み取れるため不採用。
+- "electric car charging cable close up"検索の案内標識写真 — 英語「Electric vehicle only」の表記が大きく読み取れるため不採用。
+- "electric car charging cable close up"検索のスマートカー写真(Pixabay ID:1023035相当) — ドイツのナンバープレート(F0 12E)・「smart」「electric drive」のブランド表記・背景の他車のナンバープレートが写り込んでいるため不採用。
+- 充電ポート接写の一候補 — 給油口カバー裏の注意書き・一部英数字表記が読み取れたため、より無地なケーブル接写(採用版)に差し替え。
+- "calendar numbers close up"検索の候補 — ドイツ語・英語・フランス語・オランダ語の曜日表記(Mittwoch/Wednesday/Mercredi/Woensdag等)が大量に読み取れるため不採用。
+- ガソリンスタンドの昼間の給油写真候補 — ノズルに「Diesel」の英語表記が読み取れるため、文字の写っていない夜間の無人スタンド写真(採用版)に変更。
+- notebook系の一候補 — 手書き英語の筆記体(人名"John Marsh"等)が読み取れるため不採用。ぼかしの効いた判読不能な手書き(採用版)に変更。
+- "typing laptop hands"検索の候補 — ブラウザメニューが英語・フランス語混在で、画面内に「How I promote my new blog posts」等の英文記事が大きく表示されているため不採用。
+
+bgm:
+media/bgm.mp3 (source: Instagram/assets/bgm/rollin-at-5.mp3 — Kevin MacLeod「Rollin at 5」, incompetech.com, CC BY 4.0, 32.8秒にトリムし末尾1.2秒フェードアウト)
+直前に制作した非公開のたばこ税リール(Cold Funk)とも、公開済みの直近2本(261026 Hidden Agenda・261028 Clean Soul)とも別トラック。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照(headline/hero-numのみ)。kicker/sub/footer/tag-badge/hero-badgeはHyperFramesバンドル同梱のNoto Sans JP。
+
+gsap:
+npm installでgsapを取得し、vendor/gsap.min.jsとしてローカル参照。
+
+ロゴ:
+リポジトリルートの「CAFS ロゴ.png」を全7シーン左上(top:96px, left:64px)に、白縁取りの円形バッジでラップして配置。回転なし。
+
+構成:
+1080×1350、7シーン、合計32.3秒。
+S1(0-4.0s) 「最大2.4万円」「EVの車検で、新しい税がかかります。」(フック)
+S2(4.0-9.5s) 「車検のたびに、重さに応じて加算されます。新車は登録から3年間、免除されます。」
+S3(9.5-13.5s) 「普通車の上限は」「2.4万円」(主の数字・大) 「軽EVは年3,600円」(従の数字・小バッジ)
+S4(13.5-18.0s) 「ガソリン税を払わないEVとの、不公平感をなくすためです。」
+S5(18.0-23.5s) 「脱炭素、待ったなし」タグ 「でも今は、EVを増やす時期のはずです。増税が、その流れを止めかねません。」(CAFSのスタンス)
+S6(23.5-27.5s) 保存CTA「保存して、2028年5月の開始を見届けてください。」
+S7(27.5-32.3s) コメントCTA「この増税のタイミング、どう思いますか？コメントで教えてください。」
+
+シーンごとに異なるアイコン(ジャンプケーブル風プラグ/カレンダー/円マーク/ガソリンノズル/葉っぱ(脱炭素)/しおり/吹き出し)を使用。
+数字・バッジの登場はback.out(1.6)のオーバーシュート、kicker/tag-badgeはスライドのみ(フェードなし)で統一。
+headline/subはすべて完結した文で終わるよう統一。
+
+制作過程でのcraft警告への対応(過去リールの教訓を踏まえ事前に対応):
+初回のnpx hyperframes checkで、S3にhero-num+badge+headlineの3要素を詰め込んだ結果、文字量に対して読了時間が不足する"line_unread"警告が発生(「PHEVはEVの半分が目安」という3つ目の情報を同居させていたため)。
+対応として、PHEVの情報は動画から外しcaption.txt側の説明文のみに記載し、S3は「kicker(普通車の上限は)+ hero-num(2.4万円) + badge(軽EVは年3,600円)」という大小の数字ペア1情報に絞り込んだ。あわせてS3の尺を4.0秒に調整。
+修正後、npx hyperframes checkはCraft 0 errors, 0 warningsを確認。
+
+品質確認:
+npx hyperframes@0.9.65 lint → 0 errors, 0 warnings(構造上の"nested_structure_needs_subcomposition"等9件のみ、単一ファイル構成によるStudio編集利便性の注意でレンダリング結果に影響なし。過去のリールと同型)。
+npx hyperframes@0.9.65 check → 0 errors。Contrast(WCAG AA) 23/23合格。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)7件のみ。Craft/Runtime/Motion/Audioすべて0 errors, 0 warnings。
+npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 32.3秒, H.264+AAC, 10.9MB。video.mp4にコピーして保存。
