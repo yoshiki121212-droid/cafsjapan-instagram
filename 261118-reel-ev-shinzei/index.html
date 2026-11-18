@@ -55,6 +55,9 @@
         transform-origin: center center;
         will-change: transform;
       }
+      #s3-photo {
+        object-position: 72% 38%;
+      }
       .scrim {
         position: absolute;
         inset: 0;
@@ -145,7 +148,7 @@
       .hero-num {
         font-family: var(--font-display);
         font-weight: 900;
-        color: var(--amber);
+        color: var(--ink);
         font-size: 130px;
         line-height: 1;
         text-shadow: 0 4px 22px rgba(0, 0, 0, 0.55);
@@ -180,8 +183,9 @@
         left: 64px;
         bottom: 64px;
         display: flex;
-        flex-direction: column;
-        gap: 6px;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 16px;
       }
       .footer .handle {
         font-family: var(--font-body);
@@ -198,7 +202,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="35.9" data-width="1080" data-height="1350">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="36.8" data-width="1080" data-height="1350">
 
       <!-- S1: Hook -->
       <div id="s1" class="scene clip" data-start="0" data-duration="4.0" data-track-index="0">
@@ -224,7 +228,7 @@
       </div>
 
       <!-- S2: schedule -->
-      <div id="s2" class="scene clip" data-start="4.0" data-duration="5.5" data-track-index="0">
+      <div id="s2" class="scene clip" data-start="4.0" data-duration="6.0" data-track-index="0">
         <div class="photo-wrap">
           <img id="s2-photo" class="photo" src="assets/images/s2-calendar.jpg" alt="" />
         </div>
@@ -253,7 +257,7 @@
       </div>
 
       <!-- S3: amount breakdown (big/small pair) -->
-      <div id="s3" class="scene clip" data-start="9.5" data-duration="4.0" data-track-index="0">
+      <div id="s3" class="scene clip" data-start="10.0" data-duration="4.0" data-track-index="0">
         <div class="photo-wrap">
           <img id="s3-photo" class="photo" src="assets/images/s3-car-dashboard.jpg" alt="" />
         </div>
@@ -277,7 +281,7 @@
       </div>
 
       <!-- S4: concession (no photo, graphic background) -->
-      <div id="s4" class="scene clip" data-start="13.5" data-duration="4.0" data-track-index="0">
+      <div id="s4" class="scene clip" data-start="14.0" data-duration="4.0" data-track-index="0">
         <div id="s4-bg" class="mesh-bg"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
         <div class="icon-badge">
@@ -292,6 +296,16 @@
         <div class="content">
           <div id="s4-headline" class="headline">EVは重い分、<br />課税の理屈は<br />理解できます。</div>
         </div>
+        <div style="position:absolute; right:110px; bottom:260px; display:flex; align-items:flex-end; gap:44px; height:300px;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
+            <div id="s4-bar1" style="width:76px; height:150px; background:rgba(255,255,255,0.22); border-radius:10px 10px 0 0; transform-origin:bottom center;"></div>
+            <div style="color:#cfd8e2; font-size:28px; font-family:'Noto Sans JP', sans-serif; white-space:nowrap;">ガソリン車</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
+            <div id="s4-bar2" style="width:76px; height:260px; background:var(--amber); border-radius:10px 10px 0 0; transform-origin:bottom center;"></div>
+            <div style="color:#ffffff; font-size:28px; font-weight:700; font-family:'Noto Sans JP', sans-serif;">EV</div>
+          </div>
+        </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
           <div class="org">財政健全化を求める市民の会</div>
@@ -299,7 +313,7 @@
       </div>
 
       <!-- S5: decarbonization goal -->
-      <div id="s5" class="scene clip" data-start="17.5" data-duration="4.5" data-track-index="0">
+      <div id="s5" class="scene clip" data-start="18.0" data-duration="4.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s5-photo" class="photo" src="assets/images/s5-solar-wind.jpg" alt="" />
         </div>
@@ -322,7 +336,7 @@
       </div>
 
       <!-- S6: CAFS stance / conclusion -->
-      <div id="s6" class="scene clip" data-start="22.0" data-duration="5.6" data-track-index="0">
+      <div id="s6" class="scene clip" data-start="22.5" data-duration="6.0" data-track-index="0">
         <div class="photo-wrap">
           <img id="s6-photo" class="photo" src="assets/images/s4-gas-station.jpg" alt="" />
         </div>
@@ -348,7 +362,7 @@
       </div>
 
       <!-- S7: save CTA -->
-      <div id="s7" class="scene clip" data-start="27.6" data-duration="3.5" data-track-index="0">
+      <div id="s7" class="scene clip" data-start="28.5" data-duration="3.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s7-photo" class="photo" src="assets/images/s6-notebook-pen.jpg" alt="" />
         </div>
@@ -369,7 +383,7 @@
       </div>
 
       <!-- S8: comment CTA -->
-      <div id="s8" class="scene clip" data-start="31.1" data-duration="4.8" data-track-index="0">
+      <div id="s8" class="scene clip" data-start="32.0" data-duration="4.8" data-track-index="0">
         <div class="photo-wrap">
           <img id="s8-photo" class="photo" src="assets/images/s7-phone-hands.jpg" alt="" />
         </div>
@@ -414,42 +428,44 @@
       popIn('s1-hero', 0.18, 0.6);
       riseIn('s1-headline', 0.42, 0.5);
 
-      // S2 (4.0 - 9.5)
-      kenBurns('s2-photo', 4.0, 5.5);
+      // S2 (4.0 - 10.0)
+      kenBurns('s2-photo', 4.0, 6.0);
       slideKicker('s2-kicker', 4.05);
       popIn('s2-headline', 4.2, 0.6);
       riseIn('s2-sub', 4.55, 0.45);
 
-      // S3 (9.5 - 13.5)
-      kenBurns('s3-photo', 9.5, 4.0);
-      slideKicker('s3-kicker', 9.55);
-      popIn('s3-hero', 9.68, 0.5);
-      riseIn('s3-badge', 9.9, 0.35);
+      // S3 (10.0 - 14.0)
+      kenBurns('s3-photo', 10.0, 4.0);
+      slideKicker('s3-kicker', 10.05);
+      popIn('s3-hero', 10.18, 0.5);
+      riseIn('s3-badge', 10.4, 0.35);
 
-      // S4 (13.5 - 17.5) no photo, slow drifting mesh background
-      kenBurns('s4-bg', 13.5, 4.0);
-      slideKicker('s4-kicker', 13.55);
-      popIn('s4-headline', 13.7, 0.6);
+      // S4 (14.0 - 18.0) no photo, slow drifting mesh background + weight bar chart
+      kenBurns('s4-bg', 14.0, 4.0);
+      slideKicker('s4-kicker', 14.05);
+      popIn('s4-headline', 14.2, 0.6);
+      tl.fromTo('#s4-bar1', { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }, 14.5);
+      tl.fromTo('#s4-bar2', { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: 'back.out(1.5)' }, 14.7);
 
-      // S5 (17.5 - 22.0)
-      kenBurns('s5-photo', 17.5, 4.5);
-      slideKicker('s5-kicker', 17.55);
-      popIn('s5-headline', 17.7, 0.6);
+      // S5 (18.0 - 22.5)
+      kenBurns('s5-photo', 18.0, 4.5);
+      slideKicker('s5-kicker', 18.05);
+      popIn('s5-headline', 18.2, 0.6);
 
-      // S6 (22.0 - 27.6)
-      kenBurns('s6-photo', 22.0, 5.6);
-      slideKicker('s6-tag', 22.05);
-      popIn('s6-headline', 22.22, 0.6);
-      riseIn('s6-sub', 22.6, 0.45);
+      // S6 (22.5 - 28.5)
+      kenBurns('s6-photo', 22.5, 6.0);
+      slideKicker('s6-tag', 22.55);
+      popIn('s6-headline', 22.72, 0.6);
+      riseIn('s6-sub', 23.1, 0.45);
 
-      // S7 (27.6 - 31.1)
-      kenBurns('s7-photo', 27.6, 3.5);
-      popIn('s7-headline', 27.7, 0.6);
+      // S7 (28.5 - 32.0)
+      kenBurns('s7-photo', 28.5, 3.5);
+      popIn('s7-headline', 28.6, 0.6);
 
-      // S8 (31.1 - 35.9)
-      kenBurns('s8-photo', 31.1, 4.8);
-      popIn('s8-headline', 31.2, 0.6);
-      riseIn('s8-sub', 31.6, 0.45);
+      // S8 (32.0 - 36.8)
+      kenBurns('s8-photo', 32.0, 4.8);
+      popIn('s8-headline', 32.1, 0.6);
+      riseIn('s8-sub', 32.5, 0.45);
 
       window.__timelines = window.__timelines || {};
       window.__timelines['main'] = tl;

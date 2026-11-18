@@ -66,8 +66,19 @@ headline/subはすべて完結した文で終わるよう統一。
 これらの対応と並行して、ユーザーから「EVは重いから課税は当然→でも日本は2035年までに脱炭素(電動車100%)を目指している→だから増税は時期尚早では」という3段構成への変更指示があったため、旧S4(ガソリン税との不公平感)・旧S5(CAFSのスタンス)を、新S4(課税の理屈への理解、実写なし)・新S5(2035年電動車100%の目標)・新S6(結論)の3シーンに再構成(7シーン→8シーン、32.3秒→35.9秒)。
 再構成後、npx hyperframes checkで新たに(a)S7の読了時間不足、(b)アイコンバッジ内¥文字のコントラスト不足、(c)S4(無音場面)が3秒以上静止する"dead_stretch"警告、が発生したため、それぞれ文言短縮・アイコン文字色を紺に変更・mesh背景に緩やかなズームを追加して解消。
 
-品質確認(最終版):
-npx hyperframes@0.9.65 lint → 0 errors, 0 warnings(構造上の"nested_structure_needs_subcomposition"等の警告のみ、単一ファイル構成によるStudio編集利便性の注意でレンダリング結果に影響なし。過去のリールと同型)。
+品質確認(2回目、35.9秒版):
+npx hyperframes@0.9.65 lint → 0 errors, 10 warnings(構造上の"nested_structure_needs_subcomposition"8件・"timeline_track_too_dense"1件・"duplicate_media_discovery_risk"1件=CAFSロゴ画像を8シーンで共通使用していることの検出のみ。単一ファイル構成によるStudio編集利便性の注意でレンダリング結果に影響なし。過去のリールと同型)。
 npx hyperframes@0.9.65 check → 0 errors, 0 warnings(Craft含む)。Contrast(WCAG AA) 24/24合格。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。Runtime/Motion/Audioすべて0 errors, 0 warnings。
-npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 35.9秒, H.264+AAC, 11.2MB。video.mp4にコピーして保存。
-2回目のreel-qaレビュー実施済み(詳細は対話ログ参照)。
+npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 35.9秒, H.264+AAC, 11.2MB。
+
+2回目のreel-qaレビューの指摘と対応(3回目のrender・check):
+(1) ブランド逸脱2点を実際の公開済みリール(261004/261006/261023/261026/261028)のフレームと比較して発見：①hero-numの色が今回のみアンバー(過去は白)→var(--ink)(白)に変更。②footerが縦2段(過去は横1行)→flex-directionをrowに変更し1行表記に統一。
+(2) S2・S6の読了時間マージンが7字/秒基準でギリギリ(0.07秒・0.17秒)→S2を5.5→6.0秒、S6を5.6→6.0秒に拡大(動画全長35.9秒→36.8秒)。
+(3) S3の車のダッシュボード画像で、緑色のECOインジケーターがhero-num「2.4万円」の文字と重なり視覚ノイズになっていた→#s3-photoにobject-position:72% 38%を指定し、該当箇所がテキスト裏に来ないようクロップ位置を調整。
+(4) S4(実写なし・mesh-gradient背景のみ)が画面の半分近く空白で見劣りする、との指摘→「EVは重い」というメッセージを視覚化する簡易棒グラフ(ガソリン車 vs EV、EVが高いバー)をCSS+GSAPで追加し、空白を埋めると同時に論理展開上もっとも重要な「譲歩」のシーンの説得力を補強。
+(5) media-manifest.txt(本ファイル)の"lint 0 warnings"の誤記を実際の値(10 warnings)に訂正。
+BGMも36.8秒の動画尺に合わせて再トリム(37.3秒、末尾1.2秒フェードアウト)。
+
+品質確認(3回目、最終版):
+npx hyperframes@0.9.65 check → 0 errors, 0 warnings(Craft含む)。Contrast(WCAG AA) 23/23合格。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。Runtime/Motion/Audioすべて0 errors, 0 warnings。
+npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 36.8秒, H.264+AAC, 11.3MB。video.mp4にコピーして保存。スナップショットで目視確認済み(hero-num白色化・footer1行化・S3クロップ調整・S4棒グラフ、いずれも反映を確認)。
