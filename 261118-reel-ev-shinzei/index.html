@@ -58,6 +58,20 @@
       #s3-photo {
         object-position: 100% 20%;
       }
+      #s6-photo {
+        object-position: 0% 50%;
+      }
+      #s1-hero {
+        color: var(--amber);
+      }
+      .pre-label {
+        font-family: var(--font-body);
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 40px;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+      }
       .scrim {
         position: absolute;
         inset: 0;
@@ -202,7 +216,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="37.6" data-width="1080" data-height="1350">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="38.6" data-width="1080" data-height="1350">
 
       <!-- S1: Hook -->
       <div id="s1" class="scene clip" data-start="0" data-duration="4.0" data-track-index="0">
@@ -257,7 +271,7 @@
       </div>
 
       <!-- S3: amount breakdown (big/small pair) -->
-      <div id="s3" class="scene clip" data-start="10.0" data-duration="4.0" data-track-index="0">
+      <div id="s3" class="scene clip" data-start="10.0" data-duration="5.0" data-track-index="0">
         <div class="photo-wrap">
           <img id="s3-photo" class="photo" src="assets/images/s3-car-dashboard.jpg" alt="" />
         </div>
@@ -269,8 +283,9 @@
             <text x="12" y="16.5" font-size="11" text-anchor="middle" fill="#060c14" stroke="none" font-family="sans-serif">¥</text>
           </svg>
         </div>
-        <div id="s3-kicker" class="kicker">普通車の上限は</div>
+        <div id="s3-kicker" class="kicker">自動車重量税</div>
         <div class="content" style="top:560px;">
+          <div id="s3-prelabel" class="pre-label">普通車の上限は</div>
           <div id="s3-hero" class="hero-num">年2.4万円</div>
           <div id="s3-badge" class="hero-badge">軽EVは年3,600円</div>
         </div>
@@ -281,7 +296,7 @@
       </div>
 
       <!-- S4: concession (no photo, graphic background) -->
-      <div id="s4" class="scene clip" data-start="14.0" data-duration="4.0" data-track-index="0">
+      <div id="s4" class="scene clip" data-start="15.0" data-duration="4.0" data-track-index="0">
         <div id="s4-bg" class="mesh-bg"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
         <div class="icon-badge">
@@ -313,7 +328,7 @@
       </div>
 
       <!-- S5: decarbonization goal -->
-      <div id="s5" class="scene clip" data-start="18.0" data-duration="4.5" data-track-index="0">
+      <div id="s5" class="scene clip" data-start="19.0" data-duration="4.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s5-photo" class="photo" src="assets/images/s5-solar-wind.jpg" alt="" />
         </div>
@@ -325,8 +340,9 @@
             <path d="M12 6c4 1 7.5 3.5 8.8 7 0.7 3-0.3 5.5-2.8 7" />
           </svg>
         </div>
-        <div id="s5-kicker" class="kicker">でも、目標は</div>
+        <div id="s5-kicker" class="kicker">グリーン成長戦略</div>
         <div class="content">
+          <div id="s5-prelabel" class="pre-label">でも、目標は</div>
           <div id="s5-headline" class="headline">2035年、新車は<br />電動車100%です。</div>
         </div>
         <div class="footer">
@@ -336,9 +352,9 @@
       </div>
 
       <!-- S6: CAFS stance / conclusion -->
-      <div id="s6" class="scene clip" data-start="22.5" data-duration="6.0" data-track-index="0">
+      <div id="s6" class="scene clip" data-start="23.5" data-duration="6.0" data-track-index="0">
         <div class="photo-wrap">
-          <img id="s6-photo" class="photo" src="assets/images/s4-gas-station.jpg" alt="" />
+          <img id="s6-photo" class="photo" src="assets/images/s6-ev-parked.jpg" alt="" />
         </div>
         <div class="scrim"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
@@ -362,7 +378,7 @@
       </div>
 
       <!-- S7: save CTA -->
-      <div id="s7" class="scene clip" data-start="28.5" data-duration="3.9" data-track-index="0">
+      <div id="s7" class="scene clip" data-start="29.5" data-duration="3.9" data-track-index="0">
         <div class="photo-wrap">
           <img id="s7-photo" class="photo" src="assets/images/s6-notebook-pen.jpg" alt="" />
         </div>
@@ -383,7 +399,7 @@
       </div>
 
       <!-- S8: comment CTA -->
-      <div id="s8" class="scene clip" data-start="32.4" data-duration="5.2" data-track-index="0">
+      <div id="s8" class="scene clip" data-start="33.4" data-duration="5.2" data-track-index="0">
         <div class="photo-wrap">
           <img id="s8-photo" class="photo" src="assets/images/s7-phone-hands.jpg" alt="" />
         </div>
@@ -434,38 +450,40 @@
       popIn('s2-headline', 4.2, 0.6);
       riseIn('s2-sub', 4.55, 0.45);
 
-      // S3 (10.0 - 14.0)
-      kenBurns('s3-photo', 10.0, 4.0);
+      // S3 (10.0 - 15.0)
+      kenBurns('s3-photo', 10.0, 5.0);
       slideKicker('s3-kicker', 10.05);
-      popIn('s3-hero', 10.18, 0.5);
-      riseIn('s3-badge', 10.4, 0.35);
+      riseIn('s3-prelabel', 10.15, 0.35);
+      popIn('s3-hero', 10.32, 0.5);
+      riseIn('s3-badge', 10.54, 0.35);
 
-      // S4 (14.0 - 18.0) no photo, slow drifting mesh background + weight bar chart
-      kenBurns('s4-bg', 14.0, 4.0);
-      slideKicker('s4-kicker', 14.05);
-      popIn('s4-headline', 14.2, 0.6);
-      tl.fromTo('#s4-bar1', { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }, 14.5);
-      tl.fromTo('#s4-bar2', { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: 'back.out(1.5)' }, 14.7);
+      // S4 (15.0 - 19.0) no photo, slow drifting mesh background + weight bar chart
+      kenBurns('s4-bg', 15.0, 4.0);
+      slideKicker('s4-kicker', 15.05);
+      popIn('s4-headline', 15.2, 0.6);
+      tl.fromTo('#s4-bar1', { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }, 15.5);
+      tl.fromTo('#s4-bar2', { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: 'back.out(1.5)' }, 15.7);
 
-      // S5 (18.0 - 22.5)
-      kenBurns('s5-photo', 18.0, 4.5);
-      slideKicker('s5-kicker', 18.05);
-      popIn('s5-headline', 18.2, 0.6);
+      // S5 (19.0 - 23.5)
+      kenBurns('s5-photo', 19.0, 4.5);
+      slideKicker('s5-kicker', 19.05);
+      riseIn('s5-prelabel', 19.15, 0.35);
+      popIn('s5-headline', 19.32, 0.6);
 
-      // S6 (22.5 - 28.5)
-      kenBurns('s6-photo', 22.5, 6.0);
-      slideKicker('s6-tag', 22.55);
-      popIn('s6-headline', 22.72, 0.6);
-      riseIn('s6-sub', 23.1, 0.45);
+      // S6 (23.5 - 29.5) — tighter crop to keep the parking sign's foreign text out of frame
+      tl.fromTo('#s6-photo', { scale: 1.42 }, { scale: 1.53, duration: 6.0, ease: 'none' }, 23.5);
+      slideKicker('s6-tag', 23.55);
+      popIn('s6-headline', 23.72, 0.6);
+      riseIn('s6-sub', 24.1, 0.45);
 
-      // S7 (28.5 - 32.4)
-      kenBurns('s7-photo', 28.5, 3.9);
-      popIn('s7-headline', 28.6, 0.6);
+      // S7 (29.5 - 33.4)
+      kenBurns('s7-photo', 29.5, 3.9);
+      popIn('s7-headline', 29.6, 0.6);
 
-      // S8 (32.4 - 37.6)
-      kenBurns('s8-photo', 32.4, 5.2);
-      popIn('s8-headline', 32.5, 0.6);
-      riseIn('s8-sub', 32.9, 0.45);
+      // S8 (33.4 - 38.6)
+      kenBurns('s8-photo', 33.4, 5.2);
+      popIn('s8-headline', 33.5, 0.6);
+      riseIn('s8-sub', 33.9, 0.45);
 
       window.__timelines = window.__timelines || {};
       window.__timelines['main'] = tl;

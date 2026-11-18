@@ -90,6 +90,28 @@ npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 
 (4) S4(実写なし)が依然「全シーン実写」の基準に厳密には抵触するとの指摘 → 「EVは重い」を示す棒グラフで視覚的な見劣りは解消済みであり、CLAUDE.md本文の明文規定(「実写素材は最低2シーンに使い」)は満たしている(本リールは8シーン中7シーンに実写あり)ため、作成課の判断としてこのまま採用する。ユーザーに公開前確認メールで明示し、必要であれば差し替え対応する。
 (5) S6(夜のガソリンスタンド)と「今はEVを増やす時期のはず」という文言の結びつきがやや間接的、との指摘 → 優先度低の改善提案として今回は見送り、次回以降の申し送り事項とする。
 
-品質確認(4回目、最終版):
+品質確認(4回目):
 npx hyperframes@0.9.65 check → 0 errors, 0 warnings(Craft含む)。Contrast(WCAG AA) 24/24合格。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。Runtime/Motion/Audioすべて0 errors, 0 warnings。
-npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 37.6秒, H.264+AAC, 11.4MB。video.mp4にコピーして保存。スナップショットでS3のECOインジケーター消失・単位統一を目視確認済み。
+npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 37.6秒, H.264+AAC, 11.4MB。スナップショットでS3のECOインジケーター消失・単位統一を目視確認済み。
+
+ユーザーからの対話フィードバックを反映した5回目の修正(レンダリング・check):
+(1) S1「最大2.4万円」の文字色を白→アンバーに変更(#s1-heroのみの個別指定。他シーンのhero-numは白のまま、ブランド一貫性を維持)。
+(2) S3「普通車の上限は」+「年2.4万円」、S5「でも、目標は」+「2035年〜」が、それぞれ上部のkickerピルと下部の見出しとに物理的に分離しており、一続きの文として読みにくいとの指摘。
+  → 新設の.pre-labelクラス(白文字・システムフォント)を追加し、「普通車の上限は」をhero-numの直上に、「でも、目標は」をheadlineの直上に移動。
+  → 元のkickerピルの位置には、読まなくても内容理解に支障のない当たり障りのないラベルを配置(S3:「自動車重量税」、S5:「グリーン成長戦略」)。
+(3) S6「今は、EVを増やす時期のはずです。」の背景が夜のガソリンスタンドで文言との結びつきが弱いとの指摘 → 新たにPixabayで取得したEV(白い車、充電ケーブル接続中、庭園風の背景)の写真に差し替え。元画像にはオランダ語の案内標識(「alleen voor opladen elektrische voertuigen」)が写り込んでいたため、object-position:0% 50%と、Ken Burnsズームの開始倍率を1.0→1.42(通常の1.0ではなく)に引き上げることで、標識を画面から完全に除外しつつ車とケーブルのみが見える構図にクロップ。ffmpegで切り出しテストを行い、標識が入らないことを事前確認してから実装。
+(4) S3にpre-label分の文字が増えたため読了時間が再度不足(line_unread) → S3の尺を4.0→5.0秒に拡大(動画全長37.6秒→38.6秒)。BGMも39.1秒に再トリム。
+
+実写(更新後の最終一覧):
+assets/images/s1-ev-charging.jpg (S1、Pixabay ID:4293130)
+assets/images/s2-calendar.jpg (S2、Pixabay ID:660669)
+assets/images/s3-car-dashboard.jpg (S3、Pixabay ID:2667434)
+S4は実写なし(mesh-gradient背景+棒グラフ)
+assets/images/s5-solar-wind.jpg (S5、Pixabay ID:1989416)
+assets/images/s6-ev-parked.jpg (S6、Pixabay ID:3117778、https://pixabay.com/photos/car-electric-car-hybrid-car-3117778/ — オランダ語標識が写り込んでいるため、クロップで除外して使用。元のs4-gas-station.jpgは不採用に変更)
+assets/images/s6-notebook-pen.jpg (S7、Pixabay ID:4491416)
+assets/images/s7-phone-hands.jpg (S8、Pixabay ID:1853302)
+
+品質確認(5回目、最終版):
+npx hyperframes@0.9.65 check → 0 errors, 0 warnings(Craft含む)。Contrast(WCAG AA) 26/26合格。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow、S6は意図的な強いクロップのため数値大きめ)7件のみ。Runtime/Motion/Audioすべて0 errors, 0 warnings。
+npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 38.6秒, H.264+AAC, 12.8MB。video.mp4にコピーして保存。スナップショットでS1アンバー化・S3/S5のラベル一体化・S6のEV画像(標識なし)を目視確認済み。
