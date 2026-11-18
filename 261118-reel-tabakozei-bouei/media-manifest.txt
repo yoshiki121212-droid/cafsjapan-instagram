@@ -1,0 +1,56 @@
+テーマ: たばこ税1本1.5円(1箱30円)の引き上げ(2027〜2029年、3段階)が防衛費の財源に充てられる件
+分析課(reel-analyst)→企画課(reel-planner)のネタ出しフローを経て、企画課の第一推薦案を採用。
+
+実写(すべてPixabayで新規取得。直近2本(261026・261028)とは別ファイル):
+assets/images/s1-cigarette-ashtray.jpg (S1「フック」, Pixabay ID:4780548, https://pixabay.com/photos/cigarettes-ashtray-smoking-nicotine-4780548/, Ken Burnsズーム1.0→1.08)
+assets/images/s2-calendar.jpg (S2「3段階の引き上げ時期」, Pixabay ID:660669, https://pixabay.com/photos/calendar-date-time-month-week-660669/, Ken Burnsズーム1.0→1.08)
+assets/images/s3-shopping-cart.jpg (S3「1箱30円の値上げ」, Pixabay ID:1165437, https://pixabay.com/photos/shopping-business-retail-trade-1165437/, Ken Burnsズーム1.0→1.08)
+assets/images/s4-tokyo-building.jpg (S4「引き上げの目的」, Pixabay ID:4402415, https://pixabay.com/photos/building-tokyo-japan-urban-4402415/, Ken Burnsズーム1.0→1.08)
+assets/images/s5-hands-support.jpg (S5「2つの安心運動」, Pixabay ID:8288239, https://pixabay.com/photos/holding-hands-touching-supporting-8288239/, Ken Burnsズーム1.0→1.08)
+assets/images/s6-notebook-pen.jpg (S6「保存CTA」, Pixabay ID:4491416, https://pixabay.com/photos/write-notebook-pen-hand-paper-4491416/, Ken Burnsズーム1.0→1.08)
+assets/images/s7-phone-hands.jpg (S7「コメントCTA」, Pixabay ID:1853302, https://pixabay.com/photos/hands-holding-smartphone-chatting-1853302/, Ken Burnsズーム1.0→1.08)
+全7シーンに実写背景あり(アイコンのみ・単色グラデーションのみのシーンなし)。
+
+素材選定で不採用にしたもの(候補の目視確認で除外):
+- "cigarette ashtray"検索のFaberge egg風の装飾灰皿(ID:7160604) — 演出が過度に装飾的でブランドのトーンと不一致のため不採用。
+- "cigarette ashtray"検索の別候補(ID:6723514等) — タバコ本来の文脈から外れるため不採用。
+- "cigarette butts ashtray"検索の候補(ID:8561797) — 英語"Smoking kills"・イタリア語の警告文・Camel/Kent等の外国ブランド名が写り込んでおり、CLAUDE.mdの「外国語テキストなし」基準に抵触するため不採用。
+- "receipt"系候補(ID:5610295) — ポーランドのレシート(通貨記号"zł"、英語の注意書き、VAT表記)が写っており外国語・外国通貨のため不採用。S3は代わりにショッピングカートの構図に変更。
+- "yen coin"系検索 — クエリが実質ノイズ(ベトナムの観光写真等)で使える素材がなく、またユーロ硬貨が写った候補(ID:2180330)もあったため、硬貨モチーフ自体を避けてショッピングカートに変更。
+- "woman smartphone talking"検索の候補(ID:8664667等) — 実在人物の顔が大きく写る構図で、Instagram/assets/stock/の既存ライブラリの基準(実在人物の顔が写っていないもの)に合わせて不採用。代わりに手元とスマホのみが写るクローズアップ(ID:1853302)を採用。
+採用した7点はいずれも目視で、外国通貨・外国語の看板やラベル・実在人物の顔が写っていないことを確認済み。
+
+bgm:
+media/bgm.mp3 (source: Instagram/assets/bgm/cold-funk-29s.mp3 — Kevin MacLeod「Cold Funk」, incompetech.com, CC BY 4.0, 29.0秒にトリムし末尾1.2秒フェードアウト)
+直前のリール(261028、Clean Soul)・2本前(261026、Hidden Agenda)とは別トラック。
+data-volume="0.5"、data-fade-in="0.5"、data-fade-out="1.2"、data-track-index="60"のaudio要素としてindex.htmlルート直下に配置。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照(headline/hero-numのみ)。kicker/sub/footer/tag-badge/hero-badgeはHyperFramesバンドル同梱のNoto Sans JP(システムフォント)。
+
+gsap:
+npm installでgsapを取得し、vendor/gsap.min.jsとしてローカル参照(cdn.jsdelivr.netを回避)。
+
+ロゴ:
+リポジトリルートの「CAFS ロゴ.png」(メガホン+チャコール円の既存ロゴ)を全7シーン左上(top:96px, left:64px)に配置。白縁取りとしてborder:3px solid rgba(255,255,255,0.92)の円形バッジでラップし、回転は加えていない。
+
+構成:
+1080×1350、7シーン、合計30.0秒。
+S1(0-4.0s) 「+1.5円」「タバコ税、実は防衛費のためでした。」(フック)
+S2(4.0-8.5s) 「毎年4月、0.5円ずつ上がります。2027・2028・2029年の3回です。」
+S3(8.5-14.5s) 「+30円」(主の数字・大) バッジ「1本あたり+1.5円」(従の数字・小) 「1箱(20本)で、30円上がります。」
+S4(14.5-19.0s) 「防衛費を安定的に確保するためです。2027年度、防衛費は1兆円を超える見込みです。」
+S5(19.0-23.0s) 「2つの安心運動」タグ 「財源の裏付けのある社会保障こそ、必要だと考えます。」
+S6(23.0-26.5s) 保存CTA「保存して、2027年4月にもう一度見返してください。」
+S7(26.5-30.0s) コメントCTA「増税の種類が増えること、どう思いますか？コメントで教えてください。」
+
+シーンごとに異なるアイコン(タバコ/カレンダー/カート/盾/ハート/しおり/吹き出し)を使用。
+数字・バッジの登場はback.out(1.6)のオーバーシュート、kicker/tag-badgeはスライドのみ(フェードなし)で統一。
+headline/subはすべて完結した文で終わるよう統一。
+S3は当初「対象は、国のたばこ税だけです。」のsubも含めていたが、npx hyperframes check のcraft警告(line_unread: 情報過多で保持時間不足)を受け、on-screenの情報をhero-num+badge+headlineの核心3要素に絞り、当該の補足情報はcaption.txt側の説明文に記載する形に変更。あわせてS3のシーン尺を4.5秒→6.0秒に拡大(動画全長28.5秒→30.0秒)。
+footerの団体名(org)フォントサイズも26px→29pxに拡大し、npx hyperframes check のcraft警告(text_below_floor: 28px未満)を解消。
+
+品質確認(初回):
+npx hyperframes@0.9.65 lint → 0 errors, 0 warnings(構造上の"nested_structure_needs_subcomposition"等9件のみ、単一ファイル構成によるStudio編集利便性の注意でレンダリング結果に影響なし。過去のリールと同型の警告)。
+npx hyperframes@0.9.65 check → 0 errors。Contrast(WCAG AA) 22/22合格。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)7件のみ。Craft 0 errors, 0 warnings(上記の2件の警告は修正済み)。Runtime/Motion/Audioすべて0 errors, 0 warnings。
+npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 30.0秒, H.264+AAC, 16.2MB。
