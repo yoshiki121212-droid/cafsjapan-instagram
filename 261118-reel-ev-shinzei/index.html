@@ -56,7 +56,7 @@
         will-change: transform;
       }
       #s3-photo {
-        object-position: 72% 38%;
+        object-position: 100% 20%;
       }
       .scrim {
         position: absolute;
@@ -202,7 +202,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="36.8" data-width="1080" data-height="1350">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="37.6" data-width="1080" data-height="1350">
 
       <!-- S1: Hook -->
       <div id="s1" class="scene clip" data-start="0" data-duration="4.0" data-track-index="0">
@@ -271,7 +271,7 @@
         </div>
         <div id="s3-kicker" class="kicker">普通車の上限は</div>
         <div class="content" style="top:560px;">
-          <div id="s3-hero" class="hero-num">2.4万円</div>
+          <div id="s3-hero" class="hero-num">年2.4万円</div>
           <div id="s3-badge" class="hero-badge">軽EVは年3,600円</div>
         </div>
         <div class="footer">
@@ -362,7 +362,7 @@
       </div>
 
       <!-- S7: save CTA -->
-      <div id="s7" class="scene clip" data-start="28.5" data-duration="3.5" data-track-index="0">
+      <div id="s7" class="scene clip" data-start="28.5" data-duration="3.9" data-track-index="0">
         <div class="photo-wrap">
           <img id="s7-photo" class="photo" src="assets/images/s6-notebook-pen.jpg" alt="" />
         </div>
@@ -383,7 +383,7 @@
       </div>
 
       <!-- S8: comment CTA -->
-      <div id="s8" class="scene clip" data-start="32.0" data-duration="4.8" data-track-index="0">
+      <div id="s8" class="scene clip" data-start="32.4" data-duration="5.2" data-track-index="0">
         <div class="photo-wrap">
           <img id="s8-photo" class="photo" src="assets/images/s7-phone-hands.jpg" alt="" />
         </div>
@@ -458,14 +458,14 @@
       popIn('s6-headline', 22.72, 0.6);
       riseIn('s6-sub', 23.1, 0.45);
 
-      // S7 (28.5 - 32.0)
-      kenBurns('s7-photo', 28.5, 3.5);
+      // S7 (28.5 - 32.4)
+      kenBurns('s7-photo', 28.5, 3.9);
       popIn('s7-headline', 28.6, 0.6);
 
-      // S8 (32.0 - 36.8)
-      kenBurns('s8-photo', 32.0, 4.8);
-      popIn('s8-headline', 32.1, 0.6);
-      riseIn('s8-sub', 32.5, 0.45);
+      // S8 (32.4 - 37.6)
+      kenBurns('s8-photo', 32.4, 5.2);
+      popIn('s8-headline', 32.5, 0.6);
+      riseIn('s8-sub', 32.9, 0.45);
 
       window.__timelines = window.__timelines || {};
       window.__timelines['main'] = tl;

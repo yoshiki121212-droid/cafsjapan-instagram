@@ -79,6 +79,17 @@ npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 
 (5) media-manifest.txt(本ファイル)の"lint 0 warnings"の誤記を実際の値(10 warnings)に訂正。
 BGMも36.8秒の動画尺に合わせて再トリム(37.3秒、末尾1.2秒フェードアウト)。
 
-品質確認(3回目、最終版):
+品質確認(3回目):
 npx hyperframes@0.9.65 check → 0 errors, 0 warnings(Craft含む)。Contrast(WCAG AA) 23/23合格。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。Runtime/Motion/Audioすべて0 errors, 0 warnings。
-npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 36.8秒, H.264+AAC, 11.3MB。video.mp4にコピーして保存。スナップショットで目視確認済み(hero-num白色化・footer1行化・S3クロップ調整・S4棒グラフ、いずれも反映を確認)。
+npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 36.8秒, H.264+AAC, 11.3MB。スナップショットで目視確認済み(hero-num白色化・footer1行化・S3クロップ調整・S4棒グラフ、いずれも反映を確認)。
+
+3回目のreel-qaレビューの指摘と対応(4回目、最終のrender・check):
+(1) S3のhero-num「2.4万円」に単位「年」が抜けており、badge「軽EVは年3,600円」と表記が不揃いだった → 「年2.4万円」に修正し単位を統一。
+(2) S3のクロップ調整(object-position:72% 38%)後も、緑色のECOインジケーターが数字の間に残って見えていた → object-position:100% 20%にさらに調整し、画面から完全に外れることをスナップショットで確認。
+(3) S7・S8の読了時間マージンが7字/秒基準で0.13〜0.26秒とタイトだった → S7を3.5→3.9秒、S8を4.8→5.2秒に拡大(動画全長36.8秒→37.6秒)。BGMも38.1秒に再トリム。
+(4) S4(実写なし)が依然「全シーン実写」の基準に厳密には抵触するとの指摘 → 「EVは重い」を示す棒グラフで視覚的な見劣りは解消済みであり、CLAUDE.md本文の明文規定(「実写素材は最低2シーンに使い」)は満たしている(本リールは8シーン中7シーンに実写あり)ため、作成課の判断としてこのまま採用する。ユーザーに公開前確認メールで明示し、必要であれば差し替え対応する。
+(5) S6(夜のガソリンスタンド)と「今はEVを増やす時期のはず」という文言の結びつきがやや間接的、との指摘 → 優先度低の改善提案として今回は見送り、次回以降の申し送り事項とする。
+
+品質確認(4回目、最終版):
+npx hyperframes@0.9.65 check → 0 errors, 0 warnings(Craft含む)。Contrast(WCAG AA) 24/24合格。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。Runtime/Motion/Audioすべて0 errors, 0 warnings。
+npx hyperframes@0.9.65 render --quality looks --output final.mp4 → 1080x1350, 37.6秒, H.264+AAC, 11.4MB。video.mp4にコピーして保存。スナップショットでS3のECOインジケーター消失・単位統一を目視確認済み。
