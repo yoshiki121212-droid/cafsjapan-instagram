@@ -1,0 +1,65 @@
+テーマ: 防衛費(2027〜31年度、60兆円規模で調整中)に対し与党から「足りない」批判が出る一方、食料品の消費税は減税中(年5兆円規模)という財源配慮の乏しさ
+ユーザーがテーマ・出典・スタンスを直接指定(朝日新聞記事の見出し・タグを提示、「自民党は消費税減税を進めて財源を減らしているにも関わらず、防衛費は足りないと主張する議員がいる。財源への配慮が乏しいのではないか」という内容を依頼)。CLAUDE.mdの「ユーザー自身が最初からテーマ・スタンスを直接指定した場合は、分析課・企画課を省略してよい」規定により、分析課・企画課は省略し、制作課(本セッション)・校正課(reel-qa)のみで制作。
+
+事実確認(Web検索、2026-11-19実施):
+・ユーザー提示のGoogle共有リンク(share.google)は本セッションの許可ドメイン外で直接取得できず、また朝日新聞デジタル本紙記事も取得不可だったため、共同通信など同一事実を報じる複数の記事をWeb検索で確認。
+・「60兆円規模」は2027〜31年度の5年間の防衛費総額であり、単年度の金額ではない(前の5年計画(2023〜27年度)は43兆円)。防衛省は70兆〜80兆円、財務省は50兆円台を主張との報道あり。高市首相は増税による財源確保に消極的と報じられている。
+・2026年11月17日の自民・維新実務者協議で、防衛産業基盤強化には60兆円規模でも不十分との苦言が出たとの報道を確認。
+・食料品の消費税率引き下げは2026年8月閣議決定、2027年4月〜2029年4月の時限措置で税率1%、年間減収規模は約5兆円(GDP比0.8%)との報道を確認。
+・財政健全化を求める市民の会の「2つの安心運動」(消費税16〜20%への引き上げ)は過去リール(261118-reel-tabakozei-bouei等)のcaption.txtと同内容で一貫性を確認。
+
+実写(すべてPixabayで新規取得。直近2本(261118-reel-ev-shinzei・261118-reel-tabakozei-bouei)とは別ファイル):
+assets/images/s1-tokyo-night.jpg (S1「フック」, Pixabay ID:4335245, https://pixabay.com/photos/skyline-tokyo-night-big-city-4335245/, Ken Burnsズーム1.0→1.08)
+assets/images/s2-clipboard.jpg (S2「防衛費5年60兆円」, Pixabay ID:2693417, https://pixabay.com/photos/clipboard-document-paper-clip-2693417/, Ken Burnsズーム1.0→1.08)
+assets/images/s3-balanced-stones.jpg (S3「与党『不十分』」, Pixabay ID:6546233, https://pixabay.com/photos/stones-rock-balance-balanced-rocks-6546233/, Ken Burnsズーム1.0→1.08)
+assets/images/s4-potatoes.jpg (S4「食料品消費税減税」, Pixabay ID:5796, https://pixabay.com/photos/potatoes-vegetables-root-vegetables-5796/, Ken Burnsズーム1.0→1.08)
+assets/images/s6-hands-support.jpg (S6「2つの安心運動」, Pixabay ID:699486, https://pixabay.com/photos/hands-compassion-help-old-care-699486/, Ken Burnsズーム1.0→1.08)
+assets/images/s7-notebook-pens.jpg (S7「保存CTA」, Pixabay ID:5433224, https://pixabay.com/photos/notebook-desk-office-writing-5433224/, Ken Burnsズーム1.0→1.08)
+assets/images/s8-phone-hand.jpg (S8「コメントCTA」, Pixabay ID:5682222, https://pixabay.com/photos/hand-holding-smartphone-5682222/, Ken Burnsズーム1.0→1.08)
+S5「財源への配慮(核心)」は実写なし、CSS/GSAPの棒グラフ(税収減 vs 防衛費要求)で表現(mesh-bg + bar chart)。
+全8シーン中7シーンに実写背景あり(S5のみアイコン+棒グラフ構成)。
+
+素材選定で不採用にしたもの(候補の目視確認で除外):
+- "fighter jet sky"/"military ship"検索の候補 — 米軍機・米海軍艦艇で米国旗等が写り込む可能性が高く、またブランド性の強い機体名(F-35、Su-27等)が目立つため、過去リールの抽象的な財政・書類系ビジュアルの作風とも合わないため不採用。"japan flag government"検索もドイツ連邦議会・米国議会等の外国の建物しかヒットせず不採用。
+- "calculator budget documents"検索の候補(ID:913162) — 計算機に"STAPLES"のブランド名、紙に英語の家計簿テンプレート文章が大量に写り込むため不採用(外国語テキスト・ブランド名基準に抵触)。
+- 同検索の別候補(ID:7574111) — 背景にイタリア語とみられる文字が薄く写り込んでいたため不採用。
+- "business meeting discussion table"検索の候補(ID:10234773) — 実在人物6名の顔がはっきり写る構図のため不採用(実在人物の顔基準に抵触)。
+- "grocery vegetables market"検索の候補(ID:317497) — 英語の値札("ORGANIC Bell Pepper"、"$3.99"等)が複数写り込むため不採用(外国語・外国通貨基準に抵触)。S4は代わりにじゃがいものクローズアップ(ID:5796、値札等の写り込みなし)に変更。
+- "farmers market"検索の候補(ID:10559158) — フランス語の値札("Herbes de Provence - 2€ le bouquet")とユーロ硬貨相当の表記が写り込むため不採用。
+- "notebook pen desk writing"検索で出た候補のうち、ID:4491416は直近2本の一つ(261118-reel-tabakozei-bouei)のS6で使用済みのため除外し、別候補(ID:5433224)を採用。
+- "hands holding phone texting"検索は無関係な人物ポートレートや恋人つなぎ写真が中心でヒットせず、"hand holding smartphone close up"で改めて検索しID:5682222(白背景・手のみ)を採用。
+採用した7点はいずれも目視で、外国通貨・外国語の看板やラベル・ブランドロゴ・実在人物の顔が写っていないことを確認済み。
+
+bgm:
+media/bgm.mp3 (source: Kevin MacLeod「Investigations」, incompetech.com/music/royalty-free/mp3-royaltyfree/Investigations.mp3, CC BY 4.0, 93.5秒の原曲を42.4秒にトリムし末尾1.2秒フェードアウト)
+直前のリール(261118-reel-ev-shinzei、Rollin at 5)・2本前(261118-reel-tabakozei-bouei、Cold Funk)とは別トラック。
+data-volume="0.5"、data-fade-in="0.5"、data-fade-out="1.2"、data-track-index="60"のaudio要素としてindex.htmlルート直下に配置。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字(headline/hero-numの76文字)のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照。kicker/pre-label/sub/footer/hero-badge/tag-badgeはHyperFramesバンドル同梱のNoto Sans JP(システムフォント)。
+
+gsap:
+既存プロジェクト(261118-reel-ev-shinzei)のvendor/gsap.min.jsをそのままコピーして使用(npm installでgsapを取得した同一ファイル。cdn.jsdelivr.netを回避)。
+
+ロゴ:
+リポジトリルートの「CAFS ロゴ.png」(メガホン+チャコール円の既存ロゴ)を全8シーン左上(top:96px, left:64px)に配置。白縁取りとしてborder:3px solid rgba(255,255,255,0.92)の円形バッジでラップ。
+
+構成:
+1080×1350、8シーン、合計42.1秒。
+S1(0-5.0s) 「それでも」「足りない」(大)「という声が、与党からも。」(フック)
+S2(5.0-11.0s) 「防衛費が、5年間で60兆円規模へ。」「前の5年計画より、大幅増です。」
+S3(11.0-16.0s) 「60兆円でも」「不十分」(大)「防衛産業の強化には、との声も出ています。」
+S4(16.0-22.3s) 「食料品の消費税を下げ」「年5兆円」(大)バッジ「2029年4月までの時限措置」
+S5(22.3-28.8s) 「財源を減らしながら、防衛費は増やしたい。」「そんな都合のよい話が、成り立つのでしょうか。」+ 棒グラフ(税収減/防衛費要求)
+S6(28.8-34.3s) タグ「2つの安心運動」「財源の裏付けのある政策こそ、必要です。」「消費税16〜20%への引き上げを訴えています。」
+S7(34.3-37.8s) 保存CTA「保存して、年末の決定を見返してください。」
+S8(37.8-42.1s) コメントCTA「財源への配慮、足りないと思いますか？」「コメントで教えてください。」
+
+シーンごとに異なるアイコン(警告/カレンダー/引用符/買い物袋/天秤/ハート/しおり/吹き出し)を使用。初版でS3・S8がともに吹き出しアイコンで類似していたため、S3を引用符アイコンに変更しシーン間の差別化を確保。
+数字・見出しの登場はback.out(1.6)のオーバーシュート、kicker/tag-badgeはスライドのみ(フェードなし)で統一。
+headline/subはすべて完結した文で終わるよう統一。
+
+品質確認(初回):
+npx hyperframes check(v0.9.71、プロジェクト既定のピン留めバージョン) → 0 errors。Contrast(WCAG AA) 27/27合格。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
+Craft初回はS4(食料品消費税減税)のline_unread(文字数に対し尺不足、floor 4.65s)とS5棒グラフラベル2点のtext_below_floor(26px、28px未満)を検出。S4を4.5秒→6.3秒に拡大(動画全長40.3秒→42.1秒)、棒グラフラベルのfont-sizeを26px→30pxに拡大して対応し、再度check実行してCraft 0 errors/0 warnings、Contrast 27/27合格を確認。
+npx hyperframes render --quality looks --output final.mp4(プロジェクト既定のピン留めバージョン0.9.71) → 1080x1350, 42.1秒, H.264+AAC, 15.8MB。video.mp4にコピーして保存。
