@@ -210,7 +210,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="42.1" data-width="1080" data-height="1350">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="44.1" data-width="1080" data-height="1350">
 
       <!-- S1: Hook -->
       <div id="s1" class="scene clip" data-start="0" data-duration="5.0" data-track-index="0">
@@ -230,7 +230,7 @@
         <div class="content">
           <div id="s1-prelabel" class="pre-label">それでも</div>
           <div id="s1-hero" class="hero-num">足りない</div>
-          <div id="s1-headline" class="headline" style="margin-top:18px;">という声が、与党からも。</div>
+          <div id="s1-headline" class="headline" style="margin-top:18px;">という声が、<br />与党からも出ています。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -257,9 +257,10 @@
           </svg>
         </div>
         <div id="s2-kicker" class="kicker">2027〜31年度</div>
-        <div class="content">
-          <div id="s2-headline" class="headline">防衛費が、5年間で<br />60兆円規模へ。</div>
-          <div id="s2-sub" class="sub">前の5年計画より、大幅増です。</div>
+        <div class="content" style="top:560px;">
+          <div id="s2-prelabel" class="pre-label">防衛費は、5年間で</div>
+          <div id="s2-hero" class="hero-num">60兆円</div>
+          <div id="s2-badge" class="hero-badge">前の計画より大幅増</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -309,7 +310,7 @@
         <div class="content" style="top:560px;">
           <div id="s4-prelabel" class="pre-label">食料品の消費税を下げ</div>
           <div id="s4-hero" class="hero-num">年5兆円</div>
-          <div id="s4-badge" class="hero-badge">2029年4月までの時限措置</div>
+          <div id="s4-badge" class="hero-badge">2029年4月までの時限措置です。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -317,9 +318,12 @@
         </div>
       </div>
 
-      <!-- S5: the core thesis (no photo, bar chart) -->
+      <!-- S5: the core thesis + bar chart -->
       <div id="s5" class="scene clip" data-start="22.3" data-duration="6.5" data-track-index="0">
-        <div id="s5-bg" class="mesh-bg"></div>
+        <div class="photo-wrap">
+          <img id="s5-photo" class="photo" src="assets/images/s5-government-building.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
         <div class="icon-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -352,7 +356,7 @@
       </div>
 
       <!-- S6: CAFS stance -->
-      <div id="s6" class="scene clip" data-start="28.8" data-duration="5.5" data-track-index="0">
+      <div id="s6" class="scene clip" data-start="28.8" data-duration="7.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s6-photo" class="photo" src="assets/images/s6-hands-support.jpg" alt="" />
         </div>
@@ -375,7 +379,7 @@
       </div>
 
       <!-- S7: save CTA -->
-      <div id="s7" class="scene clip" data-start="34.3" data-duration="3.5" data-track-index="0">
+      <div id="s7" class="scene clip" data-start="36.3" data-duration="3.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s7-photo" class="photo" src="assets/images/s7-notebook-pens.jpg" alt="" />
         </div>
@@ -396,7 +400,7 @@
       </div>
 
       <!-- S8: comment CTA -->
-      <div id="s8" class="scene clip" data-start="37.8" data-duration="4.3" data-track-index="0">
+      <div id="s8" class="scene clip" data-start="39.8" data-duration="4.3" data-track-index="0">
         <div class="photo-wrap">
           <img id="s8-photo" class="photo" src="assets/images/s8-phone-hand.jpg" alt="" />
         </div>
@@ -445,8 +449,9 @@
       // S2 (5.0 - 11.0)
       kenBurns('s2-photo', 5.0, 6.0);
       slideKicker('s2-kicker', 5.05);
-      popIn('s2-headline', 5.2, 0.6);
-      riseIn('s2-sub', 5.55, 0.45);
+      riseIn('s2-prelabel', 5.15, 0.35);
+      popIn('s2-hero', 5.32, 0.5);
+      riseIn('s2-badge', 5.54, 0.35);
 
       // S3 (11.0 - 16.0)
       kenBurns('s3-photo', 11.0, 5.0);
@@ -462,28 +467,28 @@
       popIn('s4-hero', 16.32, 0.5);
       riseIn('s4-badge', 16.54, 0.35);
 
-      // S5 (22.3 - 28.8) no photo, mesh background + bar chart
-      kenBurns('s5-bg', 22.3, 6.5);
+      // S5 (22.3 - 28.8) + bar chart
+      kenBurns('s5-photo', 22.3, 6.5);
       slideKicker('s5-kicker', 22.35);
       popIn('s5-headline', 22.5, 0.6);
       riseIn('s5-sub', 22.95, 0.45);
       tl.fromTo('#s5-bar1', { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }, 23.4);
       tl.fromTo('#s5-bar2', { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: 'back.out(1.5)' }, 23.6);
 
-      // S6 (28.8 - 34.3)
-      kenBurns('s6-photo', 28.8, 5.5);
+      // S6 (28.8 - 36.3)
+      kenBurns('s6-photo', 28.8, 7.5);
       slideKicker('s6-tag', 28.85);
       popIn('s6-headline', 29.02, 0.6);
       riseIn('s6-sub', 29.42, 0.45);
 
-      // S7 (34.3 - 37.8)
-      kenBurns('s7-photo', 34.3, 3.5);
-      popIn('s7-headline', 34.4, 0.6);
+      // S7 (36.3 - 39.8)
+      kenBurns('s7-photo', 36.3, 3.5);
+      popIn('s7-headline', 36.4, 0.6);
 
-      // S8 (37.8 - 42.1)
-      kenBurns('s8-photo', 37.8, 4.3);
-      popIn('s8-headline', 37.9, 0.6);
-      riseIn('s8-sub', 38.3, 0.45);
+      // S8 (39.8 - 44.1)
+      kenBurns('s8-photo', 39.8, 4.3);
+      popIn('s8-headline', 39.9, 0.6);
+      riseIn('s8-sub', 40.3, 0.45);
 
       window.__timelines = window.__timelines || {};
       window.__timelines['main'] = tl;
