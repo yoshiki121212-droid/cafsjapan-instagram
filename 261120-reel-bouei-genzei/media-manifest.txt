@@ -121,3 +121,10 @@ npx hyperframes render --quality looks --output final.mp4(v0.9.71) → 1080x1350
 品質確認(6回目、4回目のユーザーフィードバック反映後):
 npx hyperframes check(v0.9.71) → 0 errors。Contrast(WCAG AA) 26/26合格。Craft 0 errors/0 warnings。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
 npx hyperframes render --quality looks --output final.mp4(v0.9.71) → 1080x1350, 45.1秒。video.mp4にコピーして保存。
+
+ユーザーからの5回目の直接フィードバックと対応(7回目のrender・check):
+イラストをもう少し大きくし、「？」を別の色にしてイラスト内(カード内)に配置してほしいとの指示 → カードを300×300→380×380に拡大(right:60→40px、bottom:150→110pxに再配置し画面下部とのクリアランスを確保)。「？」は白(var(--ink))のままだと白いカードの上で見えなくなるため、var(--navy-deep)(#060c14)に変更し、カード外に独立配置していたdivをカードのposition:absoluteの子要素として内部(top:22px, right:30px)に移動、font-sizeも96px→72pxに調整してカード内の余白に収まるようにした。
+
+品質確認(7回目、5回目のユーザーフィードバック反映後):
+npx hyperframes check(v0.9.71) → 0 errors。Contrast(WCAG AA) 26/26合格。Craft 0 errors/0 warnings。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
+npx hyperframes render --quality looks --output final.mp4(v0.9.71) → 1080x1350, 45.1秒。video.mp4にコピーして保存。
