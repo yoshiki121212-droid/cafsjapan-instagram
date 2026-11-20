@@ -58,7 +58,7 @@
       #s8-photo {
         object-position: 50% 30%;
       }
-      #s1-hero, #s4-hero {
+      #s1-hero, #s2-hero, #s4-hero {
         color: var(--amber);
       }
       .pre-label {
@@ -233,7 +233,7 @@
         <div class="content">
           <div id="s1-prelabel" class="pre-label">防衛費は、5年で</div>
           <div id="s1-hero" class="hero-num">60兆円</div>
-          <div id="s1-headline" class="headline" style="margin-top:18px;">それでも「足りない」と<br />与党からも言われています。</div>
+          <div id="s1-headline" class="headline" style="margin-top:18px;">それでも「足りない」と<br />与党から言われています。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -264,6 +264,16 @@
           <div id="s2-prelabel" class="pre-label">前の5年計画は</div>
           <div id="s2-hero" class="hero-num">43兆円</div>
           <div id="s2-headline" class="headline" style="margin-top:18px;">そこから、大幅な増額が<br />要求されています。</div>
+        </div>
+        <div style="position:absolute; right:70px; bottom:130px; display:flex; align-items:flex-end; gap:44px; height:260px;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
+            <div id="s2-bar1" style="width:80px; height:186px; background:rgba(255,255,255,0.22); border-radius:10px 10px 0 0; transform-origin:bottom center;"></div>
+            <div style="color:#cfd8e2; font-size:32px; font-family:'Noto Sans JP', sans-serif; white-space:nowrap;">43兆円</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
+            <div id="s2-bar2" style="width:80px; height:260px; background:var(--amber); border-radius:10px 10px 0 0; transform-origin:bottom center;"></div>
+            <div style="color:#ffffff; font-size:32px; font-weight:700; font-family:'Noto Sans JP', sans-serif; white-space:nowrap;">60兆円</div>
+          </div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -321,12 +331,9 @@
         </div>
       </div>
 
-      <!-- S5: the core thesis + bar chart -->
+      <!-- S5: the core thesis (thinking-person illustration) -->
       <div id="s5" class="scene clip" data-start="23.3" data-duration="6.5" data-track-index="0">
-        <div class="photo-wrap">
-          <img id="s5-photo" class="photo" src="assets/images/s5-jsdf-helicopter.jpg" alt="" />
-        </div>
-        <div class="scrim"></div>
+        <div id="s5-bg" class="mesh-bg"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
         <div class="icon-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -342,16 +349,18 @@
           <div id="s5-headline" class="headline">財源を減らしながら、<br />防衛費は増やしたい。</div>
           <div id="s5-sub" class="sub">そんな都合のよい話が、<br />成り立つのでしょうか。</div>
         </div>
-        <div style="position:absolute; right:96px; bottom:260px; display:flex; align-items:flex-end; gap:44px; height:300px;">
-          <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
-            <div id="s5-bar1" style="width:76px; height:130px; background:rgba(255,255,255,0.22); border-radius:10px 10px 0 0; transform-origin:bottom center;"></div>
-            <div style="color:#cfd8e2; font-size:30px; font-family:'Noto Sans JP', sans-serif; white-space:nowrap;">税収減</div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
-            <div id="s5-bar2" style="width:76px; height:270px; background:var(--amber); border-radius:10px 10px 0 0; transform-origin:bottom center;"></div>
-            <div style="color:#ffffff; font-size:30px; font-weight:700; font-family:'Noto Sans JP', sans-serif; white-space:nowrap;">防衛費要求</div>
-          </div>
+        <div id="s5-thinker" style="position:absolute; right:40px; bottom:140px; width:320px; height:384px;">
+          <svg viewBox="0 0 160 170" style="width:100%; height:100%;">
+            <path d="M20 165 C 15 115 35 95 80 95 C 125 95 145 115 140 165 Z" fill="none" stroke="var(--amber)" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+            <circle cx="80" cy="50" r="38" fill="none" stroke="var(--amber)" stroke-width="7" />
+            <circle cx="68" cy="48" r="4" fill="var(--amber)" />
+            <circle cx="92" cy="48" r="4" fill="var(--amber)" />
+            <path d="M70 67 Q 80 61 90 67" fill="none" stroke="var(--amber)" stroke-width="6" stroke-linecap="round" />
+            <path d="M40 100 C 20 90 14 70 26 56" fill="none" stroke="var(--amber)" stroke-width="7" stroke-linecap="round" />
+            <circle cx="28" cy="54" r="10" fill="var(--amber)" />
+          </svg>
         </div>
+        <div id="s5-qmark" style="position:absolute; right:60px; bottom:520px; font-family:var(--font-display); font-weight:900; font-size:96px; color:var(--ink); text-shadow:0 4px 16px rgba(0,0,0,0.5);">？</div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
           <div class="org">財政健全化を求める市民の会</div>
@@ -449,12 +458,14 @@
       popIn('s1-hero', 0.28, 0.6);
       riseIn('s1-headline', 0.52, 0.5);
 
-      // S2 (6.0 - 12.0)
+      // S2 (6.0 - 12.0) + bar chart (43兆円 vs 60兆円)
       kenBurns('s2-photo', 6.0, 6.0);
       slideKicker('s2-kicker', 6.05);
       riseIn('s2-prelabel', 6.15, 0.35);
       popIn('s2-hero', 6.32, 0.5);
       riseIn('s2-headline', 6.56, 0.5);
+      tl.fromTo('#s2-bar1', { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }, 7.0);
+      tl.fromTo('#s2-bar2', { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: 'back.out(1.5)' }, 7.2);
 
       // S3 (12.0 - 17.0)
       kenBurns('s3-photo', 12.0, 5.0);
@@ -470,13 +481,13 @@
       popIn('s4-hero', 17.32, 0.5);
       riseIn('s4-headline', 17.56, 0.5);
 
-      // S5 (23.3 - 29.8) + bar chart
-      kenBurns('s5-photo', 23.3, 6.5);
+      // S5 (23.3 - 29.8) thinking-person illustration
+      kenBurns('s5-bg', 23.3, 6.5);
       slideKicker('s5-kicker', 23.35);
       popIn('s5-headline', 23.5, 0.6);
       riseIn('s5-sub', 23.95, 0.45);
-      tl.fromTo('#s5-bar1', { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }, 24.4);
-      tl.fromTo('#s5-bar2', { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: 'back.out(1.5)' }, 24.6);
+      popIn('s5-thinker', 24.3, 0.7);
+      popIn('s5-qmark', 24.8, 0.5);
 
       // S6 (29.8 - 37.3)
       kenBurns('s6-photo', 29.8, 7.5);
