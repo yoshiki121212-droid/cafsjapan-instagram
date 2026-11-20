@@ -104,3 +104,12 @@ npx hyperframes render --quality looks --output final.mp4(v0.9.71) → 1080x1350
 品質確認(4回目、2回目のユーザーフィードバック反映後):
 npx hyperframes check(v0.9.71) → 0 errors。Contrast(WCAG AA) 26/26合格。Craft 0 errors/0 warnings。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
 npx hyperframes render --quality looks --output final.mp4(v0.9.71) → 1080x1350, 45.1秒。video.mp4にコピーして保存。
+
+ユーザーからの3回目の直接フィードバックと対応(5回目のrender・check):
+自作の線画イラスト(上記100番)のクオリティが低いとの指摘を受け、ユーザーが「Loose Drawing」サイトからダウンロードして提供した考える人のイラスト(肩から上、顎に手を当てて眉をひそめる表情、金髪+グレーのニット)に差し替え。
+素材処理: 元画像はimagemagickで背景を白色フラッド塗りつぶし(画像四隅からのfloodfill、顔など内部の白地は保持)で透明化し、余白をトリムして assets/images/s5-thinker-illustration.png として保存(522×621px、透過PNG)。単純な「背景の白を全部透明化」ではなく、外周からのfloodfillのみ適用することで、顔の白地が透明化されず正しく残ることを確認済み。
+【申し送り】Loose Drawingサイトの利用規約(商用利用可否・クレジット表記要否・政治的文脈での使用に関する制限の有無)は、本クラウド環境の許可ドメイン外で直接確認できなかった(WebFetch・Web検索いずれも規約本文には到達できず)。いらすとや等の類似の日本の無料イラスト素材サイトには「特定の政治的主張を支持・否定する目的での使用はご遠慮ください」といった趣旨の制限を設けている例があるため、本リールが政治団体のアカウントで使われる点を踏まえ、利用規約の確認をユーザーに申し送り済み(2026-11-20のメール/チャットで伝達)。
+
+品質確認(5回目、3回目のユーザーフィードバック反映後):
+npx hyperframes check(v0.9.71) → 0 errors。Contrast(WCAG AA) 26/26合格。Craft 0 errors/0 warnings。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
+npx hyperframes render --quality looks --output final.mp4(v0.9.71) → 1080x1350, 45.1秒。video.mp4にコピーして保存。
