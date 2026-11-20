@@ -113,3 +113,11 @@ npx hyperframes render --quality looks --output final.mp4(v0.9.71) → 1080x1350
 品質確認(5回目、3回目のユーザーフィードバック反映後):
 npx hyperframes check(v0.9.71) → 0 errors。Contrast(WCAG AA) 26/26合格。Craft 0 errors/0 warnings。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
 npx hyperframes render --quality looks --output final.mp4(v0.9.71) → 1080x1350, 45.1秒。video.mp4にコピーして保存。
+
+ユーザーからの4回目の直接フィードバックと対応(6回目のrender・check):
+背景を透過させたことで(ダーク背景上で)顔が見えなくなった、ユーザーは「あえて背景を透過させていない」Canva制作のイラストを用意していたとの指摘 → imagemagickでの背景透過処理(floodfill)を取り止め、ユーザー提供の元画像(799×799、白背景そのまま)をassets/images/s5-thinker-illustration.pngとして復元。白背景のまま浮かせると不自然なため、白背景(#ffffff)・角丸28px・box-shadowを付けた「カード」として提示する構成に変更(padding14px、画像自体にもborder-radius16px)。これにより顔を含めイラスト全体が常にはっきり視認できる。
+あわせて、Loose Drawingは政治的文脈での利用も問題ない旨をユーザーから確認済み(前回申し送った利用規約の懸念は解消)。
+
+品質確認(6回目、4回目のユーザーフィードバック反映後):
+npx hyperframes check(v0.9.71) → 0 errors。Contrast(WCAG AA) 26/26合格。Craft 0 errors/0 warnings。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
+npx hyperframes render --quality looks --output final.mp4(v0.9.71) → 1080x1350, 45.1秒。video.mp4にコピーして保存。
