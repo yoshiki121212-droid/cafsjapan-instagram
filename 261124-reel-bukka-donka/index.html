@@ -210,7 +210,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="45.5" data-width="1080" data-height="1350">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="46.5" data-width="1080" data-height="1350">
 
       <!-- S1: Hook -->
       <div id="s1" class="scene clip" data-start="0" data-duration="6.0" data-track-index="0">
@@ -267,7 +267,7 @@
       </div>
 
       <!-- S3: reason 1 - water bill base effect -->
-      <div id="s3" class="scene clip" data-start="12.0" data-duration="6.0" data-track-index="0">
+      <div id="s3" class="scene clip" data-start="12.0" data-duration="7.0" data-track-index="0">
         <div class="photo-wrap">
           <img id="s3-photo" class="photo" src="assets/images/s3-water-tap.jpg" alt="" />
         </div>
@@ -283,7 +283,7 @@
           <div id="s3-prelabel" class="pre-label">鈍化の主な理由は</div>
           <div id="s3-hero" class="hero-num">水道料金</div>
           <div id="s3-headline" class="headline" style="margin-top:18px;">前年の基準のズレです。</div>
-          <div id="s3-badge" class="hero-badge">前月は+65.6%でした。</div>
+          <div id="s3-badge" class="hero-badge">前月+65.6%→今月はほぼ横ばいです。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -292,7 +292,7 @@
       </div>
 
       <!-- S4: reason 2 - rice price crash -->
-      <div id="s4" class="scene clip" data-start="18.0" data-duration="5.5" data-track-index="0">
+      <div id="s4" class="scene clip" data-start="19.0" data-duration="5.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s4-photo" class="photo" src="assets/images/s4-rice-bowl.jpg" alt="" />
         </div>
@@ -317,7 +317,7 @@
       </div>
 
       <!-- S5: counterpoint - energy still rising -->
-      <div id="s5" class="scene clip" data-start="23.5" data-duration="6.5" data-track-index="0">
+      <div id="s5" class="scene clip" data-start="24.5" data-duration="6.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s5-photo" class="photo" src="assets/images/s5-electricity-pylon.jpg" alt="" />
         </div>
@@ -340,7 +340,7 @@
           </div>
           <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
             <div id="s5-bar2" style="width:76px; height:220px; background:var(--amber); border-radius:10px 10px 0 0; transform-origin:bottom center;"></div>
-            <div style="color:#ffffff; font-size:30px; font-weight:700; font-family:'Noto Sans JP', sans-serif; white-space:nowrap;">ガス</div>
+            <div style="color:#ffffff; font-size:30px; font-weight:700; font-family:'Noto Sans JP', sans-serif; white-space:nowrap;">都市ガス</div>
           </div>
         </div>
         <div class="footer">
@@ -350,7 +350,7 @@
       </div>
 
       <!-- S6: thesis - momentum hasn't faded -->
-      <div id="s6" class="scene clip" data-start="30.0" data-duration="6.5" data-track-index="0">
+      <div id="s6" class="scene clip" data-start="31.0" data-duration="6.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s6-photo" class="photo" src="assets/images/s6-tomatoes-basket.jpg" alt="" />
         </div>
@@ -375,7 +375,7 @@
       </div>
 
       <!-- S7: save CTA -->
-      <div id="s7" class="scene clip" data-start="36.5" data-duration="4.0" data-track-index="0">
+      <div id="s7" class="scene clip" data-start="37.5" data-duration="4.0" data-track-index="0">
         <div class="photo-wrap">
           <img id="s7-photo" class="photo" src="assets/images/s7-notebook-flatlay.jpg" alt="" />
         </div>
@@ -396,7 +396,7 @@
       </div>
 
       <!-- S8: comment CTA -->
-      <div id="s8" class="scene clip" data-start="40.5" data-duration="5.0" data-track-index="0">
+      <div id="s8" class="scene clip" data-start="41.5" data-duration="5.0" data-track-index="0">
         <div class="photo-wrap">
           <img id="s8-photo" class="photo" src="assets/images/s8-phone-hand.jpg" alt="" />
         </div>
@@ -456,35 +456,35 @@
       riseIn('s3-headline', 12.56, 0.5);
       riseIn('s3-badge', 12.9, 0.35);
 
-      // S4 (18.0 - 23.5)
-      kenBurns('s4-photo', 18.0, 5.5);
-      slideKicker('s4-kicker', 18.05);
-      riseIn('s4-prelabel', 18.15, 0.35);
-      popIn('s4-hero', 18.32, 0.5);
-      riseIn('s4-headline', 18.56, 0.5);
+      // S4 (19.0 - 24.5)
+      kenBurns('s4-photo', 19.0, 5.5);
+      slideKicker('s4-kicker', 19.05);
+      riseIn('s4-prelabel', 19.15, 0.35);
+      popIn('s4-hero', 19.32, 0.5);
+      riseIn('s4-headline', 19.56, 0.5);
 
-      // S5 (23.5 - 30.0) + bar chart
-      kenBurns('s5-photo', 23.5, 6.5);
-      slideKicker('s5-kicker', 23.55);
-      popIn('s5-headline', 23.7, 0.6);
-      riseIn('s5-sub', 24.15, 0.45);
-      tl.fromTo('#s5-bar1', { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }, 24.6);
-      tl.fromTo('#s5-bar2', { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: 'back.out(1.5)' }, 24.8);
+      // S5 (24.5 - 31.0) + bar chart
+      kenBurns('s5-photo', 24.5, 6.5);
+      slideKicker('s5-kicker', 24.55);
+      popIn('s5-headline', 24.7, 0.6);
+      riseIn('s5-sub', 25.15, 0.45);
+      tl.fromTo('#s5-bar1', { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }, 25.6);
+      tl.fromTo('#s5-bar2', { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: 'back.out(1.5)' }, 25.8);
 
-      // S6 (30.0 - 36.5)
-      kenBurns('s6-photo', 30.0, 6.5);
-      slideKicker('s6-kicker', 30.05);
-      popIn('s6-headline', 30.2, 0.6);
-      riseIn('s6-sub', 30.65, 0.45);
+      // S6 (31.0 - 37.5)
+      kenBurns('s6-photo', 31.0, 6.5);
+      slideKicker('s6-kicker', 31.05);
+      popIn('s6-headline', 31.2, 0.6);
+      riseIn('s6-sub', 31.65, 0.45);
 
-      // S7 (36.5 - 40.5)
-      kenBurns('s7-photo', 36.5, 4.0);
-      popIn('s7-headline', 36.6, 0.6);
+      // S7 (37.5 - 41.5)
+      kenBurns('s7-photo', 37.5, 4.0);
+      popIn('s7-headline', 37.6, 0.6);
 
-      // S8 (40.5 - 45.5)
-      kenBurns('s8-photo', 40.5, 5.0);
-      popIn('s8-headline', 40.6, 0.6);
-      riseIn('s8-sub', 41.0, 0.45);
+      // S8 (41.5 - 46.5)
+      kenBurns('s8-photo', 41.5, 5.0);
+      popIn('s8-headline', 41.6, 0.6);
+      riseIn('s8-sub', 42.0, 0.45);
 
       window.__timelines = window.__timelines || {};
       window.__timelines['main'] = tl;
