@@ -1,0 +1,66 @@
+テーマ: 東京都区部の消費者物価指数10月中旬速報値(前年比+2.6%、9月の+2.7%から鈍化)は、水道料金の基準ズレとコメ類の記録的下落という特殊要因によるもので、電気・ガス代はむしろ上昇しており、季節調整後の前月比では物価の勢いは弱まっていない、という「鈍化のウソ」を指摘するリール。
+
+企画課(reel-planner)の5案「案5」をユーザーが選定。分析課(reel-analyst)→企画課(reel-planner)のネタ出しフローを経て、企画課が出した5案(米軍経費3倍/防衛費2%のワナ/年収の壁/防衛費と社会保障の綱引き/物価鈍化のウソ)のうち、ユーザーが案5(物価、落ち着いた？のウソ)を選定。CLAUDE.mdのルール通り、5案をGmail(yoshiki121212@gmail.com宛)で確認済み。
+
+事実確認(Web検索、2026-11-24実施):
+・企画課の案5時点では全国10月分CPIが「未確認」とされていたため、制作前に裏取りを実施。総務省統計局の公表カレンダー(e-stat)を確認した結果、全国10月分消費者物価指数の公表予定日は2026年11月27日であり、本日(2026-11-24)時点ではまだ公表されていないことを確認。全国分の数値は動画に含めず、東京都区部(確定済みの中旬速報値)のみで構成する方針に変更。
+・東京都区部10月中旬速報値(生鮮食品を除く総合)：前年同月比+2.6%、9月の+2.7%から縮小、総務省統計局2026年10月30日公表(確定値ではなく中旬速報値)。市場予想の中央値と一致。
+・水道料：前年比横ばい(前月は+65.6%)。東京都の水道基本料金無償化が終わる時期が前年と今年で1か月ずれたことが主因。
+・コメ類：前年比31.3%下落、1971年1月以降で最大の下落率。
+・電気代：+1.7%、都市ガス代：+4.9%、いずれも前年比プラスに転じた。
+・季節調整済み前月比は+0.3%(第一生命経済研究所レポート)。表面上の鈍化とは裏腹に、物価上昇圧力自体は弱まっていないとの見方。
+・以上はロイター報道および総務省統計局公表資料に基づく複数ソースで裏取り済み。
+
+実写(すべてPixabayで新規取得。直近の3本(261118-reel-ev-shinzei・261118-reel-tabakozei-bouei・261120-reel-bouei-genzei)とは別ファイル):
+assets/images/s1-shopping-street-night.jpg (S1「フック」, Pixabay ID:7030016, https://pixabay.com/photos/city-travel-tourism-asia-street-7030016/ 上野アメ横, Ken Burnsズーム1.0→1.08)
+assets/images/s2-tokyo-daytime.jpg (S2「東京都区部10月中旬速報値」, Pixabay ID:6149846, https://pixabay.com/photos/city-tokyo-panorama-buildings-6149846/ 東京昼間の高層ビル群, Ken Burnsズーム1.0→1.08)
+assets/images/s3-water-tap.jpg (S3「水道料金」, Pixabay ID:6533726, https://pixabay.com/photos/water-tap-water-fountain-6533726/, Ken Burnsズーム1.0→1.08)
+assets/images/s4-rice-bowl.jpg (S4「コメ類」, Pixabay ID:4275870, https://pixabay.com/photos/rice-vintage-asia-asian-food-4275870/, Ken Burnsズーム1.0→1.08)
+assets/images/s5-electricity-pylon.jpg (S5「電気・ガス代は上昇」, Pixabay ID:2277401, https://pixabay.com/photos/electricity-power-line-energy-2277401/, Ken Burnsズーム1.0→1.08)
+assets/images/s6-tomatoes-basket.jpg (S6「季節調整値・結論」, Pixabay ID:7121626, https://pixabay.com/photos/tomatoes-fruit-food-vegetable-7121626/, Ken Burnsズーム1.0→1.08)
+assets/images/s7-notebook-flatlay.jpg (S7「保存CTA」, Pixabay ID:3485548, https://pixabay.com/photos/work-write-desk-desktop-workplace-3485548/, Ken Burnsズーム1.0→1.08)
+assets/images/s8-phone-hand.jpg (S8「コメントCTA」, Pixabay ID:791768, https://pixabay.com/photos/smartphone-technology-mobile-phone-791768/, Ken Burnsズーム1.0→1.08)
+全8シーンに実写背景あり(S5は実写+CSS/GSAPの棒グラフ(電気/ガス)の組み合わせ)。
+
+素材選定で不採用にしたもの(候補の目視確認で除外):
+- "tokyo shopping street night"検索の候補(ID:5784472、秋葉原の雨の夜) — 構図は魅力的だが全体の雰囲気がS1のアメ横候補と似すぎるため不採用(採用したID:7030016の方が物価・買い物の文脈に直接的なため選定)。
+- "calendar desk planner"検索の候補(ID:2559708) — カレンダーに手書きの英語("AUGUST"、"FRIDAY"等)が大きく読み取れるため不採用(外国語テキスト基準に抵触)。
+- "hand holding smartphone screen"検索の候補(ID:569515) — 画面に英語アプリアイコン("Tweet"「Mail」「WiFi」「Paint")が表示されており不採用。
+- "grocery receipt shopping"検索の候補(ID:839602) — 紙袋底部に英語の著作権表記("©2014 Pano's Bread All rights reserved")が小さく写り込んでおり不採用。S6は代わりにトマトの静物(ID:7121626、テキストなし)に変更。
+- "japanese newspaper reading"検索の候補(ID:3054758) — 新聞面に英語・ロシア語様の文字が大量に写り込み、メガネのフレームにも"MADE FOR KAZAKHSTAN"の刻印が読み取れるため不採用。
+- "tokyo street daytime shopping"検索の候補(ID:6884534、新宿の路地) — "KIRIN"のビール看板・自販機ロゴが大きく写り込んでおり、ブランドロゴ基準に抵触するため不採用。S2は代わりに高層ビル群の俯瞰ショット(ID:6149846、文字・ロゴなし)に変更。
+- "wallet empty money"検索は候補のほぼ全てがユーロ・ドル・ポンド等の外国通貨だったため、S6のテーマを財布から食材(トマト)に変更して回避。
+採用した8点はいずれも目視で、外国通貨・外国語テキスト・ブランドロゴ・実在人物の顔(S1・S2の遠景の人物を除き、識別可能な顔は写っていない)が写っていないことを確認済み。
+
+bgm:
+media/bgm.mp3 (source: Kevin MacLeod「Thinking Music」, incompetech.com/music/royalty-free/mp3-royaltyfree/Thinking%20Music.mp3, CC BY 4.0, 195.9秒の原曲を45.8秒にトリムし末尾1.2秒フェードアウト)
+直近3本(261120-reel-bouei-genzei「Investigations」、261118-reel-ev-shinzei「Rollin at 5」、261118-reel-tabakozei-bouei「Cold Funk」)とは別トラック。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字(headline/hero-numの91文字)のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照。kicker/pre-label/sub/footer/hero-badgeはHyperFramesバンドル同梱のNoto Sans JP(システムフォント)。
+
+gsap:
+既存プロジェクト(261120-reel-bouei-genzei)のvendor/gsap.min.jsをそのままコピーして使用(npm installでgsapを取得した同一ファイル。cdn.jsdelivr.netを回避)。
+
+ロゴ:
+リポジトリルートの「CAFS ロゴ.png」を全8シーン左上(top:96px, left:64px)に配置。白縁取りとしてborder:3px solid rgba(255,255,255,0.92)の円形バッジでラップ。
+
+構成:
+1080×1350、8シーン、合計45.5秒。
+S1(0-6.0s) kicker「経済ニュース解説」「東京の物価上昇率は」「2.6%」(大・黄)「前月の2.7%から、わずかに鈍化しました。」(フック)
+S2(6.0-12.0s) kicker「2026年10月30日公表」「東京都区部の、10月中旬速報値です。」「全国の、先行指標とされています。」
+S3(12.0-18.0s) kicker「鈍化の内訳」「鈍化の主な理由は」「水道料金」(大・白)「前年の基準のズレです。」バッジ「前月は+65.6%でした。」
+S4(18.0-23.5s) kicker「コメ類」「コメ類の価格は」「▲31.3%」(大・黄)「1971年以降で、最大の下落率です。」
+S5(23.5-30.0s) kicker「一方で」「電気代・ガス代は、むしろ上昇しています。」「電気+1.7%、都市ガス+4.9%です。」+ 棒グラフ(電気/ガス)
+S6(30.0-36.5s) kicker「季節調整値」「季節調整後の前月比では、+0.3%の上昇です。」「安心するのは、まだ早いかもしれません。」
+S7(36.5-40.5s) 保存CTA「保存して、来月の発表と見比べてください。」
+S8(40.5-45.5s) コメントCTA「物価が落ち着いたと、思いますか？」「コメントで教えてください。」
+
+シーンごとに異なるアイコン(トレンドチャート/カレンダー/水滴/お米茶碗/稲妻/警告/しおり/吹き出し)を使用。
+数字・見出しの登場はback.out(1.6)のオーバーシュート、kickerはスライドのみ(フェードなし)で統一。kickerのfont-sizeは直近リール(261120-reel-bouei-genzei)で視認性向上のため40pxに拡大した仕様をそのまま踏襲。
+headline/subはすべて完結した文で終わるよう統一。
+hero-numの色は、重要な核心数字(2.6%・▲31.3%)をamber、中立的な事実(水道料金)は白、という直近リールで確立した色分けルールを踏襲。
+
+品質確認:
+npx hyperframes check(プロジェクト既定のピン留めバージョン) → 0 errors。Contrast(WCAG AA) 27/27合格。Craft 0 errors/0 warnings。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
+npx hyperframes render --quality looks --output final.mp4 → 1080x1350, 45.5秒。video.mp4にコピーして保存。
