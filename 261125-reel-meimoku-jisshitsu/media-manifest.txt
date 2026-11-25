@@ -66,6 +66,18 @@ S8(41.1-45.6s) コメントCTA「名目と実質、どちらが実感に近い�
 headline/subはすべて完結した文で終わるよう統一。
 hero-numの色は、核心数字(693兆円・4.6%)をamber、中立的な事実(20.9%)は白、という直近リールで確立した色分けルールを踏襲。
 
-品質確認:
+品質確認(初回):
 npx hyperframes check(プロジェクト既定のピン留めバージョン0.9.87) → 0 errors, 0 warnings。Contrast(WCAG AA) 27/27合格。Craft 0 errors/0 warnings(S7の文字量超過→data-duration 4.0s→4.6sに拡大、以降S8開始時刻を+0.6s後ろ倒し、BGMも45.9秒に再トリムして解消)。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
-npx hyperframes render --quality looks --output final.mp4 → 1080x1350、45.9秒。video.mp4にコピーして保存予定。
+npx hyperframes render --quality looks --output final.mp4 → 1080x1350、45.6秒。video.mp4にコピーして保存・コミット・push済み(初回版)。
+
+reel-qaレビューの指摘と対応(2回目のrender・check):
+(1)【最重要・修正済み】S1が「693兆円」(実績値)と「高市首相の発言」を1シーンに同居させていたが、首相の発言の核心数値である「700兆円」が本編テキストのどこにも登場せず、「693兆円が視野に入っていると首相が言った」という誤読を招く構成になっているとの指摘。
+    → S1のheadlineを「「視野に入っている」と高市首相も発言しました。」から「高市氏が語る700兆円には<br />届いていません。」に全面変更。693兆円(hero-num・amber)と700兆円(headline内に明記)の両方を画面上に明示し、「実績693兆円はまだ首相の言う700兆円に届いていない」という対比が本編テキストだけで伝わるようにした。
+(2) S1・S5・S6が文字数ベースの読了時間(Craft check)の下限をやや下回っているとの指摘。
+    → S1 6.0s→7.5s、S5 6.0s→7.0s、S6 6.0s→6.5s、S8 4.5s→4.7sに拡大。以降S2〜S8のdata-start・GSAPオフセットを全て後ろ倒しし、root data-durationを45.6秒→48.8秒に変更。BGMも49.1秒に再トリム(フェードアウト開始47.9秒)。
+    ※(1)の修正でS1のテキスト量自体を削減(badge要素を撤廃)したため、Craft checkは0 warningsで再合格(当初の指摘時点より必要な拡大幅は縮小)。
+その他(自動チェック・コントラスト・ブランド一貫性・画像重複なし(md5ハッシュ照合済み)・BGM重複なし(冒頭5秒PCMハッシュ照合済み、前回261124とは別ハッシュを確認)・文章完結性・キャプション整合性)はすべて1回目レビューで合格。
+
+品質確認(2回目、reel-qa指摘反映後):
+npx hyperframes check → 0 errors, 0 warnings。Contrast(WCAG AA) 27/27合格。Craft 0 errors/0 warnings。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
+npx hyperframes render --quality looks --output final.mp4 → 1080x1350、48.8秒。video.mp4にコピーして保存予定。

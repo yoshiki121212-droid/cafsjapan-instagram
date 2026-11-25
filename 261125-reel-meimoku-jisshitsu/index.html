@@ -191,10 +191,10 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="45.6" data-width="1080" data-height="1350">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="48.8" data-width="1080" data-height="1350">
 
       <!-- S1: Hook - nominal GDP 693 trillion yen -->
-      <div id="s1" class="scene clip" data-start="0" data-duration="6.0" data-track-index="0">
+      <div id="s1" class="scene clip" data-start="0" data-duration="7.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s1-photo" class="photo" src="assets/images/s1-tokyo-skyscrapers.jpg" alt="" />
         </div>
@@ -212,10 +212,10 @@
           </svg>
         </div>
         <div id="s1-kicker" class="kicker">経済ニュース解説</div>
-        <div class="content">
+        <div class="content" style="top:560px;">
           <div id="s1-prelabel" class="pre-label">7〜9月期の名目GDPは</div>
           <div id="s1-hero" class="hero-num">693兆円</div>
-          <div id="s1-headline" class="headline" style="margin-top:18px;">「視野に入っている」と<br />高市首相も発言しました。</div>
+          <div id="s1-headline" class="headline" style="margin-top:18px;">高市氏が語る700兆円には<br />届いていません。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -224,7 +224,7 @@
       </div>
 
       <!-- S2: nominal growth vs 5 years ago -->
-      <div id="s2" class="scene clip" data-start="6.0" data-duration="5.5" data-track-index="0">
+      <div id="s2" class="scene clip" data-start="7.5" data-duration="5.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s2-photo" class="photo" src="assets/images/s2-tokyo-sunset-river.jpg" alt="" />
         </div>
@@ -249,7 +249,7 @@
       </div>
 
       <!-- S3: the twist - real growth is only 4.6% -->
-      <div id="s3" class="scene clip" data-start="11.5" data-duration="6.5" data-track-index="0">
+      <div id="s3" class="scene clip" data-start="13.0" data-duration="6.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s3-photo" class="photo" src="assets/images/s3-vintage-scale-apples.jpg" alt="" />
         </div>
@@ -274,7 +274,7 @@
       </div>
 
       <!-- S4: nominal vs real comparison bar chart -->
-      <div id="s4" class="scene clip" data-start="18.0" data-duration="6.5" data-track-index="0">
+      <div id="s4" class="scene clip" data-start="19.5" data-duration="6.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s4-photo" class="photo" src="assets/images/s4-staple-bar-chart.jpg" alt="" />
         </div>
@@ -310,7 +310,7 @@
       </div>
 
       <!-- S5: the gap is inflation -->
-      <div id="s5" class="scene clip" data-start="24.5" data-duration="6.0" data-track-index="0">
+      <div id="s5" class="scene clip" data-start="26.0" data-duration="7.0" data-track-index="0">
         <div class="photo-wrap">
           <img id="s5-photo" class="photo" src="assets/images/s5-coin-stack.jpg" alt="" />
         </div>
@@ -335,7 +335,7 @@
       </div>
 
       <!-- S6: translate to living reality -->
-      <div id="s6" class="scene clip" data-start="30.5" data-duration="6.0" data-track-index="0">
+      <div id="s6" class="scene clip" data-start="33.0" data-duration="6.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s6-photo" class="photo" src="assets/images/s6-piggy-bank.jpg" alt="" />
         </div>
@@ -360,7 +360,7 @@
       </div>
 
       <!-- S7: save CTA -->
-      <div id="s7" class="scene clip" data-start="36.5" data-duration="4.6" data-track-index="0">
+      <div id="s7" class="scene clip" data-start="39.5" data-duration="4.6" data-track-index="0">
         <div class="photo-wrap">
           <img id="s7-photo" class="photo" src="assets/images/s7-notebook-coffee-flatlay.jpg" alt="" />
         </div>
@@ -381,7 +381,7 @@
       </div>
 
       <!-- S8: comment CTA -->
-      <div id="s8" class="scene clip" data-start="41.1" data-duration="4.5" data-track-index="0">
+      <div id="s8" class="scene clip" data-start="44.1" data-duration="4.7" data-track-index="0">
         <div class="photo-wrap">
           <img id="s8-photo" class="photo" src="assets/images/s8-phone-hand.jpg" alt="" />
         </div>
@@ -420,54 +420,54 @@
         tl.fromTo('#' + id, { y: 22, opacity: 0.001 }, { y: 0, opacity: 1, duration: dur || 0.45, ease: 'power2.out' }, start);
       }
 
-      // S1 (0 - 6.0)
-      kenBurns('s1-photo', 0, 6.0);
+      // S1 (0 - 7.5)
+      kenBurns('s1-photo', 0, 7.5);
       slideKicker('s1-kicker', 0.05);
       riseIn('s1-prelabel', 0.1, 0.35);
       popIn('s1-hero', 0.28, 0.6);
       riseIn('s1-headline', 0.52, 0.5);
 
-      // S2 (6.0 - 11.5)
-      kenBurns('s2-photo', 6.0, 5.5);
-      slideKicker('s2-kicker', 6.05);
-      riseIn('s2-prelabel', 6.1, 0.35);
-      popIn('s2-hero', 6.28, 0.6);
-      riseIn('s2-headline', 6.52, 0.5);
+      // S2 (7.5 - 13.0)
+      kenBurns('s2-photo', 7.5, 5.5);
+      slideKicker('s2-kicker', 7.55);
+      riseIn('s2-prelabel', 7.6, 0.35);
+      popIn('s2-hero', 7.78, 0.6);
+      riseIn('s2-headline', 8.02, 0.5);
 
-      // S3 (11.5 - 18.0)
-      kenBurns('s3-photo', 11.5, 6.5);
-      slideKicker('s3-kicker', 11.55);
-      riseIn('s3-prelabel', 11.6, 0.35);
-      popIn('s3-hero', 11.78, 0.6);
-      riseIn('s3-headline', 12.02, 0.5);
+      // S3 (13.0 - 19.5)
+      kenBurns('s3-photo', 13.0, 6.5);
+      slideKicker('s3-kicker', 13.05);
+      riseIn('s3-prelabel', 13.1, 0.35);
+      popIn('s3-hero', 13.28, 0.6);
+      riseIn('s3-headline', 13.52, 0.5);
 
-      // S4 (18.0 - 24.5) + bar chart
-      kenBurns('s4-photo', 18.0, 6.5);
-      slideKicker('s4-kicker', 18.05);
-      popIn('s4-headline', 18.2, 0.6);
-      tl.fromTo('#s4-bar1', { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: 'back.out(1.5)' }, 18.7);
-      tl.fromTo('#s4-bar2', { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }, 18.9);
+      // S4 (19.5 - 26.0) + bar chart
+      kenBurns('s4-photo', 19.5, 6.5);
+      slideKicker('s4-kicker', 19.55);
+      popIn('s4-headline', 19.7, 0.6);
+      tl.fromTo('#s4-bar1', { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: 'back.out(1.5)' }, 20.2);
+      tl.fromTo('#s4-bar2', { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }, 20.4);
 
-      // S5 (24.5 - 30.5)
-      kenBurns('s5-photo', 24.5, 6.0);
-      slideKicker('s5-kicker', 24.55);
-      popIn('s5-headline', 24.7, 0.6);
-      riseIn('s5-sub', 25.15, 0.45);
+      // S5 (26.0 - 33.0)
+      kenBurns('s5-photo', 26.0, 7.0);
+      slideKicker('s5-kicker', 26.05);
+      popIn('s5-headline', 26.2, 0.6);
+      riseIn('s5-sub', 26.65, 0.45);
 
-      // S6 (30.5 - 36.5)
-      kenBurns('s6-photo', 30.5, 6.0);
-      slideKicker('s6-kicker', 30.55);
-      popIn('s6-headline', 30.7, 0.6);
-      riseIn('s6-sub', 31.15, 0.45);
+      // S6 (33.0 - 39.5)
+      kenBurns('s6-photo', 33.0, 6.5);
+      slideKicker('s6-kicker', 33.05);
+      popIn('s6-headline', 33.2, 0.6);
+      riseIn('s6-sub', 33.65, 0.45);
 
-      // S7 (36.5 - 41.1)
-      kenBurns('s7-photo', 36.5, 4.6);
-      popIn('s7-headline', 36.6, 0.6);
+      // S7 (39.5 - 44.1)
+      kenBurns('s7-photo', 39.5, 4.6);
+      popIn('s7-headline', 39.6, 0.6);
 
-      // S8 (41.1 - 45.6)
-      kenBurns('s8-photo', 41.1, 4.5);
-      popIn('s8-headline', 41.2, 0.6);
-      riseIn('s8-sub', 41.6, 0.45);
+      // S8 (44.1 - 48.8)
+      kenBurns('s8-photo', 44.1, 4.7);
+      popIn('s8-headline', 44.2, 0.6);
+      riseIn('s8-sub', 44.6, 0.45);
 
       window.__timelines = window.__timelines || {};
       window.__timelines['main'] = tl;
