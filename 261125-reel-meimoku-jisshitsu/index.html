@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1350" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: 'Zen Kaku Gothic New Black';
+        font-style: normal;
+        font-weight: 900;
+        src: url('assets/fonts/zen-kaku-gothic-new-900.woff2') format('woff2');
+      }
+      :root {
+        --navy: #0b1420;
+        --navy-deep: #060c14;
+        --amber: #d9a441;
+        --amber-soft: rgba(217, 164, 65, 0.22);
+        --ink: #ffffff;
+        --sub-ink: #cfd8e2;
+        --font-display: 'Zen Kaku Gothic New Black', 'Noto Sans JP', sans-serif;
+        --font-body: 'Noto Sans JP', sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: var(--navy);
+      }
+      #root {
+        width: 1080px;
+        height: 1350px;
+        position: relative;
+        font-family: var(--font-body);
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: var(--navy);
+      }
+      .photo-wrap {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      .photo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform-origin: center center;
+        will-change: transform;
+      }
+      #s1-hero, #s3-hero {
+        color: var(--amber);
+      }
+      .pre-label {
+        font-family: var(--font-body);
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 40px;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+      }
+      .scrim {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 82% 8%, var(--amber-soft), transparent 55%),
+          linear-gradient(180deg, rgba(6, 12, 20, 0.62) 0%, rgba(6, 12, 20, 0.34) 30%, rgba(6, 12, 20, 0.58) 52%, rgba(6, 12, 20, 0.80) 68%, rgba(6, 12, 20, 0.92) 100%);
+      }
+      .logo-badge {
+        position: absolute;
+        top: 96px;
+        left: 64px;
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.92);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+        overflow: hidden;
+        background: var(--navy-deep);
+      }
+      .logo-badge img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      .icon-badge {
+        position: absolute;
+        top: 96px;
+        right: 64px;
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: rgba(217, 164, 65, 0.92);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-badge svg { width: 46px; height: 46px; }
+      .kicker {
+        position: absolute;
+        left: 64px;
+        top: 232px;
+        display: inline-flex;
+        align-items: center;
+        background: var(--amber);
+        color: var(--navy-deep);
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 1;
+        padding: 18px 36px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+      .content {
+        position: absolute;
+        left: 64px;
+        right: 64px;
+        top: 540px;
+      }
+      .headline {
+        font-family: var(--font-display);
+        font-weight: 900;
+        color: var(--ink);
+        font-size: 64px;
+        line-height: 1.32;
+        width: 920px;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
+      }
+      .sub {
+        margin-top: 28px;
+        font-family: var(--font-body);
+        font-weight: 500;
+        color: var(--sub-ink);
+        font-size: 36px;
+        line-height: 1.45;
+        width: 900px;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+      }
+      .hero-num {
+        font-family: var(--font-display);
+        font-weight: 900;
+        color: var(--ink);
+        font-size: 130px;
+        line-height: 1;
+        text-shadow: 0 4px 22px rgba(0, 0, 0, 0.55);
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 18px;
+        margin-left: 4px;
+        background: rgba(11, 20, 32, 0.72);
+        border: 2px solid rgba(217, 164, 65, 0.9);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 32px;
+        padding: 10px 24px;
+        border-radius: 999px;
+      }
+      .footer {
+        position: absolute;
+        left: 64px;
+        bottom: 64px;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 16px;
+      }
+      .footer .handle {
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 32px;
+        color: var(--ink);
+      }
+      .footer .org {
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: 29px;
+        color: rgba(255, 255, 255, 0.68);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="45.6" data-width="1080" data-height="1350">
+
+      <!-- S1: Hook - nominal GDP 693 trillion yen -->
+      <div id="s1" class="scene clip" data-start="0" data-duration="6.0" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s1-photo" class="photo" src="assets/images/s1-tokyo-skyscrapers.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="7" y="3" width="10" height="18" />
+            <rect x="9" y="6.2" width="1.6" height="1.6" fill="#ffffff" stroke="none" />
+            <rect x="13.4" y="6.2" width="1.6" height="1.6" fill="#ffffff" stroke="none" />
+            <rect x="9" y="10.2" width="1.6" height="1.6" fill="#ffffff" stroke="none" />
+            <rect x="13.4" y="10.2" width="1.6" height="1.6" fill="#ffffff" stroke="none" />
+            <rect x="9" y="14.2" width="1.6" height="1.6" fill="#ffffff" stroke="none" />
+            <rect x="13.4" y="14.2" width="1.6" height="1.6" fill="#ffffff" stroke="none" />
+          </svg>
+        </div>
+        <div id="s1-kicker" class="kicker">経済ニュース解説</div>
+        <div class="content">
+          <div id="s1-prelabel" class="pre-label">7〜9月期の名目GDPは</div>
+          <div id="s1-hero" class="hero-num">693兆円</div>
+          <div id="s1-headline" class="headline" style="margin-top:18px;">「視野に入っている」と<br />高市首相も発言しました。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S2: nominal growth vs 5 years ago -->
+      <div id="s2" class="scene clip" data-start="6.0" data-duration="5.5" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s2-photo" class="photo" src="assets/images/s2-tokyo-sunset-river.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 16 9 10 13 14 21 5" />
+            <polyline points="15 5 21 5 21 11" />
+          </svg>
+        </div>
+        <div id="s2-kicker" class="kicker">5年前と比べると</div>
+        <div class="content">
+          <div id="s2-prelabel" class="pre-label">2021年の同時期から</div>
+          <div id="s2-hero" class="hero-num">20.9%</div>
+          <div id="s2-headline" class="headline" style="margin-top:18px;">名目GDPは増えました。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S3: the twist - real growth is only 4.6% -->
+      <div id="s3" class="scene clip" data-start="11.5" data-duration="6.5" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s3-photo" class="photo" src="assets/images/s3-vintage-scale-apples.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="10" r="6" />
+            <line x1="14.5" y1="14.5" x2="21" y2="21" />
+          </svg>
+        </div>
+        <div id="s3-kicker" class="kicker">でも、実質では</div>
+        <div class="content">
+          <div id="s3-prelabel" class="pre-label">物価の変動を除いた実質GDPでは</div>
+          <div id="s3-hero" class="hero-num">4.6%</div>
+          <div id="s3-headline" class="headline" style="margin-top:18px;">増加は、わずかこれだけです。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S4: nominal vs real comparison bar chart -->
+      <div id="s4" class="scene clip" data-start="18.0" data-duration="6.5" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s4-photo" class="photo" src="assets/images/s4-staple-bar-chart.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="3" x2="12" y2="18" />
+            <line x1="5" y1="7" x2="19" y2="7" />
+            <path d="M5 7 L2.2 12.6a3 3 0 0 0 5.6 0Z" />
+            <path d="M19 7 L16.2 12.6a3 3 0 0 0 5.6 0Z" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+          </svg>
+        </div>
+        <div id="s4-kicker" class="kicker">名目 vs 実質</div>
+        <div class="content">
+          <div id="s4-headline" class="headline">名目と実質では、<br />4倍以上の差があります。</div>
+        </div>
+        <div style="position:absolute; right:110px; bottom:140px; display:flex; align-items:flex-end; gap:44px; height:260px;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
+            <div id="s4-bar1" style="width:90px; height:260px; background:var(--amber); border-radius:10px 10px 0 0; transform-origin:bottom center;"></div>
+            <div style="color:#ffffff; font-size:30px; font-weight:700; font-family:'Noto Sans JP', sans-serif; white-space:nowrap;">名目 20.9%</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
+            <div id="s4-bar2" style="width:90px; height:58px; background:rgba(255,255,255,0.35); border-radius:10px 10px 0 0; transform-origin:bottom center;"></div>
+            <div style="color:#cfd8e2; font-size:30px; font-family:'Noto Sans JP', sans-serif; white-space:nowrap;">実質 4.6%</div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S5: the gap is inflation -->
+      <div id="s5" class="scene clip" data-start="24.5" data-duration="6.0" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s5-photo" class="photo" src="assets/images/s5-coin-stack.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="#ffffff" stroke="none">
+            <rect x="4" y="14" width="3.2" height="7" />
+            <rect x="10.4" y="10" width="3.2" height="11" />
+            <rect x="16.8" y="5" width="3.2" height="16" />
+          </svg>
+        </div>
+        <div id="s5-kicker" class="kicker">伸びの正体</div>
+        <div class="content">
+          <div id="s5-headline" class="headline">名目が伸びた分の多くは、<br />物価上昇によるものです。</div>
+          <div id="s5-sub" class="sub">物価を除くと、実感は多くありません。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S6: translate to living reality -->
+      <div id="s6" class="scene clip" data-start="30.5" data-duration="6.0" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s6-photo" class="photo" src="assets/images/s6-piggy-bank.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="7" width="18" height="12" rx="2" />
+            <path d="M3 10h18" />
+            <circle cx="16" cy="13.5" r="1.3" fill="#ffffff" stroke="none" />
+          </svg>
+        </div>
+        <div id="s6-kicker" class="kicker">生活の実感</div>
+        <div class="content">
+          <div id="s6-headline" class="headline">給料や年金の増え方は、<br />名目ほど大きくありません。</div>
+          <div id="s6-sub" class="sub">「実質」で見ることが大切です。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S7: save CTA -->
+      <div id="s7" class="scene clip" data-start="36.5" data-duration="4.6" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s7-photo" class="photo" src="assets/images/s7-notebook-coffee-flatlay.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3h12v18l-6-4.5L6 21Z" />
+          </svg>
+        </div>
+        <div class="content" style="top:600px;">
+          <div id="s7-headline" class="headline">保存して、12月8日の<br />2次速報と見比べてください。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S8: comment CTA -->
+      <div id="s8" class="scene clip" data-start="41.1" data-duration="4.5" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s8-photo" class="photo" src="assets/images/s8-phone-hand.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 5h18v11H9l-4 4v-4H3Z" />
+          </svg>
+        </div>
+        <div class="content" style="top:600px;">
+          <div id="s8-headline" class="headline">名目と実質、<br />どちらが実感に近いですか？</div>
+          <div id="s8-sub" class="sub">コメントで教えてください。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <audio id="bgm" src="media/bgm.mp3" data-start="0" data-track-index="60" data-volume="0.5" data-fade-in="0.5" data-fade-out="1.2"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      function kenBurns(id, start, duration) {
+        tl.fromTo('#' + id, { scale: 1.0 }, { scale: 1.08, duration: duration, ease: 'none' }, start);
+      }
+      function slideKicker(id, start) {
+        tl.fromTo('#' + id, { x: -46 }, { x: 0, duration: 0.42, ease: 'power3.out' }, start);
+      }
+      function popIn(id, start, dur) {
+        tl.fromTo('#' + id, { scale: 0.7, y: 18 }, { scale: 1, y: 0, duration: dur || 0.6, ease: 'back.out(1.6)' }, start);
+      }
+      function riseIn(id, start, dur) {
+        tl.fromTo('#' + id, { y: 22, opacity: 0.001 }, { y: 0, opacity: 1, duration: dur || 0.45, ease: 'power2.out' }, start);
+      }
+
+      // S1 (0 - 6.0)
+      kenBurns('s1-photo', 0, 6.0);
+      slideKicker('s1-kicker', 0.05);
+      riseIn('s1-prelabel', 0.1, 0.35);
+      popIn('s1-hero', 0.28, 0.6);
+      riseIn('s1-headline', 0.52, 0.5);
+
+      // S2 (6.0 - 11.5)
+      kenBurns('s2-photo', 6.0, 5.5);
+      slideKicker('s2-kicker', 6.05);
+      riseIn('s2-prelabel', 6.1, 0.35);
+      popIn('s2-hero', 6.28, 0.6);
+      riseIn('s2-headline', 6.52, 0.5);
+
+      // S3 (11.5 - 18.0)
+      kenBurns('s3-photo', 11.5, 6.5);
+      slideKicker('s3-kicker', 11.55);
+      riseIn('s3-prelabel', 11.6, 0.35);
+      popIn('s3-hero', 11.78, 0.6);
+      riseIn('s3-headline', 12.02, 0.5);
+
+      // S4 (18.0 - 24.5) + bar chart
+      kenBurns('s4-photo', 18.0, 6.5);
+      slideKicker('s4-kicker', 18.05);
+      popIn('s4-headline', 18.2, 0.6);
+      tl.fromTo('#s4-bar1', { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: 'back.out(1.5)' }, 18.7);
+      tl.fromTo('#s4-bar2', { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }, 18.9);
+
+      // S5 (24.5 - 30.5)
+      kenBurns('s5-photo', 24.5, 6.0);
+      slideKicker('s5-kicker', 24.55);
+      popIn('s5-headline', 24.7, 0.6);
+      riseIn('s5-sub', 25.15, 0.45);
+
+      // S6 (30.5 - 36.5)
+      kenBurns('s6-photo', 30.5, 6.0);
+      slideKicker('s6-kicker', 30.55);
+      popIn('s6-headline', 30.7, 0.6);
+      riseIn('s6-sub', 31.15, 0.45);
+
+      // S7 (36.5 - 41.1)
+      kenBurns('s7-photo', 36.5, 4.6);
+      popIn('s7-headline', 36.6, 0.6);
+
+      // S8 (41.1 - 45.6)
+      kenBurns('s8-photo', 41.1, 4.5);
+      popIn('s8-headline', 41.2, 0.6);
+      riseIn('s8-sub', 41.6, 0.45);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines['main'] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+テーマ: 2026年7〜9月期の名目GDP(季節調整値・年率換算)は約693兆円で、5年前(2021年)の同時期から20.9%増加したが、実質では4.6%の増加にとどまる。この差は主に物価上昇によるもので、高市首相が自身のSNSで「名目700兆円経済が視野に入っている」ことを「確かな変化」の例として挙げたことと対比する内容。
+
+ユーザーがテーマを直接指定(企画課は省略、分析課→作成課→校正課のみで制作)。
+
+事実確認の経緯:
+・ユーザーからの当初の依頼時点では、693兆円・20.9%・4.6%という数字の出典が不明で、作成課が独自にWeb検索したところ、2021年7-9月期と2026年7-9月期の名目GDP水準を比較すると計算上は約+28.2%になり、ユーザー提示の20.9%と一致しなかったため、一旦制作を保留しユーザーに出典を確認した。
+・ユーザーから出典として朝日新聞記事(有料記事、見出し「名目GDP、ドル換算では伸び悩み　円安影響、「印・英に抜かれる」予測」2026年11月25日5時00分)のリンク(share.google短縮URL)が提示されたが、share.googleおよびasahi.com本体はクラウド実行環境のネットワーク許可リストに入っておらず、web-fetchでの直接取得は失敗した(DNS解決不可)。環境のネットワーク許可リストへのasahi.com追加も試みたが、この回(無人のクラウドルーティン実行)は承認が得られず反映されなかった。
+・WebSearchで関連報道(NHK、dis-media.com等)を確認した結果、この記事はIMFによる「ドル換算の名目GDPで日本が2027年にインド・英国に抜かれる」という予測記事である可能性が高いと推測して一度ユーザーに報告したが、ユーザーが実際に記事本文(無料開示部分)を貼り付けてくれたことで、693兆円・20.9%・4.6%という数字が記事内に実在すること、および高市首相の「名目700兆円経済が視野に入っている」というSNS発言が記事の導入部分であることが確認できた。
+・「物価上昇が差の理由」である旨は、ユーザー提示の記事本文の末尾(「その差は、」で途切れている)および依頼文の当初の説明文("その差は物価上昇によるものだ")から採用した。全文を読めていないため、物価上昇以外の要因(為替変動・産業構成等)が記事内で言及されている可能性は留保しつつ、動画では「物価上昇による差」という依頼内容の範囲で構成した。
+・記事見出しが示す「ドル換算での国際順位低下(インド・英国に抜かれる)」という論点は、今回の動画では扱っていない(ユーザー指定のテーマは国内の名目・実質GDP比較のため)。別の切り口として今後のネタ候補になりうる。
+・次回の全国GDP関連指標として、2026年7-9月期GDPの2次速報(確報)は2026年12月8日に公表予定(総務省統計局公表予定カレンダー等での一般的な公表サイクルに基づく。本リールのS7(保存CTA)で言及)。
+
+分析課(reel-analyst)の申し送り(instagram-post-metrics-2026-11-24.csv分析、2026-11-25実施)の反映:
+・目標達成した過去2投稿(食品消費税8%→1%、在日米軍経費3倍)は冒頭1〜2秒以内に具体的な大きい数字を即時提示していたため、本リールもS1で即座に「693兆円」を提示する構成にした。
+・離脱率ワースト3(年金、10年国債金利、国の借金利払い)はいずれも抽象的な問いかけ・数字後出しの構成だったため、本リールは693兆円→20.9%→4.6%の順で段階的に数字を積み上げ、問いかけのみのシーンを作らないようにした。
+・保存・シェア・コメントが全40投稿でゼロという課題を踏まえ、S8のCTAを「名目と実質、どちらが実感に近いですか？」という意見が分かれやすい問いかけ型にした。
+・「身近な負担への翻訳」の推奨を踏まえ、S6で給料・年金の実感という生活に身近な文脈に接続した。
+
+実写(すべてPixabayで新規取得。直近3本(261124-reel-bukka-donka・261120-reel-bouei-genzei・261118-reel-ev-shinzei/tabakozei-bouei)とはPixabay ID重複なしを確認済み):
+assets/images/s1-tokyo-skyscrapers.jpg (S1「693兆円」フック, Pixabay ID:9603441, https://pixabay.com/photos/tokyo-architecture-skyscraper-9603441/ 東京都心の俯瞰、Ken Burnsズーム1.0→1.08)
+assets/images/s2-tokyo-sunset-river.jpg (S2「20.9%増」, Pixabay ID:7025154, https://pixabay.com/photos/city-tokyo-japan-sunset-sun-7025154/ 隅田川と東京の夕景、Ken Burnsズーム1.0→1.08)
+assets/images/s3-vintage-scale-apples.jpg (S3「実質4.6%」の種明かし, Pixabay ID:1375306, https://pixabay.com/photos/scales-antique-old-balance-weight-1375306/ アンティークの秤とりんご。「本当の目方を測り直す」という比喩として採用。数字の表示は英数字の目盛りのみで外国語テキストなし、Ken Burnsズーム1.0→1.08)
+assets/images/s4-staple-bar-chart.jpg (S4「名目vs実質」比較, Pixabay ID:5756894, https://pixabay.com/photos/staple-ladder-graph-growth-5756894/ ホチキス針を階段状に積んだ「減少グラフ」のメタファー。実写+CSS/GSAPの棒グラフ(名目20.9%/実質4.6%)を重ねて表示、Ken Burnsズーム1.0→1.08)
+assets/images/s5-coin-stack.jpg (S5「伸びの正体=物価上昇」, Pixabay ID:1481018, https://pixabay.com/photos/coin-stacked-stack-money-pay-1481018/ 金貨の積み重ね、文字判読不可、Ken Burnsズーム1.0→1.08)
+assets/images/s6-piggy-bank.jpg (S6「生活の実感」, Pixabay ID:632116, https://pixabay.com/photos/pig-piggy-bank-moneybox-632116/ 貯金箱、Ken Burnsズーム1.0→1.08)
+assets/images/s7-notebook-coffee-flatlay.jpg (S7「保存CTA」, Pixabay ID:3706781, https://pixabay.com/photos/notebook-pen-post-it-coffee-cup-3706781/ ノート・ペン・付箋・コーヒーのフラットレイ、Ken Burnsズーム1.0→1.08)
+assets/images/s8-phone-hand.jpg (S8「コメントCTA」, Pixabay ID:3146387, https://pixabay.com/photos/phone-tablets-technology-3146387/ スマートフォンを持つ手(画面は黒紙で文字なし)、Ken Burnsズーム1.0→1.08)
+全8シーンに実写背景あり(S4は実写+CSS/GSAPの棒グラフ(名目/実質)の組み合わせ)。
+
+素材選定で不採用にしたもの(候補の目視確認で除外):
+- S5当初候補(Pixabay ID:3425868、紙製の値札の切り抜き)— 背景がティール×マゼンタ×ブルーの配色で、ブランドカラー(ネイビー×アンバー)と明らかに色調が食い違うため、npm run checkのスナップショット確認時に不採用と判断し、金貨の積み重ね(ID:1481018)に差し替え。
+- S3候補(Pixabay ID:8450635、コインと為替チャート)— コインの刻印が英国ペニー硬貨("ONE PENNY"等)と判読できる外国通貨のため不採用。
+- S8候補(Pixabay ID:5339023、スマートフォンを持つ手)— 手首の時計バンドに"VESTAL"というブランドロゴが判読できるため不採用。
+- S8候補(Pixabay ID:569515)— 画面に英語アプリアイコンが表示されており不採用(261124でも同じ理由で不採用済み)。
+- S8候補(Pixabay ID:5682222)— 261120-reel-bouei-genzeiで使用済みのため不採用。
+- S1候補の「hand-dollar-yen-euro-yuan」(Pixabay ID:14150)— ドル・ユーロ・人民元等複数の外国通貨の手のひらシルエットが混在しており、日本のGDPの文脈に直接結びつかないため不採用。
+- "tokyo skyline night"検索の候補(Pixabay ID:4335245)— 261120-reel-bouei-genzeiで使用済みのため不採用。
+採用した8点はいずれも目視で、外国通貨・外国語テキスト・ブランドロゴ・実在人物の顔が写っていないことを確認済み(S1の背景に"NOHMI""KAWAMOTO"という小さな建物名表記があるが、海外ブランド広告ではなく建物名の略称表記のため、261124での"WIZ・BLD"の前例に準じ許容)。
+
+bgm:
+media/bgm.mp3 (source: Kevin MacLeod「Deliberate Thought」, incompetech.com/music/royalty-free/mp3-royaltyfree/Deliberate%20Thought.mp3, CC BY 4.0, 177.5秒の原曲を45.9秒にトリムし末尾1.2秒フェードアウト)
+直近4本(261124-reel-bukka-donka「Thinking Music」、261120-reel-bouei-genzei「Investigations」、261118-reel-ev-shinzei「Rollin at 5」、261118-reel-tabakozei-bouei「Cold Funk」)とは別トラック。
+
+フォント:
+Zen Kaku Gothic New Black(900)をGoogle Fonts CSS2 APIで本プロジェクトの使用文字(headline/hero-numの100文字)のみサブセット取得し、assets/fonts/へローカル保存して@font-faceで参照。kicker/pre-label/sub/footerはHyperFramesバンドル同梱のNoto Sans JP(システムフォント)。
+
+gsap:
+既存プロジェクト(261124-reel-bukka-donka)のvendor/gsap.min.jsをそのままコピーして使用(cdn.jsdelivr.netを回避)。
+
+ロゴ:
+261124-reel-bukka-donkaのassets/images/cafs-logo.pngをそのままコピーして使用。全8シーン左上(top:96px, left:64px)に配置。
+
+構成:
+1080×1350、8シーン、合計45.9秒。
+S1(0-6.0s) kicker「経済ニュース解説」pre-label「7〜9月期の名目GDPは」hero-num(大・黄)「693兆円」headline「「視野に入っている」と高市首相も発言しました。」(フック。高市首相のSNS発言との対比を最初に提示)
+S2(6.0-11.5s) kicker「5年前と比べると」pre-label「2021年の同時期から」hero-num(大・白)「20.9%」headline「名目GDPは増えました。」
+S3(11.5-18.0s) kicker「でも、実質では」pre-label「物価の変動を除いた実質GDPでは」hero-num(大・黄)「4.6%」headline「増加は、わずかこれだけです。」(ツイスト。この回の核心数字)
+S4(18.0-24.5s) kicker「名目 vs 実質」headline「名目と実質では、4倍以上の差があります。」+ 棒グラフ(名目20.9%/実質4.6%)
+S5(24.5-30.5s) kicker「伸びの正体」headline「名目が伸びた分の多くは、物価上昇によるものです。」sub「物価を除くと、実感は多くありません。」
+S6(30.5-36.5s) kicker「生活の実感」headline「給料や年金の増え方は、名目ほど大きくありません。」sub「「実質」で見ることが大切です。」
+S7(36.5-41.1s) 保存CTA「保存して、12月8日の2次速報と見比べてください。」
+S8(41.1-45.6s) コメントCTA「名目と実質、どちらが実感に近いですか？」sub「コメントで教えてください。」
+
+シーンごとに異なるアイコン(ビル/上昇矢印/虫眼鏡/天秤/棒グラフ/財布/しおり/吹き出し)を使用。
+数字・見出しの登場はback.out(1.6)のオーバーシュート、kickerはスライドのみ(フェードなし)で統一。kickerのfont-sizeは40pxで直近リールの仕様を踏襲。
+headline/subはすべて完結した文で終わるよう統一。
+hero-numの色は、核心数字(693兆円・4.6%)をamber、中立的な事実(20.9%)は白、という直近リールで確立した色分けルールを踏襲。
+
+品質確認:
+npx hyperframes check(プロジェクト既定のピン留めバージョン0.9.87) → 0 errors, 0 warnings。Contrast(WCAG AA) 27/27合格。Craft 0 errors/0 warnings(S7の文字量超過→data-duration 4.0s→4.6sに拡大、以降S8開始時刻を+0.6s後ろ倒し、BGMも45.9秒に再トリムして解消)。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
+npx hyperframes render --quality looks --output final.mp4 → 1080x1350、45.9秒。video.mp4にコピーして保存予定。
