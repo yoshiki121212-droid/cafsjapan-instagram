@@ -80,4 +80,10 @@ reel-qaレビューの指摘と対応(2回目のrender・check):
 
 品質確認(2回目、reel-qa指摘反映後):
 npx hyperframes check → 0 errors, 0 warnings。Contrast(WCAG AA) 27/27合格。Craft 0 errors/0 warnings。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
-npx hyperframes render --quality looks --output final.mp4 → 1080x1350、48.8秒。video.mp4にコピーして保存予定。
+npx hyperframes render --quality looks --output final.mp4 → 1080x1350、48.8秒。video.mp4にコピー・コミット・push済み。校正課の再レビューで合格(公開可)。不要になった.hero-badgeのCSSも削除。
+
+ユーザーからの直接フィードバックと対応(3回目のrender・check):
+ユーザーから「ほぼこれでオッケー」とのご連絡とともに、2点の修正依頼。
+(1) S2のhero-num「20.9%」を黄色(amber)に変更 → CSSの色分けルールに#s2-heroを追加(`#s1-hero, #s2-hero, #s3-hero { color: var(--amber); }`)。693兆円・20.9%・4.6%の核心3数字すべてがamberになった。
+(2) S3の文章を「物価の変動を除いた実質GDPでは」+「4.6%」+「増加は、わずかこれだけです。」から、「物価の変動を除いた実質GDPの増加は」+「4.6%」+「わずかこれだけです。」に変更(「増加は」をpre-label側に移動し、headlineを短縮)。
+npx hyperframes check → 0 errors, 0 warnings、Contrast 27/27、Craft 0 errors/0 warnings。再度render。
