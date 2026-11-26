@@ -1,60 +1,477 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <meta name="viewport" content="width=1080, height=1350" />
+    <script src="vendor/gsap.min.js"></script>
     <style>
-      /* Placeholders: replace all three with the film's own palette and display face. */
+      @font-face {
+        font-family: 'Zen Kaku Gothic New Black';
+        font-style: normal;
+        font-weight: 900;
+        src: url('assets/fonts/zen-kaku-gothic-new-900.woff2') format('woff2');
+      }
       :root {
-        --ground: #000;
+        --navy: #0b1420;
+        --navy-deep: #060c14;
+        --amber: #d9a441;
+        --amber-soft: rgba(217, 164, 65, 0.22);
         --ink: #ffffff;
-        --font-display: sans-serif;
+        --sub-ink: #cfd8e2;
+        --font-display: 'Zen Kaku Gothic New Black', 'Noto Sans JP', sans-serif;
+        --font-body: 'Noto Sans JP', sans-serif;
       }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        width: 1920px;
-        height: 1080px;
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px;
+        height: 1350px;
         overflow: hidden;
-        background: var(--ground);
+        background: var(--navy);
       }
       #root {
+        width: 1080px;
+        height: 1350px;
+        position: relative;
+        font-family: var(--font-body);
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: var(--navy);
+      }
+      .photo-wrap {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      .photo {
+        position: absolute;
+        left: 0;
+        top: 0;
         width: 100%;
         height: 100%;
+        object-fit: cover;
+        transform-origin: center center;
+        will-change: transform;
+      }
+      #s1-hero, #s3-hero, #s4-hero, #s5-hero {
+        color: var(--amber);
+      }
+      .pre-label {
+        font-family: var(--font-body);
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 40px;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+      }
+      .scrim {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 82% 8%, var(--amber-soft), transparent 55%),
+          linear-gradient(180deg, rgba(6, 12, 20, 0.62) 0%, rgba(6, 12, 20, 0.34) 30%, rgba(6, 12, 20, 0.58) 52%, rgba(6, 12, 20, 0.80) 68%, rgba(6, 12, 20, 0.92) 100%);
+      }
+      .logo-badge {
+        position: absolute;
+        top: 96px;
+        left: 64px;
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.92);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+        overflow: hidden;
+        background: var(--navy-deep);
+      }
+      .logo-badge img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      .icon-badge {
+        position: absolute;
+        top: 96px;
+        right: 64px;
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: rgba(217, 164, 65, 0.92);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: var(--font-display);
       }
-      #title {
+      .icon-badge svg { width: 46px; height: 46px; }
+      .kicker {
+        position: absolute;
+        left: 64px;
+        top: 232px;
+        display: inline-flex;
+        align-items: center;
+        background: var(--amber);
+        color: var(--navy-deep);
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 1;
+        padding: 18px 36px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+      .content {
+        position: absolute;
+        left: 64px;
+        right: 64px;
+        top: 540px;
+      }
+      .headline {
+        font-family: var(--font-display);
+        font-weight: 900;
         color: var(--ink);
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
+        font-size: 64px;
+        line-height: 1.32;
+        width: 920px;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
+      }
+      .sub {
+        margin-top: 28px;
+        font-family: var(--font-body);
+        font-weight: 500;
+        color: var(--sub-ink);
+        font-size: 36px;
+        line-height: 1.45;
+        width: 900px;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+      }
+      .hero-num {
+        font-family: var(--font-display);
+        font-weight: 900;
+        color: var(--ink);
+        font-size: 130px;
+        line-height: 1;
+        text-shadow: 0 4px 22px rgba(0, 0, 0, 0.55);
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 18px;
+        margin-left: 4px;
+        background: rgba(11, 20, 32, 0.72);
+        border: 2px solid rgba(217, 164, 65, 0.9);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 32px;
+        padding: 10px 24px;
+        border-radius: 999px;
+      }
+      .footer {
+        position: absolute;
+        left: 64px;
+        bottom: 64px;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 16px;
+      }
+      .footer .handle {
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 32px;
+        color: var(--ink);
+      }
+      .footer .org {
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: 29px;
+        color: rgba(255, 255, 255, 0.68);
       }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="10"
-      data-width="1920"
-      data-height="1080"
-    >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="54.5" data-width="1080" data-height="1350">
+
+      <!-- S1: Hook - Sagrada Familia finally completed -->
+      <div id="s1" class="scene clip" data-start="0" data-duration="6.5" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s1-photo" class="photo" src="assets/images/s1-sagrada-familia.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4M7 21V9l5-6 5 6v12" />
+            <line x1="4" y1="21" x2="20" y2="21" />
+          </svg>
+        </div>
+        <div id="s1-kicker" class="kicker">伝説の未完成建築</div>
+        <div class="content">
+          <div id="s1-prelabel" class="pre-label">バルセロナのサグラダ・ファミリアは</div>
+          <div id="s1-hero" class="hero-num">144年</div>
+          <div id="s1-headline" class="headline" style="margin-top:18px;">かけて、2026年に<br />ついに完成しました。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S2: transition - Japan's unending projects -->
+      <div id="s2" class="scene clip" data-start="6.5" data-duration="6.0" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s2-photo" class="photo" src="assets/images/s2-crane-sunset.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 4h8v4a4 4 0 0 1-8 0V4Z" />
+            <path d="M8 5H5a3 3 0 0 0 3 5" />
+            <path d="M16 5h3a3 3 0 0 1-3 5" />
+            <line x1="12" y1="13" x2="12" y2="17" />
+            <path d="M8 21h8" />
+            <rect x="10" y="17" width="4" height="4" />
+          </svg>
+        </div>
+        <div id="s2-kicker" class="kicker">日本の大事業ランキング</div>
+        <div class="content">
+          <div id="s2-prelabel" class="pre-label">サグラダ・ファミリアとは違い</div>
+          <div id="s2-headline" class="headline">終わりの見えない事業が、<br />日本にはあります。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S3: 3位 Henoko -->
+      <div id="s3" class="scene clip" data-start="12.5" data-duration="8.5" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s3-photo" class="photo" src="assets/images/s3-henoko-camp-schwab.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21s7-7.5 7-12a7 7 0 0 0-14 0c0 4.5 7 12 7 12Z" />
+            <circle cx="12" cy="9" r="2.3" />
+          </svg>
+        </div>
+        <div id="s3-kicker" class="kicker">3位：辺野古新基地</div>
+        <div class="content">
+          <div id="s3-prelabel" class="pre-label">沖縄・辺野古の新基地建設は</div>
+          <div id="s3-hero" class="hero-num">17%</div>
+          <div id="s3-headline" class="headline" style="margin-top:18px;">予算の84%を使って、<br />埋め立てはこれだけです。</div>
+          <div id="s3-badge" class="hero-badge">総工費は3500億円→9300億円に。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S4: 2位 Linear Shinkansen -->
+      <div id="s4" class="scene clip" data-start="21.0" data-duration="9.0" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s4-photo" class="photo" src="assets/images/s4-linear-l0-maglev.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="5" width="14" height="11" rx="3" />
+            <line x1="5" y1="11" x2="19" y2="11" />
+            <circle cx="8.5" cy="17.6" r="1.3" fill="#ffffff" stroke="none" />
+            <circle cx="15.5" cy="17.6" r="1.3" fill="#ffffff" stroke="none" />
+            <path d="M8 19.3l-2 2M16 19.3l2 2" />
+          </svg>
+        </div>
+        <div id="s4-kicker" class="kicker">2位：リニア中央新幹線</div>
+        <div class="content">
+          <div id="s4-prelabel" class="pre-label">東京と大阪を結ぶリニアは</div>
+          <div id="s4-hero" class="hero-num">2027年</div>
+          <div id="s4-headline" class="headline" style="margin-top:18px;">開業予定でしたが、<br />今は時期も未定です。</div>
+          <div id="s4-badge" class="hero-badge">総工費は5.5兆円→11兆円に倍増。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S5: 1位 Fukushima Daiichi decommissioning -->
+      <div id="s5" class="scene clip" data-start="30.0" data-duration="9.0" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s5-photo" class="photo" src="assets/images/s5-fukushima-daiichi.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6">
+            <circle cx="12" cy="12" r="9" />
+            <g stroke="none" fill="#ffffff">
+              <circle cx="12" cy="12" r="1.8" />
+              <path d="M12 12 L12 5.5 A6.5 6.5 0 0 1 17.6 8.8 Z" />
+              <path d="M12 12 L17.6 15.2 A6.5 6.5 0 0 1 6.4 15.2 Z" />
+              <path d="M12 12 L6.4 8.8 A6.5 6.5 0 0 1 12 5.5 Z" />
+            </g>
+          </svg>
+        </div>
+        <div id="s5-kicker" class="kicker">1位：福島第一原発廃炉</div>
+        <div class="content">
+          <div id="s5-prelabel" class="pre-label">福島第一原発の廃炉完了目標は</div>
+          <div id="s5-hero" class="hero-num">40年後</div>
+          <div id="s5-headline" class="headline" style="margin-top:18px;">事故から15年たっても、<br />変わっていません。</div>
+          <div id="s5-badge" class="hero-badge">費用は11兆円→21.5兆円に倍増。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S6: thesis - common pattern -->
+      <div id="s6" class="scene clip" data-start="39.0" data-duration="6.5" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s6-photo" class="photo" src="assets/images/s6-hourglass.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 L22 20 H2 Z" />
+            <line x1="12" y1="9" x2="12" y2="14" />
+            <circle cx="12" cy="17" r="1" fill="#ffffff" stroke="none" />
+          </svg>
+        </div>
+        <div id="s6-kicker" class="kicker">共通点</div>
+        <div class="content">
+          <div id="s6-headline" class="headline">終了時期を示せないまま、<br />金額だけが膨らんでいます。</div>
+          <div id="s6-sub" class="sub">サグラダ・ファミリアには、終わりがありました。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S7: save CTA -->
+      <div id="s7" class="scene clip" data-start="45.5" data-duration="4.5" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s7-photo" class="photo" src="assets/images/s7-coffee-notebook.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3h12v18l-6-4.5L6 21Z" />
+          </svg>
+        </div>
+        <div class="content" style="top:600px;">
+          <div id="s7-headline" class="headline">保存して、他の人にも<br />教えてあげてください。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <!-- S8: comment CTA -->
+      <div id="s8" class="scene clip" data-start="50.0" data-duration="4.5" data-track-index="0">
+        <div class="photo-wrap">
+          <img id="s8-photo" class="photo" src="assets/images/s8-phone-nightstand.jpg" alt="" />
+        </div>
+        <div class="scrim"></div>
+        <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 5h18v11H9l-4 4v-4H3Z" />
+          </svg>
+        </div>
+        <div class="content" style="top:600px;">
+          <div id="s8-headline" class="headline">日本の停滞を<br />象徴していると思いますか？</div>
+          <div id="s8-sub" class="sub">コメントで教えてください。</div>
+        </div>
+        <div class="footer">
+          <div class="handle">@cafs.japan</div>
+          <div class="org">財政健全化を求める市民の会</div>
+        </div>
+      </div>
+
+      <audio id="bgm" src="media/bgm.mp3" data-start="0" data-track-index="60" data-volume="0.5" data-fade-in="0.5" data-fade-out="1.2"></audio>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 0);
-      window.__timelines["main"] = tl;
+
+      function kenBurns(id, start, duration) {
+        tl.fromTo('#' + id, { scale: 1.0 }, { scale: 1.08, duration: duration, ease: 'none' }, start);
+      }
+      function slideKicker(id, start) {
+        tl.fromTo('#' + id, { x: -46 }, { x: 0, duration: 0.42, ease: 'power3.out' }, start);
+      }
+      function popIn(id, start, dur) {
+        tl.fromTo('#' + id, { scale: 0.7, y: 18 }, { scale: 1, y: 0, duration: dur || 0.6, ease: 'back.out(1.6)' }, start);
+      }
+      function riseIn(id, start, dur) {
+        tl.fromTo('#' + id, { y: 22, opacity: 0.001 }, { y: 0, opacity: 1, duration: dur || 0.45, ease: 'power2.out' }, start);
+      }
+
+      // S1 (0 - 6.5)
+      kenBurns('s1-photo', 0, 6.5);
+      slideKicker('s1-kicker', 0.05);
+      riseIn('s1-prelabel', 0.1, 0.35);
+      popIn('s1-hero', 0.28, 0.6);
+      riseIn('s1-headline', 0.52, 0.5);
+
+      // S2 (6.5 - 12.5)
+      kenBurns('s2-photo', 6.5, 6.0);
+      slideKicker('s2-kicker', 6.55);
+      riseIn('s2-prelabel', 6.6, 0.35);
+      popIn('s2-headline', 6.85, 0.6);
+
+      // S3 (12.5 - 21.0)
+      kenBurns('s3-photo', 12.5, 8.5);
+      slideKicker('s3-kicker', 12.55);
+      riseIn('s3-prelabel', 12.6, 0.35);
+      popIn('s3-hero', 12.78, 0.6);
+      riseIn('s3-headline', 13.02, 0.5);
+      riseIn('s3-badge', 13.4, 0.35);
+
+      // S4 (21.0 - 30.0)
+      kenBurns('s4-photo', 21.0, 9.0);
+      slideKicker('s4-kicker', 21.05);
+      riseIn('s4-prelabel', 21.1, 0.35);
+      popIn('s4-hero', 21.28, 0.6);
+      riseIn('s4-headline', 21.52, 0.5);
+      riseIn('s4-badge', 21.9, 0.35);
+
+      // S5 (30.0 - 39.0)
+      kenBurns('s5-photo', 30.0, 9.0);
+      slideKicker('s5-kicker', 30.05);
+      riseIn('s5-prelabel', 30.1, 0.35);
+      popIn('s5-hero', 30.28, 0.6);
+      riseIn('s5-headline', 30.52, 0.5);
+      riseIn('s5-badge', 30.9, 0.35);
+
+      // S6 (39.0 - 45.5)
+      kenBurns('s6-photo', 39.0, 6.5);
+      slideKicker('s6-kicker', 39.05);
+      popIn('s6-headline', 39.2, 0.6);
+      riseIn('s6-sub', 39.65, 0.45);
+
+      // S7 (45.5 - 50.0)
+      kenBurns('s7-photo', 45.5, 4.5);
+      popIn('s7-headline', 45.6, 0.6);
+
+      // S8 (50.0 - 54.5)
+      kenBurns('s8-photo', 50.0, 4.5);
+      popIn('s8-headline', 50.1, 0.6);
+      riseIn('s8-sub', 50.5, 0.45);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines['main'] = tl;
       tl.seek(0);
     </script>
   </body>
