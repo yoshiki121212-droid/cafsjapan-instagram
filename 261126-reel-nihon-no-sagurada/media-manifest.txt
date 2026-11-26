@@ -41,7 +41,7 @@ assets/images/s7-coffee-notebook.jpg (S7, Pixabay ID:2571161, https://pixabay.co
 assets/images/s8-phone-nightstand.jpg (S8, Pixabay ID:8057248, https://pixabay.com/photos/smartphone-screen-room-wall-sunset-8057248/ 窓辺の光とスマートフォン、コメントCTA)
 
 Wikimedia Commons由来(3点、ユーザー要望により各事業の実際の実写を調査・取得。クラウド環境のネットワーク許可リストにcommons.wikimedia.org・upload.wikimedia.org・thumb.wikimedia.orgを追加していただいた上で取得):
-assets/images/s3-henoko-camp-schwab.jpg (S3「辺野古」, File:20100526辺野古.JPG, https://ja.wikipedia.org/wiki/ファイル:20100526辺野古.JPG ユーザー提供リンク。2010年5月26日撮影、キャンプ・シュワブ/辺野古崎の空撮。現在の埋立工事開始(2018年)より前の撮影だが、辺野古・キャンプ・シュワブの実際の地形を示す実写。ライセンス要確認の上使用)
+assets/images/s3-henoko-camp-schwab.jpg (S3「辺野古」, File:20100526辺野古.JPG, https://commons.wikimedia.org/wiki/File:20100526辺野古.JPG ユーザー提供リンク。2010年5月26日撮影、キャンプ・シュワブ/辺野古崎の空撮。撮影者:Sonata(自作、CC BY-SA 3.0/GFDL、要帰属表示)。ライセンスをimageinfo APIのextmetadataで確認済み(2026-11-26)。現在の埋立工事開始(2018年)より前の撮影だが、辺野古・キャンプ・シュワブの実際の地形を示す実写)
 assets/images/s4-linear-l0-maglev.jpg (S4「リニア」, File:Series L0.JPG, https://commons.wikimedia.org/wiki/File:Series_L0.JPG CC BY-SA 3.0, 撮影者:Saruno Hirobano, 2013年9月5日, 山梨リニア実験線でのJR東海L0系試験車両。要クレジット表記)
 assets/images/s5-fukushima-daiichi.jpg (S5「福島第一原発」, File:Fukushima Daiichi 04780015 (8388174045).jpg, https://commons.wikimedia.org/wiki/File:Fukushima_Daiichi_04780015_(8388174045).jpg CC BY-SA 2.0, 提供:東京電力(TEPCO)/IAEA, 2007年撮影(事故前)の空撮)
 
@@ -80,6 +80,21 @@ S8(50.0-54.5s) コメントCTA「日本の停滞を象徴していると思い�
 数字・見出しの登場はback.out(1.6)のオーバーシュート、kickerはスライドのみ(フェードなし)で統一。
 hero-numの色は、各ランキング項目の核心数字(144年・17%・2027年・40年後)をすべてamberに統一(複数トピックのランキング形式のため、各トピックの核心数字を均等に強調)。
 
-品質確認:
+品質確認(初回):
 npx hyperframes check(プロジェクト既定のピン留めバージョン0.9.87) → 0 errors, 0 warnings。Contrast(WCAG AA) 28/28合格。Craft 0 errors/0 warnings(S4・S5の文字量超過→data-duration 8.0s→9.0sに拡大、以降S5〜S8を後ろ倒しして解消)。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)7件のみ。
-npx hyperframes render --quality looks --output final.mp4 → 1080x1350、54.8秒。video.mp4にコピー予定。
+npx hyperframes render --quality looks --output final.mp4 → 1080x1350、54.5秒。video.mp4にコピー・コミット・push済み。
+
+reel-qaレビューの指摘と対応(2回目のrender・check):
+(1)【最重要・公開ブロッカー】辺野古写真(File:20100526辺野古.JPG)のライセンスがmanifest記載時点で「要確認」のまま未確認だった件 → imageinfo APIのextmetadataを取得し、CC BY-SA 3.0(自作、撮影者Sonata、帰属表示必須)であることを確認。caption.txtに写真クレジットを追記して解消。
+(2) Wikimedia Commons由来2点(リニア:Saruno Hirobano/CC BY-SA 3.0、福島第一原発:TEPCO・IAEA/CC BY-SA 2.0)の帰属表示がcaption.txtに欠落 → 【写真クレジット】セクションを追加し、3点(辺野古・リニア・福島第一原発)すべてのクレジットを明記。
+(3) S3・S4・S5のhero-badgeが「〜に倍増。」のような体言止め・尻切れだった件 → S4「総工費は5.5兆円から11兆円に倍増しました。」、S5「費用は11兆円から21.5兆円に倍増しました。」に修正。S3は後述(4)の対応でbadge自体を廃止。
+(4) S3が17%(hero-num)・84%(headline内)・総工費badge(3500億→9300億)の3つの数字/事実を1シーンに詰め込んでおり「1シーン1情報」の原則から外れているとの指摘 → badgeを撤去し、総工費の推移はcaption.txtのみに記載。headline内の「84%」をamber色でハイライトし、17%(hero-num)との対比を視覚的に強調(S4/S5と同じ「核心数字+もう1つの対比」の2要素構成に統一)。
+(5) S6・S8が文字量に対しシーン尺がわずかに不足(読了時間フロア未達) → S5 9.0s→10.0s、S6 6.5s→7.5s、S8 4.5s→5.0sに拡大。root data-duration 54.5秒→57.0秒に変更、BGMも57.3秒に再トリム。
+(6) S1見出し「ついに完成しました。」が無条件の完成を主張しておりmedia-manifest/caption側の「主要な塔が完成」という限定と不整合 → 「主要な塔が完成しました。」に修正。
+(7) S5のhero-num「40年後」が、実際の目標値「事故から30〜40年後」という幅のある数値を上限に丸めていた件 → hero-numを「30〜40年後」に変更(130pxフォントでも1行に収まることを確認)。
+(8) S5の福島第一原発写真が2007年(事故前)撮影で、「事故から15年たっても変わっていません」という本文との時系列ギャップがある件 → caption.txtに「※動画で使用した福島第一原発の写真は2007年(事故前)に撮影されたものです。」と注記を追加。
+その他(ブランド一貫性・画像重複なし・BGM重複なし(冒頭5秒PCMハッシュ照合済み)・文章完結性の残り箇所・キャプション本文の数字整合性)はすべて1回目レビューで合格。
+
+品質確認(2回目、reel-qa指摘反映後):
+npx hyperframes check → 0 errors, 0 warnings。Contrast(WCAG AA) 29/29合格。Craft 0 errors/0 warnings。Layoutは実写Ken Burnsズームによる想定内のinfo(container_overflow)8件のみ。
+npx hyperframes render --quality looks --output final.mp4 → 1080x1350、57.0秒。video.mp4にコピー予定。
