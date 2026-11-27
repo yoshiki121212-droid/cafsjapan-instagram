@@ -1,0 +1,6 @@
+node_modules/
+.hyperframes/
+final.mp4
+.final.hf-transaction-*/
+work-*/
+media/bgm-source.mp3
