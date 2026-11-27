@@ -104,13 +104,13 @@
       .icon-badge svg { width: 46px; height: 46px; }
       .rank-badge {
         position: absolute;
-        top: 76px;
-        right: 50px;
-        width: 150px;
-        height: 150px;
+        top: 48px;
+        right: 32px;
+        width: 232px;
+        height: 232px;
         border-radius: 50%;
         background: var(--amber);
-        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45), 0 0 0 4px rgba(255, 255, 255, 0.85);
+        box-shadow: 0 10px 34px rgba(0, 0, 0, 0.55), 0 0 44px rgba(217, 164, 65, 0.55), 0 0 0 7px rgba(255, 255, 255, 0.92);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -119,14 +119,14 @@
       .rank-badge .rank-num {
         font-family: var(--font-display);
         font-weight: 900;
-        font-size: 72px;
+        font-size: 116px;
         line-height: 1;
         color: var(--navy-deep);
       }
       .rank-badge .rank-suffix {
         font-family: var(--font-body);
         font-weight: 700;
-        font-size: 28px;
+        font-size: 36px;
         line-height: 1;
         margin-top: 2px;
         color: var(--navy-deep);
@@ -334,7 +334,7 @@
         </div>
         <div class="scrim"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
-        <div class="rank-badge"><span class="rank-num">3</span><span class="rank-suffix">位</span></div>
+        <div id="s3-rank" class="rank-badge"><span class="rank-num">3</span><span class="rank-suffix">位</span></div>
         <div id="s3-kicker" class="kicker">辺野古新基地</div>
         <div id="s3-name" class="proj-name">普天間飛行場代替施設</div>
         <div class="bullet-list">
@@ -368,7 +368,7 @@
         </div>
         <div class="scrim"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
-        <div class="rank-badge"><span class="rank-num">2</span><span class="rank-suffix">位</span></div>
+        <div id="s4-rank" class="rank-badge"><span class="rank-num">2</span><span class="rank-suffix">位</span></div>
         <div id="s4-kicker" class="kicker">リニア中央新幹線</div>
         <div id="s4-name" class="proj-name">東京－名古屋－大阪</div>
         <div class="bullet-list">
@@ -402,7 +402,7 @@
         </div>
         <div class="scrim"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
-        <div class="rank-badge"><span class="rank-num">1</span><span class="rank-suffix">位</span></div>
+        <div id="s5-rank" class="rank-badge"><span class="rank-num">1</span><span class="rank-suffix">位</span></div>
         <div id="s5-kicker" class="kicker">福島第一原発廃炉</div>
         <div id="s5-name" class="proj-name">2011年事故後の廃炉作業</div>
         <div class="bullet-list">
@@ -534,6 +534,7 @@
 
       // S3 (19.0 - 32.5) Henoko
       kenBurns('s3-photo', 19.0, 13.5);
+      popIn('s3-rank', 19.05, 0.7);
       slideKicker('s3-kicker', 19.05);
       riseIn('s3-name', 19.25, 0.5);
       riseIn('s3-b1', 20.1, 0.4);
@@ -543,6 +544,7 @@
 
       // S4 (32.5 - 45.5) Linear
       kenBurns('s4-photo', 32.5, 13.0);
+      popIn('s4-rank', 32.55, 0.7);
       slideKicker('s4-kicker', 32.55);
       riseIn('s4-name', 32.75, 0.5);
       riseIn('s4-b1', 33.6, 0.4);
@@ -552,6 +554,7 @@
 
       // S5 (45.5 - 59.0) Fukushima
       kenBurns('s5-photo', 45.5, 13.5);
+      popIn('s5-rank', 45.55, 0.7);
       slideKicker('s5-kicker', 45.55);
       riseIn('s5-name', 45.75, 0.5);
       riseIn('s5-b1', 46.6, 0.4);
