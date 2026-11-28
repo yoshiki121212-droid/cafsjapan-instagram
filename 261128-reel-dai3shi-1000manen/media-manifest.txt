@@ -40,6 +40,15 @@ NNN系列ローカル局ニュースのテキスト形式、配信元Yahoo!ニ�
 ## BGM
 Backed Vibes Clean by Kevin MacLeod (incompetech.com) / CC BY 4.0。直近2本(Dark Fog／Hitman)と異なる曲を選定。
 
+## reel-qa 1回目の指摘と対応
+1. S4（約31万9千人のシーン）がhero-num+headline+badge(当会見解)の3要素で過密、かつ読了時間マージンが最も薄い
+   → badgeを削除し、その見解（第1子を増やす対策もいずれ必要）はS5のsubに統合。S4は2要素(hero-num+headline)に整理。
+2. S7（最終CTA）の読了時間マージンが薄い → duration 5.5s→6.5sに延長。
+3. S2とS6で同じ国会議事堂の写真(s2-diet-building.jpg)を使い回しており、同一動画内で既視感が強い
+   → S6の背景をPixabay ID 886410（ペンを持つ手、書類署名のイメージ、外国語テキスト・通貨なし）に差し替え。
+4. caption.txtに保存/シェアを促す一文がなく直近の型と不整合 → 追加。
+上記に伴い、S5のduration(8.5→9.5s)・S6/S7のdata-start・root全体のduration(53.0→55.0s)を調整し、BGMも55.3秒に再トリム。
+
 ## 品質チェック
 `npm run check`: 0 errors（Lint 10 warnings=サブコンポジション分割推奨等の構造系、Layout 7 info=Ken Burnsズームによる
 意図的なオーバーフロー）。Contrast 27/27 WCAG AA合格（S1のhero-num色をrgb(224,180,98)に調整して対応）。

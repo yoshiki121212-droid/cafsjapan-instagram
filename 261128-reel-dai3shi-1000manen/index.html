@@ -194,7 +194,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="53.0" data-width="1080" data-height="1350">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="55.0" data-width="1080" data-height="1350">
 
       <!-- S1: Hook - LDP proposal, 10 million yen for third child -->
       <div id="s1" class="scene clip" data-start="0" data-duration="6.0" data-track-index="0">
@@ -296,7 +296,6 @@
           <div id="s4-prelabel" class="pre-label">2025年に生まれた第1子は</div>
           <div id="s4-hero" class="hero-num">約31万9千人</div>
           <div id="s4-headline" class="headline" style="margin-top:18px;">前年より3,296人<br />減っています。</div>
-          <div id="s4-badge" class="hero-badge">第1子を増やす対策も、いずれ必要になります。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -305,7 +304,7 @@
       </div>
 
       <!-- S5: thesis - important but funding not backed -->
-      <div id="s5" class="scene clip" data-start="33.5" data-duration="8.5" data-track-index="0">
+      <div id="s5" class="scene clip" data-start="33.5" data-duration="9.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s5-photo" class="photo" src="assets/images/s5-piggy-bank.jpg" alt="" />
         </div>
@@ -322,7 +321,7 @@
         <div id="s5-kicker" class="kicker">財源の裏付けは？</div>
         <div class="content">
           <div id="s5-headline" class="headline">少子化対策は大切で、<br />進めるべきです。</div>
-          <div id="s5-sub" class="sub">ただ、財源の裏付けがないまま、<br />数字だけが先行していないでしょうか。</div>
+          <div id="s5-sub" class="sub">第1子も減るなか、<br />財源の裏付けがないまま<br />数字だけが先行していないでしょうか。</div>
         </div>
         <div class="footer">
           <div class="handle">@cafs.japan</div>
@@ -331,9 +330,9 @@
       </div>
 
       <!-- S6: momentum - submitted to PM next week -->
-      <div id="s6" class="scene clip" data-start="42.0" data-duration="5.5" data-track-index="0">
+      <div id="s6" class="scene clip" data-start="43.0" data-duration="5.5" data-track-index="0">
         <div class="photo-wrap">
-          <img id="s6-photo" class="photo" src="assets/images/s2-diet-building.jpg" alt="" />
+          <img id="s6-photo" class="photo" src="assets/images/s6-pen-signing.jpg" alt="" />
         </div>
         <div class="scrim"></div>
         <div class="logo-badge"><img src="assets/images/cafs-logo.png" alt="CAFS" /></div>
@@ -356,7 +355,7 @@
       </div>
 
       <!-- S7: comment CTA -->
-      <div id="s7" class="scene clip" data-start="47.5" data-duration="5.5" data-track-index="0">
+      <div id="s7" class="scene clip" data-start="48.5" data-duration="6.5" data-track-index="0">
         <div class="photo-wrap">
           <img id="s7-photo" class="photo" src="assets/images/s1-baby-hand.jpg" alt="" />
         </div>
@@ -422,23 +421,22 @@
       riseIn('s4-prelabel', 24.1, 0.35);
       popIn('s4-hero', 24.28, 0.6);
       riseIn('s4-headline', 24.52, 0.5);
-      riseIn('s4-badge', 24.9, 0.35);
 
-      // S5 (33.5 - 42.0)
-      kenBurns('s5-photo', 33.5, 8.5);
+      // S5 (33.5 - 43.0)
+      kenBurns('s5-photo', 33.5, 9.5);
       slideKicker('s5-kicker', 33.55);
       popIn('s5-headline', 33.7, 0.6);
       riseIn('s5-sub', 34.15, 0.45);
 
-      // S6 (42.0 - 47.5)
-      kenBurns('s6-photo', 42.0, 5.5);
-      slideKicker('s6-kicker', 42.05);
-      popIn('s6-headline', 42.2, 0.6);
+      // S6 (43.0 - 48.5)
+      kenBurns('s6-photo', 43.0, 5.5);
+      slideKicker('s6-kicker', 43.05);
+      popIn('s6-headline', 43.2, 0.6);
 
-      // S7 (47.5 - 53.0)
-      kenBurns('s7-photo', 47.5, 5.5);
-      popIn('s7-headline', 47.6, 0.6);
-      riseIn('s7-sub', 48.0, 0.45);
+      // S7 (48.5 - 55.0)
+      kenBurns('s7-photo', 48.5, 6.5);
+      popIn('s7-headline', 48.6, 0.6);
+      riseIn('s7-sub', 49.0, 0.45);
 
       window.__timelines = window.__timelines || {};
       window.__timelines['main'] = tl;
