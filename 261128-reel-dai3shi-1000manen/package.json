@@ -1,0 +1,11 @@
+{
+  "name": "261128-reel-dai3shi-1000manen",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.9.87 preview",
+    "check": "npx --yes hyperframes@0.9.87 check",
+    "render": "npx --yes hyperframes@0.9.87 render",
+    "publish": "npx --yes hyperframes@0.9.87 publish"
+  }
+}

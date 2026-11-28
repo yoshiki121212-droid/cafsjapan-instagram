@@ -1,0 +1,45 @@
+261128-reel-dai3shi-1000manen — 素材出典・事実確認メモ
+
+## テーマ
+ユーザーが直接指定（2026-11-28）。自民党・人口戦略本部が2026年11月27日の会合で、少子化対策として
+「第3子以降、出産時に1000万円を給付」を含む政府への提言案をまとめたという報道(ユーザー提供の記事全文、
+NNN系列ローカル局ニュースのテキスト形式、配信元Yahoo!ニュース)を起点に、「少子化対策自体は重要・推進すべきだが、
+財源の裏付けなしに大型給付が提言される現状は現実的か」という問いを提示する内容。
+ユーザー自身がテーマ・スタンスを直接指定したため、分析課・企画課・テーマ確認メールは省略（CLAUDE.md記載の例外に該当）。
+
+## 事実確認（出典）
+1. 提言内容そのもの：ユーザーが貼り付けたニュース記事全文（自民党下村博文元文科相・城内実全世代型社会保障改革担当大臣の
+   発言引用あり、2026年11月27日の人口戦略本部会合、来週にも高市総理大臣へ申し入れ予定）。一次情報として採用。
+2. 「2025年の第3子以降の出生数」：当初ユーザーから「約11万2千人」という数字が示されたが、一次資料での裏取りを実施。
+   - 厚生労働省「令和7(2025)年人口動態統計(確定数)の概況」(令和8年9月30日公表)
+     https://www.mhlw.go.jp/toukei/saikin/hw/jinkou/kakutei25/dl/05_gaikyouR07.pdf
+     第6表(2)「出生順位別」より：
+     令和7(2025)年 総数671,270人／第1子319,180人／第2子240,292人／第3子以上111,798人（前年比△3,237人、令和6年115,035人）
+   - ユーザー提示の「約11万2千人」は111,798人と整合（動画では「約11万2千人」と丸めて表示）。
+   - 財源試算：111,798人 × 1000万円 = 1兆1,179億8,000万円 ≈ 約1.12兆円（動画内で計算過程を明示）。
+3. 「第1子の出生数」：同資料より、2025年第1子319,180人（前年比△3,296人）。動画では「約31万9千人」と丸めて表示。
+   ※この「第1子も減少傾向にあり、将来的に第1子向け対策も必要になれば財源はさらに膨らむ」という論点はユーザー自身の
+   問題意識（依頼文内「日本は第一子の数も減っており…さらに財源が必要となる可能性がある」）に基づく。
+4. ネットワークアクセス：news.yahoo.co.jp・www.mhlw.go.jp・www.e-stat.go.jpは当初クラウド環境の許可ドメインになく、
+   ユーザーが環境設定（Default環境のネットワークアクセス）に追加して裏取りを可能にした。
+
+## 実写素材（すべてシーンの文言に直接結びつく新規素材。直近2本(261126/261127)との重複なし）
+- s1-baby-hand.jpg / s7-baby-hand.jpg（同一ファイルを2シーンで使用）: Pixabay ID 200760
+  https://pixabay.com/photos/baby-hand-newborn-trust-dad-child-200760/ — 外国通貨・外国語テキストなし、顔は写っていない。
+- s2-diet-building.jpg（S2・S6の2シーンで使用）: Wikimedia Commons
+  File:National Diet Building - Tokyo, Japan - DSC06736.JPG（撮影者 Daderot、CC0／パブリックドメイン、帰属表示不要）
+  https://commons.wikimedia.org/wiki/File:National_Diet_Building_-_Tokyo,_Japan_-_DSC06736.JPG
+- s3-calculator.jpg: Pixabay ID 7574111
+  https://pixabay.com/photos/calculator-calculation-mathematics-7574111/ — 外国語テキストなし（ボタン表記のMRC/ON/OFF等は
+  電卓の標準表記で日本国内製品にも共通するため許容）。
+- s4-baby-hand-bw.jpg: Pixabay ID 10531368
+  https://pixabay.com/photos/love-hand-children-family-newborn-10531368/ — モノクロ、顔は写っていない。
+- s5-piggy-bank.jpg: Pixabay ID 1399265
+  https://pixabay.com/photos/piggy-bank-red-white-save-up-pig-1399265/ — 外国通貨・テキストなし。
+
+## BGM
+Backed Vibes Clean by Kevin MacLeod (incompetech.com) / CC BY 4.0。直近2本(Dark Fog／Hitman)と異なる曲を選定。
+
+## 品質チェック
+`npm run check`: 0 errors（Lint 10 warnings=サブコンポジション分割推奨等の構造系、Layout 7 info=Ken Burnsズームによる
+意図的なオーバーフロー）。Contrast 27/27 WCAG AA合格（S1のhero-num色をrgb(224,180,98)に調整して対応）。
